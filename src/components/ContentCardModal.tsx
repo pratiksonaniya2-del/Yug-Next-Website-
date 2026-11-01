@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   X,
+  Lock,
+  Unlock,
   GraduationCap,
   Building2,
   Layers,
@@ -42,14 +44,22 @@ export type ModalType =
 
 interface ContentCardModalProps {
   activeModal: ModalType;
+  isLocked?: boolean;
   onClose: () => void;
+  onToggleLock?: () => void;
   onSelectModal?: (modal: ModalType) => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 export default function ContentCardModal({
   activeModal,
+  isLocked = false,
   onClose,
+  onToggleLock,
   onSelectModal,
+  onMouseEnter,
+  onMouseLeave,
 }: ContentCardModalProps) {
   const [activeSubTab, setActiveSubTab] = useState<string>("default");
 
@@ -91,7 +101,9 @@ export default function ContentCardModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="absolute inset-0 bg-slate-950/80 backdrop-blur-md transition-opacity"
+          className={`absolute inset-0 transition-opacity ${
+            isLocked ? "bg-slate-950/80 backdrop-blur-md" : "bg-slate-950/40 backdrop-blur-sm"
+          }`}
         />
 
         {/* Dedicated Interactive Card (Cognizant Style) */}
@@ -100,6 +112,8 @@ export default function ContentCardModal({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 15 }}
           transition={{ type: "spring", stiffness: 350, damping: 28 }}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
           className="relative w-full max-w-5xl max-h-[90vh] bg-white rounded-3xl shadow-2xl shadow-purple-950/40 border border-purple-100 flex flex-col overflow-hidden z-10"
         >
           
@@ -125,13 +139,40 @@ export default function ContentCardModal({
               </div>
             </div>
 
-            <button
-              onClick={onClose}
-              className="p-2 rounded-full bg-purple-50 hover:bg-purple-100 text-slate-600 hover:text-purple-700 transition-colors"
-              title="Close Card"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            <div className="flex items-center gap-2.5">
+              {/* Lock / Unlock Status Toggle Button */}
+              {onToggleLock && (
+                <button
+                  onClick={onToggleLock}
+                  className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                    isLocked
+                      ? "bg-purple-600 text-white shadow-md shadow-purple-600/30"
+                      : "bg-purple-100 text-purple-700 hover:bg-purple-200 border border-purple-200"
+                  }`}
+                  title={isLocked ? "Card is locked. Click to unlock." : "Preview mode. Click to lock card."}
+                >
+                  {isLocked ? (
+                    <>
+                      <Lock className="w-3.5 h-3.5" />
+                      <span>Card Locked</span>
+                    </>
+                  ) : (
+                    <>
+                      <Unlock className="w-3.5 h-3.5 text-purple-500" />
+                      <span>Click to Lock</span>
+                    </>
+                  )}
+                </button>
+              )}
+
+              <button
+                onClick={onClose}
+                className="p-2 rounded-full bg-purple-50 hover:bg-purple-100 text-slate-600 hover:text-purple-700 transition-colors"
+                title="Close Card"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
           {/* Card Scrollable Body */}

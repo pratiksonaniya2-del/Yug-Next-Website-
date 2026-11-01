@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ContentCardModal, { ModalType } from "@/components/ContentCardModal";
@@ -19,23 +19,83 @@ import {
 
 export default function Home() {
   const [activeModal, setActiveModal] = useState<ModalType>(null);
+  const [isLocked, setIsLocked] = useState<boolean>(false);
+  const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const openModal = (modal: ModalType) => {
-    setActiveModal(modal);
+  // Triggered on hover from Navbar (preview mode)
+  const handleHoverModal = (modal: ModalType) => {
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current);
+      leaveTimeoutRef.current = null;
+    }
+    // If not locked, or switching modals, show the hovered card preview
+    if (!isLocked || activeModal !== modal) {
+      setActiveModal(modal);
+    }
+  };
+
+  // Triggered on click from Navbar or Cards (locks card open)
+  const handleClickModal = (modal: ModalType) => {
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current);
+      leaveTimeoutRef.current = null;
+    }
+    if (activeModal === modal && isLocked) {
+      // Clicking same modal while locked toggles it closed
+      setIsLocked(false);
+      setActiveModal(null);
+    } else {
+      setActiveModal(modal);
+      setIsLocked(true);
+    }
+  };
+
+  // Triggered when cursor leaves Navbar or Modal card
+  const handleLeaveNavOrCard = () => {
+    if (!isLocked) {
+      if (leaveTimeoutRef.current) clearTimeout(leaveTimeoutRef.current);
+      leaveTimeoutRef.current = setTimeout(() => {
+        setActiveModal(null);
+      }, 220); // 220ms grace window for smooth mouse transition
+    }
+  };
+
+  // Triggered when cursor enters the Modal card (cancels dismissal)
+  const handleEnterCard = () => {
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current);
+      leaveTimeoutRef.current = null;
+    }
+  };
+
+  const handleToggleLock = () => {
+    setIsLocked((prev) => !prev);
   };
 
   const closeModal = () => {
+    if (leaveTimeoutRef.current) {
+      clearTimeout(leaveTimeoutRef.current);
+      leaveTimeoutRef.current = null;
+    }
+    setIsLocked(false);
     setActiveModal(null);
   };
 
   return (
     <main className="min-h-screen bg-white flex flex-col justify-between selection:bg-purple-600 selection:text-white">
       
-      {/* 1. Header with Direct Card Triggers */}
-      <Navbar onOpenModal={openModal} />
+      {/* 1. Header with Hover Preview & Click-to-Lock Support */}
+      <Navbar
+        activeModal={activeModal}
+        isLocked={isLocked}
+        onOpenModal={(modal) => handleClickModal(modal)}
+        onHoverModal={handleHoverModal}
+        onClickModal={handleClickModal}
+        onLeaveNav={handleLeaveNavOrCard}
+      />
 
       {/* 2. Full-Screen 60fps Neural Canvas & 3D Interactive Hero */}
-      <Hero onOpenModal={openModal} />
+      <Hero onOpenModal={(modal) => handleClickModal(modal)} />
 
       {/* 3. Cognizant-Style Interactive Discovery Hub (No endless page scrolling) */}
       <section className="py-20 lg:py-28 bg-gradient-to-b from-white via-purple-50/40 to-white relative">
@@ -59,7 +119,7 @@ export default function Home() {
             
             {/* Card 1: What We Do */}
             <button
-              onClick={() => openModal("whatWeDo")}
+              onClick={() => handleClickModal("whatWeDo")}
               className="group text-left p-7 rounded-3xl bg-white border border-purple-100 hover:border-purple-400 shadow-xl shadow-purple-950/5 hover:shadow-2xl hover:shadow-purple-700/20 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer"
             >
               <div className="space-y-4">
@@ -87,7 +147,7 @@ export default function Home() {
 
             {/* Card 2: Who We Are */}
             <button
-              onClick={() => openModal("whoWeAre")}
+              onClick={() => handleClickModal("whoWeAre")}
               className="group text-left p-7 rounded-3xl bg-white border border-purple-100 hover:border-purple-400 shadow-xl shadow-purple-950/5 hover:shadow-2xl hover:shadow-purple-700/20 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer"
             >
               <div className="space-y-4">
@@ -115,7 +175,7 @@ export default function Home() {
 
             {/* Card 3: Industries */}
             <button
-              onClick={() => openModal("industries")}
+              onClick={() => handleClickModal("industries")}
               className="group text-left p-7 rounded-3xl bg-white border border-purple-100 hover:border-purple-400 shadow-xl shadow-purple-950/5 hover:shadow-2xl hover:shadow-purple-700/20 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer"
             >
               <div className="space-y-4">
@@ -143,7 +203,7 @@ export default function Home() {
 
             {/* Card 4: Insights & Milestones */}
             <button
-              onClick={() => openModal("insights")}
+              onClick={() => handleClickModal("insights")}
               className="group text-left p-7 rounded-3xl bg-white border border-purple-100 hover:border-purple-400 shadow-xl shadow-purple-950/5 hover:shadow-2xl hover:shadow-purple-700/20 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between cursor-pointer"
             >
               <div className="space-y-4">
@@ -174,14 +234,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Enterprise Footer (Links also trigger cards) */}
-      <Footer onOpenModal={openModal} />
+      {/* 4. Enterprise Footer (Links also trigger locked cards) */}
+      <Footer onOpenModal={(modal) => handleClickModal(modal)} />
 
-      {/* 5. Cognizant-Style Floating Interactive Card Overlay */}
+      {/* 5. Cognizant-Style Floating Interactive Card Overlay (Hover Preview + Click-to-Lock) */}
       <ContentCardModal
         activeModal={activeModal}
+        isLocked={isLocked}
         onClose={closeModal}
-        onSelectModal={openModal}
+        onToggleLock={handleToggleLock}
+        onMouseEnter={handleEnterCard}
+        onMouseLeave={handleLeaveNavOrCard}
+        onSelectModal={(modal) => handleClickModal(modal)}
       />
 
     </main>
