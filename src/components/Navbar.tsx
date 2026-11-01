@@ -16,6 +16,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { ModalType } from "./ContentCardModal";
+import TcsMegaMenu from "./TcsMegaMenu";
 
 interface NavbarProps {
   activeModal?: ModalType;
@@ -24,6 +25,9 @@ interface NavbarProps {
   onHoverModal?: (modal: ModalType) => void;
   onClickModal?: (modal: ModalType) => void;
   onLeaveNav?: () => void;
+  onCloseMegaMenu?: () => void;
+  onToggleLock?: () => void;
+  onEnterMegaMenu?: () => void;
 }
 
 export default function Navbar({
@@ -33,6 +37,9 @@ export default function Navbar({
   onHoverModal,
   onClickModal,
   onLeaveNav,
+  onCloseMegaMenu,
+  onToggleLock,
+  onEnterMegaMenu,
 }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -68,15 +75,15 @@ export default function Navbar({
 
   return (
     <>
-      {/* Main Floating Glassmorphic Header (Top strip removed per user request) */}
+      {/* Main Floating Glassmorphic Header with Attached TCS-Style Mega Menu */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-300 relative ${
           isScrolled
-            ? "py-3 bg-white/90 backdrop-blur-2xl shadow-xl shadow-purple-950/5 border-b border-purple-100"
-            : "py-4 bg-white/80 backdrop-blur-xl border-b border-purple-100/60"
+            ? "py-3 bg-white/95 backdrop-blur-2xl shadow-xl shadow-purple-950/5 border-b border-purple-100"
+            : "py-4 bg-white/85 backdrop-blur-xl border-b border-purple-100/60"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="relative z-50 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           
           {/* Brand Logo */}
           <button
@@ -215,9 +222,23 @@ export default function Navbar({
           </div>
 
         </div>
+
+        {/* TCS Full-Width Mega-Menu Dropdown Panel */}
+        <TcsMegaMenu
+          activeModal={activeModal || null}
+          isLocked={isLocked}
+          onClose={onCloseMegaMenu || (() => {})}
+          onToggleLock={onToggleLock || (() => {})}
+          onSelectModal={(modal) => {
+            if (onClickModal) onClickModal(modal);
+            else onOpenModal(modal);
+          }}
+          onMouseEnter={onEnterMegaMenu || (() => {})}
+          onMouseLeave={onLeaveNav || (() => {})}
+        />
       </header>
 
-      {/* Mobile Drawer (Triggers Cards) */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="xl:hidden bg-white border-b border-purple-100 px-5 py-6 shadow-2xl space-y-2.5 z-40 relative">
           {[
@@ -236,7 +257,7 @@ export default function Navbar({
                 setMobileMenuOpen(false);
                 handleNavClick(item.id);
               }}
-              className="w-full text-left p-3 rounded-xl bg-purple-50/70 text-slate-900 font-bold text-sm hover:bg-purple-100 transition-colors"
+              className="w-full text-left p-3 rounded-xl bg-purple-50/70 text-slate-900 font-bold text-sm hover:bg-purple-100 transition-colors cursor-pointer"
             >
               {item.label}
             </button>
@@ -247,86 +268,11 @@ export default function Navbar({
                 setMobileMenuOpen(false);
                 handleNavClick("whatWeDo");
               }}
-              className="w-full py-3 rounded-xl bg-purple-700 text-white font-bold text-center text-sm shadow-md"
+              className="w-full py-3 rounded-xl bg-purple-700 text-white font-bold text-center text-sm shadow-md cursor-pointer"
             >
               Step Into Tomorrow →
             </button>
           </div>
-        </div>
-      )}
-
-      {/* Mobile Drawer (Triggers Cards) */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-purple-100 px-5 py-6 shadow-2xl space-y-2.5 z-40 relative">
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenModal("whatWeDo");
-            }}
-            className="w-full text-left p-3 rounded-xl bg-purple-50/70 text-slate-900 font-bold text-sm"
-          >
-            What We Do (Products & Services)
-          </button>
-
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenModal("whoWeAre");
-            }}
-            className="w-full text-left p-3 rounded-xl bg-purple-50/70 text-slate-900 font-bold text-sm"
-          >
-            Who We Are (Identity, Alliances, Hubs)
-          </button>
-
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenModal("industries");
-            }}
-            className="w-full text-left p-3 rounded-xl bg-purple-50/70 text-slate-900 font-bold text-sm"
-          >
-            Industries (Education, Finance, Logistics, Health)
-          </button>
-
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenModal("insights");
-            }}
-            className="w-full text-left p-3 rounded-xl bg-purple-50/70 text-slate-900 font-bold text-sm"
-          >
-            Insights & News
-          </button>
-
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenModal("investors");
-            }}
-            className="w-full text-left p-3 rounded-xl bg-purple-50/70 text-slate-900 font-bold text-sm"
-          >
-            Investors
-          </button>
-
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenModal("careers");
-            }}
-            className="w-full text-left p-3 rounded-xl bg-purple-50/70 text-slate-900 font-bold text-sm"
-          >
-            Careers (Hiring Active)
-          </button>
-
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenModal("contact");
-            }}
-            className="w-full py-3.5 bg-purple-700 text-white rounded-xl font-bold text-center mt-2"
-          >
-            Contact Delivery Hub
-          </button>
         </div>
       )}
     </>

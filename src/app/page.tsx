@@ -85,7 +85,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white flex flex-col justify-between selection:bg-purple-600 selection:text-white">
       
-      {/* 1. Header with Hover Preview & Click-to-Lock Support */}
+      {/* 1. Header with Hover Preview & Click-to-Lock Support (TCS-Style Attached Mega Menu) */}
       <Navbar
         activeModal={activeModal}
         isLocked={isLocked}
@@ -93,6 +93,9 @@ export default function Home() {
         onHoverModal={handleHoverModal}
         onClickModal={handleClickModal}
         onLeaveNav={handleLeaveNavOrCard}
+        onCloseMegaMenu={closeModal}
+        onToggleLock={handleToggleLock}
+        onEnterMegaMenu={handleEnterCard}
       />
 
       {/* 2. Full-Screen 60fps Neural Canvas & 3D Interactive Hero */}
@@ -421,17 +424,6 @@ export default function Home() {
 
       {/* 4. Enterprise Footer (Links also trigger locked cards) */}
       <Footer onOpenModal={(modal) => handleClickModal(modal)} />
-
-      {/* 5. Cognizant-Style Floating Interactive Card Overlay (Hover Preview + Click-to-Lock) */}
-      <ContentCardModal
-        activeModal={activeModal}
-        isLocked={isLocked}
-        onClose={closeModal}
-        onToggleLock={handleToggleLock}
-        onMouseEnter={handleEnterCard}
-        onMouseLeave={handleLeaveNavOrCard}
-        onSelectModal={(modal) => handleClickModal(modal)}
-      />
 
     </main>
   );
