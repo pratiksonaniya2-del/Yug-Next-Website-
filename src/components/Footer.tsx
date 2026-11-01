@@ -144,7 +144,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
         </div>
       </div>
 
-      {/* Realistic Luminous 3-Layer Liquid Waves (Specular Crest Highlight & Translucent Gradients) */}
+      {/* Realistic Luminous 3-Layer Liquid Waves (Pure Translucent Gradients, Seamless 60fps) */}
       <div className="relative w-full h-32 sm:h-44 lg:h-48 -mt-1 sm:-mt-2 pointer-events-none overflow-hidden">
         
         {/* Layer 1: Back Wave (Translucent lavender/violet ethereal swell) */}
@@ -165,18 +165,10 @@ export default function Footer({ onOpenModal }: FooterProps) {
               fill="url(#realisticWave1)"
               d="M0,60 C200,35 520,35 720,60 C920,85 1240,85 1440,60 C1640,35 1960,35 2160,60 C2360,85 2680,85 2880,60 L2880,140 L0,140 Z"
             />
-            {/* Luminous crest highlight rim */}
-            <path
-              fill="none"
-              stroke="#c084fc"
-              strokeWidth="1.2"
-              strokeOpacity="0.35"
-              d="M0,60 C200,35 520,35 720,60 C920,85 1240,85 1440,60 C1640,35 1960,35 2160,60 C2360,85 2680,85 2880,60"
-            />
           </svg>
         </div>
 
-        {/* Layer 2: Mid Wave (Soft violet counter-drift with luminous rim) */}
+        {/* Layer 2: Mid Wave (Soft violet counter-drift) */}
         <div className="absolute bottom-0 left-0 w-[200%] h-[88%] animate-wave-realistic-mid flex">
           <svg
             className="w-full h-full shrink-0"
@@ -194,18 +186,10 @@ export default function Footer({ onOpenModal }: FooterProps) {
               fill="url(#realisticWave2)"
               d="M0,52 C200,74 520,74 720,52 C920,30 1240,30 1440,52 C1640,74 1960,74 2160,52 C2360,30 2680,30 2880,52 L2880,140 L0,140 Z"
             />
-            {/* Luminous crest highlight rim */}
-            <path
-              fill="none"
-              stroke="#d8b4fe"
-              strokeWidth="1.5"
-              strokeOpacity="0.60"
-              d="M0,52 C200,74 520,74 720,52 C920,30 1240,30 1440,52 C1640,74 1960,74 2160,52 C2360,30 2680,30 2880,52"
-            />
           </svg>
         </div>
 
-        {/* Layer 3: Front Wave (Light glowing liquid crest with bright specular refraction) */}
+        {/* Layer 3: Front Wave (Light glowing liquid crest) */}
         <div className="absolute bottom-0 left-0 w-[200%] h-[78%] animate-wave-realistic-front flex">
           <svg
             className="w-full h-full shrink-0"
@@ -223,14 +207,6 @@ export default function Footer({ onOpenModal }: FooterProps) {
             <path
               fill="url(#realisticWave3)"
               d="M0,46 C210,26 510,26 720,46 C930,66 1230,66 1440,46 C1650,26 1950,26 2160,46 C2370,66 2670,66 2880,46 L2880,140 L0,140 Z"
-            />
-            {/* Specular crest light highlight */}
-            <path
-              fill="none"
-              stroke="#f3e8ff"
-              strokeWidth="1.8"
-              strokeOpacity="0.85"
-              d="M0,46 C210,26 510,26 720,46 C930,66 1230,66 1440,46 C1650,26 1950,26 2160,46 C2370,66 2670,66 2880,46"
             />
           </svg>
         </div>
