@@ -37,40 +37,16 @@ export default function Footer({ onOpenModal }: FooterProps) {
 
           {/* Subtitle / Departmental & Institutional Tag */}
           <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.38em] text-purple-400 font-bold">
-            MANIT BHOPAL INCUBATED • SEED FUNDED • NATION-SCALE ECOSYSTEMS
+            BUILD THINGS PEOPLE NEED · CREATE THINGS PEOPLE REMEMBER · MOVE THINGS FORWARD
           </p>
 
-          {/* Centered Navigation Links (Mechanical Portal Style) */}
-          <nav className="pt-2 flex flex-wrap justify-center items-center gap-x-8 gap-y-2.5 max-w-4xl mx-auto">
+          {/* Centered Navigation Links (Exact Website Copy) */}
+          <nav className="pt-2 flex flex-wrap justify-center items-center gap-x-7 gap-y-2.5 max-w-4xl mx-auto">
             <button
               onClick={() => onOpenModal("whatWeDo")}
               className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
             >
               What We Do
-            </button>
-            <button
-              onClick={() => onOpenModal("whatWeDo")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              Shikshasetu
-            </button>
-            <button
-              onClick={() => onOpenModal("whatWeDo")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              CampusNeeds
-            </button>
-            <button
-              onClick={() => onOpenModal("whatWeDo")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              Settler
-            </button>
-            <button
-              onClick={() => onOpenModal("whatWeDo")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              NexonAcademy
             </button>
             <button
               onClick={() => onOpenModal("whoWeAre")}
@@ -79,22 +55,46 @@ export default function Footer({ onOpenModal }: FooterProps) {
               Who We Are
             </button>
             <button
+              onClick={() => onOpenModal("products")}
+              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
+            >
+              Products
+            </button>
+            <button
+              onClick={() => onOpenModal("products")}
+              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
+            >
+              ShikshaSathi
+            </button>
+            <button
+              onClick={() => onOpenModal("products")}
+              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
+            >
+              CampusNeeds
+            </button>
+            <button
+              onClick={() => onOpenModal("products")}
+              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
+            >
+              Settler
+            </button>
+            <button
               onClick={() => onOpenModal("industries")}
               className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
             >
               Industries
             </button>
             <button
-              onClick={() => onOpenModal("insights")}
+              onClick={() => onOpenModal("community")}
               className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
             >
-              Insights
+              Community
             </button>
             <button
-              onClick={() => onOpenModal("investors")}
+              onClick={() => onOpenModal("news")}
               className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
             >
-              Investors
+              News
             </button>
             <button
               onClick={() => onOpenModal("careers")}
@@ -106,7 +106,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
               onClick={() => onOpenModal("contact")}
               className="text-[11px] uppercase tracking-[0.18em] text-purple-400 hover:text-white transition-colors duration-200 font-bold cursor-pointer"
             >
-              Contact Hub
+              Contact
             </button>
           </nav>
 
@@ -114,15 +114,15 @@ export default function Footer({ onOpenModal }: FooterProps) {
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-[10px] text-slate-500 font-mono">
             <span className="flex items-center gap-1.5">
               <MapPin className="w-3.5 h-3.5 text-purple-400" />
-              Delivery Hubs: Chennai • Bhopal • Agra • Delhi NCR
+              Delivery Network: CHENNAI · BHOPAL · PUNE
             </span>
             <span>•</span>
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-purple-400" />
-              Incorporation: Oct 21, 2026 (Pvt Ltd)
+              Alliances: ROLTA · NexanAcademy · MANIT Bhopal
             </span>
             <span>•</span>
-            <span>ROLTA & Govt. of India Alliances</span>
+            <span>Step Into Tomorrow</span>
           </div>
 
           {/* Copyright Line (Mechanical Portal Exact Format) */}

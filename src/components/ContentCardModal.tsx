@@ -19,9 +19,7 @@ import {
   Shield,
   Calendar,
   Clock,
-  Quote,
   Briefcase,
-  FileText,
   Mail,
   Phone,
   Send,
@@ -30,16 +28,22 @@ import {
   Landmark,
   Truck,
   HeartPulse,
+  Package,
+  Globe2,
+  Code2,
 } from "lucide-react";
 
 export type ModalType =
   | "whatWeDo"
   | "whoWeAre"
+  | "products"
   | "industries"
-  | "insights"
+  | "community"
+  | "news"
   | "investors"
   | "careers"
   | "contact"
+  | "insights"
   | null;
 
 interface ContentCardModalProps {
@@ -77,9 +81,9 @@ export default function ContentCardModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
-  // Lock body scroll when modal is open
+  // Lock body scroll when modal is open and locked
   useEffect(() => {
-    if (activeModal) {
+    if (activeModal && isLocked) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -87,7 +91,7 @@ export default function ContentCardModal({
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [activeModal]);
+  }, [activeModal, isLocked]);
 
   if (!activeModal) return null;
 
@@ -125,16 +129,18 @@ export default function ContentCardModal({
               </div>
               <div>
                 <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-purple-600 block">
-                  YUGNEXT INTERACTIVE OVERVIEW
+                  YUGNEXT • STEP INTO TOMORROW
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-tight">
-                  {activeModal === "whatWeDo" && "What We Do — Products & Services"}
-                  {activeModal === "whoWeAre" && "Who We Are — Identity, Alliances & Hubs"}
-                  {activeModal === "industries" && "Industries We Transform"}
-                  {activeModal === "insights" && "Insights, Milestones & Recognitions"}
-                  {activeModal === "investors" && "Investor Relations & Governance"}
-                  {activeModal === "careers" && "Careers & Talent Acceleration"}
-                  {activeModal === "contact" && "Connect with Delivery Network"}
+                  {activeModal === "whatWeDo" && "What We Do — Digital Presence to Possibility"}
+                  {activeModal === "products" && "Products — Ideas That Solve"}
+                  {activeModal === "whoWeAre" && "Who We Are — Technology With a Reason to Exist"}
+                  {activeModal === "industries" && "Industries — Different Problems. One Common Need."}
+                  {activeModal === "community" && "Community — The Future Isn't Built Alone"}
+                  {(activeModal === "news" || activeModal === "insights") && "News & Milestones — Journey Ahead"}
+                  {activeModal === "investors" && "Investors — Backing the Journey Ahead"}
+                  {activeModal === "careers" && "Careers — Don't Just Work for the Future. Build It."}
+                  {activeModal === "contact" && "Contact — Got an Idea? Let's See Where It Goes."}
                 </h3>
               </div>
             </div>
@@ -167,7 +173,7 @@ export default function ContentCardModal({
 
               <button
                 onClick={onClose}
-                className="p-2 rounded-full bg-purple-50 hover:bg-purple-100 text-slate-600 hover:text-purple-700 transition-colors"
+                className="p-2 rounded-full bg-purple-50 hover:bg-purple-100 text-slate-600 hover:text-purple-700 transition-colors cursor-pointer"
                 title="Close Card"
               >
                 <X className="w-5 h-5" />
@@ -181,432 +187,560 @@ export default function ContentCardModal({
             {/* 1. WHAT WE DO MODAL */}
             {activeModal === "whatWeDo" && (
               <div className="space-y-8">
+                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 text-white space-y-3">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
+                    WHAT WE DO
+                  </span>
+                  <h4 className="text-2xl sm:text-3xl font-black">
+                    From Digital Presence to Digital Possibility.
+                  </h4>
+                  <p className="text-sm text-purple-200 max-w-3xl leading-relaxed">
+                    Yugnext works across software, digital solutions, products and technology-led initiatives to help businesses and organisations move forward.
+                  </p>
+                </div>
+
                 <div>
                   <div className="flex items-center gap-2 mb-4 pb-2 border-b border-purple-100">
                     <span className="w-2.5 h-2.5 rounded-full bg-purple-600" />
                     <h4 className="text-sm font-bold uppercase tracking-wider text-purple-900">
-                      Proprietary Products (3)
-                    </h4>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    {/* Shikshasetu */}
-                    <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center">
-                        <GraduationCap className="w-5 h-5" />
-                      </div>
-                      <h5 className="text-lg font-extrabold text-slate-900">Shikshasetu</h5>
-                      <span className="text-xs font-semibold text-purple-600 block">Higher EdTech Platform</span>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        A unified digital bridge connecting universities, faculty, and scholars. Streamlines academic records, course tracking, fee reconciliation, and departmental communication.
-                      </p>
-                      <div className="pt-2 border-t border-purple-50 text-[11px] text-slate-500 font-medium">
-                        ✓ Unified Student-Faculty Portal <br />
-                        ✓ Automated Academic Ledger
-                      </div>
-                    </div>
-
-                    {/* CampusNeeds */}
-                    <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center">
-                        <Building2 className="w-5 h-5" />
-                      </div>
-                      <h5 className="text-lg font-extrabold text-slate-900">CampusNeeds</h5>
-                      <span className="text-xs font-semibold text-indigo-600 block">Campus Marketplace & Utilities</span>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        Comprehensive student campus life, hostel utility requests, verified peer-to-peer student marketplace, and frictionless micro-transactions.
-                      </p>
-                      <div className="pt-2 border-t border-purple-50 text-[11px] text-slate-500 font-medium">
-                        ✓ Peer-to-Peer Student Marketplace <br />
-                        ✓ Hostel Utility & Essentials Dispatch
-                      </div>
-                    </div>
-
-                    {/* Settler */}
-                    <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center">
-                        <Layers className="w-5 h-5" />
-                      </div>
-                      <h5 className="text-lg font-extrabold text-slate-900">Settler</h5>
-                      <span className="text-xs font-semibold text-pink-600 block">Student Living & Relocation</span>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        Eliminates the stress of relocating for higher education and internships. Verifies rental accommodations, roommate matching, and digital deposit agreements.
-                      </p>
-                      <div className="pt-2 border-t border-purple-50 text-[11px] text-slate-500 font-medium">
-                        ✓ Verified Student PGs & Apartments <br />
-                        ✓ Algorithmic Roommate Compatibility
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Specialized Services */}
-                <div>
-                  <div className="flex items-center gap-2 mb-4 pb-2 border-b border-purple-100">
-                    <span className="w-2.5 h-2.5 rounded-full bg-indigo-600" />
-                    <h4 className="text-sm font-bold uppercase tracking-wider text-indigo-900">
-                      Specialized Services (2)
+                      Our Services & Initiatives (4)
                     </h4>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    {/* NexonAcademy */}
-                    <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center">
-                        <Sparkles className="w-5 h-5" />
+                    {/* NexanAcademy */}
+                    <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3 hover:border-purple-300 transition-all">
+                      <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold">
+                        <GraduationCap className="w-5 h-5" />
                       </div>
-                      <h5 className="text-lg font-extrabold text-slate-900">NexonAcademy</h5>
-                      <span className="text-xs font-semibold text-purple-600 block">Cohort-Based Tech Engineering</span>
+                      <h5 className="text-lg font-extrabold text-slate-900">NexanAcademy</h5>
+                      <span className="text-xs font-semibold text-purple-600 block">Learning & Tech Initiatives</span>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        Intensive cohort-based engineering bootcamps designed with leading practitioners. Covers production-grade codebases, system architecture, and 1-on-1 engineering mentorship.
+                        Technology and digital initiatives built around evolving needs in learning and business.
+                      </p>
+                    </div>
+
+                    {/* Pravaah */}
+                    <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3 hover:border-purple-300 transition-all">
+                      <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">
+                        <Zap className="w-5 h-5" />
+                      </div>
+                      <h5 className="text-lg font-extrabold text-slate-900">Pravaah</h5>
+                      <span className="text-xs font-semibold text-indigo-600 block">Outcomes & Digital Solutions</span>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        Digital solutions designed to turn ideas and opportunities into practical outcomes.
+                      </p>
+                    </div>
+
+                    {/* OWASP */}
+                    <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3 hover:border-purple-300 transition-all">
+                      <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+                        <Shield className="w-5 h-5" />
+                      </div>
+                      <h5 className="text-lg font-extrabold text-slate-900">OWASP</h5>
+                      <span className="text-xs font-semibold text-emerald-600 block">Security & Responsible Digital</span>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        Building with a stronger focus on security and responsible digital practices.
                       </p>
                     </div>
 
                     {/* Pathfinder School */}
-                    <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
-                      <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
+                    <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3 hover:border-purple-300 transition-all">
+                      <div className="w-10 h-10 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center font-bold">
                         <Compass className="w-5 h-5" />
                       </div>
                       <h5 className="text-lg font-extrabold text-slate-900">Pathfinder School</h5>
-                      <span className="text-xs font-semibold text-amber-600 block">Career Steering & Talent Incubator</span>
+                      <span className="text-xs font-semibold text-pink-600 block">Education & Learning Opportunities</span>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        Empowers school and university students to discover high-growth tech careers through personalized psychometric mapping, guest masterclasses, and executive coaching.
+                        Technology-led initiatives focused on creating better learning opportunities and experiences.
                       </p>
                     </div>
                   </div>
                 </div>
+
+                {/* Link to Products */}
+                <div className="p-6 rounded-2xl bg-purple-50 border border-purple-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <div>
+                    <h5 className="font-extrabold text-slate-900">Looking for our Proprietary Products?</h5>
+                    <p className="text-xs text-slate-600">Discover ShikshaSathi, CampusNeeds, and Settler.</p>
+                  </div>
+                  <button
+                    onClick={() => onSelectModal && onSelectModal("products")}
+                    className="px-5 py-2.5 rounded-xl bg-purple-700 text-white text-xs font-bold hover:bg-purple-800 transition-colors inline-flex items-center gap-1.5 shrink-0 cursor-pointer"
+                  >
+                    <span>Explore Products</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
             )}
 
-            {/* 2. WHO WE ARE MODAL */}
+            {/* 2. PRODUCTS MODAL */}
+            {activeModal === "products" && (
+              <div className="space-y-8">
+                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-950 via-purple-900 to-indigo-950 text-white space-y-3">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
+                    PRODUCTS PHILOSOPHY
+                  </span>
+                  <h4 className="text-2xl sm:text-3xl font-black">
+                    Ideas Are Everywhere. Products That Solve Are Rare.
+                  </h4>
+                  <p className="text-sm text-purple-200 max-w-3xl leading-relaxed">
+                    We believe the best products don't begin with: “What can we build?” They begin with: “What needs solving?” That's the philosophy behind the products we're building.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* ShikshaSathi */}
+                  <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm flex flex-col justify-between space-y-4 hover:border-purple-300 hover:shadow-md transition-all">
+                    <div className="space-y-3">
+                      <div className="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center">
+                        <GraduationCap className="w-6 h-6" />
+                      </div>
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-600 block">
+                        EDUCATION TECHNOLOGY
+                      </span>
+                      <h5 className="text-xl font-extrabold text-slate-900">ShikshaSathi</h5>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        Technology built around making education more connected, accessible and useful.
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => onSelectModal && onSelectModal("contact")}
+                      className="pt-3 border-t border-purple-50 text-xs font-bold text-purple-700 hover:text-purple-900 flex items-center justify-between cursor-pointer"
+                    >
+                      <span>Explore ShikshaSathi</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
+                  {/* CampusNeeds */}
+                  <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm flex flex-col justify-between space-y-4 hover:border-purple-300 hover:shadow-md transition-all">
+                    <div className="space-y-3">
+                      <div className="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center">
+                        <Building2 className="w-6 h-6" />
+                      </div>
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-600 block">
+                        CAMPUS ECOSYSTEM
+                      </span>
+                      <h5 className="text-xl font-extrabold text-slate-900">CampusNeeds</h5>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        A digital approach to simplifying everyday needs and experiences across the campus ecosystem.
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => onSelectModal && onSelectModal("contact")}
+                      className="pt-3 border-t border-purple-50 text-xs font-bold text-indigo-700 hover:text-indigo-900 flex items-center justify-between cursor-pointer"
+                    >
+                      <span>Explore CampusNeeds</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
+                  {/* Settler */}
+                  <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm flex flex-col justify-between space-y-4 hover:border-purple-300 hover:shadow-md transition-all">
+                    <div className="space-y-3">
+                      <div className="w-12 h-12 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center">
+                        <Layers className="w-6 h-6" />
+                      </div>
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-pink-600 block">
+                        PRACTICAL LIVING
+                      </span>
+                      <h5 className="text-xl font-extrabold text-slate-900">Settler</h5>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        A product focused on solving practical problems through technology.
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => onSelectModal && onSelectModal("contact")}
+                      className="pt-3 border-t border-purple-50 text-xs font-bold text-pink-700 hover:text-pink-900 flex items-center justify-between cursor-pointer"
+                    >
+                      <span>Explore Settler</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 3. WHO WE ARE MODAL */}
             {activeModal === "whoWeAre" && (
               <div className="space-y-8">
-                {/* About & Corporate Governance */}
-                <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-4">
-                  <span className="text-xs font-bold uppercase tracking-wider text-purple-700">
-                    Corporate Identity
+                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 text-white space-y-4">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
+                    WHO WE ARE
                   </span>
-                  <h4 className="text-2xl font-black text-slate-900">
-                    YugNext Private Limited
+                  <h4 className="text-2xl sm:text-3xl font-black">
+                    We're Not Here Just to Follow What's Next.
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Incorporated on <strong>October 21, 2026</strong> as a registered Private Limited company and backed by <strong>₹50K Seed Incubation Funding</strong> from MANIT Bhopal. We combine student innovation, academic rigor, and enterprise partnerships.
+                  <p className="text-sm text-purple-200 leading-relaxed max-w-3xl">
+                    Yugnext is a technology-driven organisation working across software, digital solutions and products to solve problems that matter. We work with businesses, institutions and communities across industries — bringing together technology, people and partnerships to create meaningful outcomes.
                   </p>
+                  <div className="pt-3 border-t border-purple-800 text-xs font-bold text-purple-300 tracking-wide">
+                    Our ambition is simple: <br />
+                    <span className="text-white text-sm font-extrabold">
+                      • Build things people need. • Create things people remember. • Move things forward.
+                    </span>
+                  </div>
                 </div>
 
-                {/* Community & Alliances Grid */}
+                {/* Subsections: About Us, Leadership, Alliances */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Community */}
-                  <div className="p-6 rounded-2xl bg-purple-50/80 border border-purple-100 space-y-3">
-                    <h5 className="text-base font-extrabold text-purple-950 flex items-center gap-2">
-                      <Users className="w-4 h-4 text-purple-700" />
-                      Community Backbone
+                  {/* About Us */}
+                  <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-600 block">
+                      ABOUT US
+                    </span>
+                    <h5 className="text-lg font-extrabold text-slate-900">
+                      Technology With a Reason to Exist.
                     </h5>
-                    <div className="space-y-2 text-xs text-slate-700">
-                      <p>• <strong>Ekjut Initiative:</strong> Grassroots youth movement driving community impact, digital enablement, and collaborative student hackathons.</p>
-                      <p>• <strong>MANIT Students:</strong> Direct synergy with student innovators and software engineers at Maulana Azad National Institute of Technology.</p>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      The digital world is full of things that look impressive. We're more interested in things that actually work. At Yugnext, we combine technology with an understanding of the people and industries we're building for.
+                    </p>
+                    <div className="p-3 rounded-xl bg-purple-50 text-[11px] text-purple-900 space-y-1 font-medium">
+                      <p>• What problem are we solving?</p>
+                      <p>• Who are we solving it for?</p>
+                      <p>• What would better look like?</p>
                     </div>
+                    <p className="text-xs font-bold text-slate-800">
+                      Understand. Build. Improve. Move Forward. That's Yugnext.
+                    </p>
                   </div>
 
-                  {/* Strategic Alliances */}
-                  <div className="p-6 rounded-2xl bg-indigo-50/80 border border-indigo-100 space-y-3">
-                    <h5 className="text-base font-extrabold text-indigo-950 flex items-center gap-2">
-                      <Award className="w-4 h-4 text-indigo-700" />
-                      Strategic Alliances
+                  {/* Leadership */}
+                  <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-600 block">
+                      LEADERSHIP
+                    </span>
+                    <h5 className="text-lg font-extrabold text-slate-900">
+                      People Who Ask What's Next.
                     </h5>
-                    <div className="space-y-1.5 text-xs font-semibold text-slate-800">
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-purple-600" />
-                        <span>ROLTA (Enterprise Technology Partner)</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-purple-600" />
-                        <span>MANIT Bhopal Incubation Lab</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-purple-600" />
-                        <span>Gov. of India Innovation Frameworks</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-purple-600" />
-                        <span>NexonAcademy Skill Alliance</span>
-                      </div>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Behind every product, partnership and idea is a team willing to question the obvious and build the possible. Meet the people shaping Yugnext and the direction we're taking it.
+                    </p>
+                    <div className="pt-2 text-xs text-slate-500 font-mono">
+                      Governance: Pvt Ltd Structure • Executive Board • MANIT Advisory
                     </div>
                   </div>
                 </div>
 
-                {/* Global Delivery Network */}
-                <div>
-                  <h5 className="text-sm font-bold uppercase tracking-wider text-purple-900 mb-3 flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-purple-600" />
-                    Global Delivery Network (4 Strategic Hubs)
-                  </h5>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div className="p-4 rounded-xl bg-white border border-purple-100 shadow-sm">
-                      <span className="font-extrabold text-slate-900 text-sm block">Bhopal Hub</span>
-                      <span className="text-[11px] text-purple-600 font-semibold block">Central HQ & Incubation</span>
-                      <p className="text-[11px] text-slate-500 mt-1">MANIT Innovation Center, Bhopal, MP</p>
-                    </div>
+                {/* Strategic Alliances & Network */}
+                <div className="p-6 rounded-2xl bg-slate-900 text-white space-y-4">
+                  <div className="space-y-1">
+                    <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-400">
+                      STRATEGIC ALLIANCES
+                    </span>
+                    <h5 className="text-xl font-black">Some Things Are Better Built Together.</h5>
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    The right partnership doesn't simply add another logo. It multiplies what both sides can do. Our strategic alliances connect Yugnext with organisations and institutions that share our vision for technology-led growth and meaningful impact.
+                  </p>
 
-                    <div className="p-4 rounded-xl bg-white border border-purple-100 shadow-sm">
-                      <span className="font-extrabold text-slate-900 text-sm block">Chennai Hub</span>
-                      <span className="text-[11px] text-purple-600 font-semibold block">Deep Tech Wing</span>
-                      <p className="text-[11px] text-slate-500 mt-1">OMR IT Corridor, Chennai, TN</p>
-                    </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                    <div className="p-3 rounded-xl bg-white/10 text-center font-bold text-sm">ROLTA</div>
+                    <div className="p-3 rounded-xl bg-white/10 text-center font-bold text-sm">NexanAcademy</div>
+                    <div className="p-3 rounded-xl bg-white/10 text-center font-bold text-sm">MANIT Bhopal</div>
+                  </div>
 
-                    <div className="p-4 rounded-xl bg-white border border-purple-100 shadow-sm">
-                      <span className="font-extrabold text-slate-900 text-sm block">Delhi NCR</span>
-                      <span className="text-[11px] text-purple-600 font-semibold block">Corporate & Alliances</span>
-                      <p className="text-[11px] text-slate-500 mt-1">Cyber City, Gurugram / New Delhi</p>
-                    </div>
-
-                    <div className="p-4 rounded-xl bg-white border border-purple-100 shadow-sm">
-                      <span className="font-extrabold text-slate-900 text-sm block">Agra Hub</span>
-                      <span className="text-[11px] text-purple-600 font-semibold block">Pathfinder Lab</span>
-                      <p className="text-[11px] text-slate-500 mt-1">Innovation Center, Sanjay Place, Agra, UP</p>
-                    </div>
+                  <div className="pt-3 border-t border-white/10 flex flex-wrap items-center justify-between text-xs text-slate-400">
+                    <span className="font-mono text-purple-300 font-bold">
+                      DELIVERY NETWORK: CHENNAI · BHOPAL · PUNE
+                    </span>
+                    <span>Different cities. Different talent. One direction. Forward.</span>
                   </div>
                 </div>
               </div>
             )}
 
-            {/* 3. INDUSTRIES MODAL */}
+            {/* 4. INDUSTRIES MODAL */}
             {activeModal === "industries" && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center">
-                    <GraduationCap className="w-5 h-5" />
-                  </div>
-                  <h4 className="text-xl font-extrabold text-slate-900">Education</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Transforming higher education campuses through unified administrative platforms (Shikshasetu), student utility marketplaces (CampusNeeds), and production tech bootcamps (NexonAcademy).
+              <div className="space-y-8">
+                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-950 via-purple-900 to-indigo-950 text-white space-y-3">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
+                    INDUSTRIES
+                  </span>
+                  <h4 className="text-2xl sm:text-3xl font-black">
+                    Different Industries. Different Problems. One Thing in Common.
+                  </h4>
+                  <p className="text-sm text-purple-200 max-w-3xl leading-relaxed">
+                    Technology changes from industry to industry. The need for better solutions doesn't.
                   </p>
                 </div>
 
-                <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center">
-                    <Landmark className="w-5 h-5" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* EDUCATION */}
+                  <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
+                    <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold">
+                      <GraduationCap className="w-5 h-5" />
+                    </div>
+                    <h5 className="text-lg font-black text-slate-900">EDUCATION</h5>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Building technology and digital initiatives for a world where learning is becoming increasingly connected.
+                    </p>
                   </div>
-                  <h4 className="text-xl font-extrabold text-slate-900">Finance</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Modernizing institutional ledger workflows, fee installment splitters, student micro-transactions, and rental deposit escrow protection with bank-grade security.
-                  </p>
+
+                  {/* FINANCE */}
+                  <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+                      <Landmark className="w-5 h-5" />
+                    </div>
+                    <h5 className="text-lg font-black text-slate-900">FINANCE</h5>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Creating digital possibilities for an industry where trust, speed and accessibility matter.
+                    </p>
+                  </div>
+
+                  {/* LOGISTICS */}
+                  <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
+                    <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">
+                      <Truck className="w-5 h-5" />
+                    </div>
+                    <h5 className="text-lg font-black text-slate-900">LOGISTICS</h5>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Helping build smarter digital experiences for an increasingly connected movement of people and goods.
+                    </p>
+                  </div>
                 </div>
 
-                <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center">
-                    <Truck className="w-5 h-5" />
-                  </div>
-                  <h4 className="text-xl font-extrabold text-slate-900">Logistics</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Eliminating friction in student relocation via Settler, automated campus delivery dispatch, and coordinated transit between Bhopal, Chennai, Agra, and Delhi NCR.
-                  </p>
-                </div>
-
-                <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
-                    <HeartPulse className="w-5 h-5" />
-                  </div>
-                  <h4 className="text-xl font-extrabold text-slate-900">Health</h4>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Digital student infirmary records, campus emergency alert dispatch, wellness counseling coordination, and confidential health records privacy.
+                <div className="p-6 rounded-2xl bg-purple-50 border border-purple-200 text-center space-y-2">
+                  <h5 className="text-base font-extrabold text-purple-950">And We're Just Getting Started.</h5>
+                  <p className="text-xs text-slate-600 max-w-2xl mx-auto">
+                    Our work isn't limited to three industries. Wherever there is a meaningful problem, there is an opportunity to build something better.
                   </p>
                 </div>
               </div>
             )}
 
-            {/* 4. INSIGHTS MODAL */}
-            {activeModal === "insights" && (
+            {/* 5. COMMUNITY MODAL */}
+            {activeModal === "community" && (
               <div className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Verified Milestone 1 */}
-                  <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-2">
-                    <span className="text-xs font-mono font-bold text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded-full">
-                      21 October 2026
-                    </span>
-                    <h5 className="text-lg font-extrabold text-slate-900">
-                      Incorporated as Private Limited Company
-                    </h5>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      YugNext completed formal incorporation under the Companies Act, cementing corporate governance, board oversight, and institutional investor readiness.
-                    </p>
-                  </div>
-
-                  {/* Verified Milestone 2 */}
-                  <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-2">
-                    <span className="text-xs font-mono font-bold text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded-full">
-                      8 May 2026
-                    </span>
-                    <h5 className="text-lg font-extrabold text-slate-900">
-                      Received ₹50K Seed Funding & Incubation
-                    </h5>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      Secured ₹50K in seed grant capital alongside formal research incubation at Maulana Azad National Institute of Technology (MANIT) Bhopal.
-                    </p>
+                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 text-white space-y-3">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
+                    COMMUNITY
+                  </span>
+                  <h4 className="text-2xl sm:text-3xl font-black">
+                    The Future Isn't Built Alone.
+                  </h4>
+                  <p className="text-sm text-purple-200 leading-relaxed max-w-3xl">
+                    Technology moves faster when people share ideas. We believe in creating spaces where people can learn, collaborate, experiment and build together.
+                  </p>
+                  <p className="text-xs text-purple-300 leading-relaxed">
+                    Our community is part of the larger Yugnext ecosystem — bringing together people, ideas and opportunities that can create something bigger than any one of them alone.
+                  </p>
+                  <div className="pt-2 text-sm font-extrabold text-white tracking-widest">
+                    Learn. Connect. Build.
                   </div>
                 </div>
 
-                {/* Events Coming Soon */}
-                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-900 to-indigo-900 text-white space-y-2">
-                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-300">
-                    Events Calendar • Coming Soon
-                  </span>
-                  <h4 className="text-xl font-extrabold text-white">
-                    YugNext Tech Summit & Hackathon 2026
-                  </h4>
-                  <p className="text-xs text-purple-200">
-                    Flagship student engineering symposium and hackathon connecting student builders across Bhopal, Chennai, Agra, and Delhi NCR.
-                  </p>
-                </div>
-              </div>
-            )}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-2">
+                    <span className="text-xs font-bold text-purple-700">MANIT Students Cohort</span>
+                    <h5 className="text-base font-bold text-slate-900">Campus Builders & Developers</h5>
+                    <p className="text-xs text-slate-500">Hackathons, technical discussions, open-source projects, and peer incubation.</p>
+                  </div>
 
-            {/* 5. INVESTORS MODAL */}
-            {activeModal === "investors" && (
-              <div className="space-y-6">
-                <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-900 to-indigo-950 text-white space-y-4">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-300">
-                    Institutional Investment Thesis
-                  </span>
-                  <h4 className="text-2xl font-black text-white">
-                    Capital Efficiency Backed by Real University Distribution
-                  </h4>
-                  <p className="text-xs sm:text-sm text-purple-200 leading-relaxed">
-                    Combining enterprise software delivery with sticky campus platforms (Shikshasetu, CampusNeeds, Settler). Incorporated as a Private Limited company with verified MCA compliance and MANIT institutional backing.
-                  </p>
-
-                  <div className="grid grid-cols-3 gap-3 pt-2 text-center">
-                    <div className="p-3 rounded-xl bg-white/10">
-                      <div className="text-xl font-black text-white">₹50K+</div>
-                      <div className="text-[10px] text-purple-200">Seed Grant</div>
-                    </div>
-                    <div className="p-3 rounded-xl bg-white/10">
-                      <div className="text-xl font-black text-white">Oct 2026</div>
-                      <div className="text-[10px] text-purple-200">Pvt Ltd Incorporated</div>
-                    </div>
-                    <div className="p-3 rounded-xl bg-white/10">
-                      <div className="text-xl font-black text-white">MANIT</div>
-                      <div className="text-[10px] text-purple-200">Incubator Partner</div>
-                    </div>
+                  <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-2">
+                    <span className="text-xs font-bold text-indigo-700">Ekjut Initiative</span>
+                    <h5 className="text-base font-bold text-slate-900">Collaborative Ecosystem</h5>
+                    <p className="text-xs text-slate-500">Connecting student mentors, industry developers, and local institutions.</p>
                   </div>
                 </div>
 
                 <div className="flex justify-end">
                   <button
-                    onClick={() => {
-                      if (onSelectModal) onSelectModal("contact");
-                    }}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-purple-700 text-white text-xs font-bold hover:bg-purple-800"
+                    onClick={() => onSelectModal && onSelectModal("contact")}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-purple-700 text-white text-xs font-bold hover:bg-purple-800 transition-colors cursor-pointer"
                   >
-                    <span>Request Executive Deck</span>
+                    <span>Join the Community</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
             )}
 
-            {/* 6. CAREERS MODAL */}
-            {activeModal === "careers" && (
+            {/* 6. NEWS & MILESTONES MODAL */}
+            {(activeModal === "news" || activeModal === "insights") && (
               <div className="space-y-6">
                 <div className="flex items-center justify-between pb-3 border-b border-purple-100">
                   <div>
-                    <h4 className="text-lg font-bold text-slate-900">Current Openings</h4>
-                    <p className="text-xs text-slate-500">Active hiring across our 4 delivery centers</p>
+                    <h4 className="text-lg font-bold text-slate-900">Corporate Milestones & Timeline</h4>
+                    <p className="text-xs text-slate-500">Official verified company history</p>
                   </div>
-                  <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                    Active Hiring
+                  <span className="text-xs font-bold text-purple-700 bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
+                    Verified Events
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-4">
                   <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-2">
-                    <span className="text-[11px] font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">Engineering</span>
-                    <h5 className="text-base font-bold text-slate-900">Full-Stack Software Engineer (Next.js & TypeScript)</h5>
-                    <p className="text-xs text-slate-500">Bhopal HQ / Hybrid • 1-3 Years / Passionate Freshers</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-bold text-purple-700 bg-purple-50 px-2 py-0.5 rounded">
+                        21 OCTOBER 2026
+                      </span>
+                      <span className="text-[11px] text-emerald-600 font-bold">Incorporated</span>
+                    </div>
+                    <h5 className="text-base font-bold text-slate-900">Incorporated as a Private Limited Company</h5>
+                    <p className="text-xs text-slate-600">
+                      Officially registered and structured under the Companies Act as YugNext Private Limited.
+                    </p>
                   </div>
 
                   <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-2">
-                    <span className="text-[11px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">Cloud Core</span>
-                    <h5 className="text-base font-bold text-slate-900">Cloud Infrastructure & Backend Engineer</h5>
-                    <p className="text-xs text-slate-500">Chennai Hub / Remote • 1-4 Years</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded">
+                        8 MAY 2026
+                      </span>
+                      <span className="text-[11px] text-purple-600 font-bold">Incubation & Grant</span>
+                    </div>
+                    <h5 className="text-base font-bold text-slate-900">Received ₹50,000 Seed Funding & Got Incubated</h5>
+                    <p className="text-xs text-slate-600">
+                      Successfully incubated at MANIT Bhopal with initial grant funding to establish foundational platforms.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 7. INVESTORS MODAL */}
+            {activeModal === "investors" && (
+              <div className="space-y-6">
+                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-950 via-purple-900 to-indigo-950 text-white space-y-3">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
+                    INVESTORS & GOVERNANCE
+                  </span>
+                  <h4 className="text-2xl sm:text-3xl font-black">
+                    Backing the Journey Ahead.
+                  </h4>
+                  <p className="text-sm text-purple-200 leading-relaxed max-w-3xl">
+                    Building for tomorrow takes more than an idea. It takes people willing to believe in the idea — and support the work required to turn it into reality. Yugnext is building with long-term ambition, supported by people and institutions who see the possibilities ahead.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                  <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-2">
+                    <span className="text-xs font-bold text-purple-700">Institutional Incubation</span>
+                    <h5 className="text-base font-bold text-slate-900">MANIT Incubation Centre</h5>
+                    <p className="text-xs text-slate-500">Seed stage infrastructure, lab access, and institutional mentoring.</p>
                   </div>
 
                   <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-2">
-                    <span className="text-[11px] font-bold text-pink-700 bg-pink-50 px-2 py-0.5 rounded">Campus Growth</span>
-                    <h5 className="text-base font-bold text-slate-900">Campus Ecosystem & Community Lead</h5>
-                    <p className="text-xs text-slate-500">MANIT Bhopal & Delhi NCR • Student Leaders</p>
+                    <span className="text-xs font-bold text-emerald-700">Grant Funding</span>
+                    <h5 className="text-base font-bold text-slate-900">₹50,000 Seed Grant</h5>
+                    <p className="text-xs text-slate-500">Disbursed on 8 May 2026 for product development and pilot validation.</p>
                   </div>
 
                   <div className="p-5 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-2">
-                    <span className="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">Operations</span>
-                    <h5 className="text-base font-bold text-slate-900">Product Operations & Onboarding Specialist</h5>
-                    <p className="text-xs text-slate-500">Agra Innovation Lab • 0-2 Years</p>
+                    <span className="text-xs font-bold text-indigo-700">Corporate Structure</span>
+                    <h5 className="text-base font-bold text-slate-900">Private Limited Governance</h5>
+                    <p className="text-xs text-slate-500">Cap table management, audit compliance, and enterprise alliance readiness.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 8. CAREERS MODAL */}
+            {activeModal === "careers" && (
+              <div className="space-y-6">
+                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 text-white space-y-3">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
+                    CAREERS AT YUGNEXT
+                  </span>
+                  <h4 className="text-2xl sm:text-3xl font-black">
+                    Don't Just Work for the Future. Build It.
+                  </h4>
+                  <p className="text-sm text-purple-200 leading-relaxed max-w-3xl">
+                    We're looking for people who don't stop at: “That's how it's done.” We're looking for people who ask: “What if we did it differently?”
+                  </p>
+                  <p className="text-xs text-purple-300">
+                    At Yugnext, you'll work across technology, products, industries and ideas — and have the opportunity to help shape what comes next. If you're looking for just another job, there are plenty. If you're looking to build something — let's talk.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <div className="p-4 rounded-xl bg-purple-50 text-purple-900 font-bold text-xs text-center border border-purple-100">
+                    People who are curious.
+                  </div>
+                  <div className="p-4 rounded-xl bg-purple-50 text-purple-900 font-bold text-xs text-center border border-purple-100">
+                    People who take ownership.
+                  </div>
+                  <div className="p-4 rounded-xl bg-purple-50 text-purple-900 font-bold text-xs text-center border border-purple-100">
+                    People who want to learn.
+                  </div>
+                  <div className="p-4 rounded-xl bg-purple-50 text-purple-900 font-bold text-xs text-center border border-purple-100">
+                    People who want to build.
                   </div>
                 </div>
 
                 <div className="flex justify-end pt-2">
                   <button
-                    onClick={() => {
-                      if (onSelectModal) onSelectModal("contact");
-                    }}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-purple-700 text-white text-xs font-bold hover:bg-purple-800"
+                    onClick={() => onSelectModal && onSelectModal("contact")}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-purple-700 text-white text-xs font-bold hover:bg-purple-800 transition-colors cursor-pointer"
                   >
-                    <span>Submit Candidate Profile</span>
+                    <span>View Open Positions / Connect</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
             )}
 
-            {/* 7. CONTACT MODAL */}
+            {/* 9. CONTACT MODAL */}
             {activeModal === "contact" && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <div className="lg:col-span-5 p-6 rounded-2xl bg-purple-900 text-white space-y-4">
+                <div className="lg:col-span-5 p-6 rounded-2xl bg-purple-950 text-white space-y-4">
                   <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-300">
-                    Delivery Coordinates
+                    START THE CONVERSATION
                   </span>
-                  <h4 className="text-xl font-bold text-white">YugNext Private Limited</h4>
-                  <p className="text-xs text-purple-200">
-                    Incubation Wing & Technology Center, Central Innovation Hub, MANIT, Bhopal, MP.
+                  <h4 className="text-2xl font-bold text-white">Got an Idea? Let's See Where It Goes.</h4>
+                  <p className="text-xs text-purple-200 leading-relaxed">
+                    Maybe you have a business problem. Maybe you have an idea. Maybe you need a technology partner. Maybe you simply think there's a better way to do something.
                   </p>
-                  <div className="text-xs space-y-2 text-purple-200 pt-2 border-t border-purple-800">
-                    <p>• Inquiries: <strong>contact@yugnext.com</strong></p>
-                    <p>• Delivery Hubs: Bhopal, Chennai, Agra, Delhi NCR</p>
+                  <div className="text-xs space-y-2 text-purple-300 pt-3 border-t border-purple-800">
+                    <p className="font-bold text-white">Delivery Hubs:</p>
+                    <p>CHENNAI · BHOPAL · PUNE</p>
+                    <p className="text-[11px] text-purple-400">Different cities. Different talent. One direction. Forward.</p>
                   </div>
                 </div>
 
                 <div className="lg:col-span-7 bg-white p-6 rounded-2xl border border-purple-100 space-y-4">
-                  <h4 className="text-base font-bold text-slate-900">Transmit Direct Inquiry</h4>
+                  <h4 className="text-base font-bold text-slate-900">Start the conversation</h4>
                   <div className="space-y-3">
-                    <input
-                      type="text"
-                      placeholder="Your Full Name"
-                      className="w-full px-4 py-2.5 rounded-xl bg-purple-50/50 border border-purple-100 text-xs focus:outline-none focus:ring-2 focus:ring-purple-600"
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email Address"
-                      className="w-full px-4 py-2.5 rounded-xl bg-purple-50/50 border border-purple-100 text-xs focus:outline-none focus:ring-2 focus:ring-purple-600"
-                    />
-                    <select className="w-full px-4 py-2.5 rounded-xl bg-purple-50/50 border border-purple-100 text-xs focus:outline-none focus:ring-2 focus:ring-purple-600">
-                      <option>Shikshasetu (EdTech Platform)</option>
-                      <option>CampusNeeds (Student Marketplace)</option>
-                      <option>Settler (Relocation Housing)</option>
-                      <option>NexonAcademy (Tech Cohort)</option>
-                      <option>Pathfinder School (Mentorship)</option>
-                      <option>Investor Relations</option>
-                      <option>Careers & Internships</option>
-                    </select>
-                    <textarea
-                      rows={3}
-                      placeholder="Message / Campus or Partnership Details..."
-                      className="w-full px-4 py-2.5 rounded-xl bg-purple-50/50 border border-purple-100 text-xs focus:outline-none focus:ring-2 focus:ring-purple-600"
-                    />
+                    <div>
+                      <label className="text-[11px] font-bold text-slate-700 block mb-1">Name</label>
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        className="w-full px-4 py-2.5 rounded-xl bg-purple-50/50 border border-purple-100 text-xs focus:outline-none focus:ring-2 focus:ring-purple-600"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[11px] font-bold text-slate-700 block mb-1">Email</label>
+                      <input
+                        type="email"
+                        placeholder="you@company.com"
+                        className="w-full px-4 py-2.5 rounded-xl bg-purple-50/50 border border-purple-100 text-xs focus:outline-none focus:ring-2 focus:ring-purple-600"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[11px] font-bold text-slate-700 block mb-1">Organisation</label>
+                      <input
+                        type="text"
+                        placeholder="Company / University / Organisation"
+                        className="w-full px-4 py-2.5 rounded-xl bg-purple-50/50 border border-purple-100 text-xs focus:outline-none focus:ring-2 focus:ring-purple-600"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[11px] font-bold text-slate-700 block mb-1">What would you like to build?</label>
+                      <textarea
+                        rows={3}
+                        placeholder="Tell us about your idea, problem or requirements..."
+                        className="w-full px-4 py-2.5 rounded-xl bg-purple-50/50 border border-purple-100 text-xs focus:outline-none focus:ring-2 focus:ring-purple-600"
+                      />
+                    </div>
                     <button
-                      onClick={() => alert("Thank you! Your inquiry has been transmitted to YugNext delivery desk.")}
-                      className="w-full py-3 rounded-xl bg-purple-700 text-white font-bold text-xs hover:bg-purple-800 transition-colors shadow-md shadow-purple-600/30"
+                      onClick={() => alert("Thank you! Your message has been sent to Yugnext.")}
+                      className="w-full py-3 rounded-xl bg-purple-700 text-white font-bold text-xs hover:bg-purple-800 transition-colors shadow-md shadow-purple-600/30 cursor-pointer"
                     >
-                      Send Message to Delivery Hub
+                      Send Message →
                     </button>
                   </div>
                 </div>
@@ -615,15 +749,15 @@ export default function ContentCardModal({
 
           </div>
 
-          {/* Card Footer Quick Tabs */}
+          {/* Card Footer Quick Navigation */}
           <div className="px-6 sm:px-8 py-3.5 border-t border-purple-100 bg-white flex flex-wrap items-center justify-between text-xs text-slate-500 gap-2 shrink-0">
             <span className="font-mono text-[11px]">
-              YugNext Private Limited • MANIT Bhopal Incubated
+              YUGNEXT • STEP INTO TOMORROW • CHENNAI · BHOPAL · PUNE
             </span>
             <div className="flex items-center gap-2">
               <button
                 onClick={onClose}
-                className="px-4 py-1.5 rounded-lg bg-purple-100 text-purple-800 font-bold hover:bg-purple-200 transition-colors"
+                className="px-4 py-1.5 rounded-lg bg-purple-100 text-purple-800 font-bold hover:bg-purple-200 transition-colors cursor-pointer"
               >
                 Close Card
               </button>

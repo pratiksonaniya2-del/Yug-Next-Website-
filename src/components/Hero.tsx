@@ -16,6 +16,7 @@ import {
   Award,
   CheckCircle2,
   Activity,
+  Package,
 } from "lucide-react";
 import { ModalType } from "./ContentCardModal";
 
@@ -25,87 +26,87 @@ interface HeroProps {
 
 const STREAMS = [
   {
-    id: "shikshasetu",
-    code: "SYS-01",
-    tag: "HIGHER EDTECH INFRASTRUCTURE",
-    headline: "Supercharging Campuses with Shikshasetu",
-    highlight: "Shikshasetu",
+    id: "main",
+    code: "YUG-01",
+    tag: "YUGNEXT • STEP INTO TOMORROW",
+    headline: "The Future Doesn't Wait. Neither Should Your Business.",
+    highlight: "Neither Should Your Business.",
     subtitle:
-      "A unified digital bridge connecting universities, faculty, and scholars. Streamlines academic records, course tracking, fee reconciliation, and departmental communication at enterprise speed.",
-    cta: "Launch Shikshasetu Card",
+      "The way people learn, buy, work and connect is changing. We build the technology, products and digital experiences that help businesses and organisations keep up — and move ahead. From software and digital solutions to products, partnerships and new ideas, Yugnext is building for what comes next.",
+    cta: "Explore What We Do",
     modalTarget: "whatWeDo" as ModalType,
-    icon: GraduationCap,
+    icon: Sparkles,
     gradient: "from-purple-400 via-fuchsia-300 to-indigo-300",
     glowColor: "rgba(168, 85, 247, 0.45)",
-    metric: "10x Administrative Velocity",
-    statLabel: "Automated Academic Workflows",
+    metric: "Building For What's Next",
+    statLabel: "Technology • Products • Partnerships",
     features: [
-      "Unified Student-Faculty Portal",
-      "Automated Academic Ledger",
-      "Institutional Cloud Governance",
+      "Digital Experiences & Solutions",
+      "Proprietary Problem-Solving Products",
+      "Strategic Enterprise Alliances",
+    ],
+  },
+  {
+    id: "shikshasathi",
+    code: "SYS-02",
+    tag: "EDUCATION TECHNOLOGY",
+    headline: "Making Education More Connected & Accessible with ShikshaSathi",
+    highlight: "ShikshaSathi",
+    subtitle:
+      "Technology built around making education more connected, accessible and useful. We believe the best products begin with: “What needs solving?”",
+    cta: "Explore ShikshaSathi",
+    modalTarget: "products" as ModalType,
+    icon: GraduationCap,
+    gradient: "from-indigo-400 via-purple-300 to-cyan-300",
+    glowColor: "rgba(99, 102, 241, 0.45)",
+    metric: "Connected Learning",
+    statLabel: "Modern Academic Ecosystem",
+    features: [
+      "Connected Student-Faculty System",
+      "Accessible Learning Resources",
+      "Practical Digital Infrastructure",
     ],
   },
   {
     id: "campusneeds",
-    code: "SYS-02",
-    tag: "CAMPUS COMMERCE & UTILITIES",
-    headline: "Powering Campus Commerce & Instant Student Services",
-    highlight: "Instant Student Services",
+    code: "SYS-03",
+    tag: "CAMPUS ECOSYSTEM & ESSENTIALS",
+    headline: "Simplifying Everyday Needs Across Campuses with CampusNeeds",
+    highlight: "CampusNeeds",
     subtitle:
-      "Empowering collegiate ecosystems through CampusNeeds. Decentralized peer-to-peer student marketplace, daily supplies, hostel utility requests, and frictionless micro-transactions.",
-    cta: "Explore CampusNeeds Card",
-    modalTarget: "whatWeDo" as ModalType,
+      "A digital approach to simplifying everyday needs and experiences across the campus ecosystem. Solving practical problems through technology.",
+    cta: "Explore CampusNeeds",
+    modalTarget: "products" as ModalType,
     icon: Building2,
-    gradient: "from-indigo-400 via-purple-300 to-cyan-300",
-    glowColor: "rgba(99, 102, 241, 0.45)",
-    metric: "Zero-Friction Utilities",
-    statLabel: "Campus Marketplace & Essentials",
+    gradient: "from-pink-400 via-purple-300 to-indigo-300",
+    glowColor: "rgba(236, 72, 153, 0.45)",
+    metric: "Campus Simplification",
+    statLabel: "Everyday Experiences & Needs",
     features: [
-      "Peer-to-Peer Student Marketplace",
-      "Hostel Utility & Supplies Dispatch",
-      "Instant Micro-Ledger Settlements",
+      "Decentralized Student Marketplace",
+      "Streamlined Campus Utilities",
+      "Everyday Student Essentials",
     ],
   },
   {
     id: "settler",
-    code: "SYS-03",
-    tag: "STUDENT LIVING & RELOCATION",
-    headline: "Frictionless Living & Housing for Modern Scholars",
-    highlight: "Living & Housing",
-    subtitle:
-      "Eliminating the stress of relocating for higher education. Settler provides verified student accommodations, algorithmic roommate matching, and digital deposit escrow across major delivery hubs.",
-    cta: "Discover Settler Card",
-    modalTarget: "whatWeDo" as ModalType,
-    icon: Layers,
-    gradient: "from-pink-400 via-purple-300 to-indigo-300",
-    glowColor: "rgba(236, 72, 153, 0.45)",
-    metric: "100% Verified Accommodations",
-    statLabel: "Student Relocation & Living",
-    features: [
-      "Verified Student PGs & Apartments",
-      "Smart Roommate Compatibility",
-      "Digital Rental Agreements",
-    ],
-  },
-  {
-    id: "academy",
     code: "SYS-04",
-    tag: "MANIT INCUBATION & TALENT",
-    headline: "Engineering Elite Tech Talent with MANIT Backing",
-    highlight: "Elite Tech Talent",
+    tag: "PRACTICAL LIVING & HOUSING",
+    headline: "Solving Practical Relocation & Living Problems with Settler",
+    highlight: "Settler",
     subtitle:
-      "Incubated at MANIT Bhopal with ₹50K seed funding. Powering NexonAcademy production engineering cohorts and Pathfinder School strategic career steering for tomorrow's architects.",
-    cta: "Explore Talent Card",
-    modalTarget: "whatWeDo" as ModalType,
-    icon: Sparkles,
+      "A product focused on solving practical problems through technology. Verified student living, smart accommodation matching, and hassle-free relocation.",
+    cta: "Explore Settler",
+    modalTarget: "products" as ModalType,
+    icon: Layers,
     gradient: "from-cyan-400 via-purple-300 to-fuchsia-300",
     glowColor: "rgba(147, 51, 234, 0.5)",
-    metric: "₹50K Seed Funded",
-    statLabel: "MANIT Incubated & ROLTA Allied",
+    metric: "Practical Solutions",
+    statLabel: "Living & Problem-Solving",
     features: [
-      "Production-Grade Codebase Drills",
-      "Pathfinder Career Steering",
-      "Institutional Incubation (MANIT)",
+      "Practical Real-World Solutions",
+      "Seamless Relocation Experience",
+      "Technology-Driven Verification",
     ],
   },
 ];
@@ -277,12 +278,12 @@ export default function Hero({ onOpenModal }: HeroProps) {
         <div className="flex items-center justify-between mb-8 pb-3 border-b border-white/10">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/15 text-xs font-bold tracking-widest uppercase text-purple-300">
             <Zap className="w-3.5 h-3.5 text-purple-400 shrink-0 animate-pulse" />
-            <span>SUPERCHARGING DIGITAL PROGRESS • YUGNEXT ECOSYSTEM</span>
+            <span>YUGNEXT • STEP INTO TOMORROW</span>
           </div>
 
           <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-purple-300">
             <Activity className="w-4 h-4 text-emerald-400 animate-pulse" />
-            <span>4 HUBS ACTIVE • 100% PVT LTD REGISTERED</span>
+            <span>CHENNAI · BHOPAL · PUNE • ONE DIRECTION: FORWARD</span>
           </div>
         </div>
 
@@ -330,16 +331,16 @@ export default function Hero({ onOpenModal }: HeroProps) {
                     onClick={() => onOpenModal("whatWeDo")}
                     className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 text-white font-extrabold text-sm sm:text-base shadow-xl shadow-purple-600/40 hover:shadow-2xl hover:shadow-purple-500/60 hover:scale-[1.03] active:scale-95 transition-all group cursor-pointer"
                   >
-                    <span>{active.cta}</span>
+                    <span>Explore What We Do</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                   </button>
 
                   <button
-                    onClick={() => onOpenModal("whoWeAre")}
+                    onClick={() => onOpenModal("products")}
                     className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-white/5 backdrop-blur-xl text-white font-bold text-sm sm:text-base border border-white/20 hover:bg-white/15 hover:border-white/40 transition-all cursor-pointer"
                   >
-                    <Building2 className="w-4 h-4 text-purple-400" />
-                    <span>Global Hubs Card</span>
+                    <Package className="w-4 h-4 text-purple-400" />
+                    <span>Explore Products</span>
                   </button>
                 </div>
               </motion.div>

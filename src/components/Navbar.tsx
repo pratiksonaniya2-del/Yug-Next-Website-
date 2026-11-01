@@ -96,22 +96,30 @@ export default function Navbar({
             </div>
           </button>
 
-          {/* Desktop Navigation Buttons (Hover to Preview, Click to Lock) */}
-          <nav className="hidden lg:flex items-center space-x-1.5" onMouseLeave={onLeaveNav}>
+          {/* Desktop Navigation Buttons (Exact Website Copy) */}
+          <nav className="hidden xl:flex items-center space-x-1" onMouseLeave={onLeaveNav}>
             <button
               onClick={() => handleNavClick("whatWeDo")}
               onMouseEnter={() => onHoverModal?.("whatWeDo")}
-              className={`${getNavButtonClass("whatWeDo")} flex items-center gap-1.5`}
+              className={getNavButtonClass("whatWeDo")}
             >
-              <span>What We Do</span>
+              What We Do
             </button>
 
             <button
               onClick={() => handleNavClick("whoWeAre")}
               onMouseEnter={() => onHoverModal?.("whoWeAre")}
-              className={`${getNavButtonClass("whoWeAre")} flex items-center gap-1.5`}
+              className={getNavButtonClass("whoWeAre")}
             >
-              <span>Who We Are</span>
+              Who We Are
+            </button>
+
+            <button
+              onClick={() => handleNavClick("products")}
+              onMouseEnter={() => onHoverModal?.("products")}
+              className={getNavButtonClass("products")}
+            >
+              Products
             </button>
 
             <button
@@ -123,38 +131,39 @@ export default function Navbar({
             </button>
 
             <button
-              onClick={() => handleNavClick("insights")}
-              onMouseEnter={() => onHoverModal?.("insights")}
-              className={getNavButtonClass("insights")}
+              onClick={() => handleNavClick("community")}
+              onMouseEnter={() => onHoverModal?.("community")}
+              className={getNavButtonClass("community")}
             >
-              Insights
+              Community
             </button>
 
             <button
-              onClick={() => handleNavClick("investors")}
-              onMouseEnter={() => onHoverModal?.("investors")}
-              className={getNavButtonClass("investors")}
+              onClick={() => handleNavClick("news")}
+              onMouseEnter={() => onHoverModal?.("news")}
+              className={getNavButtonClass("news")}
             >
-              Investors
+              News
             </button>
 
             <button
               onClick={() => handleNavClick("careers")}
               onMouseEnter={() => onHoverModal?.("careers")}
-              className={`${getNavButtonClass("careers")} flex items-center gap-1.5`}
+              className={getNavButtonClass("careers")}
             >
-              <span>Careers</span>
-              <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
-                activeModal === "careers" && isLocked
-                  ? "bg-white text-purple-700"
-                  : "bg-purple-100 text-purple-700"
-              }`}>
-                Hiring
-              </span>
+              Careers
+            </button>
+
+            <button
+              onClick={() => handleNavClick("contact")}
+              onMouseEnter={() => onHoverModal?.("contact")}
+              className={getNavButtonClass("contact")}
+            >
+              Contact
             </button>
           </nav>
 
-          {/* Right Utility & Contact CTA */}
+          {/* Right CTA Button: Step Into Tomorrow */}
           <div className="hidden sm:flex items-center space-x-3">
             {/* Language Selector */}
             <div className="relative">
@@ -176,7 +185,7 @@ export default function Navbar({
                         setSelectedLang(lang.slice(0, 2));
                         setLangDropdownOpen(false);
                       }}
-                      className="w-full text-left px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 font-medium"
+                      className="w-full text-left px-3 py-1.5 hover:bg-purple-50 hover:text-purple-700 font-medium cursor-pointer"
                     >
                       {lang}
                     </button>
@@ -186,20 +195,20 @@ export default function Navbar({
             </div>
 
             <button
-              onClick={() => handleNavClick("contact")}
-              onMouseEnter={() => onHoverModal?.("contact")}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-600 text-white text-sm font-bold shadow-md shadow-purple-600/30 hover:shadow-lg hover:shadow-purple-600/40 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+              onClick={() => handleNavClick("whatWeDo")}
+              onMouseEnter={() => onHoverModal?.("whatWeDo")}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-600 text-white text-xs sm:text-sm font-bold shadow-md shadow-purple-600/30 hover:shadow-lg hover:shadow-purple-600/40 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer whitespace-nowrap"
             >
-              <span>Contact Us</span>
+              <span>Step Into Tomorrow</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
 
           {/* Mobile Menu Hamburger */}
-          <div className="lg:hidden flex items-center">
+          <div className="xl:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-slate-700 hover:bg-purple-50 hover:text-purple-700 transition-colors"
+              className="p-2 rounded-xl text-slate-700 hover:bg-purple-50 hover:text-purple-700 transition-colors cursor-pointer"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -207,6 +216,44 @@ export default function Navbar({
 
         </div>
       </header>
+
+      {/* Mobile Drawer (Triggers Cards) */}
+      {mobileMenuOpen && (
+        <div className="xl:hidden bg-white border-b border-purple-100 px-5 py-6 shadow-2xl space-y-2.5 z-40 relative">
+          {[
+            { label: "What We Do", id: "whatWeDo" as ModalType },
+            { label: "Who We Are", id: "whoWeAre" as ModalType },
+            { label: "Products", id: "products" as ModalType },
+            { label: "Industries", id: "industries" as ModalType },
+            { label: "Community", id: "community" as ModalType },
+            { label: "News", id: "news" as ModalType },
+            { label: "Careers", id: "careers" as ModalType },
+            { label: "Contact", id: "contact" as ModalType },
+          ].map((item) => (
+            <button
+              key={item.id}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                handleNavClick(item.id);
+              }}
+              className="w-full text-left p-3 rounded-xl bg-purple-50/70 text-slate-900 font-bold text-sm hover:bg-purple-100 transition-colors"
+            >
+              {item.label}
+            </button>
+          ))}
+          <div className="pt-2">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                handleNavClick("whatWeDo");
+              }}
+              className="w-full py-3 rounded-xl bg-purple-700 text-white font-bold text-center text-sm shadow-md"
+            >
+              Step Into Tomorrow →
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Mobile Drawer (Triggers Cards) */}
       {mobileMenuOpen && (
