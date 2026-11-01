@@ -144,13 +144,99 @@ export default function Footer({ onOpenModal }: FooterProps) {
         </div>
       </div>
 
-      {/* Mechanical Portal Exact 4-Layer Dynamic Waves (Purple Velvet Theme) */}
-      <div className="footer-waves -mt-1 sm:-mt-2">
-        <div className="footer-wave footer-wave-4" />
-        <div className="footer-wave footer-wave-3" />
-        <div className="footer-wave footer-wave-2" />
-        <div className="footer-wave footer-wave-1" />
-        <div className="footer-wave-glow" />
+      {/* Realistic Luminous 3-Layer Liquid Waves (Specular Crest Highlight & Translucent Gradients) */}
+      <div className="relative w-full h-32 sm:h-44 lg:h-48 -mt-1 sm:-mt-2 pointer-events-none overflow-hidden">
+        
+        {/* Layer 1: Back Wave (Translucent lavender/violet ethereal swell) */}
+        <div className="absolute bottom-0 left-0 w-[200%] h-full animate-wave-realistic-back flex">
+          <svg
+            className="w-full h-full shrink-0"
+            viewBox="0 0 2880 140"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="realisticWave1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#c084fc" stopOpacity="0.22" />
+                <stop offset="45%" stopColor="#8b5cf6" stopOpacity="0.14" />
+                <stop offset="100%" stopColor="#3b0764" stopOpacity="0.02" />
+              </linearGradient>
+            </defs>
+            <path
+              fill="url(#realisticWave1)"
+              d="M0,60 C200,35 520,35 720,60 C920,85 1240,85 1440,60 C1640,35 1960,35 2160,60 C2360,85 2680,85 2880,60 L2880,140 L0,140 Z"
+            />
+            {/* Luminous crest highlight rim */}
+            <path
+              fill="none"
+              stroke="#c084fc"
+              strokeWidth="1.2"
+              strokeOpacity="0.35"
+              d="M0,60 C200,35 520,35 720,60 C920,85 1240,85 1440,60 C1640,35 1960,35 2160,60 C2360,85 2680,85 2880,60"
+            />
+          </svg>
+        </div>
+
+        {/* Layer 2: Mid Wave (Soft violet counter-drift with luminous rim) */}
+        <div className="absolute bottom-0 left-0 w-[200%] h-[88%] animate-wave-realistic-mid flex">
+          <svg
+            className="w-full h-full shrink-0"
+            viewBox="0 0 2880 140"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="realisticWave2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#a855f7" stopOpacity="0.32" />
+                <stop offset="50%" stopColor="#7c3aed" stopOpacity="0.18" />
+                <stop offset="100%" stopColor="#2e1065" stopOpacity="0.03" />
+              </linearGradient>
+            </defs>
+            <path
+              fill="url(#realisticWave2)"
+              d="M0,52 C200,74 520,74 720,52 C920,30 1240,30 1440,52 C1640,74 1960,74 2160,52 C2360,30 2680,30 2880,52 L2880,140 L0,140 Z"
+            />
+            {/* Luminous crest highlight rim */}
+            <path
+              fill="none"
+              stroke="#d8b4fe"
+              strokeWidth="1.5"
+              strokeOpacity="0.60"
+              d="M0,52 C200,74 520,74 720,52 C920,30 1240,30 1440,52 C1640,74 1960,74 2160,52 C2360,30 2680,30 2880,52"
+            />
+          </svg>
+        </div>
+
+        {/* Layer 3: Front Wave (Light glowing liquid crest with bright specular refraction) */}
+        <div className="absolute bottom-0 left-0 w-[200%] h-[78%] animate-wave-realistic-front flex">
+          <svg
+            className="w-full h-full shrink-0"
+            viewBox="0 0 2880 140"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient id="realisticWave3" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#c084fc" stopOpacity="0.45" />
+                <stop offset="25%" stopColor="#9333ea" stopOpacity="0.30" />
+                <stop offset="65%" stopColor="#6b21a8" stopOpacity="0.16" />
+                <stop offset="100%" stopColor="#050212" stopOpacity="0.60" />
+              </linearGradient>
+            </defs>
+            <path
+              fill="url(#realisticWave3)"
+              d="M0,46 C210,26 510,26 720,46 C930,66 1230,66 1440,46 C1650,26 1950,26 2160,46 C2370,66 2670,66 2880,46 L2880,140 L0,140 Z"
+            />
+            {/* Specular crest light highlight */}
+            <path
+              fill="none"
+              stroke="#f3e8ff"
+              strokeWidth="1.8"
+              strokeOpacity="0.85"
+              d="M0,46 C210,26 510,26 720,46 C930,66 1230,66 1440,46 C1650,26 1950,26 2160,46 C2370,66 2670,66 2880,46"
+            />
+          </svg>
+        </div>
+
+        {/* Soft Ambient Light Glow at Base */}
+        <div className="pointer-events-none absolute bottom-[-15px] left-1/2 h-[90px] w-[70%] -translate-x-1/2 rounded-full bg-purple-500/[0.18] blur-3xl" />
       </div>
 
     </footer>
