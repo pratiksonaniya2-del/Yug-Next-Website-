@@ -94,7 +94,7 @@ export default function ContactSection() {
                 </div>
                 <div className="p-3 rounded-xl bg-purple-50/70">
                   <span className="font-bold text-purple-900 block">Chennai Hub</span>
-                  <span className="text-slate-500 text-[11px]">Deep Tech & OWASP Lab</span>
+                  <span className="text-slate-500 text-[11px]">Deep Tech & Cloud Lab</span>
                 </div>
                 <div className="p-3 rounded-xl bg-purple-50/70">
                   <span className="font-bold text-purple-900 block">Delhi NCR</span>
@@ -203,8 +203,7 @@ export default function ContactSection() {
                     <option value="CampusNeeds">CampusNeeds (Student Campus Marketplace)</option>
                     <option value="Settler">Settler (Relocation & Accommodations)</option>
                     <option value="NexonAcademy">NexonAcademy (Upskilling Cohorts)</option>
-                    <option value="Pravah">Pravah (Enterprise Digital Engineering)</option>
-                    <option value="OWASP">OWASP (Cybersecurity & Audit)</option>
+                    <option value="Pathfinder School">Pathfinder School (Career Steering & Mentorship)</option>
                     <option value="Investor Relations">Investor Relations & Incubation</option>
                     <option value="Careers / Internships">Careers / Student Hiring</option>
                   </select>

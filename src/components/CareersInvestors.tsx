@@ -25,10 +25,10 @@ const POSITIONS = [
     experience: "1-3 Years / Freshers with live projects",
   },
   {
-    title: "Application Security & OWASP Specialist",
+    title: "Cloud Infrastructure & Backend Engineer",
     type: "Full-time",
     hub: "Chennai Hub / Remote",
-    dept: "Cybersecurity Wing",
+    dept: "Infrastructure Wing",
     experience: "1-4 Years",
   },
   {

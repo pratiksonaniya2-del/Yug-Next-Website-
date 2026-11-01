@@ -44,7 +44,7 @@ const INDUSTRIES = [
       "Frictionless college fee split & installment gateways",
       "Secure rental deposit protection via Settler",
       "Micro-ledger accounting for campus vendors",
-      "Full OWASP compliance & bank-grade encryption",
+      "Full compliance & bank-grade end-to-end encryption",
     ],
   },
   {

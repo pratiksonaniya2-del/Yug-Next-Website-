@@ -29,7 +29,7 @@ const HUBS = [
     type: "Deep Tech & Cloud Infrastructure",
     tag: "South Delivery Hub",
     address: "OMR IT Corridor, Chennai, Tamil Nadu",
-    desc: "Specialized in high-throughput backend services, OWASP security research, and enterprise cloud integrations.",
+    desc: "Specialized in high-throughput backend services, cloud integrations, and mobile engineering.",
     metrics: "High Scale Ops",
   },
   {

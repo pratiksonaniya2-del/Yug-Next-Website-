@@ -75,8 +75,6 @@ export default function Footer() {
               
               <li className="font-semibold text-slate-400 pt-2">Specialized Services:</li>
               <li><a href="#services" className="hover:text-purple-400 transition-colors">NexonAcademy</a></li>
-              <li><a href="#services" className="hover:text-purple-400 transition-colors">Pravah Engineering</a></li>
-              <li><a href="#services" className="hover:text-purple-400 transition-colors">OWASP Security</a></li>
               <li><a href="#services" className="hover:text-purple-400 transition-colors">Pathfinder School</a></li>
             </ul>
           </div>
@@ -118,7 +116,7 @@ export default function Footer() {
                 <MapPin className="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-slate-200">Chennai Hub</span>
-                  <p className="text-[10px] text-slate-500">Deep Tech & OWASP Wing</p>
+                  <p className="text-[10px] text-slate-500">Deep Tech & Engineering Wing</p>
                 </div>
               </li>
               <li className="flex items-start gap-1.5">
@@ -176,11 +174,11 @@ export default function Footer() {
 
             <div className="pt-3">
               <span className="text-[10px] text-slate-500 uppercase font-mono block mb-1">
-                Security Standard:
+                Data Standards:
               </span>
               <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-slate-900 border border-slate-800 text-[10px] text-emerald-400 font-semibold">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>OWASP Verified Defense</span>
+                <span>Enterprise Data Security</span>
               </div>
             </div>
           </div>
@@ -197,7 +195,7 @@ export default function Footer() {
             <span>•</span>
             <a href="#" className="hover:text-purple-400 transition-colors">Terms of Service</a>
             <span>•</span>
-            <a href="#" className="hover:text-purple-400 transition-colors">Security & OWASP Protocols</a>
+            <a href="#" className="hover:text-purple-400 transition-colors">Data Security Protocols</a>
             <span>•</span>
             <a href="#" className="hover:text-purple-400 transition-colors">MCA Disclosures</a>
           </div>
