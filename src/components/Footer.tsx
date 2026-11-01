@@ -144,10 +144,10 @@ export default function Footer({ onOpenModal }: FooterProps) {
         </div>
       </div>
 
-      {/* Layered Liquid Moving Waves (Close to text, smooth continuous sinusoidal curves) */}
+      {/* Layered Liquid Moving Waves (Expanded Wide-Swell Curves & Relaxed Motion) */}
       <div className="relative w-full h-36 sm:h-48 lg:h-56 -mt-1 sm:-mt-2 pointer-events-none overflow-hidden">
         
-        {/* Layer 1: Deep Indigo/Purple Back Wave (Slow moving) */}
+        {/* Layer 1: Deep Indigo/Purple Back Wave (Slow 32s majestic drift) */}
         <div className="absolute bottom-0 left-0 w-[200%] h-full animate-wave-slow flex">
           <svg
             className="w-full h-full text-purple-950/70 shrink-0"
@@ -156,12 +156,12 @@ export default function Footer({ onOpenModal }: FooterProps) {
           >
             <path
               fill="currentColor"
-              d="M0,55 C100,20 260,20 360,55 C460,90 620,90 720,55 C820,20 980,20 1080,55 C1180,90 1340,90 1440,55 C1540,20 1700,20 1800,55 C1900,90 2060,90 2160,55 C2260,20 2420,20 2520,55 C2620,90 2780,90 2880,55 L2880,140 L0,140 Z"
+              d="M0,65 C200,30 520,30 720,65 C920,100 1240,100 1440,65 C1640,30 1960,30 2160,65 C2360,100 2680,100 2880,65 L2880,140 L0,140 Z"
             />
           </svg>
         </div>
 
-        {/* Layer 2: Electric Purple Mid Wave (Medium speed reverse - perfectly smooth sinusoidal bezier) */}
+        {/* Layer 2: Electric Purple Mid Wave (Gentle 24s reverse rolling swell) */}
         <div className="absolute bottom-0 left-0 w-[200%] h-[88%] animate-wave-medium flex">
           <svg
             className="w-full h-full text-purple-800/50 shrink-0"
@@ -170,12 +170,12 @@ export default function Footer({ onOpenModal }: FooterProps) {
           >
             <path
               fill="currentColor"
-              d="M0,48 C65,76 175,76 240,48 C305,20 415,20 480,48 C545,76 655,76 720,48 C785,20 895,20 960,48 C1025,76 1135,76 1200,48 C1265,20 1375,20 1440,48 C1505,76 1615,76 1680,48 C1745,20 1855,20 1920,48 C1985,76 2095,76 2160,48 C2225,20 2335,20 2400,48 C2465,76 2575,76 2640,48 C2705,20 2815,20 2880,48 L2880,140 L0,140 Z"
+              d="M0,55 C200,85 520,85 720,55 C920,25 1240,25 1440,55 C1640,85 1960,85 2160,55 C2360,25 2680,25 2880,55 L2880,140 L0,140 Z"
             />
           </svg>
         </div>
 
-        {/* Layer 3: Neon Purple/Violet Front Wave (Fast moving - harmonic smooth bezier) */}
+        {/* Layer 3: Neon Purple/Violet Front Wave (Smooth 18s expansive swell) */}
         <div className="absolute bottom-0 left-0 w-[200%] h-[74%] animate-wave-fast flex">
           <svg
             className="w-full h-full text-purple-600/35 shrink-0"
@@ -184,7 +184,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
           >
             <path
               fill="currentColor"
-              d="M0,40 C100,15 260,15 360,40 C460,65 620,65 720,40 C820,15 980,15 1080,40 C1180,65 1340,65 1440,40 C1540,15 1700,15 1800,40 C1900,65 2060,65 2160,40 C2260,15 2420,15 2520,40 C2620,65 2780,65 2880,40 L2880,140 L0,140 Z"
+              d="M0,45 C220,22 500,22 720,45 C940,68 1220,68 1440,45 C1660,22 1940,22 2160,45 C2380,68 2660,68 2880,45 L2880,140 L0,140 Z"
             />
           </svg>
         </div>

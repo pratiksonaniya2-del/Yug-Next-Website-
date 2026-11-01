@@ -75,16 +75,16 @@ body {
 }
 
 .animate-wave-slow {
-  animation: waveMotion 16s linear infinite;
+  animation: waveMotion 32s linear infinite;
   will-change: transform;
 }
 
 .animate-wave-medium {
-  animation: waveMotionReverse 11s linear infinite;
+  animation: waveMotionReverse 24s linear infinite;
   will-change: transform;
 }
 
 .animate-wave-fast {
-  animation: waveMotion 7s linear infinite;
+  animation: waveMotion 18s linear infinite;
   will-change: transform;
 }
