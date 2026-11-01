@@ -318,8 +318,8 @@ export default function WhoWeAre() {
             </div>
 
             <div className="lg:col-span-4 flex flex-col justify-center items-center p-6 bg-white rounded-2xl border border-purple-100 text-center shadow-xs">
-              <div className="w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-xl mb-3">
-                📍
+              <div className="w-14 h-14 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center mb-3">
+                <MapPin className="w-7 h-7 text-purple-700" />
               </div>
               <div className="text-base font-bold text-slate-900">{HUBS[activeHub].city} Operations</div>
               <div className="text-xs text-slate-500 mt-1">High Availability & On-Ground Delivery</div>

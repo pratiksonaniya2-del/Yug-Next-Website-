@@ -12,6 +12,7 @@ import {
   ArrowRight,
   Clock,
   Quote,
+  MapPin,
 } from "lucide-react";
 
 const NEWS_TIMELINE = [
@@ -161,7 +162,10 @@ export default function InsightsNews() {
               </p>
 
               <div className="p-3 bg-purple-50 rounded-2xl border border-purple-100 text-xs text-purple-800 font-semibold flex items-center justify-between">
-                <span>📍 Host City: Bhopal Hub</span>
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-purple-700 shrink-0" />
+                  Host City: Bhopal Central Hub
+                </span>
                 <span className="font-bold">Dates TBA</span>
               </div>
             </div>

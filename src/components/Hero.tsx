@@ -248,8 +248,8 @@ export default function Hero() {
                       <div className="text-2xl font-extrabold tracking-tight">₹50K+ Seeded</div>
                       <div className="text-[11px] text-purple-200 mt-0.5">MANIT Bhopal Supported</div>
                     </div>
-                    <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center font-bold text-lg">
-                      🚀
+                    <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center">
+                      <TrendingUp className="w-6 h-6 text-white" />
                     </div>
                   </div>
                 </div>

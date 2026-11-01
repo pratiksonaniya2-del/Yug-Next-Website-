@@ -51,8 +51,9 @@ export default function Navbar() {
             <span className="bg-white/20 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
               Milestone Update
             </span>
-            <span className="font-medium text-purple-100">
-              🎉 Officially incorporated as Pvt Ltd company (Oct 21, 2026) & Secured 50K Incubation Funding!
+            <span className="font-medium text-purple-100 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-purple-300 shrink-0" />
+              Officially incorporated as a Private Limited company (Oct 21, 2026) • Secured ₹50K Incubation Funding
             </span>
           </div>
           <a

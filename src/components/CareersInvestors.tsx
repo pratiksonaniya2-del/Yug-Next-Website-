@@ -12,6 +12,8 @@ import {
   FileText,
   Building2,
   Sparkles,
+  MapPin,
+  GraduationCap,
 } from "lucide-react";
 
 const POSITIONS = [
@@ -183,9 +185,15 @@ export default function CareersInvestors() {
                     {pos.title}
                   </h3>
 
-                  <div className="text-xs text-slate-500 space-y-1">
-                    <p>📍 Location: <strong>{pos.hub}</strong></p>
-                    <p>🎓 Experience: <strong>{pos.experience}</strong></p>
+                  <div className="text-xs text-slate-600 space-y-1.5 pt-1">
+                    <p className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                      <span>Location: <strong>{pos.hub}</strong></span>
+                    </p>
+                    <p className="flex items-center gap-1.5">
+                      <GraduationCap className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+                      <span>Experience: <strong>{pos.experience}</strong></span>
+                    </p>
                   </div>
                 </div>
 
