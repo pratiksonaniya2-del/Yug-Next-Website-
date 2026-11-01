@@ -144,53 +144,13 @@ export default function Footer({ onOpenModal }: FooterProps) {
         </div>
       </div>
 
-      {/* Layered Liquid Moving Waves (Expanded Wide-Swell Curves & Relaxed Motion) */}
-      <div className="relative w-full h-36 sm:h-48 lg:h-56 -mt-1 sm:-mt-2 pointer-events-none overflow-hidden">
-        
-        {/* Layer 1: Deep Indigo/Purple Back Wave (Slow 32s majestic drift) */}
-        <div className="absolute bottom-0 left-0 w-[200%] h-full animate-wave-slow flex">
-          <svg
-            className="w-full h-full text-purple-950/70 shrink-0"
-            viewBox="0 0 2880 140"
-            preserveAspectRatio="none"
-          >
-            <path
-              fill="currentColor"
-              d="M0,65 C200,30 520,30 720,65 C920,100 1240,100 1440,65 C1640,30 1960,30 2160,65 C2360,100 2680,100 2880,65 L2880,140 L0,140 Z"
-            />
-          </svg>
-        </div>
-
-        {/* Layer 2: Electric Purple Mid Wave (Gentle 24s reverse rolling swell) */}
-        <div className="absolute bottom-0 left-0 w-[200%] h-[88%] animate-wave-medium flex">
-          <svg
-            className="w-full h-full text-purple-800/50 shrink-0"
-            viewBox="0 0 2880 140"
-            preserveAspectRatio="none"
-          >
-            <path
-              fill="currentColor"
-              d="M0,55 C200,85 520,85 720,55 C920,25 1240,25 1440,55 C1640,85 1960,85 2160,55 C2360,25 2680,25 2880,55 L2880,140 L0,140 Z"
-            />
-          </svg>
-        </div>
-
-        {/* Layer 3: Neon Purple/Violet Front Wave (Smooth 18s expansive swell) */}
-        <div className="absolute bottom-0 left-0 w-[200%] h-[74%] animate-wave-fast flex">
-          <svg
-            className="w-full h-full text-purple-600/35 shrink-0"
-            viewBox="0 0 2880 140"
-            preserveAspectRatio="none"
-          >
-            <path
-              fill="currentColor"
-              d="M0,45 C220,22 500,22 720,45 C940,68 1220,68 1440,45 C1660,22 1940,22 2160,45 C2380,68 2660,68 2880,45 L2880,140 L0,140 Z"
-            />
-          </svg>
-        </div>
-
-        {/* Enhanced Glowing Ambient Blur Pill */}
-        <div className="pointer-events-none absolute bottom-[-20px] left-1/2 h-[130px] w-[75%] -translate-x-1/2 rounded-full bg-purple-600/[0.25] blur-3xl" />
+      {/* Mechanical Portal Exact 4-Layer Dynamic Waves (Purple Velvet Theme) */}
+      <div className="footer-waves -mt-1 sm:-mt-2">
+        <div className="footer-wave footer-wave-4" />
+        <div className="footer-wave footer-wave-3" />
+        <div className="footer-wave footer-wave-2" />
+        <div className="footer-wave footer-wave-1" />
+        <div className="footer-wave-glow" />
       </div>
 
     </footer>
