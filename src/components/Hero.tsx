@@ -16,8 +16,12 @@ import {
   Award,
   CheckCircle2,
   Activity,
-  Compass,
 } from "lucide-react";
+import { ModalType } from "./ContentCardModal";
+
+interface HeroProps {
+  onOpenModal: (modal: ModalType) => void;
+}
 
 const STREAMS = [
   {
@@ -28,8 +32,8 @@ const STREAMS = [
     highlight: "Shikshasetu",
     subtitle:
       "A unified digital bridge connecting universities, faculty, and scholars. Streamlines academic records, course tracking, fee reconciliation, and departmental communication at enterprise speed.",
-    cta: "Launch Shikshasetu",
-    ctaLink: "#products",
+    cta: "Launch Shikshasetu Card",
+    modalTarget: "whatWeDo" as ModalType,
     icon: GraduationCap,
     gradient: "from-purple-400 via-fuchsia-300 to-indigo-300",
     glowColor: "rgba(168, 85, 247, 0.45)",
@@ -49,8 +53,8 @@ const STREAMS = [
     highlight: "Instant Student Services",
     subtitle:
       "Empowering collegiate ecosystems through CampusNeeds. Decentralized peer-to-peer student marketplace, daily supplies, hostel utility requests, and frictionless micro-transactions.",
-    cta: "Explore CampusNeeds",
-    ctaLink: "#products",
+    cta: "Explore CampusNeeds Card",
+    modalTarget: "whatWeDo" as ModalType,
     icon: Building2,
     gradient: "from-indigo-400 via-purple-300 to-cyan-300",
     glowColor: "rgba(99, 102, 241, 0.45)",
@@ -70,8 +74,8 @@ const STREAMS = [
     highlight: "Living & Housing",
     subtitle:
       "Eliminating the stress of relocating for higher education. Settler provides verified student accommodations, algorithmic roommate matching, and digital deposit escrow across major delivery hubs.",
-    cta: "Discover Settler",
-    ctaLink: "#products",
+    cta: "Discover Settler Card",
+    modalTarget: "whatWeDo" as ModalType,
     icon: Layers,
     gradient: "from-pink-400 via-purple-300 to-indigo-300",
     glowColor: "rgba(236, 72, 153, 0.45)",
@@ -91,8 +95,8 @@ const STREAMS = [
     highlight: "Elite Tech Talent",
     subtitle:
       "Incubated at MANIT Bhopal with ₹50K seed funding. Powering NexonAcademy production engineering cohorts and Pathfinder School strategic career steering for tomorrow's architects.",
-    cta: "Explore Talent Programs",
-    ctaLink: "#services",
+    cta: "Explore Talent Card",
+    modalTarget: "whatWeDo" as ModalType,
     icon: Sparkles,
     gradient: "from-cyan-400 via-purple-300 to-fuchsia-300",
     glowColor: "rgba(147, 51, 234, 0.5)",
@@ -106,7 +110,7 @@ const STREAMS = [
   },
 ];
 
-export default function Hero() {
+export default function Hero({ onOpenModal }: HeroProps) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -169,7 +173,6 @@ export default function Hero() {
     };
     window.addEventListener("resize", handleResize);
 
-    // Particle nodes
     const particleCount = Math.min(Math.floor(width / 18), 65);
     const particles: Array<{
       x: number;
@@ -240,7 +243,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[94vh] lg:min-h-screen bg-[#050212] text-white flex flex-col justify-between overflow-hidden pt-6 pb-10 lg:pt-12 lg:pb-12">
+    <section className="relative min-h-[92vh] lg:min-h-screen bg-[#050212] text-white flex flex-col justify-between overflow-hidden pt-6 pb-10 lg:pt-12 lg:pb-12">
       
       {/* 1. Interactive Neural Particle Canvas (Background Layer) */}
       <canvas
@@ -267,7 +270,7 @@ export default function Hero() {
       {/* 4. Cyber Grid Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0 [mask-image:radial-gradient(ellipse_75%_60%_at_50%_35%,#000_65%,transparent_100%)]" />
 
-      {/* Main Viewport Grid */}
+      {/* Main Viewport Content */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto w-full z-10">
         
         {/* Top Status Header */}
@@ -321,23 +324,23 @@ export default function Hero() {
                   {active.subtitle}
                 </p>
 
-                {/* Dual Action CTAs */}
+                {/* Action CTAs: Triggers Cognizant Card */}
                 <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <a
-                    href={active.ctaLink}
-                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 text-white font-extrabold text-sm sm:text-base shadow-xl shadow-purple-600/40 hover:shadow-2xl hover:shadow-purple-500/60 hover:scale-[1.03] active:scale-95 transition-all group"
+                  <button
+                    onClick={() => onOpenModal("whatWeDo")}
+                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 text-white font-extrabold text-sm sm:text-base shadow-xl shadow-purple-600/40 hover:shadow-2xl hover:shadow-purple-500/60 hover:scale-[1.03] active:scale-95 transition-all group cursor-pointer"
                   >
                     <span>{active.cta}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                  </a>
+                  </button>
 
-                  <a
-                    href="#who-we-are"
-                    className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-white/5 backdrop-blur-xl text-white font-bold text-sm sm:text-base border border-white/20 hover:bg-white/15 hover:border-white/40 transition-all"
+                  <button
+                    onClick={() => onOpenModal("whoWeAre")}
+                    className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-white/5 backdrop-blur-xl text-white font-bold text-sm sm:text-base border border-white/20 hover:bg-white/15 hover:border-white/40 transition-all cursor-pointer"
                   >
                     <Building2 className="w-4 h-4 text-purple-400" />
-                    <span>Global Hubs (4 Cities)</span>
-                  </a>
+                    <span>Global Hubs Card</span>
+                  </button>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -373,7 +376,7 @@ export default function Hero() {
 
           </div>
 
-          {/* Right Column: 3D Interactive Parallax Console */}
+          {/* Right Column: 3D Interactive Parallax Console (Click to Open Card) */}
           <div className="lg:col-span-5" style={{ perspective: "1000px" }}>
             <motion.div
               animate={{
@@ -383,7 +386,9 @@ export default function Hero() {
               transition={{ type: "spring", stiffness: 350, damping: 25 }}
               onMouseMove={handleCardMouseMove}
               onMouseLeave={handleCardMouseLeave}
+              onClick={() => onOpenModal("whatWeDo")}
               className="relative group cursor-pointer"
+              title="Click to expand full interactive overview card"
             >
               {/* Outer Glow Halo */}
               <div
@@ -409,7 +414,7 @@ export default function Hero() {
                   </div>
                   <span className="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-emerald-950/60 text-emerald-400 border border-emerald-500/40 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    ONLINE
+                    CLICK TO EXPAND
                   </span>
                 </div>
 
@@ -432,8 +437,8 @@ export default function Hero() {
                   ))}
                 </div>
 
-                {/* Quick 4-Stream Interactive Selector Buttons */}
-                <div className="pt-2 border-t border-white/10">
+                {/* Direct Stream Select */}
+                <div className="pt-2 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
                   <div className="text-[10px] font-mono uppercase tracking-wider text-white/40 mb-2.5">
                     Direct Stream Select:
                   </div>
@@ -465,42 +470,54 @@ export default function Hero() {
 
       </div>
 
-      {/* Bottom Proof-of-Scale Strip (Enterprise Credibility) */}
+      {/* Bottom Proof-of-Scale Strip (Click any stat to open relevant card) */}
       <div className="relative mt-8 pt-6 border-t border-white/10 bg-white/[0.02] backdrop-blur-md z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
             
-            <div className="space-y-1">
+            <button
+              onClick={() => onOpenModal("whoWeAre")}
+              className="space-y-1 text-left p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
+            >
               <div className="text-2xl sm:text-3xl font-black text-white">4 Delivery Hubs</div>
               <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-purple-400" />
                 <span>Chennai • Bhopal • Agra • Delhi NCR</span>
               </div>
-            </div>
+            </button>
 
-            <div className="space-y-1">
+            <button
+              onClick={() => onOpenModal("insights")}
+              className="space-y-1 text-left p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
+            >
               <div className="text-2xl sm:text-3xl font-black text-white">₹50K+ Seeded</div>
               <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1.5">
                 <TrendingUp className="w-3.5 h-3.5 text-purple-400" />
                 <span>MANIT Bhopal Incubation</span>
               </div>
-            </div>
+            </button>
 
-            <div className="space-y-1">
+            <button
+              onClick={() => onOpenModal("insights")}
+              className="space-y-1 text-left p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
+            >
               <div className="text-2xl sm:text-3xl font-black text-white">Oct 21, 2026</div>
               <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-purple-400" />
                 <span>Incorporated Pvt Ltd Entity</span>
               </div>
-            </div>
+            </button>
 
-            <div className="space-y-1">
+            <button
+              onClick={() => onOpenModal("whoWeAre")}
+              className="space-y-1 text-left p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
+            >
               <div className="text-2xl sm:text-3xl font-black text-white">Premier Alliances</div>
               <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1.5">
                 <Award className="w-3.5 h-3.5 text-purple-400" />
                 <span>ROLTA & Govt. of India Programs</span>
               </div>
-            </div>
+            </button>
 
           </div>
         </div>
