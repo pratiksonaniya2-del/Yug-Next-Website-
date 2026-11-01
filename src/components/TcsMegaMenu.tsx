@@ -1,11 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   X,
-  Lock,
-  Unlock,
   GraduationCap,
   Building2,
   Layers,
@@ -31,12 +29,12 @@ import { ModalType } from "./ContentCardModal";
 
 interface TcsMegaMenuProps {
   activeModal: ModalType;
-  isLocked: boolean;
   onClose: () => void;
-  onToggleLock: () => void;
   onSelectModal: (modal: ModalType) => void;
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
+  isLocked?: boolean;
+  onToggleLock?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 export default function TcsMegaMenu({
@@ -48,6 +46,17 @@ export default function TcsMegaMenu({
   onMouseEnter,
   onMouseLeave,
 }: TcsMegaMenuProps) {
+  // ESC key support to close mega menu
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   if (!activeModal) return null;
 
   return (
@@ -96,36 +105,15 @@ export default function TcsMegaMenu({
             </div>
 
             <div className="flex items-center gap-3">
-              {/* Lock Toggle Pill */}
-              <button
-                onClick={onToggleLock}
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                  isLocked
-                    ? "bg-purple-600 text-white shadow-md shadow-purple-600/30"
-                    : "bg-purple-100 text-purple-700 hover:bg-purple-200 border border-purple-200"
-                }`}
-                title={isLocked ? "Menu is locked open. Click to unlock." : "Preview mode. Click to lock open."}
-              >
-                {isLocked ? (
-                  <>
-                    <Lock className="w-3.5 h-3.5" />
-                    <span>Locked</span>
-                  </>
-                ) : (
-                  <>
-                    <Unlock className="w-3.5 h-3.5 text-purple-500" />
-                    <span>Hover Preview (Click to Lock)</span>
-                  </>
-                )}
-              </button>
-
-              {/* Close Button */}
+              {/* Close Button with ESC hint */}
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-full bg-slate-100 hover:bg-purple-100 text-slate-600 hover:text-purple-700 transition-colors cursor-pointer"
-                title="Close Menu"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-purple-100 text-slate-700 hover:text-purple-700 text-xs font-bold transition-all cursor-pointer border border-slate-200 hover:border-purple-300"
+                title="Close Menu (ESC)"
               >
-                <X className="w-5 h-5" />
+                <span>Close</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-white text-slate-500 font-mono border border-slate-200">ESC</span>
+                <X className="w-4 h-4 ml-0.5" />
               </button>
             </div>
           </div>

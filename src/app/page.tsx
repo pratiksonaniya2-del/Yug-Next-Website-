@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ContentCardModal, { ModalType } from "@/components/ContentCardModal";
+import { ModalType } from "@/components/ContentCardModal";
 import Footer from "@/components/Footer";
 import {
   Sparkles,
@@ -21,28 +21,11 @@ import {
 export default function Home() {
   const [activeModal, setActiveModal] = useState<ModalType>(null);
   const [isLocked, setIsLocked] = useState<boolean>(false);
-  const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Triggered on hover from Navbar (preview mode)
-  const handleHoverModal = (modal: ModalType) => {
-    if (leaveTimeoutRef.current) {
-      clearTimeout(leaveTimeoutRef.current);
-      leaveTimeoutRef.current = null;
-    }
-    // If not locked, or switching modals, show the hovered card preview
-    if (!isLocked || activeModal !== modal) {
-      setActiveModal(modal);
-    }
-  };
-
-  // Triggered on click from Navbar or Cards (locks card open)
+  // Triggered strictly on click from Navbar or Page Cards (TCS Click-Driven Architecture)
   const handleClickModal = (modal: ModalType) => {
-    if (leaveTimeoutRef.current) {
-      clearTimeout(leaveTimeoutRef.current);
-      leaveTimeoutRef.current = null;
-    }
-    if (activeModal === modal && isLocked) {
-      // Clicking same modal while locked toggles it closed
+    if (activeModal === modal) {
+      // Clicking same modal toggles it closed
       setIsLocked(false);
       setActiveModal(null);
     } else {
@@ -51,33 +34,7 @@ export default function Home() {
     }
   };
 
-  // Triggered when cursor leaves Navbar or Modal card
-  const handleLeaveNavOrCard = () => {
-    if (!isLocked) {
-      if (leaveTimeoutRef.current) clearTimeout(leaveTimeoutRef.current);
-      leaveTimeoutRef.current = setTimeout(() => {
-        setActiveModal(null);
-      }, 220); // 220ms grace window for smooth mouse transition
-    }
-  };
-
-  // Triggered when cursor enters the Modal card (cancels dismissal)
-  const handleEnterCard = () => {
-    if (leaveTimeoutRef.current) {
-      clearTimeout(leaveTimeoutRef.current);
-      leaveTimeoutRef.current = null;
-    }
-  };
-
-  const handleToggleLock = () => {
-    setIsLocked((prev) => !prev);
-  };
-
   const closeModal = () => {
-    if (leaveTimeoutRef.current) {
-      clearTimeout(leaveTimeoutRef.current);
-      leaveTimeoutRef.current = null;
-    }
     setIsLocked(false);
     setActiveModal(null);
   };
@@ -85,17 +42,13 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white flex flex-col justify-between selection:bg-purple-600 selection:text-white">
       
-      {/* 1. Header with Hover Preview & Click-to-Lock Support (TCS-Style Attached Mega Menu) */}
+      {/* 1. TCS-Style Attached Mega-Menu Header (Click-Only + 2 Utility Icons: Search & Globe) */}
       <Navbar
         activeModal={activeModal}
         isLocked={isLocked}
         onOpenModal={(modal) => handleClickModal(modal)}
-        onHoverModal={handleHoverModal}
         onClickModal={handleClickModal}
-        onLeaveNav={handleLeaveNavOrCard}
         onCloseMegaMenu={closeModal}
-        onToggleLock={handleToggleLock}
-        onEnterMegaMenu={handleEnterCard}
       />
 
       {/* 2. Full-Screen 60fps Neural Canvas & 3D Interactive Hero */}
