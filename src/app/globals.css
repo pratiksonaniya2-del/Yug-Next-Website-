@@ -54,3 +54,37 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Continuous 60fps moving liquid waves */
+@keyframes waveMotion {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes waveMotionReverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-wave-slow {
+  animation: waveMotion 16s linear infinite;
+  will-change: transform;
+}
+
+.animate-wave-medium {
+  animation: waveMotionReverse 11s linear infinite;
+  will-change: transform;
+}
+
+.animate-wave-fast {
+  animation: waveMotion 7s linear infinite;
+  will-change: transform;
+}

@@ -144,34 +144,53 @@ export default function Footer({ onOpenModal }: FooterProps) {
         </div>
       </div>
 
-      {/* Layered Liquid Ambient Wave Graphic (Adapted from Mechanical Hub Portal) */}
-      <div className="relative w-full h-16 pointer-events-none overflow-hidden">
-        {/* Layer 1: Deep Violet Wave */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-full text-purple-950/40"
-          viewBox="0 0 1440 90"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="currentColor"
-            d="M0,45 C320,80 480,10 720,45 C960,80 1120,10 1440,45 L1440,90 L0,90 Z"
-          />
-        </svg>
+      {/* Layered Liquid Moving Waves (Expanded Height & Continuous 60fps Animation) */}
+      <div className="relative w-full h-32 sm:h-44 lg:h-52 pointer-events-none overflow-hidden">
+        
+        {/* Layer 1: Deep Indigo/Purple Back Wave (Slow moving) */}
+        <div className="absolute bottom-0 left-0 w-[200%] h-full animate-wave-slow flex">
+          <svg
+            className="w-full h-full text-purple-950/60 shrink-0"
+            viewBox="0 0 2880 140"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="currentColor"
+              d="M0,60 C360,115 540,15 720,60 C900,105 1080,15 1440,60 C1800,115 1980,15 2160,60 C2340,105 2520,15 2880,60 L2880,140 L0,140 Z"
+            />
+          </svg>
+        </div>
 
-        {/* Layer 2: Electric Purple Translucent Wave */}
-        <svg
-          className="absolute bottom-0 left-0 w-full h-full text-purple-800/20"
-          viewBox="0 0 1440 90"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="currentColor"
-            d="M0,30 C360,0 600,65 900,30 C1200,0 1360,65 1440,30 L1440,90 L0,90 Z"
-          />
-        </svg>
+        {/* Layer 2: Electric Purple Mid Wave (Medium speed reverse) */}
+        <div className="absolute bottom-0 left-0 w-[200%] h-[85%] animate-wave-medium flex">
+          <svg
+            className="w-full h-full text-purple-800/40 shrink-0"
+            viewBox="0 0 2880 140"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="currentColor"
+              d="M0,45 C400,0 680,95 1000,45 C1320,0 1440,75 1440,45 C1840,0 2120,95 2440,45 C2760,0 2880,75 2880,45 L2880,140 L0,140 Z"
+            />
+          </svg>
+        </div>
 
-        {/* Glowing Ambient Blur Pill (Exact Mechanical Portal signature) */}
-        <div className="pointer-events-none absolute bottom-[-45px] left-1/2 h-[90px] w-[65%] -translate-x-1/2 rounded-full bg-purple-600/[0.12] blur-3xl" />
+        {/* Layer 3: Neon Purple/Violet Front Wave (Fast moving) */}
+        <div className="absolute bottom-0 left-0 w-[200%] h-[70%] animate-wave-fast flex">
+          <svg
+            className="w-full h-full text-purple-600/30 shrink-0"
+            viewBox="0 0 2880 140"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="currentColor"
+              d="M0,50 C320,85 520,20 720,50 C920,80 1120,15 1440,50 C1760,85 1960,20 2160,50 C2360,80 2560,15 2880,50 L2880,140 L0,140 Z"
+            />
+          </svg>
+        </div>
+
+        {/* Enhanced Glowing Ambient Blur Pill */}
+        <div className="pointer-events-none absolute bottom-[-30px] left-1/2 h-[130px] w-[75%] -translate-x-1/2 rounded-full bg-purple-600/[0.2] blur-3xl" />
       </div>
 
     </footer>
