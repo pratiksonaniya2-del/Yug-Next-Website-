@@ -1,211 +1,319 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
+  Play,
+  Pause,
+  ChevronLeft,
+  ChevronRight,
+  GraduationCap,
+  Building2,
+  Layers,
   Sparkles,
   MapPin,
   TrendingUp,
   Award,
-  GraduationCap,
-  Building2,
-  Layers,
-  Compass,
   CheckCircle2,
-  Play,
-  ArrowUpRight,
 } from "lucide-react";
 
-const HERO_PILLARS = [
+const TCS_HERO_STORIES = [
   {
-    id: "products",
-    badge: "PROPRIETARY ECOSYSTEMS",
-    title: "Building Nation-Scale Digital Infrastructure for Modern India",
-    highlight: "Digital Infrastructure",
-    subtitle:
-      "Transforming higher education, campus lifecycle, and student living through our flagship products: Shikshasetu, CampusNeeds, and Settler.",
-    cta: "Explore Our Products",
+    id: "shikshasetu",
+    number: "01",
+    tag: "HIGHER EDUCATION & CAMPUS GOVERNANCE",
+    title: "Building India's Unified Academic Digital Infrastructure",
+    highlight: "Academic Digital Infrastructure",
+    description:
+      "Empowering universities, faculty, and scholars with integrated course tracking, automated records, and seamless administrative workflows through Shikshasetu.",
+    cta: "Explore Shikshasetu",
     ctaLink: "#products",
-    accentColor: "from-purple-600 via-purple-700 to-indigo-700",
+    icon: GraduationCap,
+    gradient: "from-purple-500 via-indigo-400 to-purple-200",
+    glow: "rgba(168, 85, 247, 0.35)",
+    tagline: "Proprietary EdTech Platform",
   },
   {
-    id: "incubation",
-    badge: "MANIT BHOPAL INCUBATED",
-    title: "Backed by Premier Academic Incubation & ₹50K Seed Capital",
-    highlight: "Premier Incubation",
-    subtitle:
-      "Formally incubated within MANIT Bhopal's research ecosystem and incorporated as a Private Limited company to deliver transformative technology.",
-    cta: "View Our Journey",
-    ctaLink: "#insights",
-    accentColor: "from-indigo-600 via-purple-600 to-violet-700",
+    id: "campusneeds",
+    number: "02",
+    tag: "CAMPUS COMMERCE & STUDENT UTILITIES",
+    title: "Powering Campus Commerce & Essential Student Services",
+    highlight: "Essential Student Services",
+    description:
+      "Connecting university campuses with verified peer-to-peer student marketplaces, hostel utilities, daily supplies, and instant micro-ledgers via CampusNeeds.",
+    cta: "Discover CampusNeeds",
+    ctaLink: "#products",
+    icon: Building2,
+    gradient: "from-indigo-400 via-purple-300 to-pink-300",
+    glow: "rgba(99, 102, 241, 0.35)",
+    tagline: "Comprehensive Campus Ecosystem",
+  },
+  {
+    id: "settler",
+    number: "03",
+    tag: "STUDENT MOBILITY & LIVING",
+    title: "Frictionless Relocation & Living for Modern Scholars",
+    highlight: "Relocation & Living",
+    description:
+      "Eliminating the anxiety of college relocation. Settler verifies rental accommodations, algorithmic roommate matching, and digital deposit agreements.",
+    cta: "Experience Settler",
+    ctaLink: "#products",
+    icon: Layers,
+    gradient: "from-pink-400 via-purple-300 to-indigo-300",
+    glow: "rgba(236, 72, 153, 0.35)",
+    tagline: "Student Onboarding & Housing",
   },
   {
     id: "academy",
-    badge: "SERVICES & TALENT",
-    title: "Accelerating Cohort-Based Tech Talent with NexonAcademy",
-    highlight: "Tech Talent",
-    subtitle:
-      "Bridging the engineering talent gap with hands-on production codebases, Pathfinder School career mentorship, and elite institutional alliances.",
-    cta: "Discover Services",
+    number: "04",
+    tag: "MANIT INCUBATION & TALENT ACCELERATION",
+    title: "Engineering Cohort-Based Tech Talent with MANIT Backing",
+    highlight: "Cohort-Based Tech Talent",
+    description:
+      "Incubated at MANIT Bhopal with ₹50K seed funding, powering NexonAcademy production engineering and Pathfinder School strategic career steering.",
+    cta: "Explore Academy & Alliances",
     ctaLink: "#services",
-    accentColor: "from-fuchsia-600 via-purple-600 to-indigo-600",
+    icon: Sparkles,
+    gradient: "from-purple-400 via-violet-300 to-cyan-300",
+    glow: "rgba(147, 51, 234, 0.4)",
+    tagline: "MANIT Incubated & Seed Funded",
   },
 ];
 
 export default function Hero() {
-  const [activePillar, setActivePillar] = useState(0);
-  const current = HERO_PILLARS[activePillar];
+  const [currentIdx, setCurrentIdx] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const story = TCS_HERO_STORIES[currentIdx];
+
+  // Auto-slide every 6.5 seconds (TCS style)
+  useEffect(() => {
+    if (!isPlaying) return;
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % TCS_HERO_STORIES.length);
+    }, 6500);
+    return () => clearInterval(timer);
+  }, [isPlaying]);
 
   return (
-    <section className="relative min-h-[94vh] lg:min-h-screen flex flex-col justify-between overflow-hidden bg-white pt-10 pb-12 lg:pt-16 lg:pb-16">
+    <section className="relative min-h-[92vh] lg:min-h-screen bg-[#07040d] text-white flex flex-col justify-between overflow-hidden pt-8 pb-10 lg:pt-14 lg:pb-12">
       
-      {/* Dynamic Background Atmosphere (Purple Ambient Halos) */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[900px] h-[500px] sm:h-[650px] bg-gradient-to-tr from-purple-500/20 via-indigo-400/15 to-pink-500/10 rounded-full blur-[160px] pointer-events-none animate-pulse-glow" />
-      <div className="absolute top-10 -left-20 w-[400px] h-[400px] bg-purple-300/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 -right-20 w-[450px] h-[450px] bg-indigo-300/15 rounded-full blur-[140px] pointer-events-none" />
+      {/* Dynamic Animated Ambient Glow Canvas (TCS / Cognizant Style) */}
+      <div
+        className="absolute top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[950px] h-[550px] sm:h-[750px] rounded-full blur-[160px] pointer-events-none transition-all duration-1000 animate-pulse-glow"
+        style={{ background: story.glow }}
+      />
+      <div className="absolute -top-32 -right-20 w-[500px] h-[500px] bg-indigo-700/20 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute -bottom-20 -left-20 w-[600px] h-[600px] bg-purple-900/25 rounded-full blur-[170px] pointer-events-none" />
 
-      {/* Modern Perspective Grid Texture */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#7c3aed0d_1px,transparent_1px),linear-gradient(to_bottom,#7c3aed0d_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)]" />
+      {/* Futuristic Cyber-Grid Mesh Texture */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_60%,transparent_100%)]" />
 
-      {/* Main Hero Container */}
+      {/* Main Viewport Grid */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto w-full">
-        
-        {/* Top Interactive Switcher Pills (TCS & FourArks Inspired) */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8 sm:mb-12">
-          {HERO_PILLARS.map((item, index) => (
-            <button
-              key={item.id}
-              onClick={() => setActivePillar(index)}
-              className={`relative px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-2 ${
-                activePillar === index
-                  ? "bg-purple-900 text-white shadow-lg shadow-purple-900/25 scale-[1.03]"
-                  : "bg-purple-50/80 text-slate-700 hover:bg-purple-100 hover:text-purple-900 border border-purple-100"
-              }`}
-            >
-              <span
-                className={`w-2 h-2 rounded-full ${
-                  activePillar === index ? "bg-purple-400 animate-ping" : "bg-purple-300"
-                }`}
-              />
-              <span>{item.badge}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Massive Center Display Narrative */}
-        <div className="text-center max-w-5xl mx-auto space-y-6 sm:space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activePillar}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.45, ease: "easeOut" }}
-              className="space-y-6 sm:space-y-8"
-            >
-              {/* Grand Headline (Massive Viewport Sizing) */}
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-950 tracking-tight leading-[1.08]">
-                {current.title.split(current.highlight)[0]}
-                <span className="purple-gradient-text block sm:inline">
-                  {current.highlight}
-                </span>
-                {current.title.split(current.highlight)[1]}
-              </h1>
+          {/* Left Column: Grand Narrative Display */}
+          <div className="lg:col-span-8 space-y-8">
+            
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={story.id}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -24 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="space-y-6"
+              >
+                {/* Eyebrow Badge (TCS Format) */}
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-bold tracking-widest uppercase text-purple-300">
+                  <span className="w-2 h-2 rounded-full bg-purple-400 animate-ping" />
+                  <span>{story.tag}</span>
+                </div>
 
-              {/* Subtitle with High Readability */}
-              <p className="text-lg sm:text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto font-normal leading-relaxed">
-                {current.subtitle}
-              </p>
+                {/* Massive Cinematic Headline */}
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tight leading-[1.06]">
+                  {story.title.split(story.highlight)[0]}
+                  <span
+                    className={`bg-gradient-to-r ${story.gradient} bg-clip-text text-transparent block sm:inline`}
+                  >
+                    {story.highlight}
+                  </span>
+                  {story.title.split(story.highlight)[1]}
+                </h1>
 
-              {/* Dual Action CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <a
-                  href={current.ctaLink}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-5 rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-600 text-white font-extrabold text-base sm:text-lg shadow-xl shadow-purple-600/35 hover:shadow-2xl hover:shadow-purple-600/50 hover:scale-[1.03] active:scale-95 transition-all group"
-                >
-                  <span>{current.cta}</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />
-                </a>
+                {/* Narrative Summary */}
+                <p className="text-base sm:text-xl lg:text-2xl text-slate-300 max-w-2xl font-light leading-relaxed">
+                  {story.description}
+                </p>
 
-                <a
-                  href="#who-we-are"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-5 rounded-full bg-white text-slate-900 font-bold text-base sm:text-lg border-2 border-purple-200/80 shadow-md shadow-purple-900/5 hover:border-purple-400 hover:bg-purple-50/50 transition-all"
-                >
-                  <Building2 className="w-5 h-5 text-purple-700" />
-                  <span>Explore Network & Hubs</span>
-                </a>
+                {/* Dual Action CTAs (TCS Pill + Outline) */}
+                <div className="flex flex-wrap items-center gap-4 pt-4">
+                  <a
+                    href={story.ctaLink}
+                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 text-white font-extrabold text-sm sm:text-base shadow-xl shadow-purple-600/40 hover:shadow-2xl hover:shadow-purple-500/60 hover:scale-[1.03] active:scale-95 transition-all group"
+                  >
+                    <span>{story.cta}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+                  </a>
+
+                  <a
+                    href="#who-we-are"
+                    className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-white/5 backdrop-blur-xl text-white font-bold text-sm sm:text-base border border-white/20 hover:bg-white/15 hover:border-white/40 transition-all"
+                  >
+                    <span>Delivery Network (4 Hubs)</span>
+                  </a>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* TCS-Style Timer & Controls Bar */}
+            <div className="pt-8 border-t border-white/10 flex items-center gap-5 text-xs">
+              
+              {/* Numbered Indicator */}
+              <div className="flex items-baseline gap-1 font-mono font-bold text-base text-white tracking-wider">
+                <span className="text-purple-400 text-lg">{story.number}</span>
+                <span className="text-white/40">/</span>
+                <span className="text-white/60">04</span>
               </div>
-            </motion.div>
-          </AnimatePresence>
 
-          {/* Floating Key Badges (Clean Vector Icons, No Stickers) */}
-          <div className="pt-6 sm:pt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold text-slate-800">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white border border-purple-100 shadow-sm">
-              <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
-              <span>Oct 21, 2026 Pvt Ltd Incorporated</span>
+              {/* Active Slide Progress Timeline Bar */}
+              <div className="w-36 sm:w-48 h-1 bg-white/20 rounded-full overflow-hidden">
+                <motion.div
+                  key={currentIdx}
+                  initial={{ width: "0%" }}
+                  animate={{ width: isPlaying ? "100%" : "60%" }}
+                  transition={{ duration: 6.5, ease: "linear" }}
+                  className="h-full bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full"
+                />
+              </div>
+
+              {/* Pause / Play Toggle */}
+              <button
+                onClick={() => setIsPlaying(!isPlaying)}
+                className="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-white/80 hover:text-white border border-white/10 transition-colors"
+                title={isPlaying ? "Pause autoplay" : "Resume autoplay"}
+              >
+                {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+              </button>
+
+              {/* Navigation Arrows */}
+              <div className="flex items-center gap-1.5 ml-auto sm:ml-0">
+                <button
+                  onClick={() =>
+                    setCurrentIdx((prev) =>
+                      prev === 0 ? TCS_HERO_STORIES.length - 1 : prev - 1
+                    )
+                  }
+                  className="p-2 rounded-full bg-white/5 hover:bg-white/20 text-white border border-white/10 transition-all hover:scale-105"
+                  title="Previous Story"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() =>
+                    setCurrentIdx((prev) => (prev + 1) % TCS_HERO_STORIES.length)
+                  }
+                  className="p-2 rounded-full bg-white/5 hover:bg-white/20 text-white border border-white/10 transition-all hover:scale-105"
+                  title="Next Story"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+
             </div>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white border border-purple-100 shadow-sm">
-              <TrendingUp className="w-4 h-4 text-purple-600 shrink-0" />
-              <span>₹50K Seed Grant (MANIT Bhopal)</span>
+          </div>
+
+          {/* Right Column: Interactive Story Cards (TCS Sidebar Pattern) */}
+          <div className="lg:col-span-4 space-y-3.5">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-purple-300 pb-1 flex items-center justify-between">
+              <span>Explore Flagship Stories</span>
+              <span className="text-white/40">Select to View</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white border border-purple-100 shadow-sm">
-              <MapPin className="w-4 h-4 text-purple-600 shrink-0" />
-              <span>Chennai • Bhopal • Agra • Delhi NCR</span>
-            </div>
+            {TCS_HERO_STORIES.map((item, idx) => {
+              const Icon = item.icon;
+              const isActive = currentIdx === idx;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setCurrentIdx(idx);
+                    setIsPlaying(false);
+                  }}
+                  className={`w-full text-left p-4 rounded-2xl transition-all duration-300 border flex items-start gap-3.5 ${
+                    isActive
+                      ? "bg-white/15 backdrop-blur-2xl border-purple-400 shadow-xl shadow-purple-950/50 scale-[1.02]"
+                      : "bg-white/[0.04] backdrop-blur-md border-white/10 hover:bg-white/[0.08] hover:border-white/20"
+                  }`}
+                >
+                  <div
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all ${
+                      isActive
+                        ? "bg-gradient-to-tr from-purple-600 to-indigo-500 text-white shadow-md shadow-purple-600/40"
+                        : "bg-white/10 text-white/70"
+                    }`}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </div>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white border border-purple-100 shadow-sm">
-              <Award className="w-4 h-4 text-purple-600 shrink-0" />
-              <span>ROLTA & Govt. of India Alliances</span>
-            </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between text-[11px] font-mono">
+                      <span className={isActive ? "text-purple-300 font-bold" : "text-white/40"}>
+                        {item.number}
+                      </span>
+                      <span className="text-[10px] text-white/50">{item.tagline}</span>
+                    </div>
+                    <div className="text-sm font-bold text-white truncate mt-0.5">
+                      {item.title}
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
 
         </div>
-
       </div>
 
-      {/* Bottom Marquee / Platform Ticker Ribbon */}
-      <div className="relative mt-12 pt-6 border-t border-purple-100/80 bg-gradient-to-r from-purple-50/50 via-white to-purple-50/50 py-4">
+      {/* Bottom Proof-of-Scale Strip (TCS Authority Bar) */}
+      <div className="relative mt-8 pt-6 border-t border-white/10 bg-white/[0.02] backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-bold text-slate-500">
-            <span className="text-purple-900 uppercase tracking-wider font-extrabold flex items-center gap-2 shrink-0">
-              <Sparkles className="w-4 h-4 text-purple-600" />
-              YugNext Flagship Ecosystem
-            </span>
-
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-semibold text-slate-700">
-              <a href="#products" className="hover:text-purple-700 flex items-center gap-1.5 transition-colors">
-                <GraduationCap className="w-4 h-4 text-purple-600" />
-                <span>Shikshasetu</span>
-              </a>
-              <span className="text-purple-200 hidden sm:inline">•</span>
-              <a href="#products" className="hover:text-purple-700 flex items-center gap-1.5 transition-colors">
-                <Building2 className="w-4 h-4 text-indigo-600" />
-                <span>CampusNeeds</span>
-              </a>
-              <span className="text-purple-200 hidden sm:inline">•</span>
-              <a href="#products" className="hover:text-purple-700 flex items-center gap-1.5 transition-colors">
-                <Layers className="w-4 h-4 text-pink-600" />
-                <span>Settler</span>
-              </a>
-              <span className="text-purple-200 hidden sm:inline">•</span>
-              <a href="#services" className="hover:text-purple-700 flex items-center gap-1.5 transition-colors">
-                <Sparkles className="w-4 h-4 text-purple-600" />
-                <span>NexonAcademy</span>
-              </a>
-              <span className="text-purple-200 hidden sm:inline">•</span>
-              <a href="#services" className="hover:text-purple-700 flex items-center gap-1.5 transition-colors">
-                <Compass className="w-4 h-4 text-amber-600" />
-                <span>Pathfinder School</span>
-              </a>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+            
+            <div className="space-y-1">
+              <div className="text-2xl sm:text-3xl font-black text-white">4 Delivery Hubs</div>
+              <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1">
+                <MapPin className="w-3.5 h-3.5 text-purple-400" />
+                <span>Chennai • Bhopal • Agra • Delhi NCR</span>
+              </div>
             </div>
 
-            <span className="text-[11px] font-mono text-purple-800 bg-purple-100/70 px-2.5 py-1 rounded-full shrink-0">
-              MANIT Incubation Hub
-            </span>
+            <div className="space-y-1">
+              <div className="text-2xl sm:text-3xl font-black text-white">₹50K+ Seeded</div>
+              <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1">
+                <TrendingUp className="w-3.5 h-3.5 text-purple-400" />
+                <span>MANIT Bhopal Incubation</span>
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="text-2xl sm:text-3xl font-black text-white">Oct 21, 2026</div>
+              <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1">
+                <CheckCircle2 className="w-3.5 h-3.5 text-purple-400" />
+                <span>Incorporated Pvt Ltd Entity</span>
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="text-2xl sm:text-3xl font-black text-white">Premier Alliances</div>
+              <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1">
+                <Award className="w-3.5 h-3.5 text-purple-400" />
+                <span>ROLTA & Govt. of India Programs</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
