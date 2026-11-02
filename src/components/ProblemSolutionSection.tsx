@@ -25,11 +25,11 @@ export default function ProblemSolutionSection() {
           </p>
         </div>
 
-        {/* 3-Column Layout: Left (Problem) | Center (Standing Man Striding Between) | Right (Solution) */}
+        {/* 3-Column Balanced Layout: Left (Problem) | Center (Large YugNext Man) | Right (Solution) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           
           {/* ================= LEFT COLUMN: THE PROBLEM ================= */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-4 space-y-4">
             
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/30 text-xs font-bold">
@@ -79,169 +79,105 @@ export default function ProblemSolutionSection() {
               </p>
             </div>
 
-            <div className="pt-2">
-              <p className="text-xs font-mono text-rose-300/80 bg-rose-500/5 border border-rose-500/20 rounded-xl px-4 py-2.5">
-                ← <span className="font-semibold text-rose-300">Left Side / Origin:</span> Rooted in the reality of what&apos;s holding businesses back.
-              </p>
-            </div>
-
           </div>
 
-          {/* ================= CENTER COLUMN: ONLY THAT MAN (BRIDGING PROBLEM & SOLUTION) ================= */}
-          <div className="lg:col-span-2 flex flex-col items-center justify-center py-6 lg:py-0 select-none">
+          {/* ================= CENTER COLUMN: THE PROMINENT YUGNEXT MAN ================= */}
+          <div className="lg:col-span-4 flex flex-col items-center justify-center py-8 lg:py-0 select-none">
             
-            {/* The Standalone YugNext Stepping Man */}
-            <div className="relative flex flex-col items-center">
+            <div className="relative flex flex-col items-center w-full">
               
-              {/* Standalone Pure Vector Stepping Figure */}
+              {/* Standalone Pure Vector Stepping Figure - Scaled Up and Clean */}
               <svg
-                width="240"
-                height="340"
-                viewBox="0 0 240 340"
+                width="300"
+                height="420"
+                viewBox="0 0 300 420"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-[200px] sm:w-[220px] lg:w-[240px] h-auto drop-shadow-md"
+                className="w-[260px] sm:w-[300px] lg:w-[340px] xl:w-[370px] h-auto drop-shadow-xl"
               >
                 {/* Hairline Center Divider (Problem on left, Solution on right) */}
                 <line
-                  x1="120"
-                  y1="15"
-                  x2="120"
-                  y2="285"
-                  stroke="rgba(255, 255, 255, 0.18)"
+                  x1="150"
+                  y1="10"
+                  x2="150"
+                  y2="345"
+                  stroke="rgba(255, 255, 255, 0.16)"
                   strokeWidth="1.5"
                   strokeDasharray="4 4"
                 />
 
-                {/* Left Side Label (Problem) */}
-                <text
-                  x="55"
-                  y="28"
-                  textAnchor="middle"
-                  fill="#f43f5e"
-                  fontSize="10"
-                  fontWeight="800"
-                  fontFamily="ui-monospace, monospace"
-                  letterSpacing="1.5"
-                >
-                  PROBLEM
-                </text>
-
-                {/* Right Side Label (Solution) */}
-                <text
-                  x="185"
-                  y="28"
-                  textAnchor="middle"
-                  fill="#9d7df7"
-                  fontSize="10"
-                  fontWeight="800"
-                  fontFamily="ui-monospace, monospace"
-                  letterSpacing="1.5"
-                >
-                  SOLUTION
-                </text>
-
                 {/* ---------------- THE YUGNEXT STEPPING MAN ---------------- */}
-                {/* Head: Pure White Circle right at the center split */}
-                <circle cx="120" cy="56" r="24" fill="#ffffff" />
+                {/* Head: Pure White Circle centered right on split */}
+                <circle cx="150" cy="62" r="34" fill="#ffffff" />
 
                 {/* Torso: Solid White Vertical Pillar centered on split */}
-                <rect x="113" y="86" width="14" height="78" rx="7" fill="#ffffff" />
+                <rect x="140" y="106" width="20" height="98" rx="10" fill="#ffffff" />
 
                 {/* Left Arm: Angled down-left into the Problem zone (Lavender #8b61ff) */}
                 <line
-                  x1="115"
-                  y1="102"
-                  x2="58"
-                  y2="152"
+                  x1="145"
+                  y1="126"
+                  x2="60"
+                  y2="196"
                   stroke="#8b61ff"
-                  strokeWidth="14"
+                  strokeWidth="20"
                   strokeLinecap="round"
                 />
 
                 {/* Right Arm: Angled down-right forward into the Solution zone (Pure White #ffffff) */}
                 <line
-                  x1="125"
-                  y1="102"
-                  x2="182"
-                  y2="152"
+                  x1="155"
+                  y1="126"
+                  x2="240"
+                  y2="196"
                   stroke="#ffffff"
-                  strokeWidth="14"
+                  strokeWidth="20"
                   strokeLinecap="round"
                 />
 
                 {/* LEFT LEG: Planted firmly on the Left / Problem side (Lavender #8b61ff) */}
                 <line
-                  x1="115"
-                  y1="160"
-                  x2="60"
-                  y2="255"
+                  x1="144"
+                  y1="202"
+                  x2="68"
+                  y2="330"
                   stroke="#8b61ff"
-                  strokeWidth="16"
+                  strokeWidth="22"
                   strokeLinecap="round"
                 />
 
                 {/* RIGHT LEG: Striding forward into the Right / Solution side (Pure White #ffffff) */}
                 <line
-                  x1="125"
-                  y1="160"
-                  x2="180"
-                  y2="255"
+                  x1="156"
+                  y1="202"
+                  x2="232"
+                  y2="330"
                   stroke="#ffffff"
-                  strokeWidth="16"
+                  strokeWidth="22"
                   strokeLinecap="round"
                 />
 
-                {/* Foot Indicators */}
-                {/* Left Foot: Grounded in Problem */}
-                <circle cx="60" cy="255" r="3" fill="#8b61ff" />
-                <text
-                  x="60"
-                  y="278"
-                  textAnchor="middle"
-                  fill="#8b61ff"
-                  fontSize="9.5"
-                  fontWeight="700"
-                  fontFamily="ui-monospace, monospace"
-                >
-                  [ LEFT LEG ]
-                </text>
-
-                {/* Right Foot: Stepping into Solution */}
-                <circle cx="180" cy="255" r="3" fill="#ffffff" />
-                <text
-                  x="180"
-                  y="278"
-                  textAnchor="middle"
-                  fill="#ffffff"
-                  fontSize="9.5"
-                  fontWeight="700"
-                  fontFamily="ui-monospace, monospace"
-                >
-                  [ RIGHT LEG ]
-                </text>
-
                 {/* Baseline Brand Text */}
                 <text
-                  x="120"
-                  y="314"
+                  x="150"
+                  y="375"
                   textAnchor="middle"
                   fill="#ffffff"
-                  fontSize="13"
+                  fontSize="16"
                   fontWeight="900"
-                  letterSpacing="3.5"
+                  letterSpacing="4"
                   fontFamily="system-ui, -apple-system, sans-serif"
                 >
                   YUGNEXT
                 </text>
                 <text
-                  x="120"
-                  y="330"
+                  x="150"
+                  y="396"
                   textAnchor="middle"
                   fill="#9d7df7"
-                  fontSize="8"
+                  fontSize="9.5"
                   fontWeight="700"
-                  letterSpacing="2"
+                  letterSpacing="2.5"
                   fontFamily="ui-monospace, monospace"
                 >
                   — STEP INTO TOMORROW —
@@ -253,7 +189,7 @@ export default function ProblemSolutionSection() {
           </div>
 
           {/* ================= RIGHT COLUMN: THE SOLUTION ================= */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-4 space-y-4">
             
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#5d35e0]/15 text-[#9d7df7] border border-[#5d35e0]/30 text-xs font-bold">
@@ -328,12 +264,6 @@ export default function ProblemSolutionSection() {
               </div>
               <p className="text-xs text-slate-300 leading-relaxed font-light">
                 Measured by what it enables, not just what it looks like. Real outcomes over vanity metrics.
-              </p>
-            </div>
-
-            <div className="pt-2">
-              <p className="text-xs font-mono text-purple-300/80 bg-[#5d35e0]/5 border border-[#5d35e0]/20 rounded-xl px-4 py-2.5">
-                → <span className="font-semibold text-[#9d7df7]">Right Side / Destination:</span> Stepping into genuine utility and long-term momentum.
               </p>
             </div>
 
