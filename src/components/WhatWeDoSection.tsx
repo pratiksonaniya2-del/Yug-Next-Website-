@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   ChevronLeft,
@@ -11,13 +11,11 @@ import {
   BookOpen,
   Users2,
   Dumbbell,
-  Shield,
-  Layers,
   Sparkles,
   ArrowRight,
-  ExternalLink,
-  Lock,
   CheckCircle,
+  Layers,
+  Lock,
 } from "lucide-react";
 
 interface ServiceCard {
@@ -167,17 +165,19 @@ const PRODUCTS_LIST: ProductItem[] = [
 ];
 
 export default function WhatWeDoSection() {
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-  const [hoveredService, setHoveredService] = useState<string | null>(null);
+  const [hoveredServiceId, setHoveredServiceId] = useState<string | null>(null);
+  const [pageIndex, setPageIndex] = useState<number>(0);
 
-  const handleScroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 340;
-      scrollContainerRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
+  // Show 4 services at a time (e.g. 0-4 or 2-6)
+  const maxPages = SERVICES_LIST.length - 4 + 1; // 3 pages (0..2)
+  const visibleServices = SERVICES_LIST.slice(pageIndex, pageIndex + 4);
+
+  const handlePrev = () => {
+    setPageIndex((prev) => (prev > 0 ? prev - 1 : maxPages - 1));
+  };
+
+  const handleNext = () => {
+    setPageIndex((prev) => (prev < maxPages - 1 ? prev + 1 : 0));
   };
 
   return (
@@ -205,14 +205,14 @@ export default function WhatWeDoSection() {
             {/* Slider Navigation Arrows (<- & ->) */}
             <div className="flex items-center gap-3 shrink-0">
               <button
-                onClick={() => handleScroll("left")}
+                onClick={handlePrev}
                 aria-label="Previous Services"
                 className="w-11 h-11 rounded-full border border-slate-200 hover:border-[#5d35e0] bg-white hover:bg-slate-50 text-slate-700 hover:text-[#5d35e0] shadow-sm flex items-center justify-center transition-all cursor-pointer active:scale-95"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
-                onClick={() => handleScroll("right")}
+                onClick={handleNext}
                 aria-label="Next Services"
                 className="w-11 h-11 rounded-full border border-slate-200 hover:border-[#5d35e0] bg-white hover:bg-slate-50 text-slate-700 hover:text-[#5d35e0] shadow-sm flex items-center justify-center transition-all cursor-pointer active:scale-95"
               >
@@ -221,79 +221,172 @@ export default function WhatWeDoSection() {
             </div>
           </div>
 
-          {/* Horizontal Scrollable Cards Container */}
-          <div
-            ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto pb-6 pt-2 scrollbar-none snap-x snap-mandatory scroll-smooth"
-          >
-            {SERVICES_LIST.map((service) => {
+          {/* ================= 4 SERVICE DIVS ACCORDION / EXPAND ON HOVER ================= */}
+          {/* Default: Normal title shown. On Hover: Title moves smoothly to LEFT, and PURA TEXT reveals! */}
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-5 min-h-[460px] pt-4 items-stretch select-none">
+            {visibleServices.map((service, index) => {
               const Icon = service.icon;
-              const isHovered = hoveredService === service.id;
+              const isHovered = hoveredServiceId === service.id;
 
               return (
                 <div
                   key={service.id}
-                  onMouseEnter={() => setHoveredService(service.id)}
-                  onMouseLeave={() => setHoveredService(null)}
-                  className="w-[320px] sm:w-[360px] shrink-0 snap-start rounded-3xl p-6 sm:p-7 bg-slate-50 hover:bg-white border border-slate-200 hover:border-[#5d35e0] hover:shadow-xl hover:shadow-[#5d35e0]/10 transition-all duration-300 flex flex-col justify-between group relative"
+                  onMouseEnter={() => setHoveredServiceId(service.id)}
+                  onMouseLeave={() => setHoveredServiceId(null)}
+                  className={`rounded-3xl p-6 sm:p-7 transition-all duration-500 ease-out border overflow-hidden cursor-pointer flex flex-col justify-between ${
+                    isHovered
+                      ? "lg:flex-[2.8] bg-white border-2 border-[#5d35e0] shadow-2xl shadow-[#5d35e0]/15"
+                      : "lg:flex-1 bg-slate-50 hover:bg-white border-slate-200/90 hover:border-[#5d35e0]/50"
+                  }`}
                 >
-                  <div className="space-y-4">
-                    {/* Top Row: Icon + Category Badge */}
-                    <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-[#5d35e0]/10 text-[#5d35e0] group-hover:bg-[#5d35e0] group-hover:text-white flex items-center justify-center transition-colors">
-                        <Icon className="w-6 h-6" />
+                  {/* EXPANDED STATE: Title slides to the LEFT column, Pura Text shows on the RIGHT */}
+                  {isHovered ? (
+                    <div className="flex flex-col lg:flex-row gap-6 h-full justify-between animate-fadeIn">
+                      
+                      {/* LEFT COLUMN OF EXPANDED CARD (Title & Category) */}
+                      <div className="lg:w-[35%] shrink-0 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-5 space-y-4">
+                        <div className="space-y-4">
+                          <div className="flex items-center justify-between">
+                            <div className="w-12 h-12 rounded-2xl bg-[#5d35e0] text-white flex items-center justify-center shadow-md shadow-[#5d35e0]/30 transition-transform duration-300">
+                              <Icon className="w-6 h-6" />
+                            </div>
+                            <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#5d35e0]/10 border border-[#5d35e0]/20 text-[#5d35e0]">
+                              {service.tag}
+                            </span>
+                          </div>
+
+                          {/* The Title moved to the left */}
+                          <div className="space-y-1">
+                            <span className="text-[10px] font-mono text-slate-400 font-bold tracking-wider">
+                              0{pageIndex + index + 1} • SERVICE
+                            </span>
+                            <h3 className="text-2xl font-black text-slate-950 tracking-tight leading-snug">
+                              {service.title}
+                            </h3>
+                          </div>
+                        </div>
+
+                        {/* Direct Link Button */}
+                        <div className="pt-2">
+                          <Link
+                            href="/services"
+                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs font-bold transition-all shadow-sm shadow-[#5d35e0]/25"
+                          >
+                            <span>Explore Service</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </Link>
+                        </div>
                       </div>
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600">
-                        {service.tag}
-                      </span>
+
+                      {/* RIGHT COLUMN OF EXPANDED CARD (Pura Text: Summary, Features, Sample & Testimonial) */}
+                      <div className="lg:w-[65%] flex flex-col justify-between pl-0 lg:pl-3 space-y-4">
+                        <div className="space-y-3">
+                          
+                          {/* Full Summary */}
+                          <div>
+                            <span className="text-[10px] font-mono uppercase text-slate-400 font-bold tracking-wider block mb-1">
+                              OVERVIEW
+                            </span>
+                            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light">
+                              {service.summary}
+                            </p>
+                          </div>
+
+                          {/* Feature Checklist */}
+                          <div className="space-y-1.5 pt-1">
+                            <span className="text-[10px] font-mono uppercase text-[#5d35e0] font-bold tracking-wider block">
+                              KEY CAPABILITIES
+                            </span>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-700">
+                              {service.features.map((feat, i) => (
+                                <div key={i} className="flex items-center gap-2">
+                                  <CheckCircle className="w-3.5 h-3.5 text-[#5d35e0] shrink-0" />
+                                  <span>{feat}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Sample Preview & Client Testimonial */}
+                          <div className="p-3.5 rounded-2xl bg-purple-50/70 border border-purple-100/90 space-y-1.5 mt-2">
+                            <div className="flex items-center justify-between">
+                              <span className="text-[10px] font-mono font-bold text-[#5d35e0] uppercase tracking-wider">
+                                SAMPLE PREVIEW
+                              </span>
+                              <span className="text-[10px] font-semibold text-slate-500">
+                                {service.sampleTitle}
+                              </span>
+                            </div>
+                            <p className="text-xs text-slate-700 italic font-light">
+                              &ldquo;{service.testimonial.quote}&rdquo;
+                            </p>
+                            <span className="text-[11px] font-bold text-slate-900 block text-right">
+                              — {service.testimonial.author}, {service.testimonial.role}
+                            </span>
+                          </div>
+
+                        </div>
+
+                        {/* Bottom Subtext */}
+                        <div className="pt-1 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+                          <span>READY TO DEPLOY</span>
+                          <span className="text-[#5d35e0] font-bold">100% TAILORED WORKFLOW</span>
+                        </div>
+                      </div>
+
                     </div>
+                  ) : (
+                    /* NORMAL STATE: Sleek card with Icon + Normal Title (School Websites, etc.) */
+                    <div className="flex flex-col justify-between h-full space-y-6">
+                      
+                      {/* Top: Icon + Category Badge */}
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-2xl bg-[#5d35e0]/10 text-[#5d35e0] flex items-center justify-center transition-colors">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-500">
+                          {service.tag}
+                        </span>
+                      </div>
 
-                    {/* Service Title */}
-                    <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-[#5d35e0] transition-colors">
-                      {service.title}
-                    </h3>
+                      {/* Middle: Normal Text Display (e.g. "School Websites") */}
+                      <div className="space-y-2 py-6">
+                        <span className="text-[10px] font-mono text-slate-400 font-semibold tracking-wider block">
+                          0{pageIndex + index + 1}
+                        </span>
+                        <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-snug">
+                          {service.title}
+                        </h3>
+                        <p className="text-xs text-slate-500 line-clamp-2 font-light">
+                          {service.summary}
+                        </p>
+                      </div>
 
-                    {/* Summary */}
-                    <p className="text-xs text-slate-600 leading-relaxed font-light">
-                      {service.summary}
-                    </p>
+                      {/* Bottom: Subtle Prompt */}
+                      <div className="pt-4 border-t border-slate-200/60 flex items-center justify-between text-xs font-bold text-[#5d35e0]">
+                        <span>Hover to explore</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                      </div>
 
-                    {/* Feature Bullets */}
-                    <ul className="space-y-1.5 text-xs text-slate-700 pt-2">
-                      {service.features.map((feat, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <CheckCircle className="w-3.5 h-3.5 text-[#5d35e0] shrink-0" />
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* On Hover: Reveal Sample & Testimonial Preview */}
-                  <div className="pt-5 mt-5 border-t border-slate-200/80 space-y-3">
-                    <div className="p-3 rounded-xl bg-purple-50/70 border border-purple-100/80">
-                      <span className="text-[10px] font-mono font-bold text-[#5d35e0] uppercase tracking-wider block mb-1">
-                        SAMPLE PREVIEW
-                      </span>
-                      <p className="text-xs font-bold text-slate-900">
-                        {service.sampleTitle}
-                      </p>
-                      <p className="text-[11px] text-slate-600 italic mt-1 line-clamp-2">
-                        &ldquo;{service.testimonial.quote}&rdquo;
-                      </p>
                     </div>
-
-                    <Link
-                      href="/services"
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-[#5d35e0] hover:text-[#4d28c8] group-hover:translate-x-1 transition-all"
-                    >
-                      <span>View Sample &amp; Testimonial</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
+                  )}
                 </div>
               );
             })}
+          </div>
+
+          {/* Dots Indicator for 6 Services */}
+          <div className="flex items-center justify-center gap-2 pt-4">
+            {Array.from({ length: maxPages }).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setPageIndex(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`h-2 rounded-full transition-all cursor-pointer ${
+                  pageIndex === idx ? "w-8 bg-[#5d35e0]" : "w-2 bg-slate-300 hover:bg-slate-400"
+                }`}
+              />
+            ))}
           </div>
 
           {/* Bottom Button for Services */}
