@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { ModalType } from "./ContentCardModal";
 import TcsMegaMenu from "./TcsMegaMenu";
+import YugNextLogo from "./YugNextLogo";
 
 // Search catalog for TCS-style command search
 const SEARCH_DATABASE: { title: string; category: string; id: ModalType; desc: string }[] = [
@@ -146,25 +147,15 @@ export default function Navbar({
       >
         <div className="relative z-50 max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           
-          {/* Brand Logo */}
+          {/* Brand Logo - Official YugNext Split Emblem & Stepping Human */}
           <button
             onClick={() => {
               if (activeModal && onCloseMegaMenu) onCloseMegaMenu();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex items-center gap-2.5 sm:gap-3 group text-left cursor-pointer shrink-0"
+            className="flex items-center group text-left cursor-pointer shrink-0 hover:opacity-90 transition-opacity"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-purple-700 via-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-purple-600/30 group-hover:scale-105 transition-transform duration-300 shrink-0">
-              <span className="font-extrabold text-lg sm:text-xl tracking-tight">Y</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-950 group-hover:text-purple-700 transition-colors leading-none">
-                Yug<span className="text-purple-600">Next</span>
-              </span>
-              <span className="text-[9px] sm:text-[10px] tracking-widest uppercase font-bold text-purple-600 mt-0.5 leading-none">
-                Pvt. Ltd.
-              </span>
-            </div>
+            <YugNextLogo size="md" variant="full" theme="light" />
           </button>
 
           {/* Desktop Navigation Links — SINGLE LINE, NO WRAPPING, BEAUTIFULLY SPACED */}
@@ -284,10 +275,10 @@ export default function Navbar({
               )}
             </div>
 
-            {/* Primary Action Button: Step Into Tomorrow */}
+            {/* Primary Action Button: Step Into Tomorrow (Solid Corporate Brand Violet, No Gradient) */}
             <button
               onClick={() => handleNavClick("whatWeDo")}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-600 text-white text-xs sm:text-sm font-bold shadow-md shadow-purple-600/30 hover:shadow-lg hover:shadow-purple-600/40 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer whitespace-nowrap ml-1"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#5d35e0]/25 hover:shadow-lg hover:shadow-[#5d35e0]/35 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer whitespace-nowrap ml-1"
             >
               <span>Step Into Tomorrow</span>
               <ArrowRight className="w-4 h-4" />
@@ -442,7 +433,7 @@ export default function Navbar({
                 setMobileMenuOpen(false);
                 handleNavClick("whatWeDo");
               }}
-              className="w-full py-3 rounded-xl bg-purple-700 text-white font-bold text-center text-sm shadow-md cursor-pointer"
+              className="w-full py-3 rounded-xl bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-bold text-center text-sm shadow-md cursor-pointer transition-colors"
             >
               Step Into Tomorrow →
             </button>

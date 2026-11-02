@@ -122,7 +122,7 @@ export default function TcsMegaMenu({
           {activeModal === "whatWeDo" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
               {/* Left Column: Strategic Thesis */}
-              <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-purple-950 via-purple-900 to-indigo-950 text-white flex flex-col justify-between space-y-4 shadow-md">
+              <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white flex flex-col justify-between space-y-4 shadow-md">
                 <div className="space-y-3">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-purple-300 block">
                     CAPABILITIES &amp; SERVICES
@@ -245,7 +245,7 @@ export default function TcsMegaMenu({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
               
               {/* Left Column: Product Philosophy */}
-              <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-purple-950 via-purple-900 to-indigo-950 text-white flex flex-col justify-between space-y-4 shadow-md">
+              <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white flex flex-col justify-between space-y-4 shadow-md">
                 <div className="space-y-3">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-pink-300 block">
                     PRODUCT PHILOSOPHY
@@ -383,7 +383,7 @@ export default function TcsMegaMenu({
           {/* 3. WHO WE ARE MEGA PANEL */}
           {activeModal === "whoWeAre" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-              <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-purple-950 via-purple-900 to-indigo-950 text-white flex flex-col justify-between space-y-4">
+              <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-purple-300 block">
                     WHO WE ARE
@@ -443,7 +443,7 @@ export default function TcsMegaMenu({
           {/* 4. INDUSTRIES MEGA PANEL */}
           {activeModal === "industries" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-              <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-purple-950 via-purple-900 to-indigo-950 text-white flex flex-col justify-between space-y-4">
+              <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-purple-300 block">
                     SECTOR IMPACT
@@ -503,7 +503,7 @@ export default function TcsMegaMenu({
           {/* 5. COMMUNITY MEGA PANEL */}
           {activeModal === "community" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-              <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-purple-950 via-purple-900 to-indigo-950 text-white flex flex-col justify-between space-y-4">
+              <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-purple-300 block">
                     COMMUNITY ECOSYSTEM
@@ -563,7 +563,7 @@ export default function TcsMegaMenu({
           {/* 6. NEWS & MILESTONES MEGA PANEL */}
           {(activeModal === "news" || activeModal === "insights") && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-              <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-purple-950 via-purple-900 to-indigo-950 text-white flex flex-col justify-between space-y-4">
+              <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-purple-300 block">
                     VERIFIED TIMELINE
@@ -606,7 +606,7 @@ export default function TcsMegaMenu({
           {/* 7. CAREERS MEGA PANEL */}
           {activeModal === "careers" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-              <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-purple-950 via-purple-900 to-indigo-950 text-white flex flex-col justify-between space-y-4">
+              <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-pink-300 block">
                     JOIN THE TEAM
@@ -621,7 +621,7 @@ export default function TcsMegaMenu({
                 <div className="pt-2">
                   <button
                     onClick={() => onSelectModal("contact")}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 text-white text-xs font-bold shadow-md cursor-pointer hover:scale-105 transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs font-bold shadow-md cursor-pointer hover:scale-105 transition-all"
                   >
                     <span>View Open Positions →</span>
                   </button>
@@ -663,7 +663,7 @@ export default function TcsMegaMenu({
           {/* 8. CONTACT MEGA PANEL */}
           {activeModal === "contact" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-              <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-purple-950 via-purple-900 to-indigo-950 text-white flex flex-col justify-between space-y-4">
+              <div className="lg:col-span-5 p-6 sm:p-7 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
                   <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-purple-300 block">
                     START THE CONVERSATION
@@ -707,7 +707,7 @@ export default function TcsMegaMenu({
                 </div>
                 <button
                   onClick={() => alert("Thank you! Your message has been routed to YugNext solutions desk.")}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-600 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full py-3 rounded-xl bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Message →</span>

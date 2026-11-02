@@ -3,6 +3,7 @@
 import React from "react";
 import { ArrowUp, Sparkles, MapPin, CheckCircle2 } from "lucide-react";
 import { ModalType } from "./ContentCardModal";
+import YugNextLogo from "./YugNextLogo";
 
 interface FooterProps {
   onOpenModal: (modal: ModalType) => void;
@@ -27,18 +28,8 @@ export default function Footer({ onOpenModal }: FooterProps) {
           
           {/* Column 1: Brand & Strategic Hubs (Span 5 on Desktop) */}
           <div className="lg:col-span-5 space-y-4 pr-0 lg:pr-8">
-            <div className="inline-flex items-center gap-3 cursor-pointer group" onClick={scrollToTop}>
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-700 via-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-purple-600/30 group-hover:scale-105 transition-transform duration-300">
-                <span className="font-extrabold text-xl tracking-tight">Y</span>
-              </div>
-              <div>
-                <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-purple-300 transition-colors">
-                  Yug<span className="text-purple-400">Next</span> <span className="text-xs uppercase font-bold text-purple-400">Pvt. Ltd.</span>
-                </h3>
-                <p className="text-[10px] uppercase tracking-widest text-purple-300/80 font-bold">
-                  Step Into Tomorrow
-                </p>
-              </div>
+            <div className="inline-flex items-center cursor-pointer group hover:opacity-95 transition-opacity" onClick={scrollToTop}>
+              <YugNextLogo size="lg" variant="full" theme="dark" />
             </div>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
@@ -46,8 +37,8 @@ export default function Footer({ onOpenModal }: FooterProps) {
             </p>
 
             <div className="space-y-2 pt-2 border-t border-purple-950/80 text-xs">
-              <div className="flex items-center gap-2 text-pink-300 font-mono font-semibold text-[11px]">
-                <MapPin className="w-3.5 h-3.5 text-pink-400 shrink-0" />
+              <div className="flex items-center gap-2 text-[#9d7df7] font-mono font-semibold text-[11px]">
+                <MapPin className="w-3.5 h-3.5 text-[#9d7df7] shrink-0" />
                 <span>DELIVERY NETWORK: CHENNAI · BHOPAL · PUNE</span>
               </div>
               <div className="flex items-center gap-2 text-slate-400 text-[11px] font-mono">

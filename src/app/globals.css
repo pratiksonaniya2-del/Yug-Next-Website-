@@ -1,10 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --primary-purple: #7c3aed;
-  --primary-purple-dark: #6d28d9;
-  --primary-purple-light: #8b5cf6;
-  --purple-soft: #f5f3ff;
+  --brand-navy: #0e0738;
+  --brand-violet: #5d35e0;
+  --brand-violet-hover: #4d28c8;
+  --brand-lavender: #9d7df7;
+  --brand-soft: #f4f2ff;
+  --primary-purple: #5d35e0;
+  --primary-purple-dark: #0e0738;
+  --primary-purple-light: #9d7df7;
+  --purple-soft: #f4f2ff;
 }
 
 body {
@@ -50,7 +55,7 @@ body {
 }
 
 .purple-gradient-text {
-  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #9333ea 100%);
+  background: linear-gradient(135deg, #0e0738 0%, #5d35e0 60%, #9d7df7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

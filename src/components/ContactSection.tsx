@@ -224,7 +224,7 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-600 text-white font-bold text-sm shadow-lg shadow-purple-600/30 hover:shadow-xl hover:shadow-purple-600/40 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-4 rounded-xl bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-bold text-sm shadow-md shadow-[#5d35e0]/25 hover:shadow-lg hover:shadow-[#5d35e0]/35 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   <span>Transmit Inquiry to Delivery Hub</span>

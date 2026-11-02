@@ -32,6 +32,7 @@ import {
   Globe2,
   Code2,
 } from "lucide-react";
+import YugNextLogo from "./YugNextLogo";
 
 export type ModalType =
   | "whatWeDo"
@@ -124,9 +125,7 @@ export default function ContentCardModal({
           {/* Card Sticky Header */}
           <div className="px-6 sm:px-8 py-5 border-b border-purple-100 bg-white/95 backdrop-blur-md flex items-center justify-between shrink-0">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-700 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-purple-600/30">
-                <span className="font-extrabold text-lg">Y</span>
-              </div>
+              <YugNextLogo size="sm" variant="icon" />
               <div>
                 <span className="text-[10px] font-mono font-bold tracking-widest uppercase text-purple-600 block">
                   YUGNEXT • STEP INTO TOMORROW
@@ -187,7 +186,7 @@ export default function ContentCardModal({
             {/* 1. WHAT WE DO MODAL */}
             {activeModal === "whatWeDo" && (
               <div className="space-y-8">
-                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 text-white space-y-3">
+                <div className="p-6 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white space-y-3">
                   <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
                     WHAT WE DO
                   </span>
@@ -278,7 +277,7 @@ export default function ContentCardModal({
             {/* 2. PRODUCTS MODAL */}
             {activeModal === "products" && (
               <div className="space-y-8">
-                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-950 via-purple-900 to-indigo-950 text-white space-y-3">
+                <div className="p-6 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white space-y-3">
                   <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
                     PRODUCTS PHILOSOPHY
                   </span>
@@ -366,7 +365,7 @@ export default function ContentCardModal({
             {/* 3. WHO WE ARE MODAL */}
             {activeModal === "whoWeAre" && (
               <div className="space-y-8">
-                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 text-white space-y-4">
+                <div className="p-6 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white space-y-4">
                   <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
                     WHO WE ARE
                   </span>
@@ -455,7 +454,7 @@ export default function ContentCardModal({
             {/* 4. INDUSTRIES MODAL */}
             {activeModal === "industries" && (
               <div className="space-y-8">
-                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-950 via-purple-900 to-indigo-950 text-white space-y-3">
+                <div className="p-6 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white space-y-3">
                   <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
                     INDUSTRIES
                   </span>
@@ -514,7 +513,7 @@ export default function ContentCardModal({
             {/* 5. COMMUNITY MODAL */}
             {activeModal === "community" && (
               <div className="space-y-6">
-                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 text-white space-y-3">
+                <div className="p-6 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white space-y-3">
                   <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
                     COMMUNITY
                   </span>
@@ -604,7 +603,7 @@ export default function ContentCardModal({
             {/* 7. INVESTORS MODAL */}
             {activeModal === "investors" && (
               <div className="space-y-6">
-                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-950 via-purple-900 to-indigo-950 text-white space-y-3">
+                <div className="p-6 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white space-y-3">
                   <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
                     INVESTORS & GOVERNANCE
                   </span>
@@ -641,7 +640,7 @@ export default function ContentCardModal({
             {/* 8. CAREERS MODAL */}
             {activeModal === "careers" && (
               <div className="space-y-6">
-                <div className="p-6 rounded-2xl bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-950 text-white space-y-3">
+                <div className="p-6 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white space-y-3">
                   <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-300">
                     CAREERS AT YUGNEXT
                   </span>

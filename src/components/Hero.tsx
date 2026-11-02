@@ -132,41 +132,41 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Deep Cosmic Violet Base
-      ctx.fillStyle = "#070214";
+      // 1. Deep Midnight Navy & Violet Base (Matching YugNext Logo)
+      ctx.fillStyle = "#0a0422";
       ctx.fillRect(0, 0, width, height);
 
-      // 2. Harmonic Ambient Fluid Orbs (Pink & Purple)
+      // 2. Harmonic Ambient Fluid Orbs (Royal Violet & Midnight Indigo)
       const cx = width / 2;
       const cy = height * 0.35;
 
-      // Orb 1: Radiant Fuchsia / Pink (Breathing sine wave)
+      // Orb 1: Royal Electric Violet (#5d35e0 - Logo Right Half)
       const ox1 = cx + Math.sin(time * 0.85) * 220;
       const oy1 = cy + Math.cos(time * 1.1) * 90;
       const grad1 = ctx.createRadialGradient(ox1, oy1, 20, ox1, oy1, width * 0.52);
-      grad1.addColorStop(0, "rgba(236, 72, 153, 0.30)"); // Vibrant Pink
-      grad1.addColorStop(0.5, "rgba(217, 70, 239, 0.16)"); // Fuchsia
-      grad1.addColorStop(1, "rgba(7, 2, 20, 0)");
+      grad1.addColorStop(0, "rgba(93, 53, 224, 0.35)"); // Royal Electric Violet
+      grad1.addColorStop(0.5, "rgba(124, 86, 245, 0.18)"); // Violet tone
+      grad1.addColorStop(1, "rgba(10, 4, 34, 0)");
       ctx.fillStyle = grad1;
       ctx.fillRect(0, 0, width, height);
 
-      // Orb 2: Deep Electric Purple / Indigo
+      // Orb 2: Midnight Deep Navy (#0e0738 - Logo Left Half)
       const ox2 = cx + Math.cos(time * 0.75) * 260;
       const oy2 = cy + Math.sin(time * 1.15) * 120;
       const grad2 = ctx.createRadialGradient(ox2, oy2, 20, ox2, oy2, width * 0.48);
-      grad2.addColorStop(0, "rgba(168, 85, 247, 0.35)"); // Electric Purple
-      grad2.addColorStop(0.55, "rgba(99, 102, 241, 0.14)"); // Indigo
-      grad2.addColorStop(1, "rgba(7, 2, 20, 0)");
+      grad2.addColorStop(0, "rgba(35, 14, 110, 0.42)"); // Deep Midnight Navy
+      grad2.addColorStop(0.55, "rgba(93, 53, 224, 0.16)"); // Violet blend
+      grad2.addColorStop(1, "rgba(10, 4, 34, 0)");
       ctx.fillStyle = grad2;
       ctx.fillRect(0, 0, width, height);
 
       // 3. REAL-TIME HOVER ANIMATION: Dynamic Cursor Turbulence Spotlight
-      // Directly follows the user's mouse with an intense neon pink & violet illumination!
+      // Directly follows the user's mouse with royal violet & lavender illumination
       const cursorSpotlight = ctx.createRadialGradient(curMouseX, curMouseY, 0, curMouseX, curMouseY, 440);
-      cursorSpotlight.addColorStop(0, "rgba(244, 114, 182, 0.42)"); // Glowing Neon Pink center
-      cursorSpotlight.addColorStop(0.32, "rgba(192, 132, 252, 0.24)"); // Violet halo
-      cursorSpotlight.addColorStop(0.65, "rgba(147, 51, 234, 0.09)"); // Purple fringe
-      cursorSpotlight.addColorStop(1, "rgba(7, 2, 20, 0)");
+      cursorSpotlight.addColorStop(0, "rgba(157, 125, 247, 0.38)"); // Soft Lavender center
+      cursorSpotlight.addColorStop(0.32, "rgba(93, 53, 224, 0.25)"); // Royal Violet halo
+      cursorSpotlight.addColorStop(0.65, "rgba(35, 14, 110, 0.12)"); // Midnight Navy fringe
+      cursorSpotlight.addColorStop(1, "rgba(10, 4, 34, 0)");
       ctx.fillStyle = cursorSpotlight;
       ctx.fillRect(0, 0, width, height);
 
@@ -175,7 +175,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
       const cols = Math.ceil(width / dotSpacing);
       const rows = Math.min(Math.ceil(height / dotSpacing), 32);
 
-      ctx.fillStyle = "rgba(244, 114, 182, 0.28)";
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
           let px = c * dotSpacing;
@@ -187,18 +186,18 @@ export default function Hero({ onOpenModal }: HeroProps) {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           let radius = 1.1;
-          let alpha = 0.18;
+          let alpha = 0.16;
 
-          // Cursor proximity turbulence & warp!
+          // Cursor proximity turbulence & warp
           if (dist < 260) {
             const warpStrength = (1 - dist / 260);
             px += (dx / dist) * warpStrength * 14;
             py += (dy / dist) * warpStrength * 14;
             radius = 1.1 + warpStrength * 2.2;
-            alpha = 0.18 + warpStrength * 0.55;
+            alpha = 0.16 + warpStrength * 0.55;
           }
 
-          ctx.fillStyle = `rgba(244, 114, 182, ${alpha})`;
+          ctx.fillStyle = `rgba(157, 125, 247, ${alpha})`;
           ctx.beginPath();
           ctx.arc(px, py, radius, 0, Math.PI * 2);
           ctx.fill();
@@ -242,9 +241,9 @@ export default function Hero({ onOpenModal }: HeroProps) {
   };
 
   return (
-    <section className="relative min-h-screen bg-[#070214] text-white flex flex-col items-center justify-between overflow-hidden pt-10 sm:pt-14 pb-0">
+    <section className="relative min-h-screen bg-[#0a0422] text-white flex flex-col items-center justify-between overflow-hidden pt-10 sm:pt-14 pb-0">
       
-      {/* 1. 60FPS Animated Pink & Purple Grain + Hover Cursor Turbulence Canvas */}
+      {/* 1. 60FPS Animated Brand Violet & Midnight Canvas + Cursor Turbulence */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none z-0"
@@ -254,13 +253,13 @@ export default function Hero({ onOpenModal }: HeroProps) {
       <div
         className="absolute inset-0 pointer-events-none z-0 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(650px circle at ${mousePos.clientX || 600}px ${mousePos.clientY || 350}px, rgba(236, 72, 153, 0.15), rgba(168, 85, 247, 0.08) 45%, transparent 70%)`,
+          background: `radial-gradient(650px circle at ${mousePos.clientX || 600}px ${mousePos.clientY || 350}px, rgba(93, 53, 224, 0.22), rgba(157, 125, 247, 0.10) 45%, transparent 70%)`,
         }}
       />
 
       {/* 3. Central Ambient Glow Halo with Mouse Parallax */}
       <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[460px] bg-gradient-to-tr from-pink-500/22 via-purple-600/28 to-indigo-600/18 rounded-full blur-[145px] pointer-events-none z-0 transition-transform duration-700 ease-out"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[460px] bg-gradient-to-tr from-[#0e0738]/60 via-[#5d35e0]/30 to-[#9d7df7]/20 rounded-full blur-[145px] pointer-events-none z-0 transition-transform duration-700 ease-out"
         style={{
           transform: `translate(calc(-50% + ${mousePos.x}px), calc(-50% + ${mousePos.y}px))`,
         }}
@@ -269,7 +268,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
       {/* 4. MAIN HERO CONTENT CONTAINER (EXACT YUGNEXT WEBSITE COPY) */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 sm:space-y-8">
         
-        {/* Top Pill Badge: ✨ YUGNEXT • STEP INTO TOMORROW > */}
+        {/* Top Pill Badge: YUGNEXT • STEP INTO TOMORROW */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -278,17 +277,17 @@ export default function Hero({ onOpenModal }: HeroProps) {
         >
           <button
             onClick={() => onOpenModal("whatWeDo")}
-            className="group inline-flex items-center gap-2.5 px-4 sm:px-5 py-2 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-pink-400/35 hover:border-pink-400/60 text-white text-xs sm:text-sm font-medium backdrop-blur-2xl shadow-xl shadow-purple-950/40 transition-all cursor-pointer"
+            className="group inline-flex items-center gap-2.5 px-4 sm:px-5 py-2 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-[#5d35e0]/40 hover:border-[#5d35e0]/70 text-white text-xs sm:text-sm font-medium backdrop-blur-2xl shadow-xl shadow-[#0e0738]/60 transition-all cursor-pointer"
           >
-            <span className="w-5 h-5 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-white text-[10px] shadow-sm">
-              <Sparkles className="w-3 h-3 animate-pulse" />
+            <span className="w-5 h-5 rounded-full bg-[#5d35e0] flex items-center justify-center text-white text-[10px] shadow-sm">
+              <Sparkles className="w-3 h-3 animate-pulse text-white" />
             </span>
-            <span className="font-extrabold tracking-wider uppercase text-pink-300">YUGNEXT</span>
-            <span className="text-pink-400 font-mono">•</span>
+            <span className="font-extrabold tracking-wider uppercase text-[#9d7df7]">YUGNEXT</span>
+            <span className="text-[#5d35e0] font-mono">•</span>
             <span className="text-purple-100 font-bold tracking-wide group-hover:text-white transition-colors">
               STEP INTO TOMORROW.
             </span>
-            <ChevronRight className="w-3.5 h-3.5 text-pink-300 group-hover:translate-x-0.5 transition-transform" />
+            <ChevronRight className="w-3.5 h-3.5 text-[#9d7df7] group-hover:translate-x-0.5 transition-transform" />
           </button>
         </motion.div>
 
@@ -301,7 +300,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
         >
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-tight leading-[1.08] text-white max-w-5xl mx-auto">
             The Future Doesn&apos;t Wait.{" "}
-            <span className="bg-gradient-to-r from-pink-400 via-fuchsia-300 to-purple-300 bg-clip-text text-transparent underline decoration-pink-500/40 decoration-wavy decoration-2">
+            <span className="text-[#9d7df7] underline decoration-[#5d35e0]/60 decoration-wavy decoration-2">
               Neither Should Your Business.
             </span>
           </h1>
@@ -312,29 +311,29 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </p>
         </motion.div>
 
-        {/* Dual Action Buttons: [ Explore What We Do → ] | [ Explore Products → ] */}
+        {/* Dual Action Buttons: [ Explore What We Do → ] | [ Explore Products → ] (SOLID COLORS, NO GRADIENT) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="flex flex-wrap items-center justify-center gap-4 pt-1"
         >
-          {/* Primary CTA: Explore What We Do */}
+          {/* Primary CTA: Solid Brand Electric Violet (#5d35e0) */}
           <button
             onClick={() => onOpenModal("whatWeDo")}
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-purple-700 via-fuchsia-600 to-pink-600 hover:from-purple-600 hover:via-fuchsia-500 hover:to-pink-500 text-white font-extrabold text-sm sm:text-base shadow-xl shadow-purple-900/50 hover:shadow-2xl hover:shadow-pink-600/40 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer group"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-extrabold text-sm sm:text-base shadow-xl shadow-[#5d35e0]/30 hover:shadow-2xl hover:shadow-[#5d35e0]/40 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer group"
           >
             <span>Explore What We Do</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
 
-          {/* Secondary CTA: Explore Products */}
+          {/* Secondary CTA: Solid High-Trust Glass */}
           <button
             onClick={() => onOpenModal("products")}
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] text-white font-bold text-sm sm:text-base border border-purple-300/30 hover:border-purple-300/60 backdrop-blur-xl shadow-lg transition-all cursor-pointer active:scale-95 group"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] text-white font-bold text-sm sm:text-base border border-white/20 hover:border-[#5d35e0] backdrop-blur-xl shadow-lg transition-all cursor-pointer active:scale-95 group"
           >
-            <span className="w-5 h-5 rounded-full bg-pink-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Play className="w-2.5 h-2.5 fill-pink-400 text-pink-400 ml-0.5" />
+            <span className="w-5 h-5 rounded-full bg-[#5d35e0]/25 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Play className="w-2.5 h-2.5 fill-[#9d7df7] text-[#9d7df7] ml-0.5" />
             </span>
             <span>Explore Products</span>
           </button>
@@ -373,7 +372,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
           {/* Institutional Delivery Network Copy */}
           <span className="text-xs sm:text-sm text-purple-200/90 font-medium">
-            Strategic Delivery Network: <span className="text-pink-300 font-extrabold">CHENNAI · BHOPAL · PUNE</span> • Alliances with <span className="font-bold text-white">ROLTA, MANIT &amp; Nexan</span>
+            Strategic Delivery Network: <span className="text-[#9d7df7] font-extrabold">CHENNAI · BHOPAL · PUNE</span> • Alliances with <span className="font-bold text-white">ROLTA, MANIT &amp; Nexan</span>
           </span>
         </motion.div>
 
@@ -385,7 +384,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
-          className="rounded-t-[28px] sm:rounded-t-[36px] border-t border-x border-pink-500/35 bg-slate-950/85 backdrop-blur-2xl shadow-[0_-25px_80px_rgba(217,70,239,0.22)] overflow-hidden"
+          className="rounded-t-[28px] sm:rounded-t-[36px] border-t border-x border-[#5d35e0]/35 bg-[#0e0738]/90 backdrop-blur-2xl shadow-[0_-25px_80px_rgba(93,53,224,0.22)] overflow-hidden"
         >
           
           {/* Mac OS Window Header */}
@@ -399,17 +398,17 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 <span className="w-3 h-3 rounded-full bg-emerald-500/90 shadow-sm shadow-emerald-500/30" />
               </div>
               <span className="text-xs font-mono font-bold text-slate-300 tracking-wide hidden sm:inline">
-                YugNext Intelligent Systems • <span className="text-pink-400">Live Workspace</span>
+                YugNext Intelligent Systems • <span className="text-[#9d7df7]">Live Workspace</span>
               </span>
             </div>
 
-            {/* Workspace Interactive Mode Tabs */}
+            {/* Workspace Interactive Mode Tabs (Solid Brand Violet, No Gradients) */}
             <div className="flex items-center gap-1 bg-white/[0.06] p-1 rounded-xl border border-white/[0.08]">
               <button
                 onClick={() => setActiveTab("ui")}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activeTab === "ui"
-                    ? "bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md shadow-pink-600/30"
+                    ? "bg-[#5d35e0] text-white shadow-md shadow-[#5d35e0]/30"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -421,7 +420,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 onClick={() => setActiveTab("code")}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activeTab === "code"
-                    ? "bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md shadow-pink-600/30"
+                    ? "bg-[#5d35e0] text-white shadow-md shadow-[#5d35e0]/30"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -433,7 +432,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 onClick={() => setActiveTab("copy")}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activeTab === "copy"
-                    ? "bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md shadow-pink-600/30"
+                    ? "bg-[#5d35e0] text-white shadow-md shadow-[#5d35e0]/30"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -445,7 +444,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 onClick={() => setActiveTab("analytics")}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   activeTab === "analytics"
-                    ? "bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md shadow-pink-600/30"
+                    ? "bg-[#5d35e0] text-white shadow-md shadow-[#5d35e0]/30"
                     : "text-slate-400 hover:text-white"
                 }`}
               >
@@ -458,8 +457,8 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
           {/* Interactive AI Prompt Input Bar */}
           <div className="p-4 sm:p-6 border-b border-white/[0.06] bg-gradient-to-b from-white/[0.02] to-transparent space-y-3">
-            <div className="flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl bg-white/[0.06] border border-pink-500/25 focus-within:border-pink-400 focus-within:ring-2 focus-within:ring-pink-500/20 transition-all shadow-inner">
-              <Wand2 className="w-5 h-5 text-pink-400 shrink-0 ml-1.5 animate-pulse" />
+            <div className="flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl bg-white/[0.06] border border-[#5d35e0]/30 focus-within:border-[#5d35e0] focus-within:ring-2 focus-within:ring-[#5d35e0]/20 transition-all shadow-inner">
+              <Wand2 className="w-5 h-5 text-[#9d7df7] shrink-0 ml-1.5 animate-pulse" />
               <input
                 type="text"
                 value={promptInput}
@@ -471,7 +470,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
               <button
                 onClick={handleGenerate}
                 disabled={isGenerating}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-pink-600 via-fuchsia-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-extrabold text-xs sm:text-sm shadow-md shadow-pink-600/30 transition-all cursor-pointer whitespace-nowrap active:scale-95 disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-extrabold text-xs sm:text-sm shadow-md shadow-[#5d35e0]/30 transition-all cursor-pointer whitespace-nowrap active:scale-95 disabled:opacity-50"
               >
                 <span>{isGenerating ? "Synthesizing..." : "Explore"}</span>
                 <Send className="w-3.5 h-3.5" />
@@ -487,7 +486,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 <button
                   key={preset.label}
                   onClick={() => handleSelectPreset(preset)}
-                  className="px-3 py-1 rounded-full bg-white/[0.06] hover:bg-pink-500/20 border border-white/[0.1] hover:border-pink-400/40 text-slate-300 hover:text-white font-medium transition-colors cursor-pointer whitespace-nowrap text-xs"
+                  className="px-3 py-1 rounded-full bg-white/[0.06] hover:bg-[#5d35e0]/20 border border-white/[0.1] hover:border-[#5d35e0]/40 text-slate-300 hover:text-white font-medium transition-colors cursor-pointer whitespace-nowrap text-xs"
                 >
                   {preset.label}
                 </button>
@@ -496,17 +495,17 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </div>
 
           {/* DYNAMIC INTERACTIVE PLAYGROUND OUTPUT */}
-          <div className="p-4 sm:p-8 min-h-[380px] sm:min-h-[440px] flex items-center justify-center relative bg-gradient-to-b from-[#0c051f]/80 to-[#070214]">
+          <div className="p-4 sm:p-8 min-h-[380px] sm:min-h-[440px] flex items-center justify-center relative bg-gradient-to-b from-[#0e0738]/90 to-[#0a0422]">
             
             {/* Loading Indicator */}
             {isGenerating && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="absolute inset-0 z-30 bg-[#070214]/85 backdrop-blur-md flex flex-col items-center justify-center space-y-3"
+                className="absolute inset-0 z-30 bg-[#0a0422]/90 backdrop-blur-md flex flex-col items-center justify-center space-y-3"
               >
-                <div className="w-10 h-10 rounded-full border-2 border-pink-500 border-t-transparent animate-spin" />
-                <p className="text-sm font-mono font-bold text-pink-300 animate-pulse">
+                <div className="w-10 h-10 rounded-full border-2 border-[#5d35e0] border-t-transparent animate-spin" />
+                <p className="text-sm font-mono font-bold text-[#9d7df7] animate-pulse">
                   Synthesizing YugNext Architecture &amp; Solutions...
                 </p>
               </motion.div>
@@ -518,13 +517,13 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className="w-full max-w-2xl p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-white/[0.09] to-white/[0.03] border border-pink-500/30 backdrop-blur-xl shadow-2xl relative space-y-6"
+                className="w-full max-w-2xl p-6 sm:p-8 rounded-3xl bg-white/[0.05] border border-[#5d35e0]/30 backdrop-blur-xl shadow-2xl relative space-y-6"
               >
                 {/* Product Switcher Pills */}
                 <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-pink-500 animate-pulse" />
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-pink-400">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#5d35e0] animate-pulse" />
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#9d7df7]">
                       PROPRIETARY PRODUCTS
                     </span>
                   </div>
@@ -533,7 +532,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                     <button
                       onClick={() => setActiveProductView("shikshasathi")}
                       className={`px-3 py-1 rounded-full transition-colors cursor-pointer ${
-                        activeProductView === "shikshasathi" ? "bg-gradient-to-r from-pink-600 to-purple-600 text-white" : "text-slate-400 hover:text-white"
+                        activeProductView === "shikshasathi" ? "bg-[#5d35e0] text-white" : "text-slate-400 hover:text-white"
                       }`}
                     >
                       ShikshaSathi
@@ -541,7 +540,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                     <button
                       onClick={() => setActiveProductView("campusneeds")}
                       className={`px-3 py-1 rounded-full transition-colors cursor-pointer ${
-                        activeProductView === "campusneeds" ? "bg-gradient-to-r from-pink-600 to-purple-600 text-white" : "text-slate-400 hover:text-white"
+                        activeProductView === "campusneeds" ? "bg-[#5d35e0] text-white" : "text-slate-400 hover:text-white"
                       }`}
                     >
                       CampusNeeds
@@ -549,7 +548,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                     <button
                       onClick={() => setActiveProductView("settler")}
                       className={`px-3 py-1 rounded-full transition-colors cursor-pointer ${
-                        activeProductView === "settler" ? "bg-gradient-to-r from-pink-600 to-purple-600 text-white" : "text-slate-400 hover:text-white"
+                        activeProductView === "settler" ? "bg-[#5d35e0] text-white" : "text-slate-400 hover:text-white"
                       }`}
                     >
                       Settler
@@ -561,7 +560,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 {activeProductView === "shikshasathi" && (
                   <div className="space-y-4 text-left">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center font-bold">
+                      <div className="w-10 h-10 rounded-xl bg-[#5d35e0]/20 text-[#9d7df7] flex items-center justify-center font-bold">
                         <GraduationCap className="w-5 h-5" />
                       </div>
                       <div>
@@ -576,7 +575,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
                       <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08]">
-                        <span className="font-bold text-pink-300 block">Connected Learning</span>
+                        <span className="font-bold text-[#9d7df7] block">Connected Learning</span>
                         <span className="text-[11px] text-slate-400">Student &amp; faculty ecosystem</span>
                       </div>
                       <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08]">
@@ -591,7 +590,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
                     <button
                       onClick={() => onOpenModal("products")}
-                      className="w-full py-3 rounded-2xl bg-gradient-to-r from-pink-600 via-fuchsia-600 to-purple-600 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-pink-600/30 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
+                      className="w-full py-3 rounded-2xl bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-[#5d35e0]/30 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
                     >
                       Explore ShikshaSathi →
                     </button>
@@ -602,7 +601,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 {activeProductView === "campusneeds" && (
                   <div className="space-y-4 text-left">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">
+                      <div className="w-10 h-10 rounded-xl bg-[#5d35e0]/20 text-[#9d7df7] flex items-center justify-center font-bold">
                         <Building2 className="w-5 h-5" />
                       </div>
                       <div>
@@ -617,7 +616,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
                       <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08]">
-                        <span className="font-bold text-pink-300 block">Campus Marketplace</span>
+                        <span className="font-bold text-[#9d7df7] block">Campus Marketplace</span>
                         <span className="text-[11px] text-slate-400">Decentralized utilities</span>
                       </div>
                       <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08]">
@@ -632,7 +631,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
                     <button
                       onClick={() => onOpenModal("products")}
-                      className="w-full py-3 rounded-2xl bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-purple-600/30 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
+                      className="w-full py-3 rounded-2xl bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-[#5d35e0]/30 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
                     >
                       Explore CampusNeeds →
                     </button>
@@ -643,7 +642,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 {activeProductView === "settler" && (
                   <div className="space-y-4 text-left">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center font-bold">
+                      <div className="w-10 h-10 rounded-xl bg-[#5d35e0]/20 text-[#9d7df7] flex items-center justify-center font-bold">
                         <Layers className="w-5 h-5" />
                       </div>
                       <div>
@@ -658,7 +657,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs">
                       <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08]">
-                        <span className="font-bold text-pink-300 block">Verified Stays</span>
+                        <span className="font-bold text-[#9d7df7] block">Verified Stays</span>
                         <span className="text-[11px] text-slate-400">Direct landlord trust</span>
                       </div>
                       <div className="p-3 rounded-xl bg-white/[0.04] border border-white/[0.08]">
@@ -673,7 +672,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
                     <button
                       onClick={() => onOpenModal("products")}
-                      className="w-full py-3 rounded-2xl bg-gradient-to-r from-pink-600 via-fuchsia-600 to-purple-600 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-pink-600/30 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
+                      className="w-full py-3 rounded-2xl bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-[#5d35e0]/30 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
                     >
                       Explore Settler →
                     </button>
@@ -689,11 +688,11 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className="w-full max-w-2xl rounded-2xl bg-[#0d0722] border border-purple-500/30 overflow-hidden text-left font-mono text-xs shadow-2xl"
+                className="w-full max-w-2xl rounded-2xl bg-[#0e0738] border border-[#5d35e0]/35 overflow-hidden text-left font-mono text-xs shadow-2xl"
               >
                 {/* Code Header */}
                 <div className="px-4 py-2.5 bg-white/[0.04] border-b border-white/[0.08] flex items-center justify-between text-[11px] text-slate-400">
-                  <span className="text-pink-300 font-bold">PravaahSolutionsEngine.ts</span>
+                  <span className="text-[#9d7df7] font-bold">PravaahSolutionsEngine.ts</span>
                   <button
                     onClick={handleCopyCode}
                     className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.08] hover:bg-white/[0.15] text-slate-300 hover:text-white transition-colors cursor-pointer"
@@ -705,10 +704,10 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
                 {/* Syntax Highlighted Code */}
                 <div className="p-4 sm:p-5 overflow-x-auto text-[11px] sm:text-xs leading-relaxed space-y-1 text-purple-200/90 font-mono">
-                  <div><span className="text-pink-400">import</span> &#123; YugNextEngine, DeliveryNode &#125; <span className="text-pink-400">from</span> <span className="text-emerald-300">&quot;@yugnext/pravaah-core&quot;</span>;</div>
-                  <div><span className="text-pink-400">import</span> &#123; ShikshaSathi, CampusNeeds &#125; <span className="text-pink-400">from</span> <span className="text-emerald-300">&quot;@yugnext/products&quot;</span>;</div>
+                  <div><span className="text-[#9d7df7]">import</span> &#123; YugNextEngine, DeliveryNode &#125; <span className="text-[#9d7df7]">from</span> <span className="text-emerald-300">&quot;@yugnext/pravaah-core&quot;</span>;</div>
+                  <div><span className="text-[#9d7df7]">import</span> &#123; ShikshaSathi, CampusNeeds &#125; <span className="text-[#9d7df7]">from</span> <span className="text-emerald-300">&quot;@yugnext/products&quot;</span>;</div>
                   <div className="text-slate-500">// Enterprise delivery node architecture: CHENNAI · BHOPAL · PUNE</div>
-                  <div><span className="text-purple-400 font-bold">export const</span> <span className="text-amber-300">YugNextSolutions</span> = <span className="text-pink-400">new</span> <span className="text-amber-300">YugNextEngine</span>(&#123;</div>
+                  <div><span className="text-purple-400 font-bold">export const</span> <span className="text-amber-300">YugNextSolutions</span> = <span className="text-[#9d7df7]">new</span> <span className="text-amber-300">YugNextEngine</span>(&#123;</div>
                   <div className="pl-4">hubs: [<span className="text-emerald-300">&quot;CHENNAI&quot;</span>, <span className="text-emerald-300">&quot;BHOPAL&quot;</span>, <span className="text-emerald-300">&quot;PUNE&quot;</span>],</div>
                   <div className="pl-4">alliances: [<span className="text-emerald-300">&quot;ROLTA&quot;</span>, <span className="text-emerald-300">&quot;MANIT&quot;</span>, <span className="text-emerald-300">&quot;NexanAcademy&quot;</span>],</div>
                   <div className="pl-4">mission: <span className="text-emerald-300">&quot;Build things people need. Create things people remember. Move things forward.&quot;</span>,</div>
@@ -726,8 +725,8 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 transition={{ duration: 0.3 }}
                 className="w-full max-w-xl space-y-3 text-left"
               >
-                <div className="p-4 rounded-2xl bg-gradient-to-r from-pink-950/40 via-purple-950/40 to-indigo-950/40 border border-pink-500/30">
-                  <span className="text-[10px] font-mono font-bold text-pink-400 uppercase tracking-widest block mb-1">
+                <div className="p-4 rounded-2xl bg-[#0e0738] border border-[#5d35e0]/30">
+                  <span className="text-[10px] font-mono font-bold text-[#9d7df7] uppercase tracking-widest block mb-1">
                     THE YUGNEXT APPROACH
                   </span>
                   <h4 className="text-base font-extrabold text-white">Don&apos;t Just Go Digital. Go Next.</h4>
@@ -741,10 +740,10 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-xl bg-white/[0.05] border border-purple-500/25 flex items-center justify-between hover:border-pink-400/50 transition-colors"
+                    className="p-3.5 rounded-xl bg-white/[0.05] border border-[#5d35e0]/25 flex items-center justify-between hover:border-[#5d35e0]/60 transition-colors"
                   >
                     <div>
-                      <span className="text-sm font-extrabold text-pink-300 mr-2">{item.title}</span>
+                      <span className="text-sm font-extrabold text-[#9d7df7] mr-2">{item.title}</span>
                       <span className="text-xs text-slate-300 font-light">{item.desc}</span>
                     </div>
                     <Check className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -761,12 +760,12 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 transition={{ duration: 0.3 }}
                 className="w-full max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-4 text-left"
               >
-                <div className="p-5 rounded-2xl bg-white/[0.05] border border-pink-500/25 space-y-2">
+                <div className="p-5 rounded-2xl bg-white/[0.05] border border-[#5d35e0]/25 space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">
                       DELIVERY NETWORK
                     </span>
-                    <MapPin className="w-3.5 h-3.5 text-pink-400" />
+                    <MapPin className="w-3.5 h-3.5 text-[#9d7df7]" />
                   </div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-xl font-black text-white">CHENNAI · BHOPAL · PUNE</span>
@@ -774,12 +773,12 @@ export default function Hero({ onOpenModal }: HeroProps) {
                   <p className="text-xs text-purple-200/70">Different cities. Different talent. One direction: Forward.</p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white/[0.05] border border-pink-500/25 space-y-2">
+                <div className="p-5 rounded-2xl bg-white/[0.05] border border-[#5d35e0]/25 space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">
                       STRATEGIC ALLIANCES
                     </span>
-                    <Shield className="w-3.5 h-3.5 text-purple-400" />
+                    <Shield className="w-3.5 h-3.5 text-[#9d7df7]" />
                   </div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-xl font-black text-white">ROLTA · MANIT · Nexan</span>
@@ -787,7 +786,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                   <p className="text-xs text-purple-200/70">High-trust institutional partnerships multiplying technology-led impact.</p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white/[0.05] border border-pink-500/25 space-y-2">
+                <div className="p-5 rounded-2xl bg-white/[0.05] border border-[#5d35e0]/25 space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">
                       CORPORATE ENTITY
@@ -800,7 +799,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                   <p className="text-xs text-purple-200/70">Incorporated 21 Oct 2026 • Verified Registrar of Companies (ROC).</p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white/[0.05] border border-pink-500/25 space-y-2">
+                <div className="p-5 rounded-2xl bg-white/[0.05] border border-[#5d35e0]/25 space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">
                       INSTITUTIONAL SEEDING
