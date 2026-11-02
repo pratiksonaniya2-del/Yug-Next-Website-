@@ -81,19 +81,19 @@ export default function TcsMegaMenu({
         transition={{ duration: 0.2, ease: "easeOut" }}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-        className="absolute top-full left-0 w-full bg-white border-b border-purple-200/90 shadow-2xl z-50 max-h-[82vh] overflow-y-auto"
+        className="absolute top-full left-0 w-full bg-[#12102A] border-b border-[#2A2450] shadow-2xl z-50 max-h-[82vh] overflow-y-auto text-[#EFEDFA]"
       >
         <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
           
           {/* Top Control Bar: Active Category Breadcrumb + Close Button */}
-          <div className="flex items-center justify-between pb-4 mb-5 border-b border-purple-100">
+          <div className="flex items-center justify-between pb-4 mb-5 border-b border-[#2A2450]">
             <div className="flex items-center gap-2.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-purple-600 animate-pulse" />
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-700">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#9B7BF0] animate-pulse" />
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#9B7BF0]">
                 YUGNEXT
               </span>
-              <span className="text-slate-300 font-mono text-xs">/</span>
-              <span className="text-xs font-bold text-slate-900 uppercase tracking-wide">
+              <span className="text-[#A79FCB]/60 font-mono text-xs">/</span>
+              <span className="text-xs font-bold text-[#EFEDFA] uppercase tracking-wide">
                 {activeModal === "whatWeDo" && "What We Do — Capabilities & Services"}
                 {activeModal === "products" && "Products — Ideas That Solve"}
                 {activeModal === "whoWeAre" && "Who We Are — Technology With a Reason to Exist"}
@@ -109,11 +109,11 @@ export default function TcsMegaMenu({
             <div className="flex items-center gap-3">
               <button
                 onClick={onClose}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-purple-100 text-slate-700 hover:text-purple-700 text-xs font-bold transition-all cursor-pointer border border-slate-200 hover:border-purple-300"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] text-[#EFEDFA] text-xs font-bold transition-all cursor-pointer border border-[#2A2450]"
                 title="Close Menu (ESC)"
               >
                 <span>Close</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded bg-white text-slate-500 font-mono border border-slate-200">ESC</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#181534] text-[#A79FCB] font-mono border border-[#2A2450]">ESC</span>
                 <X className="w-4 h-4 ml-0.5" />
               </button>
             </div>

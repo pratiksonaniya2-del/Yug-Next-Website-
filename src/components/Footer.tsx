@@ -16,10 +16,10 @@ export default function Footer({ onOpenModal }: FooterProps) {
   };
 
   return (
-    <footer className="relative mt-16 bg-[#050212] overflow-hidden text-white border-t border-purple-950/60">
+    <footer className="relative mt-16 bg-[#0A0818] overflow-hidden text-[#EFEDFA] border-t border-[#2A2450]">
       
       {/* Ambient Deep Glow in Background */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-purple-700/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-[#6C3CE3]/10 blur-[120px] pointer-events-none" />
 
       {/* Main Columnar Content (Stacked "ek ke neeche ek" in structured vertical columns) */}
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pt-14 pb-4">

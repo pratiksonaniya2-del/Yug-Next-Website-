@@ -152,8 +152,8 @@ export default function Navbar({
       <header
         className={`sticky top-0 z-50 transition-all duration-300 relative ${
           isScrolled
-            ? "py-2 bg-white/98 backdrop-blur-2xl shadow-md shadow-purple-950/5 border-b border-purple-100"
-            : "py-2.5 sm:py-3 bg-white border-b border-purple-100/90 shadow-xs"
+            ? "py-2 bg-[#0A0818]/95 backdrop-blur-2xl shadow-lg shadow-black/40 border-b border-[#2A2450]"
+            : "py-2.5 sm:py-3 bg-[#0A0818]/85 backdrop-blur-md border-b border-[#2A2450]/80 shadow-xs"
         }`}
       >
         <div className="relative z-50 max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
@@ -166,7 +166,7 @@ export default function Navbar({
             }}
             className="flex items-center group text-left cursor-pointer shrink-0 hover:opacity-90 transition-opacity"
           >
-            <YugNextLogo size="md" variant="full" theme="light" />
+            <YugNextLogo size="md" variant="full" theme="dark" />
           </Link>
 
           {/* Desktop Navigation Links — SINGLE LINE, NO WRAPPING, BEAUTIFULLY SPACED */}
@@ -179,8 +179,8 @@ export default function Navbar({
                   onClick={() => handleNavClick(item.id)}
                   className={`group inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 xl:py-2 rounded-xl text-xs xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-all cursor-pointer ${
                     isActive
-                      ? "bg-purple-100 text-purple-800 font-bold ring-1 ring-purple-300 shadow-xs"
-                      : "text-slate-700 hover:text-purple-700 hover:bg-purple-50"
+                      ? "bg-[#6C3CE3] text-white font-bold ring-1 ring-[#9B7BF0]/50 shadow-md shadow-[#6C3CE3]/30"
+                      : "text-[#A79FCB] hover:text-[#EFEDFA] hover:bg-white/[0.06]"
                   }`}
                   aria-expanded={isActive}
                 >
@@ -188,8 +188,8 @@ export default function Navbar({
                   <ChevronDown
                     className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
                       isActive
-                        ? "rotate-180 text-purple-700"
-                        : "text-slate-400 group-hover:text-purple-600"
+                        ? "rotate-180 text-white"
+                        : "text-[#A79FCB] group-hover:text-[#9B7BF0]"
                     }`}
                   />
                 </button>
@@ -206,7 +206,7 @@ export default function Navbar({
                 setSearchModalOpen(true);
                 setLangDropdownOpen(false);
               }}
-              className="w-9 h-9 rounded-full flex items-center justify-center text-slate-700 hover:text-purple-700 hover:bg-purple-50 transition-all border border-slate-200/90 hover:border-purple-300 cursor-pointer shadow-xs active:scale-95 shrink-0"
+              className="w-9 h-9 rounded-full flex items-center justify-center text-[#A79FCB] hover:text-[#EFEDFA] hover:bg-white/[0.08] transition-all border border-[#2A2450] hover:border-[#9B7BF0] cursor-pointer shadow-xs active:scale-95 shrink-0"
               title="Search YugNext (TCS Style)"
               aria-label="Search YugNext"
             >
@@ -222,30 +222,30 @@ export default function Navbar({
                 }}
                 className={`w-9 h-9 rounded-full flex items-center justify-center transition-all border cursor-pointer shadow-xs active:scale-95 ${
                   langDropdownOpen
-                    ? "bg-purple-100 border-purple-400 text-purple-700"
-                    : "text-slate-700 hover:text-purple-700 hover:bg-purple-50 border-slate-200/90 hover:border-purple-300"
+                    ? "bg-[#6C3CE3] border-[#9B7BF0] text-white"
+                    : "text-[#A79FCB] hover:text-[#EFEDFA] hover:bg-white/[0.08] border-[#2A2450] hover:border-[#9B7BF0]"
                 }`}
                 title="Global Regions & Language"
                 aria-label="Select Country or Language"
               >
-                <Globe2 className="w-4 h-4 text-purple-600" />
-                <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white" />
+                <Globe2 className="w-4 h-4 text-[#9B7BF0]" />
+                <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-emerald-400 ring-2 ring-[#0A0818]" />
               </button>
 
               {/* Language & Worldwide Region Dropdown */}
               {langDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-purple-100 py-3 z-50 text-xs animate-in fade-in slide-in-from-top-2 duration-150">
-                  <div className="px-4 pb-2 border-b border-slate-100">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-700 block">
+                <div className="absolute right-0 mt-2 w-72 bg-[#12102A] rounded-2xl shadow-2xl border border-[#2A2450] py-3 z-50 text-xs animate-in fade-in slide-in-from-top-2 duration-150 text-[#EFEDFA]">
+                  <div className="px-4 pb-2 border-b border-[#2A2450]">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#9B7BF0] block">
                       GLOBAL DELIVERY NETWORK
                     </span>
-                    <p className="text-slate-900 font-extrabold text-sm mt-0.5">
+                    <p className="text-[#EFEDFA] font-extrabold text-sm mt-0.5">
                       CHENNAI · BHOPAL · AGRA
                     </p>
                   </div>
 
                   <div className="px-4 py-2">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#A79FCB] block mb-1">
                       SELECT LANGUAGE
                     </span>
                     {[
@@ -261,23 +261,23 @@ export default function Navbar({
                         }}
                         className={`w-full text-left px-2.5 py-1.5 rounded-lg flex items-center justify-between font-medium cursor-pointer transition-colors ${
                           selectedLang === lang
-                            ? "bg-purple-50 text-purple-700 font-bold"
-                            : "hover:bg-slate-50 text-slate-700"
+                            ? "bg-[#6C3CE3] text-white font-bold"
+                            : "hover:bg-white/[0.06] text-[#A79FCB] hover:text-white"
                         }`}
                       >
                         <span>{lang}</span>
-                        {selectedLang === lang && <Check className="w-3.5 h-3.5 text-purple-600" />}
+                        {selectedLang === lang && <Check className="w-3.5 h-3.5 text-white" />}
                       </button>
                     ))}
                   </div>
 
-                  <div className="px-4 pt-2 border-t border-slate-100">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                  <div className="px-4 pt-2 border-t border-[#2A2450]">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#A79FCB] block mb-1">
                       OPERATING JURISDICTION
                     </span>
-                    <div className="p-2 rounded-xl bg-purple-50/70 border border-purple-100 flex items-center gap-2">
-                      <MapPin className="w-3.5 h-3.5 text-purple-600 shrink-0" />
-                      <span className="text-slate-800 font-semibold text-[11px]">
+                    <div className="p-2 rounded-xl bg-[#181534] border border-[#2A2450] flex items-center gap-2">
+                      <MapPin className="w-3.5 h-3.5 text-[#9B7BF0] shrink-0" />
+                      <span className="text-[#EFEDFA] font-semibold text-[11px]">
                         Corporate HQ: Bhopal, MP, India
                       </span>
                     </div>
@@ -286,10 +286,10 @@ export default function Navbar({
               )}
             </div>
 
-            {/* Primary Action Button: Step Into Tomorrow (Solid Corporate Brand Violet, No Gradient) */}
+            {/* Primary Action Button: Step Into Tomorrow */}
             <button
               onClick={() => handleNavClick("whatWeDo")}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#5d35e0]/25 hover:shadow-lg hover:shadow-[#5d35e0]/35 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer whitespace-nowrap ml-1"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#6C3CE3]/25 hover:shadow-lg hover:shadow-[#6C3CE3]/35 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer whitespace-nowrap ml-1"
             >
               <span>Step Into Tomorrow</span>
               <ArrowRight className="w-4 h-4" />
@@ -300,16 +300,16 @@ export default function Navbar({
           <div className="xl:hidden flex items-center gap-2">
             <button
               onClick={() => setSearchModalOpen(true)}
-              className="p-2 rounded-xl text-slate-700 hover:bg-purple-50 hover:text-purple-700 transition-colors cursor-pointer border border-slate-200"
+              className="p-2 rounded-xl text-[#A79FCB] hover:bg-white/[0.08] hover:text-[#EFEDFA] transition-colors cursor-pointer border border-[#2A2450]"
               title="Search"
             >
               <Search className="w-5 h-5" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-slate-700 hover:bg-purple-50 hover:text-purple-700 transition-colors cursor-pointer border border-slate-200"
+              className="p-2 rounded-xl text-[#A79FCB] hover:bg-white/[0.08] hover:text-[#EFEDFA] transition-colors cursor-pointer border border-[#2A2450]"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
             </button>
           </div>
 
@@ -330,31 +330,31 @@ export default function Navbar({
 
       {/* TCS-STYLE INTERACTIVE SEARCH OVERLAY MODAL */}
       {searchModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-150">
-          <div className="w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-purple-100 overflow-hidden animate-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-150">
+          <div className="w-full max-w-2xl bg-[#12102A] rounded-3xl shadow-2xl border border-[#2A2450] overflow-hidden animate-in zoom-in-95 duration-200">
             
             {/* Search Input Bar */}
-            <div className="p-4 sm:p-5 border-b border-purple-100 flex items-center gap-3">
-              <Search className="w-5 h-5 text-purple-600 shrink-0" />
+            <div className="p-4 sm:p-5 border-b border-[#2A2450] flex items-center gap-3">
+              <Search className="w-5 h-5 text-[#9B7BF0] shrink-0" />
               <input
                 ref={searchInputRef}
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search services, products, hubs, or insights..."
-                className="w-full text-base sm:text-lg font-medium text-slate-900 placeholder:text-slate-400 outline-none bg-transparent"
+                className="w-full text-base sm:text-lg font-medium text-[#EFEDFA] placeholder:text-[#A79FCB]/60 outline-none bg-transparent"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery("")}
-                  className="p-1 rounded-full text-slate-400 hover:text-slate-600 text-xs"
+                  className="p-1 rounded-full text-[#A79FCB] hover:text-[#EFEDFA] text-xs"
                 >
                   <X className="w-4 h-4" />
                 </button>
               )}
               <button
                 onClick={() => setSearchModalOpen(false)}
-                className="p-1.5 rounded-full bg-slate-100 hover:bg-purple-100 text-slate-600 hover:text-purple-700 text-xs font-bold transition-colors cursor-pointer"
+                className="p-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] text-[#A79FCB] hover:text-white text-xs font-bold transition-colors cursor-pointer"
                 title="Close (ESC)"
               >
                 <X className="w-4 h-4" />
@@ -362,15 +362,15 @@ export default function Navbar({
             </div>
 
             {/* Quick Suggestion Pills */}
-            <div className="px-5 py-3 bg-slate-50/70 border-b border-slate-100 flex items-center gap-2 overflow-x-auto text-xs">
-              <span className="text-[10px] font-mono font-bold uppercase text-slate-400 tracking-wider">
+            <div className="px-5 py-3 bg-[#181534]/70 border-b border-[#2A2450] flex items-center gap-2 overflow-x-auto text-xs">
+              <span className="text-[10px] font-mono font-bold uppercase text-[#A79FCB]/80 tracking-wider">
                 TOPICS:
               </span>
               {["NexanAcademy", "ShikshaSathi", "Pravaah", "CampusNeeds", "Settler", "MANIT"].map((topic) => (
                 <button
                   key={topic}
                   onClick={() => setSearchQuery(topic)}
-                  className="px-2.5 py-1 rounded-full bg-white hover:bg-purple-100 text-slate-700 hover:text-purple-800 border border-slate-200 font-semibold cursor-pointer transition-colors whitespace-nowrap"
+                  className="px-2.5 py-1 rounded-full bg-[#12102A] hover:bg-[#6C3CE3] text-[#A79FCB] hover:text-white border border-[#2A2450] font-semibold cursor-pointer transition-colors whitespace-nowrap"
                 >
                   {topic}
                 </button>
@@ -378,11 +378,11 @@ export default function Navbar({
             </div>
 
             {/* Live Filtered Results */}
-            <div className="max-h-[60vh] overflow-y-auto p-3 sm:p-4 divide-y divide-slate-100">
+            <div className="max-h-[60vh] overflow-y-auto p-3 sm:p-4 divide-y divide-[#2A2450]">
               {filteredSearch.length === 0 ? (
-                <div className="py-12 text-center text-slate-500 space-y-2">
+                <div className="py-12 text-center text-[#A79FCB] space-y-2">
                   <p className="font-bold text-sm">No results found for &ldquo;{searchQuery}&rdquo;</p>
-                  <p className="text-xs text-slate-400">Try searching for ShikshaSathi, NexanAcademy, Bhopal, or Careers</p>
+                  <p className="text-xs text-[#A79FCB]/70">Try searching for ShikshaSathi, NexanAcademy, Bhopal, or Careers</p>
                 </div>
               ) : (
                 filteredSearch.map((item) => (
@@ -392,31 +392,31 @@ export default function Navbar({
                       setSearchModalOpen(false);
                       handleNavClick(item.id);
                     }}
-                    className="w-full text-left p-3.5 rounded-2xl hover:bg-purple-50/70 transition-colors flex items-start justify-between group cursor-pointer"
+                    className="w-full text-left p-3.5 rounded-2xl hover:bg-white/[0.06] transition-colors flex items-start justify-between group cursor-pointer"
                   >
                     <div className="space-y-1 pr-4">
                       <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-purple-100 text-purple-700">
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-md bg-[#6C3CE3]/20 text-[#9B7BF0] border border-[#6C3CE3]/30">
                           {item.category}
                         </span>
-                        <h4 className="text-sm font-extrabold text-slate-900 group-hover:text-purple-700 transition-colors">
+                        <h4 className="text-sm font-extrabold text-[#EFEDFA] group-hover:text-[#9B7BF0] transition-colors">
                           {item.title}
                         </h4>
                       </div>
-                      <p className="text-xs text-slate-600 leading-relaxed font-light line-clamp-1 sm:line-clamp-2">
+                      <p className="text-xs text-[#A79FCB] leading-relaxed font-light line-clamp-1 sm:line-clamp-2">
                         {item.desc}
                       </p>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-purple-600 group-hover:translate-x-1 transition-all shrink-0 mt-1" />
+                    <ArrowRight className="w-4 h-4 text-[#A79FCB]/40 group-hover:text-[#9B7BF0] group-hover:translate-x-1 transition-all shrink-0 mt-1" />
                   </button>
                 ))
               )}
             </div>
 
             {/* Search Footer */}
-            <div className="p-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 px-5">
-              <span>Press <kbd className="px-1.5 py-0.5 rounded bg-white border border-slate-200 text-slate-700 font-mono text-[10px]">ESC</kbd> to exit search</span>
-              <span className="font-semibold text-purple-700">YugNext TCS-Style Search</span>
+            <div className="p-3 bg-[#0A0818] border-t border-[#2A2450] flex items-center justify-between text-[11px] text-[#A79FCB] px-5">
+              <span>Press <kbd className="px-1.5 py-0.5 rounded bg-[#181534] border border-[#2A2450] text-[#EFEDFA] font-mono text-[10px]">ESC</kbd> to exit search</span>
+              <span className="font-semibold text-[#9B7BF0]">YugNext TCS-Style Search</span>
             </div>
 
           </div>
@@ -425,7 +425,7 @@ export default function Navbar({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-white border-b border-purple-100 px-5 py-6 shadow-2xl space-y-2.5 z-40 relative">
+        <div className="xl:hidden bg-[#0A0818] border-b border-[#2A2450] px-5 py-6 shadow-2xl space-y-2.5 z-40 relative">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -433,10 +433,10 @@ export default function Navbar({
                 setMobileMenuOpen(false);
                 handleNavClick(item.id);
               }}
-              className="w-full text-left p-3 rounded-xl bg-purple-50/70 text-slate-900 font-bold text-sm hover:bg-purple-100 transition-colors cursor-pointer flex items-center justify-between"
+              className="w-full text-left p-3 rounded-xl bg-[#12102A] text-[#EFEDFA] font-bold text-sm hover:bg-[#181534] transition-colors cursor-pointer flex items-center justify-between border border-[#2A2450]"
             >
               <span>{item.label}</span>
-              <ChevronDown className="w-4 h-4 text-purple-600" />
+              <ChevronDown className="w-4 h-4 text-[#9B7BF0]" />
             </button>
           ))}
           <div className="pt-2">
@@ -445,7 +445,7 @@ export default function Navbar({
                 setMobileMenuOpen(false);
                 handleNavClick("whatWeDo");
               }}
-              className="w-full py-3 rounded-xl bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-bold text-center text-sm shadow-md cursor-pointer transition-colors"
+              className="w-full py-3 rounded-xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-bold text-center text-sm shadow-md cursor-pointer transition-colors"
             >
               Step Into Tomorrow →
             </button>

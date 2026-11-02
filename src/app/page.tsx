@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white flex flex-col justify-between selection:bg-[#5d35e0] selection:text-white">
+    <main className="min-h-screen bg-[#0A0818] text-[#EFEDFA] flex flex-col justify-between selection:bg-[#6C3CE3] selection:text-white">
       
       {/* 1. TCS-Style Header with Logo & Command Search */}
       <Navbar
