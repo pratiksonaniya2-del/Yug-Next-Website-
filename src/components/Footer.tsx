@@ -1,12 +1,13 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { ArrowUp, Sparkles, MapPin, CheckCircle2 } from "lucide-react";
 import { ModalType } from "./ContentCardModal";
 import YugNextLogo from "./YugNextLogo";
 
 interface FooterProps {
-  onOpenModal: (modal: ModalType) => void;
+  onOpenModal?: (modal: ModalType) => void;
 }
 
 export default function Footer({ onOpenModal }: FooterProps) {
@@ -58,45 +59,45 @@ export default function Footer({ onOpenModal }: FooterProps) {
             </span>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <button
-                  onClick={() => onOpenModal("whatWeDo")}
-                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/services"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
                   NexanAcademy
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onOpenModal("whatWeDo")}
-                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/services"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
                   Pravaah Solutions
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onOpenModal("whatWeDo")}
-                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/services"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
                   OWASP Security
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onOpenModal("whatWeDo")}
-                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/services"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
                   Pathfinder School
-                </button>
+                </Link>
               </li>
               <li className="pt-1">
-                <button
-                  onClick={() => onOpenModal("whatWeDo")}
-                  className="text-pink-400 hover:text-pink-300 font-bold transition-colors cursor-pointer text-left inline-flex items-center gap-1"
+                <Link
+                  href="/services"
+                  className="text-[#9d7df7] hover:text-white font-bold transition-colors text-left inline-flex items-center gap-1"
                 >
                   <span>Explore Services</span>
                   <span>→</span>
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -108,37 +109,37 @@ export default function Footer({ onOpenModal }: FooterProps) {
             </span>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <button
-                  onClick={() => onOpenModal("products")}
-                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/shikshasathi"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
                   ShikshaSathi (EdTech)
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onOpenModal("products")}
-                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/services"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
                   CampusNeeds (Campus)
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onOpenModal("products")}
-                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/services"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
                   Settler (Living)
-                </button>
+                </Link>
               </li>
               <li className="pt-1">
-                <button
-                  onClick={() => onOpenModal("products")}
-                  className="text-pink-400 hover:text-pink-300 font-bold transition-colors cursor-pointer text-left inline-flex items-center gap-1"
+                <Link
+                  href="/shikshasathi"
+                  className="text-[#9d7df7] hover:text-white font-bold transition-colors text-left inline-flex items-center gap-1"
                 >
                   <span>Explore Products</span>
                   <span>→</span>
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -150,52 +151,76 @@ export default function Footer({ onOpenModal }: FooterProps) {
             </span>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <button
-                  onClick={() => onOpenModal("whoWeAre")}
-                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/about"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  Who We Are &amp; Leadership
-                </button>
+                  About YugNext &amp; Ambition
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onOpenModal("industries")}
-                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/leadership"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
+                >
+                  Leadership &amp; Team
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/industries"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
                   Industries (Ed, Fin, Logistics)
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onOpenModal("community")}
-                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/community"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
                   Community &amp; Alliances
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onOpenModal("news")}
-                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/collaborations"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  News &amp; Milestones
-                </button>
+                  Collaborations (ROLTA, MANIT)
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onOpenModal("careers")}
-                  className="text-purple-300 hover:text-white font-bold transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/reach"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
+                >
+                  Nationwide Reach (Chennai, Bhopal, Pune)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/invest"
+                  className="text-slate-400 hover:text-white transition-colors text-left block"
+                >
+                  Investors (MANIT Seed Grant)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/careers"
+                  className="text-purple-300 hover:text-white font-bold transition-colors text-left block"
                 >
                   Careers (Hiring Active)
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onOpenModal("contact")}
-                  className="text-pink-400 hover:text-white font-bold transition-colors cursor-pointer text-left block"
+                <Link
+                  href="/#contact"
+                  className="text-[#9d7df7] hover:text-white font-bold transition-colors text-left block"
                 >
                   Contact Delivery Hub →
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

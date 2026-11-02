@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Sparkles,
@@ -319,24 +320,24 @@ export default function Hero({ onOpenModal }: HeroProps) {
           className="flex flex-wrap items-center justify-center gap-4 pt-1"
         >
           {/* Primary CTA: Solid Brand Electric Violet (#5d35e0) */}
-          <button
-            onClick={() => onOpenModal("whatWeDo")}
+          <a
+            href="#what-we-do"
             className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-extrabold text-sm sm:text-base shadow-xl shadow-[#5d35e0]/30 hover:shadow-2xl hover:shadow-[#5d35e0]/40 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer group"
           >
             <span>Explore What We Do</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </a>
 
           {/* Secondary CTA: Solid High-Trust Glass */}
-          <button
-            onClick={() => onOpenModal("products")}
+          <Link
+            href="/shikshasathi"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] text-white font-bold text-sm sm:text-base border border-white/20 hover:border-[#5d35e0] backdrop-blur-xl shadow-lg transition-all cursor-pointer active:scale-95 group"
           >
             <span className="w-5 h-5 rounded-full bg-[#5d35e0]/25 flex items-center justify-center group-hover:scale-110 transition-transform">
               <Play className="w-2.5 h-2.5 fill-[#9d7df7] text-[#9d7df7] ml-0.5" />
             </span>
             <span>Explore Products</span>
-          </button>
+          </Link>
         </motion.div>
 
         {/* Social Proof / Verified Trust Badge */}

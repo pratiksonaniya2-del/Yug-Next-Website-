@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   X,
@@ -235,6 +236,15 @@ export default function TcsMegaMenu({
                     <span>• Settler (Relocation)</span>
                     <ArrowRight className="w-3.5 h-3.5 text-pink-600" />
                   </button>
+
+                  <Link
+                    href="/services"
+                    onClick={onClose}
+                    className="w-full text-center py-2.5 px-3 rounded-xl bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5 mt-2"
+                  >
+                    <span>Explore Full Services Page</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -297,13 +307,14 @@ export default function TcsMegaMenu({
                       </div>
                     </div>
                   </div>
-                  <button
-                    onClick={() => onSelectModal("contact")}
+                  <Link
+                    href="/shikshasathi"
+                    onClick={onClose}
                     className="pt-2 text-xs font-bold text-purple-700 hover:text-purple-900 flex items-center justify-between cursor-pointer border-t border-purple-50"
                   >
                     <span>Explore ShikshaSathi</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                  </Link>
                 </div>
 
                 {/* CampusNeeds */}
@@ -399,6 +410,15 @@ export default function TcsMegaMenu({
                   <span className="text-pink-300 font-bold block">OUR AMBITION:</span>
                   <p className="text-slate-200 font-medium">Build things people need · Create things people remember · Move things forward.</p>
                 </div>
+                <div className="pt-2">
+                  <Link
+                    href="/about"
+                    onClick={onClose}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#9d7df7] hover:text-white transition-colors"
+                  >
+                    <span>Read Full About Us Page →</span>
+                  </Link>
+                </div>
               </div>
 
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -455,14 +475,14 @@ export default function TcsMegaMenu({
                     Technology changes from industry to industry. The need for better solutions doesn&apos;t.
                   </p>
                 </div>
-                <div className="pt-3 border-t border-purple-800/60">
-                  <button
-                    onClick={() => onSelectModal("contact")}
-                    className="inline-flex items-center gap-2 text-xs font-bold text-pink-300 hover:text-white transition-colors cursor-pointer"
+                <div className="pt-3 border-t border-purple-800/60 flex items-center justify-between">
+                  <Link
+                    href="/industries"
+                    onClick={onClose}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#9d7df7] hover:text-white transition-colors"
                   >
-                    <span>Discuss Industry Solution</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                    <span>Explore All Industries →</span>
+                  </Link>
                 </div>
               </div>
 
@@ -515,14 +535,14 @@ export default function TcsMegaMenu({
                     Technology moves faster when people share ideas. We believe in creating spaces where people can learn, collaborate, experiment and build together.
                   </p>
                 </div>
-                <div className="pt-2">
-                  <button
-                    onClick={() => onSelectModal("contact")}
-                    className="inline-flex items-center gap-2 text-xs font-bold text-pink-300 hover:text-white transition-colors cursor-pointer"
+                <div className="pt-2 flex items-center justify-between">
+                  <Link
+                    href="/community"
+                    onClick={onClose}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#9d7df7] hover:text-white transition-colors"
                   >
-                    <span>Join the YugNext Community</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                    <span>View Full Community Page →</span>
+                  </Link>
                 </div>
               </div>
 
@@ -619,12 +639,13 @@ export default function TcsMegaMenu({
                   </p>
                 </div>
                 <div className="pt-2">
-                  <button
-                    onClick={() => onSelectModal("contact")}
+                  <Link
+                    href="/careers"
+                    onClick={onClose}
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs font-bold shadow-md cursor-pointer hover:scale-105 transition-all"
                   >
                     <span>View Open Positions →</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
 

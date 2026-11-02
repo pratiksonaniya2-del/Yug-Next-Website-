@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Search,
   Globe2,
@@ -41,10 +43,21 @@ const SEARCH_DATABASE: { title: string; category: string; id: ModalType; desc: s
 interface NavbarProps {
   activeModal?: ModalType;
   isLocked?: boolean;
-  onOpenModal: (modal: ModalType) => void;
+  onOpenModal?: (modal: ModalType) => void;
   onClickModal?: (modal: ModalType) => void;
   onCloseMegaMenu?: () => void;
 }
+
+const ROUTE_MAP: Record<string, string> = {
+  whatWeDo: "/services",
+  whoWeAre: "/about",
+  products: "/shikshasathi",
+  industries: "/industries",
+  community: "/community",
+  news: "/invest",
+  careers: "/careers",
+  contact: "/#contact",
+};
 
 export default function Navbar({
   activeModal,
@@ -53,6 +66,7 @@ export default function Navbar({
   onClickModal,
   onCloseMegaMenu,
 }: NavbarProps) {
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
@@ -94,23 +108,21 @@ export default function Navbar({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [searchModalOpen, langDropdownOpen]);
 
-  // Toggle mega-menu tab on click ONLY (No hover)
+  // Toggle mega-menu tab on click ONLY (No hover), or navigate if on subpage
   const handleNavClick = (modal: ModalType) => {
-    if (activeModal === modal) {
-      // Clicking the open tab toggles it closed
-      if (onCloseMegaMenu) {
-        onCloseMegaMenu();
-      } else if (onClickModal) {
-        onClickModal(null);
+    if (onOpenModal || onClickModal) {
+      if (activeModal === modal) {
+        if (onCloseMegaMenu) onCloseMegaMenu();
+        else if (onClickModal) onClickModal(null);
+        else onOpenModal?.(null);
       } else {
-        onOpenModal(null);
+        if (onClickModal) onClickModal(modal);
+        else onOpenModal?.(modal);
       }
     } else {
-      // Open selected tab
-      if (onClickModal) {
-        onClickModal(modal);
-      } else {
-        onOpenModal(modal);
+      // Direct navigation when rendered on subpages
+      if (modal && ROUTE_MAP[modal]) {
+        router.push(ROUTE_MAP[modal]);
       }
     }
   };
@@ -148,15 +160,15 @@ export default function Navbar({
         <div className="relative z-50 max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           
           {/* Brand Logo - Official YugNext Split Emblem & Stepping Human */}
-          <button
+          <Link
+            href="/"
             onClick={() => {
               if (activeModal && onCloseMegaMenu) onCloseMegaMenu();
-              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             className="flex items-center group text-left cursor-pointer shrink-0 hover:opacity-90 transition-opacity"
           >
             <YugNextLogo size="md" variant="full" theme="light" />
-          </button>
+          </Link>
 
           {/* Desktop Navigation Links — SINGLE LINE, NO WRAPPING, BEAUTIFULLY SPACED */}
           <nav className="hidden xl:flex items-center space-x-1 shrink-0">
@@ -311,7 +323,8 @@ export default function Navbar({
           onClose={onCloseMegaMenu || (() => {})}
           onSelectModal={(modal) => {
             if (onClickModal) onClickModal(modal);
-            else onOpenModal(modal);
+            else if (onOpenModal) onOpenModal(modal);
+            else if (modal && ROUTE_MAP[modal]) router.push(ROUTE_MAP[modal]);
           }}
         />
       </header>
