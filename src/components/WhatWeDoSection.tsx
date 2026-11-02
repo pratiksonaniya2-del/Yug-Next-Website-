@@ -170,10 +170,10 @@ export default function WhatWeDoSection() {
             </div>
           </div>
 
-          {/* 4 CARDS VISIBLE AT ONCE — SMOOTH SLIDE FROM LEFT TO RIGHT ON ARROW CLICK */}
+          {/* 4 CARDS VISIBLE AT ONCE — ULTRA-SMOOTH SLIDE FROM LEFT TO RIGHT ON ARROW CLICK */}
           <div className="overflow-hidden py-4 -mx-2 px-2">
             <div
-              className="flex gap-6 transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="flex gap-6 transition-transform duration-[850ms] ease-[cubic-bezier(0.25,1,0.35,1)] will-change-transform"
               style={{
                 transform: `translateX(calc(-1 * ${currentIndex} * var(--slide-step, calc(25% + 6px))))`,
               }}
@@ -184,34 +184,34 @@ export default function WhatWeDoSection() {
                 return (
                   <div
                     key={service.id}
-                    className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] shrink-0 group relative rounded-3xl p-6 sm:p-7 bg-slate-50 hover:bg-white border border-slate-200 hover:border-[#5d35e0] hover:shadow-2xl hover:shadow-[#5d35e0]/15 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between h-[420px] overflow-hidden cursor-pointer"
+                    className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] shrink-0 group relative rounded-3xl p-6 sm:p-7 bg-slate-50 hover:bg-white border border-slate-200 hover:border-[#5d35e0] hover:shadow-2xl hover:shadow-[#5d35e0]/15 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between h-[420px] overflow-hidden cursor-pointer"
                   >
                     {/* Top Bar: Icon & Tag */}
                     <div className="flex items-center justify-between w-full">
                       {/* Icon */}
-                      <div className="w-12 h-12 rounded-2xl bg-[#5d35e0]/10 text-[#5d35e0] group-hover:bg-[#5d35e0] group-hover:text-white flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-sm">
+                      <div className="w-12 h-12 rounded-2xl bg-[#5d35e0]/10 text-[#5d35e0] group-hover:bg-[#5d35e0] group-hover:text-white flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] shadow-sm">
                         <Icon className="w-6 h-6" />
                       </div>
 
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-500 group-hover:border-[#5d35e0]/30 group-hover:text-[#5d35e0] transition-colors duration-300">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-500 group-hover:border-[#5d35e0]/30 group-hover:text-[#5d35e0] transition-colors duration-500">
                         {service.tag}
                       </span>
                     </div>
 
                     {/* Middle Section: The Title glides smoothly to the LEFT on hover */}
-                    <div className="py-2 space-y-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
-                      <span className="text-[10px] font-mono text-slate-400 font-bold tracking-wider block transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-2">
+                    <div className="py-2 space-y-1 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
+                      <span className="text-[10px] font-mono text-slate-400 font-bold tracking-wider block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5">
                         0{index + 1} • SERVICE
                       </span>
 
-                      {/* TITLE: Starts normally, and on hover glides smoothly to the LEFT */}
-                      <h3 className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-[#5d35e0] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-2 leading-snug">
+                      {/* TITLE: Starts normally, and on hover glides smoothly to the LEFT with increased duration */}
+                      <h3 className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-[#5d35e0] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5 leading-snug">
                         {service.title}
                       </h3>
                     </div>
 
                     {/* Full Text Reveal: Silky-smooth opacity & slide-in ONLY for this hovered card */}
-                    <div className="max-h-0 opacity-0 group-hover:max-h-[220px] group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden space-y-2.5">
+                    <div className="max-h-0 opacity-0 group-hover:max-h-[220px] group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden space-y-2.5">
                       <p className="text-xs text-slate-600 leading-relaxed font-light">
                         {service.summary}
                       </p>
@@ -236,7 +236,7 @@ export default function WhatWeDoSection() {
                     </div>
 
                     {/* Default Bottom Prompt: Fades out smoothly on hover */}
-                    <div className="pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:opacity-0 group-hover:h-0 transition-all duration-300 overflow-hidden">
+                    <div className="pt-3 border-t border-slate-200/60 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:opacity-0 group-hover:h-0 transition-all duration-500 overflow-hidden">
                       <span>Hover to explore</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
@@ -281,7 +281,7 @@ export default function WhatWeDoSection() {
               return (
                 <div
                   key={prod.id}
-                  className={`group rounded-3xl p-7 border transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col justify-between relative overflow-hidden min-h-[340px] cursor-pointer ${
+                  className={`group rounded-3xl p-7 border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between relative overflow-hidden min-h-[340px] cursor-pointer ${
                     prod.isStealth
                       ? "bg-slate-950 text-white border-slate-800"
                       : "bg-slate-50 hover:bg-white text-slate-900 border-slate-200 hover:border-[#5d35e0] hover:shadow-xl hover:shadow-[#5d35e0]/10"
@@ -304,9 +304,9 @@ export default function WhatWeDoSection() {
                       )}
                     </div>
 
-                    {/* Product Name: On hover slides to the LEFT */}
-                    <div className="transform transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-2">
-                      <h3 className={`text-2xl font-black ${prod.isStealth ? "text-white" : "text-slate-900 group-hover:text-[#5d35e0]"} transition-colors duration-300`}>
+                    {/* Product Name: On hover slides to the LEFT with increased duration */}
+                    <div className="transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5">
+                      <h3 className={`text-2xl font-black ${prod.isStealth ? "text-white" : "text-slate-900 group-hover:text-[#5d35e0]"} transition-colors duration-500`}>
                         {prod.name}
                       </h3>
                       <p className={`text-xs font-semibold mt-1 ${prod.isStealth ? "text-purple-300" : "text-slate-700"}`}>
@@ -315,7 +315,7 @@ export default function WhatWeDoSection() {
                     </div>
 
                     {/* Details: On hover smoothly reveals */}
-                    <div className="max-h-0 opacity-0 group-hover:max-h-[160px] group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden space-y-2">
+                    <div className="max-h-0 opacity-0 group-hover:max-h-[160px] group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden space-y-2">
                       <p className={`text-xs leading-relaxed font-light ${prod.isStealth ? "text-slate-400" : "text-slate-600"}`}>
                         {prod.description}
                       </p>
