@@ -2,16 +2,17 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { MapPin, ArrowRight, Building2, Globe2, ShieldCheck, Zap } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
+import IndiaMapSvg, { HubLocation } from "@/components/IndiaMapSvg";
 
-interface NodeInfo {
+export interface NodeInfo extends HubLocation {
   city: string;
-  role: string;
   state: string;
+  role: string;
   description: string;
   tags: string[];
-  lat: number;
-  lng: number; // SVG viewBox coordinates
+  x: number;
+  y: number;
 }
 
 const HUBS: NodeInfo[] = [
@@ -21,8 +22,8 @@ const HUBS: NodeInfo[] = [
     role: "Corporate HQ & Incubation Center",
     description: "Incubated and seed-funded by MANIT Bhopal innovation cell. Core operations, product governance, and institutional collaboration hub.",
     tags: ["Corporate HQ", "MANIT Incubation", "Govt. Alliances"],
-    lat: 185,
-    lng: 165,
+    x: 240,
+    y: 460,
   },
   {
     city: "CHENNAI",
@@ -30,8 +31,8 @@ const HUBS: NodeInfo[] = [
     role: "Deep Tech & Engineering Node",
     description: "High-throughput cloud architecture, digital experience platforms, and distributed systems delivery node.",
     tags: ["Core Engineering", "Platform Dev", "Cloud Infra"],
-    lat: 310,
-    lng: 185,
+    x: 275,
+    y: 665,
   },
   {
     city: "PUNE",
@@ -39,8 +40,8 @@ const HUBS: NodeInfo[] = [
     role: "Enterprise Solutions & Scaled Delivery",
     description: "Enterprise software integrations, rapid prototypes, and commercial partnership deployment desk.",
     tags: ["Enterprise Delivery", "Client Solutions", "Rapid Scaling"],
-    lat: 220,
-    lng: 140,
+    x: 165,
+    y: 545,
   },
 ];
 
@@ -68,7 +69,7 @@ export default function NationwideReachSection() {
           </p>
         </div>
 
-        {/* 2-Column Layout: Left Details + Right Interactive India Map */}
+        {/* 2-Column Layout: Left Details + Right Exact India Vector Map */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Left Column: Delivery Hub Cards & Metrics */}
@@ -146,102 +147,23 @@ export default function NationwideReachSection() {
 
           </div>
 
-          {/* Right Column: High-Fidelity Vector Map of India */}
+          {/* Right Column: Exact High-Fidelity Vector Map of India */}
           <div className="lg:col-span-6 flex flex-col items-center justify-center p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-md relative">
             
-            <div className="w-full max-w-[420px] relative aspect-[4/5] flex items-center justify-center">
+            <div className="w-full max-w-[480px] relative aspect-[640/675] flex items-center justify-center">
               
-              {/* Map Outline SVG (Optimized India Silhouette) */}
-              <svg
-                viewBox="0 0 360 440"
-                className="w-full h-full filter drop-shadow-[0_10px_25px_rgba(93,53,224,0.25)] select-none"
-              >
-                <defs>
-                  {/* Subtle Grid Pattern */}
-                  <pattern id="gridPattern" width="16" height="16" patternUnits="userSpaceOnUse">
-                    <circle cx="2" cy="2" r="0.8" fill="#5d35e0" opacity="0.3" />
-                  </pattern>
-                  <linearGradient id="mapGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#5d35e0" stopOpacity="0.35" />
-                    <stop offset="60%" stopColor="#0e0738" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="#0a0422" stopOpacity="0.85" />
-                  </linearGradient>
-                </defs>
-
-                {/* India Vector Outline */}
-                <path
-                  d="M175,22 C185,20 195,35 200,50 C205,65 198,78 205,90 C220,95 240,92 255,100 C270,110 285,125 280,140 C270,145 255,140 245,150 C240,165 245,185 240,200 C230,220 220,240 215,260 C210,285 200,315 190,340 C180,365 170,390 165,405 C160,395 152,370 145,345 C135,315 125,290 120,265 C115,245 110,230 115,210 C110,195 90,190 85,175 C80,160 95,150 100,140 C95,120 110,105 125,100 C135,95 150,90 155,75 C160,55 165,30 175,22 Z"
-                  fill="url(#mapGlow)"
-                  stroke="#5d35e0"
-                  strokeWidth="2"
-                  strokeLinejoin="round"
-                />
-
-                {/* Background dotted fill inside map */}
-                <path
-                  d="M175,22 C185,20 195,35 200,50 C205,65 198,78 205,90 C220,95 240,92 255,100 C270,110 285,125 280,140 C270,145 255,140 245,150 C240,165 245,185 240,200 C230,220 220,240 215,260 C210,285 200,315 190,340 C180,365 170,390 165,405 C160,395 152,370 145,345 C135,315 125,290 120,265 C115,245 110,230 115,210 C110,195 90,190 85,175 C80,160 95,150 100,140 C95,120 110,105 125,100 C135,95 150,90 155,75 C160,55 165,30 175,22 Z"
-                  fill="url(#gridPattern)"
-                />
-
-                {/* Network Interconnection Arteries (Bhopal <-> Chennai <-> Pune) */}
-                <line x1="165" y1="185" x2="140" y2="220" stroke="#9d7df7" strokeWidth="2" strokeDasharray="4 4" className="animate-pulse" />
-                <line x1="165" y1="185" x2="185" y2="310" stroke="#9d7df7" strokeWidth="2" strokeDasharray="4 4" className="animate-pulse" />
-                <line x1="140" y1="220" x2="185" y2="310" stroke="#9d7df7" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.6" />
-
-                {/* City Pins */}
-                {HUBS.map((hub) => {
-                  const isSelected = activeHub.city === hub.city;
-                  return (
-                    <g
-                      key={hub.city}
-                      className="cursor-pointer group"
-                      onClick={() => setActiveHub(hub)}
-                    >
-                      {/* Pulse Ring */}
-                      <circle
-                        cx={hub.lng}
-                        cy={hub.lat}
-                        r={isSelected ? "16" : "10"}
-                        fill={isSelected ? "#5d35e0" : "#9d7df7"}
-                        opacity="0.25"
-                        className="animate-ping"
-                      />
-                      {/* Outer Ring */}
-                      <circle
-                        cx={hub.lng}
-                        cy={hub.lat}
-                        r={isSelected ? "9" : "6"}
-                        fill={isSelected ? "#5d35e0" : "#0e0738"}
-                        stroke={isSelected ? "#ffffff" : "#9d7df7"}
-                        strokeWidth="2"
-                      />
-                      {/* Inner Dot */}
-                      <circle
-                        cx={hub.lng}
-                        cy={hub.lat}
-                        r="3"
-                        fill="#ffffff"
-                      />
-
-                      {/* City Text Label */}
-                      <text
-                        x={hub.lng + 14}
-                        y={hub.lat + 4}
-                        fill={isSelected ? "#ffffff" : "#cbd5e1"}
-                        fontSize="12"
-                        fontWeight={isSelected ? "900" : "700"}
-                        fontFamily="monospace"
-                        className="tracking-wider select-none"
-                      >
-                        {hub.city}
-                      </text>
-                    </g>
-                  );
-                })}
-              </svg>
+              {/* The Exact Geographic India SVG Map Component */}
+              <IndiaMapSvg
+                hubs={HUBS}
+                activeCity={activeHub.city}
+                onSelectCity={(city) => {
+                  const target = HUBS.find((h) => h.city === city);
+                  if (target) setActiveHub(target);
+                }}
+              />
 
               {/* Floating Active Node Callout Card */}
-              <div className="absolute bottom-2 left-2 right-2 p-3.5 rounded-xl bg-[#0e0738]/95 border border-[#5d35e0]/50 backdrop-blur-xl shadow-xl flex items-center justify-between text-xs">
+              <div className="absolute bottom-2 left-2 right-2 p-3.5 rounded-xl bg-[#0e0738]/95 border border-[#5d35e0]/50 backdrop-blur-xl shadow-xl flex items-center justify-between text-xs pointer-events-none">
                 <div>
                   <span className="text-[10px] font-mono uppercase text-[#9d7df7] font-bold block">
                     ACTIVE NODE: {activeHub.city}
