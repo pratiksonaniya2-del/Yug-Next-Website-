@@ -35,7 +35,8 @@ const SEARCH_DATABASE: { title: string; category: string; id: ModalType; desc: s
   { title: "Strategic Alliances (ROLTA, NexanAcademy, MANIT)", category: "Who We Are", id: "whoWeAre", desc: "High-trust partnerships multiplying technology-led growth." },
   { title: "Leadership & Identity", category: "Who We Are", id: "whoWeAre", desc: "People who question the obvious and build what is next." },
   { title: "Community Ecosystem", category: "Community", id: "community", desc: "Spaces to learn, collaborate, experiment and build together." },
-  { title: "News & Milestones (Oct 2026 Pvt Ltd, ₹50K Seed)", category: "news", id: "news", desc: "Incorporation milestones and MANIT Bhopal seed funding verified records." },
+  { title: "MANIT Bhopal Seed Funding (₹50K Grant)", category: "Investors", id: "investors", desc: "Initial seed capital sanctioned by MANIT innovation cell for core platform development." },
+  { title: "Private Limited Incorporation (ROC Compliance)", category: "Investors", id: "investors", desc: "Formally registered under Companies Act 2013 on 21 Oct 2026." },
   { title: "Careers (Don't Just Work for the Future. Build It.)", category: "Careers", id: "careers", desc: "Looking for people who ask 'What if we did it differently?'" },
   { title: "Contact Solutions Hub", category: "Contact", id: "contact", desc: "Got an idea? Let's see where it goes. Send message directly." },
 ];
@@ -55,6 +56,7 @@ const ROUTE_MAP: Record<string, string> = {
   industries: "/industries",
   community: "/community",
   news: "/invest",
+  investors: "/invest",
   careers: "/careers",
   contact: "/#contact",
 };
@@ -130,10 +132,7 @@ export default function Navbar({
   const navItems: { label: string; id: ModalType }[] = [
     { label: "What We Do", id: "whatWeDo" },
     { label: "Who We Are", id: "whoWeAre" },
-    { label: "Products", id: "products" },
-    { label: "Industries", id: "industries" },
-    { label: "Community", id: "community" },
-    { label: "News", id: "news" },
+    { label: "Investors", id: "investors" },
     { label: "Careers", id: "careers" },
     { label: "Contact", id: "contact" },
   ];

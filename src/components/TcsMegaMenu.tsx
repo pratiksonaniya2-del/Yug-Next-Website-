@@ -623,6 +623,60 @@ export default function TcsMegaMenu({
             </div>
           )}
 
+          {/* INVESTORS & GOVERNANCE MEGA PANEL */}
+          {activeModal === "investors" && (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+              <div className="lg:col-span-4 p-6 sm:p-7 rounded-2xl bg-[#0e0738] border border-purple-900/30 text-white flex flex-col justify-between space-y-4">
+                <div className="space-y-3">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-purple-300 block">
+                    INVESTORS &amp; GOVERNANCE
+                  </span>
+                  <h4 className="text-xl sm:text-2xl font-black leading-tight text-white">
+                    Backing the Journey Ahead.
+                  </h4>
+                  <p className="text-xs text-purple-200 leading-relaxed font-light">
+                    Building for tomorrow takes more than an idea. Supported by institutional seed funding from MANIT Bhopal and formal corporate incorporation.
+                  </p>
+                </div>
+                <div className="pt-2">
+                  <Link
+                    href="/invest"
+                    onClick={onClose}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs font-bold shadow-md cursor-pointer hover:scale-105 transition-all"
+                  >
+                    <span>Investor Portal Details →</span>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="p-5 rounded-2xl bg-purple-50/60 border border-purple-100 space-y-2">
+                  <span className="text-xs font-mono font-bold text-purple-700 block">INCUBATION</span>
+                  <h5 className="text-base font-extrabold text-slate-900">MANIT Innovation Cell</h5>
+                  <p className="text-xs text-slate-600 leading-relaxed font-light">
+                    Institutional mentorship, physical infrastructure, and innovation lab access at MANIT Bhopal.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-emerald-50/60 border border-emerald-100 space-y-2">
+                  <span className="text-xs font-mono font-bold text-emerald-700 block">SEED CAPITAL</span>
+                  <h5 className="text-base font-extrabold text-slate-900">₹50,000 Seed Grant</h5>
+                  <p className="text-xs text-slate-600 leading-relaxed font-light">
+                    Sanctioned seed capital disbursed on 8 May 2026 for platform architecture and pilot validation.
+                  </p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-indigo-50/60 border border-indigo-100 space-y-2">
+                  <span className="text-xs font-mono font-bold text-indigo-700 block">GOVERNANCE</span>
+                  <h5 className="text-base font-extrabold text-slate-900">Pvt. Ltd. Incorporation</h5>
+                  <p className="text-xs text-slate-600 leading-relaxed font-light">
+                    Formally registered on 21 Oct 2026 under the Companies Act 2013 with complete statutory compliance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* 7. CAREERS MEGA PANEL */}
           {activeModal === "careers" && (
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
