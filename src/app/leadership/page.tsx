@@ -35,7 +35,7 @@ export default function LeadershipPage() {
     {
       name: "Product Design & Solutions Lab",
       role: "User Experience & Rapid Deployment",
-      hub: "Pune Delivery Node",
+      hub: "Agra Delivery Node",
       bio: "Human-centric interface design, customer discovery sprints, and rapid prototyping for campus & enterprise utilities.",
       focus: ["UI/UX Systems", "Design Systems", "Field Research"],
     },

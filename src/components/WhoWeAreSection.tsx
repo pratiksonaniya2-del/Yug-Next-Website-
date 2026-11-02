@@ -53,7 +53,7 @@ const PILLARS: PillarData[] = [
     bullets: [
       "Asking the difficult questions before writing the easy code.",
       "Undergraduate and alumni engineering leaders from MANIT Bhopal.",
-      "Cross-functional execution across Chennai, Bhopal, and Pune.",
+      "Cross-functional execution across Chennai, Bhopal, and Agra.",
     ],
     stats: [
       { value: "10+", label: "Core Builders" },
@@ -133,10 +133,14 @@ export default function WhoWeAreSection() {
                   <button
                     key={pillar.id}
                     onClick={() => setSelectedPillar(pillar)}
-                    onMouseEnter={() => setSelectedPillar(pillar)}
-                    className={`w-full text-left p-5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between group ${
+                    onMouseEnter={() => {
+                      if (selectedPillar.id !== pillar.id) {
+                        setSelectedPillar(pillar);
+                      }
+                    }}
+                    className={`w-full text-left p-5 rounded-2xl border transition-colors duration-150 cursor-pointer flex items-center justify-between group ${
                       isActive
-                        ? "bg-[#5d35e0] border-[#5d35e0] text-white shadow-lg shadow-[#5d35e0]/25 translate-x-1"
+                        ? "bg-[#5d35e0] border-[#5d35e0] text-white shadow-lg shadow-[#5d35e0]/25"
                         : "bg-white/[0.04] border-white/10 text-slate-300 hover:text-white hover:bg-white/[0.08] hover:border-[#5d35e0]/40"
                     }`}
                   >
@@ -151,8 +155,8 @@ export default function WhoWeAreSection() {
                       </h4>
                     </div>
 
-                    <ArrowRight className={`w-5 h-5 transition-transform ${
-                      isActive ? "translate-x-1 text-white" : "text-slate-500 group-hover:translate-x-1 group-hover:text-[#9d7df7]"
+                    <ArrowRight className={`w-5 h-5 transition-transform duration-200 shrink-0 ${
+                      isActive ? "translate-x-1.5 text-white" : "text-slate-500 group-hover:translate-x-1 group-hover:text-[#9d7df7]"
                     }`} />
                   </button>
                 );

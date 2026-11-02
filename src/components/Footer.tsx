@@ -40,7 +40,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
             <div className="space-y-2 pt-2 border-t border-purple-950/80 text-xs">
               <div className="flex items-center gap-2 text-[#9d7df7] font-mono font-semibold text-[11px]">
                 <MapPin className="w-3.5 h-3.5 text-[#9d7df7] shrink-0" />
-                <span>DELIVERY NETWORK: CHENNAI · BHOPAL · PUNE</span>
+                <span>DELIVERY NETWORK: CHENNAI · BHOPAL · AGRA</span>
               </div>
               <div className="flex items-center gap-2 text-slate-400 text-[11px] font-mono">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
@@ -195,7 +195,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
                   href="/reach"
                   className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  Nationwide Reach (Chennai, Bhopal, Pune)
+                  Nationwide Reach (Chennai, Bhopal, Agra)
                 </Link>
               </li>
               <li>

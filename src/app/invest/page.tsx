@@ -112,7 +112,7 @@ export default function InvestPage() {
               </div>
               <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10 space-y-1">
                 <span className="text-xs font-bold text-emerald-400 block">PAN-India Scale</span>
-                <p className="text-[11px] text-slate-400">Triple-node delivery across Chennai, Bhopal, and Pune.</p>
+                <p className="text-[11px] text-slate-400">Triple-node delivery across Chennai, Bhopal, and Agra.</p>
               </div>
             </div>
 

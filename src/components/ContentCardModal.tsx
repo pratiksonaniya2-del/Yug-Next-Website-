@@ -443,7 +443,7 @@ export default function ContentCardModal({
 
                   <div className="pt-3 border-t border-white/10 flex flex-wrap items-center justify-between text-xs text-slate-400">
                     <span className="font-mono text-purple-300 font-bold">
-                      DELIVERY NETWORK: CHENNAI · BHOPAL · PUNE
+                      DELIVERY NETWORK: CHENNAI · BHOPAL · AGRA
                     </span>
                     <span>Different cities. Different talent. One direction. Forward.</span>
                   </div>
@@ -695,7 +695,7 @@ export default function ContentCardModal({
                   </p>
                   <div className="text-xs space-y-2 text-purple-300 pt-3 border-t border-purple-800">
                     <p className="font-bold text-white">Delivery Hubs:</p>
-                    <p>CHENNAI · BHOPAL · PUNE</p>
+                    <p>CHENNAI · BHOPAL · AGRA</p>
                     <p className="text-[11px] text-purple-400">Different cities. Different talent. One direction. Forward.</p>
                   </div>
                 </div>
@@ -751,7 +751,7 @@ export default function ContentCardModal({
           {/* Card Footer Quick Navigation */}
           <div className="px-6 sm:px-8 py-3.5 border-t border-purple-100 bg-white flex flex-wrap items-center justify-between text-xs text-slate-500 gap-2 shrink-0">
             <span className="font-mono text-[11px]">
-              YUGNEXT • STEP INTO TOMORROW • CHENNAI · BHOPAL · PUNE
+              YUGNEXT • STEP INTO TOMORROW • CHENNAI · BHOPAL · AGRA
             </span>
             <div className="flex items-center gap-2">
               <button

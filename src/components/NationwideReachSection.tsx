@@ -35,13 +35,13 @@ const HUBS: NodeInfo[] = [
     y: 665,
   },
   {
-    city: "PUNE",
-    state: "Maharashtra",
+    city: "AGRA",
+    state: "Uttar Pradesh",
     role: "Enterprise Solutions & Scaled Delivery",
-    description: "Enterprise software integrations, rapid prototypes, and commercial partnership deployment desk.",
-    tags: ["Enterprise Delivery", "Client Solutions", "Rapid Scaling"],
-    x: 165,
-    y: 545,
+    description: "Regional development node, rapid prototyping, and scalable software rollout across Northern commercial corridors.",
+    tags: ["Enterprise Delivery", "Regional Operations", "Rapid Scaling"],
+    x: 250,
+    y: 365,
   },
 ];
 

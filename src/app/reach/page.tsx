@@ -48,11 +48,11 @@ export default function ReachPage() {
       color: "#9d7df7",
     },
     {
-      city: "PUNE",
-      state: "Maharashtra",
+      city: "AGRA",
+      state: "Uttar Pradesh",
       badge: "Enterprise Solutions & Scaled Delivery",
       lead: "Bridging cutting-edge technology with real enterprise workflows.",
-      description: "Situated in India's premier IT corridor, the Pune delivery node works closely with commercial partners, delivering client solutions, rapid prototyping, and scalable software rollout.",
+      description: "Situated in Northern India's strategic commercial corridor, the Agra delivery node works closely with commercial partners, delivering client solutions, rapid prototyping, and scalable software rollout.",
       specs: [
         "Enterprise Digital Transformation",
         "Rapid Product Prototyping",
@@ -85,7 +85,7 @@ export default function ReachPage() {
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-              CHENNAI · BHOPAL · PUNE
+              CHENNAI · BHOPAL · AGRA
             </h1>
 
             <p className="text-slate-300 text-base sm:text-xl leading-relaxed font-light">

@@ -121,7 +121,7 @@ export default function AboutPage() {
                 OUR DELIVERY ARTERIES
               </span>
               <h3 className="text-xl sm:text-2xl font-black text-white">
-                CHENNAI · BHOPAL · PUNE
+                CHENNAI · BHOPAL · AGRA
               </h3>
               <p className="text-xs text-slate-300 font-light">
                 Different cities. Different talent. One direction: Forward.

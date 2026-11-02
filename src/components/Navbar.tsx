@@ -31,7 +31,7 @@ const SEARCH_DATABASE: { title: string; category: string; id: ModalType; desc: s
   { title: "Education Industry", category: "Industries", id: "industries", desc: "Digital initiatives for a world where learning is increasingly connected." },
   { title: "Finance Industry", category: "Industries", id: "industries", desc: "Digital possibilities where trust, speed and accessibility matter." },
   { title: "Logistics Industry", category: "Industries", id: "industries", desc: "Smarter digital experiences for movement of people and goods." },
-  { title: "Delivery Network (Chennai · Bhopal · Pune)", category: "Who We Are", id: "whoWeAre", desc: "Strategic delivery network spanning Chennai, Bhopal, and Pune." },
+  { title: "Delivery Network (Chennai · Bhopal · Agra)", category: "Who We Are", id: "whoWeAre", desc: "Strategic delivery network spanning Chennai, Bhopal, and Agra." },
   { title: "Strategic Alliances (ROLTA, NexanAcademy, MANIT)", category: "Who We Are", id: "whoWeAre", desc: "High-trust partnerships multiplying technology-led growth." },
   { title: "Leadership & Identity", category: "Who We Are", id: "whoWeAre", desc: "People who question the obvious and build what is next." },
   { title: "Community Ecosystem", category: "Community", id: "community", desc: "Spaces to learn, collaborate, experiment and build together." },
@@ -240,7 +240,7 @@ export default function Navbar({
                       GLOBAL DELIVERY NETWORK
                     </span>
                     <p className="text-slate-900 font-extrabold text-sm mt-0.5">
-                      CHENNAI · BHOPAL · PUNE
+                      CHENNAI · BHOPAL · AGRA
                     </p>
                   </div>
 

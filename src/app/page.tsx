@@ -55,7 +55,7 @@ export default function Home() {
       {/* 6. WHO WE ARE (DARK BG) — Page 2 of Wireframe */}
       <WhoWeAreSection />
 
-      {/* 7. NATIONWIDE REACH (Map of India: Chennai, Bhopal, Pune) — Page 2 of Wireframe */}
+      {/* 7. NATIONWIDE REACH (Map of India: Chennai, Bhopal, Agra) — Page 2 of Wireframe */}
       <NationwideReachSection />
 
       {/* 8. INVESTORS & CAREERS (Side-by-Side Cards) — Page 3 of Wireframe */}

@@ -60,7 +60,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
     { label: "Settler Practical Living", tab: "ui" as TabType, product: "settler" as const, prompt: "Explore Settler technology solving practical relocation and housing challenges" },
     { label: "Pravaah Digital Solutions", tab: "code" as TabType, product: "shikshasathi" as const, prompt: "View Pravaah practical digital solutions and high-velocity microservices code" },
     { label: "The YugNext Approach", tab: "copy" as TabType, product: "shikshasathi" as const, prompt: "Review The YugNext Approach: Useful, Accessible, Responsive, Impactful" },
-    { label: "Delivery Network & Hubs", tab: "analytics" as TabType, product: "shikshasathi" as const, prompt: "Inspect Chennai · Bhopal · Pune delivery network and MANIT alliance metrics" },
+    { label: "Delivery Network & Hubs", tab: "analytics" as TabType, product: "shikshasathi" as const, prompt: "Inspect Chennai · Bhopal · Agra delivery network and MANIT alliance metrics" },
   ];
 
   // Mouse move listener for interactive hover spotlight and canvas turbulence
@@ -373,7 +373,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
           {/* Institutional Delivery Network Copy */}
           <span className="text-xs sm:text-sm text-purple-200/90 font-medium">
-            Strategic Delivery Network: <span className="text-[#9d7df7] font-extrabold">CHENNAI · BHOPAL · PUNE</span> • Alliances with <span className="font-bold text-white">ROLTA, MANIT &amp; Nexan</span>
+            Strategic Delivery Network: <span className="text-[#9d7df7] font-extrabold">CHENNAI · BHOPAL · AGRA</span> • Alliances with <span className="font-bold text-white">ROLTA, MANIT &amp; Nexan</span>
           </span>
         </motion.div>
 
@@ -707,9 +707,9 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 <div className="p-4 sm:p-5 overflow-x-auto text-[11px] sm:text-xs leading-relaxed space-y-1 text-purple-200/90 font-mono">
                   <div><span className="text-[#9d7df7]">import</span> &#123; YugNextEngine, DeliveryNode &#125; <span className="text-[#9d7df7]">from</span> <span className="text-emerald-300">&quot;@yugnext/pravaah-core&quot;</span>;</div>
                   <div><span className="text-[#9d7df7]">import</span> &#123; ShikshaSathi, CampusNeeds &#125; <span className="text-[#9d7df7]">from</span> <span className="text-emerald-300">&quot;@yugnext/products&quot;</span>;</div>
-                  <div className="text-slate-500">// Enterprise delivery node architecture: CHENNAI · BHOPAL · PUNE</div>
+                  <div className="text-slate-500">// Enterprise delivery node architecture: CHENNAI · BHOPAL · AGRA</div>
                   <div><span className="text-purple-400 font-bold">export const</span> <span className="text-amber-300">YugNextSolutions</span> = <span className="text-[#9d7df7]">new</span> <span className="text-amber-300">YugNextEngine</span>(&#123;</div>
-                  <div className="pl-4">hubs: [<span className="text-emerald-300">&quot;CHENNAI&quot;</span>, <span className="text-emerald-300">&quot;BHOPAL&quot;</span>, <span className="text-emerald-300">&quot;PUNE&quot;</span>],</div>
+                  <div className="pl-4">hubs: [<span className="text-emerald-300">&quot;CHENNAI&quot;</span>, <span className="text-emerald-300">&quot;BHOPAL&quot;</span>, <span className="text-emerald-300">&quot;AGRA&quot;</span>],</div>
                   <div className="pl-4">alliances: [<span className="text-emerald-300">&quot;ROLTA&quot;</span>, <span className="text-emerald-300">&quot;MANIT&quot;</span>, <span className="text-emerald-300">&quot;NexanAcademy&quot;</span>],</div>
                   <div className="pl-4">mission: <span className="text-emerald-300">&quot;Build things people need. Create things people remember. Move things forward.&quot;</span>,</div>
                   <div className="pl-4">activeServices: [NexanAcademy, Pravaah, OWASP, PathfinderSchool],</div>
@@ -769,7 +769,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                     <MapPin className="w-3.5 h-3.5 text-[#9d7df7]" />
                   </div>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-xl font-black text-white">CHENNAI · BHOPAL · PUNE</span>
+                    <span className="text-xl font-black text-white">CHENNAI · BHOPAL · AGRA</span>
                   </div>
                   <p className="text-xs text-purple-200/70">Different cities. Different talent. One direction: Forward.</p>
                 </div>

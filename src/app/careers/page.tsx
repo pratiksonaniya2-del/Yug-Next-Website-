@@ -28,7 +28,7 @@ export default function CareersPage() {
     {
       title: "Product UI/UX Architect",
       team: "Design Systems",
-      location: "Pune / Bhopal / Hybrid",
+      location: "Agra / Bhopal / Hybrid",
       type: "Full-Time",
       description: "Craft high-fidelity interactive user experiences, enterprise dashboards, and frictionless component systems with zero cognitive clutter.",
       skills: ["Figma / Design Tokens", "Tailwind CSS", "Micro-Interactions", "User Research"],
@@ -109,7 +109,7 @@ export default function CareersPage() {
                 <h2 className="text-3xl font-black text-slate-900 mt-1">Open Positions</h2>
               </div>
               <p className="text-xs text-slate-500 font-mono">
-                Nodes: Chennai · Bhopal · Pune · Remote Options
+                Nodes: Chennai · Bhopal · Agra · Remote Options
               </p>
             </div>
 

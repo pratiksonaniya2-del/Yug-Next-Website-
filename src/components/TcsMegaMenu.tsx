@@ -427,7 +427,7 @@ export default function TcsMegaMenu({
                     <MapPin className="w-4 h-4 text-purple-600" />
                     <h5 className="text-sm font-extrabold text-slate-900">Delivery Network</h5>
                   </div>
-                  <p className="text-base font-black text-purple-700">CHENNAI · BHOPAL · PUNE</p>
+                  <p className="text-base font-black text-purple-700">CHENNAI · BHOPAL · AGRA</p>
                   <p className="text-xs text-slate-600 leading-relaxed font-light">
                     Different cities. Different talent. One direction: Forward.
                   </p>
@@ -721,7 +721,7 @@ export default function TcsMegaMenu({
                 <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-100 space-y-1.5">
                   <h5 className="text-sm font-extrabold text-slate-900">Cross-Disciplinary Exposure</h5>
                   <p className="text-xs text-slate-600 leading-relaxed font-light">
-                    Work across software, products, industries, and live delivery hubs in Chennai, Bhopal, and Pune.
+                    Work across software, products, industries, and live delivery hubs in Chennai, Bhopal, and Agra.
                   </p>
                 </div>
 

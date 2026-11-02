@@ -114,11 +114,11 @@ export default function CollaborationsPage() {
             ))}
           </div>
 
-          {/* Delivery Network Section (Chennai · Bhopal · Pune) */}
+          {/* Delivery Network Section (Chennai · Bhopal · Agra) */}
           <div className="p-8 sm:p-12 rounded-3xl bg-[#0a0422] text-white flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-3 max-w-xl text-center md:text-left">
               <span className="text-xs font-mono font-bold uppercase text-[#9d7df7]">OUR GROWING NETWORK</span>
-              <h3 className="text-3xl font-black">CHENNAI · BHOPAL · PUNE</h3>
+              <h3 className="text-3xl font-black">CHENNAI · BHOPAL · AGRA</h3>
               <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
                 Different cities. Different talent. One direction: <strong className="text-white">Forward.</strong> Connecting premier institutions with enterprise clients nationwide.
               </p>

@@ -20,7 +20,7 @@ export const INDIA_PATH_D = "m 215.2163,738.62564 -4,-2.84704 -5.08396,-4.77739 
 
 export default function IndiaMapSvg({ hubs, activeCity, onSelectCity }: IndiaMapProps) {
   const bhopal = hubs.find((h) => h.city === "BHOPAL") || { x: 240, y: 460 };
-  const pune = hubs.find((h) => h.city === "PUNE") || { x: 165, y: 545 };
+  const agra = hubs.find((h) => h.city === "AGRA") || { x: 250, y: 365 };
   const chennai = hubs.find((h) => h.city === "CHENNAI") || { x: 275, y: 665 };
 
   return (
@@ -66,12 +66,12 @@ export default function IndiaMapSvg({ hubs, activeCity, onSelectCity }: IndiaMap
       />
 
       {/* 3. High-Speed Interconnection Arteries Between Hubs */}
-      {/* Bhopal <-> Pune */}
+      {/* Bhopal <-> Agra */}
       <line
         x1={bhopal.x}
         y1={bhopal.y}
-        x2={pune.x}
-        y2={pune.y}
+        x2={agra.x}
+        y2={agra.y}
         stroke="#9d7df7"
         strokeWidth="2.2"
         strokeDasharray="5 5"
@@ -88,10 +88,10 @@ export default function IndiaMapSvg({ hubs, activeCity, onSelectCity }: IndiaMap
         strokeDasharray="5 5"
         className="animate-pulse"
       />
-      {/* Pune <-> Chennai */}
+      {/* Agra <-> Chennai */}
       <line
-        x1={pune.x}
-        y1={pune.y}
+        x1={agra.x}
+        y1={agra.y}
         x2={chennai.x}
         y2={chennai.y}
         stroke="#5d35e0"
