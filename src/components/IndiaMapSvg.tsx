@@ -25,7 +25,7 @@ export default function IndiaMapSvg({ hubs, activeCity, onSelectCity }: IndiaMap
 
   return (
     <svg
-      viewBox="-10 115 670 715"
+      viewBox="-15 0 695 765"
       className="w-full h-auto select-none"
       xmlns="http://www.w3.org/2000/svg"
     >

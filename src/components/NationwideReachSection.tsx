@@ -148,9 +148,9 @@ export default function NationwideReachSection() {
           </div>
 
           {/* Right Column: Exact High-Fidelity Vector Map of India */}
-          <div className="lg:col-span-6 flex flex-col items-center justify-center p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-md relative overflow-hidden">
+          <div className="lg:col-span-6 flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-md relative overflow-hidden">
             
-            <div className="w-full max-w-[480px] relative flex items-center justify-center p-2">
+            <div className="w-full max-w-[540px] relative flex items-center justify-center">
               
               {/* The Exact Geographic India SVG Map Component */}
               <IndiaMapSvg
