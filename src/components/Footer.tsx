@@ -19,129 +19,210 @@ export default function Footer({ onOpenModal }: FooterProps) {
       {/* Ambient Deep Glow in Background */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-purple-700/10 blur-[120px] pointer-events-none" />
 
-      {/* Main Centered Content (Compact spacing to keep text close to moving waves) */}
-      <div className="relative z-10 px-5 pt-14 pb-2 sm:pb-3 md:px-10">
-        <div className="mx-auto max-w-5xl text-center space-y-4">
+      {/* Main Columnar Content (Stacked "ek ke neeche ek" in structured vertical columns) */}
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pt-14 pb-4">
+        
+        {/* Multi-Column Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 text-left mb-10">
           
-          {/* Brand Logo & Name */}
-          <div className="inline-block cursor-pointer group" onClick={scrollToTop}>
-            <div className="flex items-center justify-center gap-3">
+          {/* Column 1: Brand & Strategic Hubs (Span 5 on Desktop) */}
+          <div className="lg:col-span-5 space-y-4 pr-0 lg:pr-8">
+            <div className="inline-flex items-center gap-3 cursor-pointer group" onClick={scrollToTop}>
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-700 via-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-purple-600/30 group-hover:scale-105 transition-transform duration-300">
                 <span className="font-extrabold text-xl tracking-tight">Y</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-black tracking-[0.16em] text-white uppercase group-hover:text-purple-300 transition-colors">
-                YugNext <span className="text-purple-500">Pvt. Ltd.</span>
-              </h2>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-purple-300 transition-colors">
+                  Yug<span className="text-purple-400">Next</span> <span className="text-xs uppercase font-bold text-purple-400">Pvt. Ltd.</span>
+                </h3>
+                <p className="text-[10px] uppercase tracking-widest text-purple-300/80 font-bold">
+                  Step Into Tomorrow
+                </p>
+              </div>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+              Build things people need · Create things people remember · Move things forward.
+            </p>
+
+            <div className="space-y-2 pt-2 border-t border-purple-950/80 text-xs">
+              <div className="flex items-center gap-2 text-pink-300 font-mono font-semibold text-[11px]">
+                <MapPin className="w-3.5 h-3.5 text-pink-400 shrink-0" />
+                <span>DELIVERY NETWORK: CHENNAI · BHOPAL · PUNE</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-400 text-[11px] font-mono">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>Strategic Alliances: ROLTA · NexanAcademy · MANIT Bhopal</span>
+              </div>
+              <div className="text-[10px] text-slate-500 font-mono">
+                Incorporated 21 Oct 2026 • MANIT Bhopal Incubated &amp; Seed Funded
+              </div>
             </div>
           </div>
 
-          {/* Subtitle / Departmental & Institutional Tag */}
-          <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.38em] text-purple-400 font-bold">
-            BUILD THINGS PEOPLE NEED · CREATE THINGS PEOPLE REMEMBER · MOVE THINGS FORWARD
-          </p>
-
-          {/* Centered Navigation Links (Exact Website Copy) */}
-          <nav className="pt-2 flex flex-wrap justify-center items-center gap-x-7 gap-y-2.5 max-w-4xl mx-auto">
-            <button
-              onClick={() => onOpenModal("whatWeDo")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              What We Do
-            </button>
-            <button
-              onClick={() => onOpenModal("whoWeAre")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              Who We Are
-            </button>
-            <button
-              onClick={() => onOpenModal("products")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              Products
-            </button>
-            <button
-              onClick={() => onOpenModal("products")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              ShikshaSathi
-            </button>
-            <button
-              onClick={() => onOpenModal("products")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              CampusNeeds
-            </button>
-            <button
-              onClick={() => onOpenModal("products")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              Settler
-            </button>
-            <button
-              onClick={() => onOpenModal("industries")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              Industries
-            </button>
-            <button
-              onClick={() => onOpenModal("community")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              Community
-            </button>
-            <button
-              onClick={() => onOpenModal("news")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              News
-            </button>
-            <button
-              onClick={() => onOpenModal("careers")}
-              className="text-[11px] uppercase tracking-[0.18em] text-slate-400 hover:text-purple-400 transition-colors duration-200 font-semibold cursor-pointer"
-            >
-              Careers
-            </button>
-            <button
-              onClick={() => onOpenModal("contact")}
-              className="text-[11px] uppercase tracking-[0.18em] text-purple-400 hover:text-white transition-colors duration-200 font-bold cursor-pointer"
-            >
-              Contact
-            </button>
-          </nav>
-
-          {/* Regional Hubs & Credentials Strip */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-[10px] text-slate-500 font-mono">
-            <span className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-purple-400" />
-              Delivery Network: CHENNAI · BHOPAL · PUNE
+          {/* Column 2: What We Do (Services) — Stacked Vertically */}
+          <div className="lg:col-span-2 space-y-3">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-400 block border-b border-purple-950/80 pb-2">
+              WHAT WE DO
             </span>
-            <span>•</span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-purple-400" />
-              Alliances: ROLTA · NexanAcademy · MANIT Bhopal
-            </span>
-            <span>•</span>
-            <span>Step Into Tomorrow</span>
+            <ul className="space-y-2.5 text-xs">
+              <li>
+                <button
+                  onClick={() => onOpenModal("whatWeDo")}
+                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  NexanAcademy
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenModal("whatWeDo")}
+                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  Pravaah Solutions
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenModal("whatWeDo")}
+                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  OWASP Security
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenModal("whatWeDo")}
+                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  Pathfinder School
+                </button>
+              </li>
+              <li className="pt-1">
+                <button
+                  onClick={() => onOpenModal("whatWeDo")}
+                  className="text-pink-400 hover:text-pink-300 font-bold transition-colors cursor-pointer text-left inline-flex items-center gap-1"
+                >
+                  <span>Explore Services</span>
+                  <span>→</span>
+                </button>
+              </li>
+            </ul>
           </div>
 
-          {/* Copyright Line (Mechanical Portal Exact Format) */}
-          <p className="pt-1 text-[10px] uppercase tracking-[0.22em] text-slate-600 font-medium">
-            © 2026 YUGNEXT PRIVATE LIMITED · MANIT BHOPAL INCUBATED
-          </p>
+          {/* Column 3: Products — Stacked Vertically */}
+          <div className="lg:col-span-2 space-y-3">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-400 block border-b border-purple-950/80 pb-2">
+              PRODUCTS
+            </span>
+            <ul className="space-y-2.5 text-xs">
+              <li>
+                <button
+                  onClick={() => onOpenModal("products")}
+                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  ShikshaSathi (EdTech)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenModal("products")}
+                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  CampusNeeds (Campus)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenModal("products")}
+                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  Settler (Living)
+                </button>
+              </li>
+              <li className="pt-1">
+                <button
+                  onClick={() => onOpenModal("products")}
+                  className="text-pink-400 hover:text-pink-300 font-bold transition-colors cursor-pointer text-left inline-flex items-center gap-1"
+                >
+                  <span>Explore Products</span>
+                  <span>→</span>
+                </button>
+              </li>
+            </ul>
+          </div>
 
-          {/* Scroll To Top Action */}
-          <div className="pt-1">
-            <button
-              onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-purple-400/80 hover:text-purple-300 transition-colors cursor-pointer"
-            >
-              <span>Back to Top</span>
-              <ArrowUp className="w-3 h-3" />
-            </button>
+          {/* Column 4: Industries & Organisation — Stacked Vertically */}
+          <div className="lg:col-span-3 space-y-3">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-400 block border-b border-purple-950/80 pb-2">
+              ORGANISATION &amp; REACH
+            </span>
+            <ul className="space-y-2.5 text-xs">
+              <li>
+                <button
+                  onClick={() => onOpenModal("whoWeAre")}
+                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  Who We Are &amp; Leadership
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenModal("industries")}
+                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  Industries (Ed, Fin, Logistics)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenModal("community")}
+                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  Community &amp; Alliances
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenModal("news")}
+                  className="text-slate-400 hover:text-white transition-colors cursor-pointer text-left block"
+                >
+                  News &amp; Milestones
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenModal("careers")}
+                  className="text-purple-300 hover:text-white font-bold transition-colors cursor-pointer text-left block"
+                >
+                  Careers (Hiring Active)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onOpenModal("contact")}
+                  className="text-pink-400 hover:text-white font-bold transition-colors cursor-pointer text-left block"
+                >
+                  Contact Delivery Hub →
+                </button>
+              </li>
+            </ul>
           </div>
 
         </div>
+
+        {/* Bottom Sub-Strip above waves */}
+        <div className="pt-4 pb-2 border-t border-purple-950/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] text-slate-500 font-mono">
+          <p>© 2026 YUGNEXT PRIVATE LIMITED · ALL RIGHTS RESERVED · MANIT BHOPAL INCUBATED</p>
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-1.5 text-purple-400 hover:text-purple-300 transition-colors cursor-pointer uppercase tracking-wider"
+          >
+            <span>Back to Top</span>
+            <ArrowUp className="w-3 h-3" />
+          </button>
+        </div>
+
       </div>
 
       {/* Realistic Luminous 3-Layer Liquid Waves (Pure Translucent Gradients, Seamless 60fps) */}

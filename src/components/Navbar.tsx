@@ -140,11 +140,11 @@ export default function Navbar({
       <header
         className={`sticky top-0 z-50 transition-all duration-300 relative ${
           isScrolled
-            ? "py-2.5 bg-white/95 backdrop-blur-2xl shadow-xl shadow-purple-950/5 border-b border-purple-100"
-            : "py-3.5 bg-white/90 backdrop-blur-xl border-b border-purple-100/70"
+            ? "py-2 bg-white/98 backdrop-blur-2xl shadow-md shadow-purple-950/5 border-b border-purple-100"
+            : "py-2.5 sm:py-3 bg-white border-b border-purple-100/90 shadow-xs"
         }`}
       >
-        <div className="relative z-50 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="relative z-50 max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           
           {/* Brand Logo */}
           <button
@@ -152,39 +152,39 @@ export default function Navbar({
               if (activeModal && onCloseMegaMenu) onCloseMegaMenu();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="flex items-center gap-3 group text-left cursor-pointer"
+            className="flex items-center gap-2.5 sm:gap-3 group text-left cursor-pointer shrink-0"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-700 via-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-purple-600/30 group-hover:scale-105 transition-transform duration-300">
-              <span className="font-extrabold text-xl tracking-tight">Y</span>
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-purple-700 via-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-purple-600/30 group-hover:scale-105 transition-transform duration-300 shrink-0">
+              <span className="font-extrabold text-lg sm:text-xl tracking-tight">Y</span>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-extrabold tracking-tight text-slate-950 group-hover:text-purple-700 transition-colors">
+              <span className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-950 group-hover:text-purple-700 transition-colors leading-none">
                 Yug<span className="text-purple-600">Next</span>
               </span>
-              <span className="text-[10px] tracking-widest uppercase font-bold text-purple-600 -mt-0.5">
+              <span className="text-[9px] sm:text-[10px] tracking-widest uppercase font-bold text-purple-600 mt-0.5 leading-none">
                 Pvt. Ltd.
               </span>
             </div>
           </button>
 
-          {/* Desktop Navigation Links — CLICK ONLY WITH TCS-STYLE ROTATING DROPDOWN ICONS */}
-          <nav className="hidden xl:flex items-center space-x-1">
+          {/* Desktop Navigation Links — SINGLE LINE, NO WRAPPING, BEAUTIFULLY SPACED */}
+          <nav className="hidden xl:flex items-center space-x-1 shrink-0">
             {navItems.map((item) => {
               const isActive = activeModal === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`group inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
+                  className={`group inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 xl:py-2 rounded-xl text-xs xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-all cursor-pointer ${
                     isActive
-                      ? "bg-purple-100 text-purple-800 font-bold ring-1 ring-purple-300 shadow-sm"
+                      ? "bg-purple-100 text-purple-800 font-bold ring-1 ring-purple-300 shadow-xs"
                       : "text-slate-700 hover:text-purple-700 hover:bg-purple-50"
                   }`}
                   aria-expanded={isActive}
                 >
-                  <span>{item.label}</span>
+                  <span className="whitespace-nowrap">{item.label}</span>
                   <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
                       isActive
                         ? "rotate-180 text-purple-700"
                         : "text-slate-400 group-hover:text-purple-600"
@@ -196,7 +196,7 @@ export default function Navbar({
           </nav>
 
           {/* Right Side Utility Controls: 2 Icons (Search & Globe) + CTA Button */}
-          <div className="hidden sm:flex items-center space-x-2.5">
+          <div className="hidden sm:flex items-center space-x-2 xl:space-x-2.5 shrink-0">
             
             {/* ICON 1: TCS-STYLE SEARCH BUTTON */}
             <button
@@ -204,7 +204,7 @@ export default function Navbar({
                 setSearchModalOpen(true);
                 setLangDropdownOpen(false);
               }}
-              className="w-9 h-9 rounded-full flex items-center justify-center text-slate-700 hover:text-purple-700 hover:bg-purple-50 transition-all border border-slate-200/90 hover:border-purple-300 cursor-pointer shadow-xs active:scale-95"
+              className="w-9 h-9 rounded-full flex items-center justify-center text-slate-700 hover:text-purple-700 hover:bg-purple-50 transition-all border border-slate-200/90 hover:border-purple-300 cursor-pointer shadow-xs active:scale-95 shrink-0"
               title="Search YugNext (TCS Style)"
               aria-label="Search YugNext"
             >
@@ -212,7 +212,7 @@ export default function Navbar({
             </button>
 
             {/* ICON 2: TCS-STYLE REGION / LANGUAGE GLOBE BUTTON */}
-            <div className="relative">
+            <div className="relative shrink-0">
               <button
                 onClick={() => {
                   setLangDropdownOpen(!langDropdownOpen);
