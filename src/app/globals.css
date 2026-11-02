@@ -62,6 +62,22 @@ body {
   animation: fadeIn 0.35s ease-out forwards;
 }
 
+@media (min-width: 1024px) {
+  :root {
+    --slide-step: calc(25% + 6px);
+  }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  :root {
+    --slide-step: calc(50% + 12px);
+  }
+}
+@media (max-width: 639px) {
+  :root {
+    --slide-step: calc(85vw + 24px);
+  }
+}
+
 .glass-panel {
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
