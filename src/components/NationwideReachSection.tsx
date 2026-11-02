@@ -148,9 +148,9 @@ export default function NationwideReachSection() {
           </div>
 
           {/* Right Column: Exact High-Fidelity Vector Map of India */}
-          <div className="lg:col-span-6 flex flex-col items-center justify-center p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-md relative">
+          <div className="lg:col-span-6 flex flex-col items-center justify-center p-6 sm:p-8 rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-md relative overflow-hidden">
             
-            <div className="w-full max-w-[480px] relative aspect-[640/675] flex items-center justify-center">
+            <div className="w-full max-w-[480px] relative flex items-center justify-center p-2">
               
               {/* The Exact Geographic India SVG Map Component */}
               <IndiaMapSvg
@@ -162,24 +162,7 @@ export default function NationwideReachSection() {
                 }}
               />
 
-              {/* Floating Active Node Callout Card */}
-              <div className="absolute bottom-2 left-2 right-2 p-3.5 rounded-xl bg-[#0e0738]/95 border border-[#5d35e0]/50 backdrop-blur-xl shadow-xl flex items-center justify-between text-xs pointer-events-none">
-                <div>
-                  <span className="text-[10px] font-mono uppercase text-[#9d7df7] font-bold block">
-                    ACTIVE NODE: {activeHub.city}
-                  </span>
-                  <span className="font-extrabold text-white text-xs sm:text-sm">
-                    {activeHub.role}
-                  </span>
-                </div>
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-              </div>
-
             </div>
-
-            <p className="text-[11px] font-mono text-slate-400 text-center mt-4">
-              Click any node on the map to inspect hub capabilities
-            </p>
 
           </div>
 

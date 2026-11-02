@@ -25,8 +25,8 @@ export default function IndiaMapSvg({ hubs, activeCity, onSelectCity }: IndiaMap
 
   return (
     <svg
-      viewBox="10 140 640 675"
-      className="w-full h-full select-none"
+      viewBox="-10 115 670 715"
+      className="w-full h-auto select-none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
@@ -100,7 +100,7 @@ export default function IndiaMapSvg({ hubs, activeCity, onSelectCity }: IndiaMap
         opacity="0.75"
       />
 
-      {/* 4. Strategic Hub Pins & Radar Rings */}
+      {/* 4. Clean Location Dots for the 3 cities */}
       {hubs.map((hub) => {
         const isSelected = activeCity === hub.city;
 
@@ -110,60 +110,47 @@ export default function IndiaMapSvg({ hubs, activeCity, onSelectCity }: IndiaMap
             className="cursor-pointer group"
             onClick={() => onSelectCity(hub.city)}
           >
-            {/* Outer Pulse Wave */}
+            {/* Outer Subtle Radar Wave */}
             <circle
               cx={hub.x}
               cy={hub.y}
-              r={isSelected ? "22" : "14"}
-              fill={isSelected ? "#5d35e0" : "#9d7df7"}
-              opacity="0.3"
+              r={isSelected ? "18" : "12"}
+              fill="#5d35e0"
+              opacity="0.35"
               className="animate-ping"
             />
 
-            {/* Solid Core Radar Ring */}
+            {/* Location Dot */}
             <circle
               cx={hub.x}
               cy={hub.y}
-              r={isSelected ? "11" : "8"}
-              fill={isSelected ? "#5d35e0" : "#0e0738"}
-              stroke={isSelected ? "#ffffff" : "#9d7df7"}
-              strokeWidth="2.5"
-              className="transition-transform duration-300 group-hover:scale-125"
-            />
-
-            {/* Center White Spark Dot */}
-            <circle
-              cx={hub.x}
-              cy={hub.y}
-              r="3.5"
+              r={isSelected ? "7" : "5.5"}
               fill="#ffffff"
+              stroke="#5d35e0"
+              strokeWidth="2.5"
             />
 
-            {/* City Label with Pill Background */}
-            <g transform={`translate(${hub.x + 16}, ${hub.y - 12})`}>
-              <rect
-                x="0"
-                y="0"
-                width={hub.city.length * 9.5 + 24}
-                height="24"
-                rx="12"
-                fill={isSelected ? "#5d35e0" : "#070314"}
-                stroke={isSelected ? "#ffffff" : "rgba(255,255,255,0.25)"}
-                strokeWidth="1.2"
-                opacity="0.95"
-              />
-              <text
-                x="12"
-                y="16"
-                fill="#ffffff"
-                fontSize="11"
-                fontWeight="800"
-                fontFamily="system-ui, -apple-system, sans-serif"
-                letterSpacing="1"
-              >
-                {hub.city}
-              </text>
-            </g>
+            {/* Inner Center Dot */}
+            <circle
+              cx={hub.x}
+              cy={hub.y}
+              r="2.5"
+              fill={isSelected ? "#5d35e0" : "#0e0738"}
+            />
+
+            {/* Clean City Label Text */}
+            <text
+              x={hub.x + 11}
+              y={hub.y + 4}
+              fill="#ffffff"
+              fontSize="12"
+              fontWeight="800"
+              fontFamily="system-ui, -apple-system, sans-serif"
+              letterSpacing="0.8"
+              className="select-none drop-shadow-md"
+            >
+              {hub.city}
+            </text>
           </g>
         );
       })}
