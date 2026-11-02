@@ -3,20 +3,26 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
+  Sparkles,
   ArrowRight,
   Play,
-  Pause,
-  Sparkles,
+  Star,
+  Code2,
+  Palette,
+  FileText,
+  BarChart3,
+  Send,
+  Check,
+  Copy,
   Zap,
+  Wand2,
+  ChevronRight,
+  ExternalLink,
+  X,
+  Shield,
+  Layers,
   GraduationCap,
   Building2,
-  Layers,
-  MapPin,
-  TrendingUp,
-  Award,
-  CheckCircle2,
-  Activity,
-  Package,
 } from "lucide-react";
 import { ModalType } from "./ContentCardModal";
 
@@ -24,139 +30,43 @@ interface HeroProps {
   onOpenModal: (modal: ModalType) => void;
 }
 
-const STREAMS = [
-  {
-    id: "main",
-    code: "YUG-01",
-    tag: "YUGNEXT • STEP INTO TOMORROW",
-    headline: "The Future Doesn't Wait. Neither Should Your Business.",
-    highlight: "Neither Should Your Business.",
-    subtitle:
-      "The way people learn, buy, work and connect is changing. We build the technology, products and digital experiences that help businesses and organisations keep up — and move ahead. From software and digital solutions to products, partnerships and new ideas, Yugnext is building for what comes next.",
-    cta: "Explore What We Do",
-    modalTarget: "whatWeDo" as ModalType,
-    icon: Sparkles,
-    gradient: "from-purple-400 via-fuchsia-300 to-indigo-300",
-    glowColor: "rgba(168, 85, 247, 0.45)",
-    metric: "Building For What's Next",
-    statLabel: "Technology • Products • Partnerships",
-    features: [
-      "Digital Experiences & Solutions",
-      "Proprietary Problem-Solving Products",
-      "Strategic Enterprise Alliances",
-    ],
-  },
-  {
-    id: "shikshasathi",
-    code: "SYS-02",
-    tag: "EDUCATION TECHNOLOGY",
-    headline: "Making Education More Connected & Accessible with ShikshaSathi",
-    highlight: "ShikshaSathi",
-    subtitle:
-      "Technology built around making education more connected, accessible and useful. We believe the best products begin with: “What needs solving?”",
-    cta: "Explore ShikshaSathi",
-    modalTarget: "products" as ModalType,
-    icon: GraduationCap,
-    gradient: "from-indigo-400 via-purple-300 to-cyan-300",
-    glowColor: "rgba(99, 102, 241, 0.45)",
-    metric: "Connected Learning",
-    statLabel: "Modern Academic Ecosystem",
-    features: [
-      "Connected Student-Faculty System",
-      "Accessible Learning Resources",
-      "Practical Digital Infrastructure",
-    ],
-  },
-  {
-    id: "campusneeds",
-    code: "SYS-03",
-    tag: "CAMPUS ECOSYSTEM & ESSENTIALS",
-    headline: "Simplifying Everyday Needs Across Campuses with CampusNeeds",
-    highlight: "CampusNeeds",
-    subtitle:
-      "A digital approach to simplifying everyday needs and experiences across the campus ecosystem. Solving practical problems through technology.",
-    cta: "Explore CampusNeeds",
-    modalTarget: "products" as ModalType,
-    icon: Building2,
-    gradient: "from-pink-400 via-purple-300 to-indigo-300",
-    glowColor: "rgba(236, 72, 153, 0.45)",
-    metric: "Campus Simplification",
-    statLabel: "Everyday Experiences & Needs",
-    features: [
-      "Decentralized Student Marketplace",
-      "Streamlined Campus Utilities",
-      "Everyday Student Essentials",
-    ],
-  },
-  {
-    id: "settler",
-    code: "SYS-04",
-    tag: "PRACTICAL LIVING & HOUSING",
-    headline: "Solving Practical Relocation & Living Problems with Settler",
-    highlight: "Settler",
-    subtitle:
-      "A product focused on solving practical problems through technology. Verified student living, smart accommodation matching, and hassle-free relocation.",
-    cta: "Explore Settler",
-    modalTarget: "products" as ModalType,
-    icon: Layers,
-    gradient: "from-cyan-400 via-purple-300 to-fuchsia-300",
-    glowColor: "rgba(147, 51, 234, 0.5)",
-    metric: "Practical Solutions",
-    statLabel: "Living & Problem-Solving",
-    features: [
-      "Practical Real-World Solutions",
-      "Seamless Relocation Experience",
-      "Technology-Driven Verification",
-    ],
-  },
-];
+type TabType = "code" | "ui" | "copy" | "analytics";
 
 export default function Hero({ onOpenModal }: HeroProps) {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  // Active Workspace Tab
+  const [activeTab, setActiveTab] = useState<TabType>("ui");
+  const [promptInput, setPromptInput] = useState(
+    "Create a modern responsive SaaS pricing card with monthly/yearly toggle"
+  );
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [copiedCode, setCopiedCode] = useState(false);
+  const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">("yearly");
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [cardTilt, setCardTilt] = useState({ rotateX: 0, rotateY: 0 });
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const active = STREAMS[activeIdx];
-  const ActiveIcon = active.icon;
+  // Preset prompts
+  const PRESET_PROMPTS = [
+    { label: "Generate SaaS pricing", tab: "ui" as TabType, prompt: "Create a modern responsive SaaS pricing card with monthly/yearly toggle" },
+    { label: "Build ShikshaSathi portal", tab: "code" as TabType, prompt: "Build connected student education portal with real-time course analytics" },
+    { label: "Design Pravaah analytics", tab: "analytics" as TabType, prompt: "Design high-velocity digital solutions telemetry dashboard" },
+    { label: "Create Settler logistics card", tab: "copy" as TabType, prompt: "Generate high-converting copy for Settler student relocation tech" },
+  ];
 
-  // Auto-advance stream every 6.5s
-  useEffect(() => {
-    if (!isPlaying) return;
-    const interval = setInterval(() => {
-      setActiveIdx((prev) => (prev + 1) % STREAMS.length);
-    }, 6500);
-    return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  // Track global mouse position for ambient spotlight
+  // Mouse move listener for interactive aura
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+      setMousePos({
+        x: (e.clientX / window.innerWidth - 0.5) * 40,
+        y: (e.clientY / window.innerHeight - 0.5) * 40,
+      });
     };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // 3D Card Tilt handler
-  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -10;
-    const rotateY = ((x - centerX) / centerX) * 10;
-    setCardTilt({ rotateX, rotateY });
-  };
-
-  const handleCardMouseLeave = () => {
-    setCardTilt({ rotateX: 0, rotateY: 0 });
-  };
-
-  // HTML5 Interactive Particle & Neural Mesh Canvas Animation (60 FPS)
+  // 60FPS Animated Pink & Purple Grain / Halftone Shader Canvas
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -174,62 +84,69 @@ export default function Hero({ onOpenModal }: HeroProps) {
     };
     window.addEventListener("resize", handleResize);
 
-    const particleCount = Math.min(Math.floor(width / 18), 65);
-    const particles: Array<{
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
-      alpha: number;
-    }> = [];
+    let time = 0;
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.7,
-        vy: (Math.random() - 0.5) * 0.7,
-        radius: Math.random() * 2 + 1,
-        alpha: Math.random() * 0.5 + 0.2,
-      });
+    // Grain texture generator
+    const grainCanvas = document.createElement("canvas");
+    grainCanvas.width = 160;
+    grainCanvas.height = 160;
+    const gctx = grainCanvas.getContext("2d");
+    if (gctx) {
+      const gimg = gctx.createImageData(160, 160);
+      for (let i = 0; i < gimg.data.length; i += 4) {
+        const val = Math.random() * 255;
+        gimg.data[i] = val;
+        gimg.data[i + 1] = val;
+        gimg.data[i + 2] = val;
+        gimg.data[i + 3] = 18; // Subtle grain density
+      }
+      gctx.putImageData(gimg, 0, 0);
     }
 
     const render = () => {
+      time += 0.008;
       ctx.clearRect(0, 0, width, height);
 
-      // Draw connection lines
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+      // 1. Deep Cosmic Base
+      ctx.fillStyle = "#070214";
+      ctx.fillRect(0, 0, width, height);
 
-          if (dist < 130) {
-            const lineAlpha = (1 - dist / 130) * 0.22;
-            ctx.strokeStyle = `rgba(168, 85, 247, ${lineAlpha})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
+      // 2. Harmonic Animated Pink & Purple Radial Gradients (Fluid Aura)
+      const cx = width / 2;
+      const cy = height * 0.35;
 
-      // Draw and move particles
-      for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
+      // Orb 1: Radiant Fuchsia / Pink
+      const ox1 = cx + Math.sin(time * 0.9) * 180;
+      const oy1 = cy + Math.cos(time * 1.1) * 80;
+      const grad1 = ctx.createRadialGradient(ox1, oy1, 10, ox1, oy1, width * 0.5);
+      grad1.addColorStop(0, "rgba(236, 72, 153, 0.28)"); // Vibrant Pink
+      grad1.addColorStop(0.5, "rgba(217, 70, 239, 0.15)"); // Fuchsia
+      grad1.addColorStop(1, "rgba(7, 2, 20, 0)");
+      ctx.fillStyle = grad1;
+      ctx.fillRect(0, 0, width, height);
 
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
+      // Orb 2: Deep Electric Violet / Purple
+      const ox2 = cx + Math.cos(time * 0.8) * 220;
+      const oy2 = cy + Math.sin(time * 1.2) * 110;
+      const grad2 = ctx.createRadialGradient(ox2, oy2, 10, ox2, oy2, width * 0.45);
+      grad2.addColorStop(0, "rgba(168, 85, 247, 0.32)"); // Purple
+      grad2.addColorStop(0.6, "rgba(99, 102, 241, 0.12)"); // Indigo
+      grad2.addColorStop(1, "rgba(7, 2, 20, 0)");
+      ctx.fillStyle = grad2;
+      ctx.fillRect(0, 0, width, height);
 
-        ctx.fillStyle = `rgba(192, 132, 252, ${p.alpha})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fill();
+      // Orb 3: Center Highlight Glow
+      const gradCenter = ctx.createRadialGradient(cx, cy, 20, cx, cy, width * 0.35);
+      gradCenter.addColorStop(0, "rgba(244, 114, 182, 0.22)");
+      gradCenter.addColorStop(0.7, "rgba(147, 51, 234, 0.1)");
+      gradCenter.addColorStop(1, "rgba(7, 2, 20, 0)");
+      ctx.fillStyle = gradCenter;
+      ctx.fillRect(0, 0, width, height);
+
+      // 3. Halftone Grain / Pattern Overlay
+      if (grainCanvas) {
+        ctx.fillStyle = ctx.createPattern(grainCanvas, "repeat") || "transparent";
+        ctx.fillRect(0, 0, width, height);
       }
 
       animationFrameId = requestAnimationFrame(render);
@@ -243,286 +160,548 @@ export default function Hero({ onOpenModal }: HeroProps) {
     };
   }, []);
 
+  const handleGenerate = () => {
+    setIsGenerating(true);
+    setTimeout(() => {
+      setIsGenerating(false);
+    }, 900);
+  };
+
+  const handleSelectPreset = (preset: typeof PRESET_PROMPTS[0]) => {
+    setPromptInput(preset.prompt);
+    setActiveTab(preset.tab);
+    handleGenerate();
+  };
+
+  const handleCopyCode = () => {
+    setCopiedCode(true);
+    setTimeout(() => setCopiedCode(false), 2000);
+  };
+
   return (
-    <section className="relative min-h-[92vh] lg:min-h-screen bg-[#050212] text-white flex flex-col justify-between overflow-hidden pt-6 pb-10 lg:pt-12 lg:pb-12">
+    <section className="relative min-h-screen bg-[#070214] text-white flex flex-col items-center justify-between overflow-hidden pt-12 sm:pt-16 pb-0">
       
-      {/* 1. Interactive Neural Particle Canvas (Background Layer) */}
+      {/* 1. 60FPS Animated Pink & Purple Grain Shader Canvas */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 pointer-events-none opacity-60 z-0"
+        className="absolute inset-0 w-full h-full pointer-events-none z-0"
       />
 
-      {/* 2. Dynamic Mouse Follower Spotlight (Torch Glow Effect) */}
+      {/* 2. Delicate Halftone Dot Matrix Overlay */}
       <div
-        className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-0 opacity-40"
+        className="absolute inset-0 pointer-events-none z-0 opacity-25"
         style={{
-          background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, rgba(147, 51, 234, 0.15), transparent 70%)`,
+          backgroundImage: "radial-gradient(circle, rgba(244, 114, 182, 0.35) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
         }}
       />
 
-      {/* 3. Deep Atmospheric Velocity Halos */}
+      {/* 3. Central Ambient Glow Halo */}
       <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[1100px] h-[550px] sm:h-[800px] rounded-full blur-[180px] pointer-events-none transition-all duration-1000 z-0 animate-pulse-glow"
-        style={{ background: active.glowColor }}
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gradient-to-tr from-pink-500/20 via-purple-600/25 to-indigo-600/15 rounded-full blur-[140px] pointer-events-none z-0 transition-transform duration-700 ease-out"
+        style={{
+          transform: `translate(calc(-50% + ${mousePos.x}px), calc(-50% + ${mousePos.y}px))`,
+        }}
       />
-      <div className="absolute -top-32 -left-32 w-[550px] h-[550px] bg-purple-700/20 rounded-full blur-[160px] pointer-events-none z-0" />
-      <div className="absolute -bottom-32 -right-32 w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[160px] pointer-events-none z-0" />
 
-      {/* 4. Cyber Grid Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0 [mask-image:radial-gradient(ellipse_75%_60%_at_50%_35%,#000_65%,transparent_100%)]" />
-
-      {/* Main Viewport Content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto w-full z-10">
+      {/* 4. MAIN HERO CONTENT CONTAINER */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-7 sm:space-y-8">
         
-        {/* Top Status Header */}
-        <div className="flex items-center justify-between mb-8 pb-3 border-b border-white/10">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/15 text-xs font-bold tracking-widest uppercase text-purple-300">
-            <Zap className="w-3.5 h-3.5 text-purple-400 shrink-0 animate-pulse" />
-            <span>YUGNEXT • STEP INTO TOMORROW</span>
+        {/* Top Pill Badge: ✨ AI Studio 2.0 • Build, Design & Ship in Seconds > */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="inline-flex items-center"
+        >
+          <button
+            onClick={() => onOpenModal("products")}
+            className="group inline-flex items-center gap-2.5 px-4 sm:px-5 py-2 rounded-full bg-white/[0.08] hover:bg-white/[0.14] border border-pink-400/30 hover:border-pink-400/60 text-white text-xs sm:text-sm font-medium backdrop-blur-2xl shadow-xl shadow-purple-950/40 transition-all cursor-pointer"
+          >
+            <span className="w-5 h-5 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-white text-[10px] shadow-sm">
+              <Sparkles className="w-3 h-3 animate-pulse" />
+            </span>
+            <span className="font-extrabold tracking-wide text-white">AI Studio 2.0</span>
+            <span className="text-pink-300 font-mono">•</span>
+            <span className="text-purple-200 group-hover:text-white transition-colors">
+              Build, Design &amp; Ship in Seconds
+            </span>
+            <ChevronRight className="w-3.5 h-3.5 text-pink-300 group-hover:translate-x-0.5 transition-transform" />
+          </button>
+        </motion.div>
+
+        {/* Display Headline: Create apps, copy & designs with Intelligent AI */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          className="space-y-4"
+        >
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-tight leading-[1.08] text-white max-w-5xl mx-auto">
+            Create apps, copy &amp; designs with{" "}
+            <span className="bg-gradient-to-r from-pink-400 via-fuchsia-300 to-purple-400 bg-clip-text text-transparent underline decoration-pink-500/40 decoration-wavy decoration-2">
+              Intelligent AI.
+            </span>
+          </h1>
+
+          {/* Sub-paragraph */}
+          <p className="text-sm sm:text-lg md:text-xl text-purple-100/80 max-w-3xl mx-auto leading-relaxed font-light">
+            The all-in-one AI workspace for creators, developers, and founders. Generate production-ready code, polished UI components, and high-converting copy in seconds.
+          </p>
+        </motion.div>
+
+        {/* Dual Action Buttons: Start Creating Free → | ▶ Watch 1-Min Demo */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="flex flex-wrap items-center justify-center gap-4 pt-1"
+        >
+          {/* Primary CTA: Start Creating Free */}
+          <button
+            onClick={() => onOpenModal("whatWeDo")}
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-purple-700 via-fuchsia-600 to-pink-600 hover:from-purple-600 hover:via-fuchsia-500 hover:to-pink-500 text-white font-extrabold text-sm sm:text-base shadow-xl shadow-purple-900/50 hover:shadow-2xl hover:shadow-pink-600/40 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer group"
+          >
+            <span>Start Creating Free</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </button>
+
+          {/* Secondary CTA: Watch 1-Min Demo */}
+          <button
+            onClick={() => setVideoModalOpen(true)}
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] text-white font-bold text-sm sm:text-base border border-purple-300/30 hover:border-purple-300/60 backdrop-blur-xl shadow-lg transition-all cursor-pointer active:scale-95 group"
+          >
+            <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <Play className="w-2.5 h-2.5 fill-white text-white ml-0.5" />
+            </span>
+            <span>Watch 1-Min Demo</span>
+          </button>
+        </motion.div>
+
+        {/* Social Proof / Rating: Overlapping Avatars + 5 Stars + 50,000+ creators */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex items-center justify-center gap-3 pt-1 pb-4"
+        >
+          {/* Overlapping User Avatars */}
+          <div className="flex -space-x-2.5">
+            {[
+              "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+              "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
+              "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80",
+              "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
+            ].map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt="Community member"
+                className="w-8 h-8 rounded-full border-2 border-[#070214] object-cover shadow-sm"
+              />
+            ))}
           </div>
 
-          <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-purple-300">
-            <Activity className="w-4 h-4 text-emerald-400 animate-pulse" />
-            <span>CHENNAI · BHOPAL · PUNE • ONE DIRECTION: FORWARD</span>
+          {/* 5 Golden Stars */}
+          <div className="flex items-center gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+            ))}
           </div>
-        </div>
 
-        {/* 2-Column Hero Body */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Metric Copy */}
+          <span className="text-xs sm:text-sm text-purple-200/90 font-medium">
+            Rated <span className="font-extrabold text-white">4.9/5</span> by <span className="text-pink-300 font-semibold">50,000+</span> creators &amp; developers
+          </span>
+        </motion.div>
+
+      </div>
+
+      {/* 5. LIVE INTERACTIVE AI WORKSPACE WINDOW (Lightswind AI Studio Style) */}
+      <div className="relative z-20 w-full max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 mt-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
+          className="rounded-t-[28px] sm:rounded-t-[36px] border-t border-x border-pink-500/30 bg-slate-950/85 backdrop-blur-2xl shadow-[0_-25px_80px_rgba(217,70,239,0.22)] overflow-hidden"
+        >
           
-          {/* Left Column: Kinetic Headline & Action */}
-          <div className="lg:col-span-7 space-y-7">
+          {/* Mac OS Window Header */}
+          <div className="px-4 sm:px-6 py-3.5 bg-white/[0.04] border-b border-white/[0.08] flex items-center justify-between">
             
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active.id}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                className="space-y-6"
-              >
-                <div className="text-xs font-mono font-bold tracking-widest uppercase text-purple-400 flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded bg-purple-900/60 border border-purple-500/40 text-[10px] text-white">
-                    {active.code}
-                  </span>
-                  <span>{active.tag}</span>
-                </div>
-
-                {/* Grand Headline */}
-                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08]">
-                  {active.headline.split(active.highlight)[0]}
-                  <span
-                    className={`bg-gradient-to-r ${active.gradient} bg-clip-text text-transparent block sm:inline`}
-                  >
-                    {active.highlight}
-                  </span>
-                  {active.headline.split(active.highlight)[1]}
-                </h1>
-
-                {/* Subtitle */}
-                <p className="text-base sm:text-xl text-slate-300 max-w-2xl font-light leading-relaxed">
-                  {active.subtitle}
-                </p>
-
-                {/* Action CTAs: Triggers Cognizant Card */}
-                <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <button
-                    onClick={() => onOpenModal("whatWeDo")}
-                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 via-purple-500 to-indigo-600 text-white font-extrabold text-sm sm:text-base shadow-xl shadow-purple-600/40 hover:shadow-2xl hover:shadow-purple-500/60 hover:scale-[1.03] active:scale-95 transition-all group cursor-pointer"
-                  >
-                    <span>Explore What We Do</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                  </button>
-
-                  <button
-                    onClick={() => onOpenModal("products")}
-                    className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-white/5 backdrop-blur-xl text-white font-bold text-sm sm:text-base border border-white/20 hover:bg-white/15 hover:border-white/40 transition-all cursor-pointer"
-                  >
-                    <Package className="w-4 h-4 text-purple-400" />
-                    <span>Explore Products</span>
-                  </button>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Linear Velocity Timer & Controls */}
-            <div className="pt-6 border-t border-white/10 flex items-center gap-5 text-xs">
-              <div className="flex items-center gap-1 font-mono font-bold text-sm text-white">
-                <span className="text-purple-400">0{activeIdx + 1}</span>
-                <span className="text-white/40">/</span>
-                <span className="text-white/60">04</span>
+            {/* Window Dots & Workspace Title */}
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-full bg-rose-500/90 shadow-sm shadow-rose-500/30" />
+                <span className="w-3 h-3 rounded-full bg-amber-400/90 shadow-sm shadow-amber-400/30" />
+                <span className="w-3 h-3 rounded-full bg-emerald-500/90 shadow-sm shadow-emerald-500/30" />
               </div>
+              <span className="text-xs font-mono font-bold text-slate-300 tracking-wide hidden sm:inline">
+                Lightswind AI Studio • <span className="text-pink-400">Live Workspace</span>
+              </span>
+            </div>
 
-              {/* Progress Line */}
-              <div className="w-36 sm:w-56 h-1.5 bg-white/15 rounded-full overflow-hidden">
-                <motion.div
-                  key={activeIdx}
-                  initial={{ width: "0%" }}
-                  animate={{ width: isPlaying ? "100%" : "50%" }}
-                  transition={{ duration: 6.5, ease: "linear" }}
-                  className="h-full bg-gradient-to-r from-purple-500 via-fuchsia-400 to-cyan-400 rounded-full"
-                />
-              </div>
-
-              {/* Pause/Play Toggle */}
+            {/* Workspace Interactive Mode Tabs: </> Code | UI Design | Copy | Analytics */}
+            <div className="flex items-center gap-1 bg-white/[0.06] p-1 rounded-xl border border-white/[0.08]">
               <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="p-1.5 rounded-lg bg-white/5 hover:bg-white/15 text-white/80 hover:text-white border border-white/10 transition-colors"
-                title={isPlaying ? "Pause autoplay" : "Resume autoplay"}
+                onClick={() => setActiveTab("code")}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  activeTab === "code"
+                    ? "bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md shadow-pink-600/30"
+                    : "text-slate-400 hover:text-white"
+                }`}
               >
-                {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+                <Code2 className="w-3.5 h-3.5" />
+                <span>Code</span>
+              </button>
+
+              <button
+                onClick={() => setActiveTab("ui")}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  activeTab === "ui"
+                    ? "bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md shadow-pink-600/30"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <Palette className="w-3.5 h-3.5" />
+                <span>UI Design</span>
+              </button>
+
+              <button
+                onClick={() => setActiveTab("copy")}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  activeTab === "copy"
+                    ? "bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md shadow-pink-600/30"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>Copy</span>
+              </button>
+
+              <button
+                onClick={() => setActiveTab("analytics")}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  activeTab === "analytics"
+                    ? "bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-md shadow-pink-600/30"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <BarChart3 className="w-3.5 h-3.5" />
+                <span>Analytics</span>
               </button>
             </div>
 
           </div>
 
-          {/* Right Column: 3D Interactive Parallax Console (Click to Open Card) */}
-          <div className="lg:col-span-5" style={{ perspective: "1000px" }}>
-            <motion.div
-              animate={{
-                rotateX: cardTilt.rotateX,
-                rotateY: cardTilt.rotateY,
-              }}
-              transition={{ type: "spring", stiffness: 350, damping: 25 }}
-              onMouseMove={handleCardMouseMove}
-              onMouseLeave={handleCardMouseLeave}
-              onClick={() => onOpenModal("whatWeDo")}
-              className="relative group cursor-pointer"
-              title="Click to expand full interactive overview card"
-            >
-              {/* Outer Glow Halo */}
-              <div
-                className="absolute -inset-1 rounded-3xl blur-2xl opacity-50 transition-all duration-700 pointer-events-none"
-                style={{ background: active.glowColor }}
+          {/* Interactive AI Prompt Input Bar */}
+          <div className="p-4 sm:p-6 border-b border-white/[0.06] bg-gradient-to-b from-white/[0.02] to-transparent space-y-3">
+            <div className="flex items-center gap-3 p-2.5 sm:p-3 rounded-2xl bg-white/[0.06] border border-pink-500/25 focus-within:border-pink-400 focus-within:ring-2 focus-within:ring-pink-500/20 transition-all shadow-inner">
+              <Wand2 className="w-5 h-5 text-pink-400 shrink-0 ml-1.5 animate-pulse" />
+              <input
+                type="text"
+                value={promptInput}
+                onChange={(e) => setPromptInput(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleGenerate()}
+                placeholder="Ask AI to generate any UI block, software code or copy..."
+                className="w-full bg-transparent text-sm sm:text-base font-medium text-white placeholder:text-slate-400 outline-none"
               />
+              <button
+                onClick={handleGenerate}
+                disabled={isGenerating}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-pink-600 via-fuchsia-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-extrabold text-xs sm:text-sm shadow-md shadow-pink-600/30 transition-all cursor-pointer whitespace-nowrap active:scale-95 disabled:opacity-50"
+              >
+                <span>{isGenerating ? "Generating..." : "Generate"}</span>
+                <Send className="w-3.5 h-3.5" />
+              </button>
+            </div>
 
-              {/* Main Frosted Tech Card */}
-              <div className="relative rounded-3xl bg-white/[0.08] backdrop-blur-2xl border border-white/20 p-7 sm:p-9 shadow-2xl shadow-purple-950/80 space-y-6">
-                
-                {/* Console Top Header */}
-                <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-purple-600/40">
-                      <ActiveIcon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-300">
-                        ARCHITECTURE CORE
-                      </div>
-                      <div className="text-xl font-black text-white">{active.highlight}</div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-mono font-bold px-3 py-1 rounded-full bg-emerald-950/60 text-emerald-400 border border-emerald-500/40 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    CLICK TO EXPAND
-                  </span>
-                </div>
-
-                {/* Dynamic Metric Display */}
-                <div className="p-4 rounded-2xl bg-gradient-to-r from-purple-950/80 via-indigo-950/80 to-purple-950/80 border border-purple-500/30 shadow-inner">
-                  <div className="text-xs font-mono text-purple-300 font-semibold">{active.statLabel}</div>
-                  <div className="text-3xl font-black text-white mt-1 tracking-tight">{active.metric}</div>
-                </div>
-
-                {/* Feature Checklist */}
-                <div className="space-y-3">
-                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white/50 block">
-                    Verified Capabilities:
-                  </span>
-                  {active.features.map((feat, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-200 font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Direct Stream Select */}
-                <div className="pt-2 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
-                  <div className="text-[10px] font-mono uppercase tracking-wider text-white/40 mb-2.5">
-                    Direct Stream Select:
-                  </div>
-                  <div className="grid grid-cols-4 gap-2">
-                    {STREAMS.map((item, idx) => (
-                      <button
-                        key={item.id}
-                        onClick={() => {
-                          setActiveIdx(idx);
-                          setIsPlaying(false);
-                        }}
-                        className={`py-2 px-1 rounded-xl text-center text-xs font-mono font-bold transition-all border ${
-                          activeIdx === idx
-                            ? "bg-purple-600 text-white border-purple-400 shadow-md shadow-purple-600/50 scale-105"
-                            : "bg-white/5 text-white/60 border-white/10 hover:bg-white/15 hover:text-white"
-                        }`}
-                      >
-                        {item.code}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-            </motion.div>
+            {/* Try Asking Preset Chips */}
+            <div className="flex items-center gap-2 overflow-x-auto text-xs pt-1 pb-1 scrollbar-none">
+              <span className="text-[11px] font-mono text-slate-400 shrink-0 uppercase tracking-wider font-bold">
+                Try asking:
+              </span>
+              {PRESET_PROMPTS.map((preset) => (
+                <button
+                  key={preset.label}
+                  onClick={() => handleSelectPreset(preset)}
+                  className="px-3 py-1 rounded-full bg-white/[0.06] hover:bg-pink-500/20 border border-white/[0.1] hover:border-pink-400/40 text-slate-300 hover:text-white font-medium transition-colors cursor-pointer whitespace-nowrap text-xs"
+                >
+                  {preset.label}
+                </button>
+              ))}
+            </div>
           </div>
 
-        </div>
-
-      </div>
-
-      {/* Bottom Proof-of-Scale Strip (Click any stat to open relevant card) */}
-      <div className="relative mt-8 pt-6 border-t border-white/10 bg-white/[0.02] backdrop-blur-md z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+          {/* DYNAMIC INTERACTIVE PLAYGROUND OUTPUT */}
+          <div className="p-4 sm:p-8 min-h-[380px] sm:min-h-[440px] flex items-center justify-center relative bg-gradient-to-b from-[#0c051f]/80 to-[#070214]">
             
-            <button
-              onClick={() => onOpenModal("whoWeAre")}
-              className="space-y-1 text-left p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
-            >
-              <div className="text-2xl sm:text-3xl font-black text-white">4 Delivery Hubs</div>
-              <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-purple-400" />
-                <span>Chennai • Bhopal • Agra • Delhi NCR</span>
-              </div>
-            </button>
+            {/* Loading Indicator */}
+            {isGenerating && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="absolute inset-0 z-30 bg-[#070214]/80 backdrop-blur-md flex flex-col items-center justify-center space-y-3"
+              >
+                <div className="w-10 h-10 rounded-full border-2 border-pink-500 border-t-transparent animate-spin" />
+                <p className="text-sm font-mono font-bold text-pink-300 animate-pulse">
+                  AI Synthesizing UI &amp; Code Architecture...
+                </p>
+              </motion.div>
+            )}
 
-            <button
-              onClick={() => onOpenModal("insights")}
-              className="space-y-1 text-left p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
-            >
-              <div className="text-2xl sm:text-3xl font-black text-white">₹50K+ Seeded</div>
-              <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1.5">
-                <TrendingUp className="w-3.5 h-3.5 text-purple-400" />
-                <span>MANIT Bhopal Incubation</span>
-              </div>
-            </button>
+            {/* TAB 1: UI DESIGN PLAYGROUND (SaaS Pricing Card Component) */}
+            {activeTab === "ui" && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="w-full max-w-md p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-white/[0.09] to-white/[0.03] border border-pink-500/30 backdrop-blur-xl shadow-2xl relative"
+              >
+                {/* Popular Badge */}
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white text-[11px] font-extrabold uppercase tracking-wider shadow-md shadow-pink-500/40">
+                  Most Popular
+                </div>
 
-            <button
-              onClick={() => onOpenModal("insights")}
-              className="space-y-1 text-left p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
-            >
-              <div className="text-2xl sm:text-3xl font-black text-white">Oct 21, 2026</div>
-              <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-purple-400" />
-                <span>Incorporated Pvt Ltd Entity</span>
-              </div>
-            </button>
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-extrabold text-white">Pro Studio</h3>
+                    <p className="text-xs text-purple-200/80">For high-growth creators &amp; startups</p>
+                  </div>
+                  
+                  {/* Monthly / Yearly Toggle */}
+                  <div className="flex items-center bg-white/[0.08] p-0.5 rounded-full border border-white/[0.1] text-[10px] font-bold">
+                    <button
+                      onClick={() => setBillingPeriod("monthly")}
+                      className={`px-2.5 py-1 rounded-full transition-colors cursor-pointer ${
+                        billingPeriod === "monthly" ? "bg-pink-600 text-white" : "text-slate-400"
+                      }`}
+                    >
+                      Monthly
+                    </button>
+                    <button
+                      onClick={() => setBillingPeriod("yearly")}
+                      className={`px-2.5 py-1 rounded-full transition-colors cursor-pointer ${
+                        billingPeriod === "yearly" ? "bg-pink-600 text-white" : "text-slate-400"
+                      }`}
+                    >
+                      Yearly (-20%)
+                    </button>
+                  </div>
+                </div>
 
-            <button
-              onClick={() => onOpenModal("whoWeAre")}
-              className="space-y-1 text-left p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer"
-            >
-              <div className="text-2xl sm:text-3xl font-black text-white">Premier Alliances</div>
-              <div className="text-xs text-purple-300 font-semibold flex items-center justify-center md:justify-start gap-1.5">
-                <Award className="w-3.5 h-3.5 text-purple-400" />
-                <span>ROLTA & Govt. of India Programs</span>
-              </div>
-            </button>
+                {/* Price Display */}
+                <div className="flex items-baseline gap-1 my-5">
+                  <span className="text-4xl sm:text-5xl font-black text-white">
+                    {billingPeriod === "yearly" ? "$49" : "$59"}
+                  </span>
+                  <span className="text-xs text-slate-400 font-medium">/ month, billed annually</span>
+                </div>
+
+                {/* Features List */}
+                <ul className="space-y-2.5 mb-6 text-xs text-slate-300">
+                  {[
+                    "Unlimited AI UI component generations",
+                    "Production React & Tailwind CSS exports",
+                    "Interactive prototypes with Framer Motion",
+                    "Domain-warping & animated grain shaders",
+                    "Collaborative cloud workspace & presets",
+                  ].map((feat, idx) => (
+                    <li key={idx} className="flex items-center gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </div>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Card CTA */}
+                <button
+                  onClick={() => onOpenModal("whatWeDo")}
+                  className="w-full py-3 rounded-2xl bg-gradient-to-r from-pink-600 via-fuchsia-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-extrabold text-sm shadow-lg shadow-pink-600/30 transition-all cursor-pointer active:scale-95"
+                >
+                  Start Creating Now →
+                </button>
+              </motion.div>
+            )}
+
+            {/* TAB 2: CODE VIEW PLAYGROUND */}
+            {activeTab === "code" && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="w-full max-w-2xl rounded-2xl bg-[#0d0722] border border-purple-500/30 overflow-hidden text-left font-mono text-xs shadow-2xl"
+              >
+                {/* Code Editor Header */}
+                <div className="px-4 py-2.5 bg-white/[0.04] border-b border-white/[0.08] flex items-center justify-between text-[11px] text-slate-400">
+                  <span className="text-pink-300 font-bold">PricingCard.tsx</span>
+                  <button
+                    onClick={handleCopyCode}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.08] hover:bg-white/[0.15] text-slate-300 hover:text-white transition-colors cursor-pointer"
+                  >
+                    {copiedCode ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                    <span>{copiedCode ? "Copied!" : "Copy Code"}</span>
+                  </button>
+                </div>
+
+                {/* Syntax Highlighted Code Display */}
+                <div className="p-4 sm:p-5 overflow-x-auto text-[11px] sm:text-xs leading-relaxed space-y-1 text-purple-200/90 font-mono">
+                  <div><span className="text-pink-400">import</span> React, &#123; useState &#125; <span className="text-pink-400">from</span> <span className="text-emerald-300">&quot;react&quot;</span>;</div>
+                  <div><span className="text-pink-400">import</span> &#123; motion &#125; <span className="text-pink-400">from</span> <span className="text-emerald-300">&quot;framer-motion&quot;</span>;</div>
+                  <div className="text-slate-500">// AI-Generated production-ready pricing component with Tailwind CSS</div>
+                  <div><span className="text-purple-400 font-bold">export default function</span> <span className="text-amber-300">PricingCard</span>() &#123;</div>
+                  <div className="pl-4"><span className="text-pink-400">const</span> [billing, setBilling] = <span className="text-amber-300">useState</span>(<span className="text-emerald-300">&quot;yearly&quot;</span>);</div>
+                  <div className="pl-4 text-pink-400">return (</div>
+                  <div className="pl-8 text-cyan-300">&lt;<span className="text-pink-400">div</span> <span className="text-purple-300">className</span>=<span className="text-emerald-300">&quot;p-8 rounded-3xl bg-slate-950/80 border border-pink-500/30 backdrop-blur-xl shadow-2xl&quot;</span>&gt;</div>
+                  <div className="pl-12 text-cyan-300">&lt;<span className="text-pink-400">h3</span> <span className="text-purple-300">className</span>=<span className="text-emerald-300">&quot;text-2xl font-black text-white&quot;</span>&gt;Pro Studio&lt;/<span className="text-pink-400">h3</span>&gt;</div>
+                  <div className="pl-12 text-cyan-300">&lt;<span className="text-pink-400">span</span> <span className="text-purple-300">className</span>=<span className="text-emerald-300">&quot;text-5xl font-black text-white&quot;</span>&gt;&#123;billing === &quot;yearly&quot; ? &quot;$49&quot; : &quot;$59&quot;&#125;&lt;/<span className="text-pink-400">span</span>&gt;</div>
+                  <div className="pl-8 text-cyan-300">&lt;/<span className="text-pink-400">div</span>&gt;</div>
+                  <div className="pl-4 text-pink-400">);</div>
+                  <div>&#125;</div>
+                </div>
+              </motion.div>
+            )}
+
+            {/* TAB 3: COPY PLAYGROUND */}
+            {activeTab === "copy" && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="w-full max-w-xl space-y-3.5 text-left"
+              >
+                {[
+                  {
+                    tag: "HERO HEADLINE (HIGH CONVERSION)",
+                    text: "Create apps, copy & designs with Intelligent AI.",
+                    metric: "98.4% Engagement Score",
+                  },
+                  {
+                    tag: "ENTERPRISE VALUE HOOK",
+                    text: "The Future Doesn't Wait. Neither Should Your Business. Build for what comes next with YugNext.",
+                    metric: "Recommended for B2B & Founders",
+                  },
+                  {
+                    tag: "SHIKSHASATHI EDTECH PITCH",
+                    text: "Ideas are everywhere. Products that solve are rare. ShikshaSathi makes education connected & accessible.",
+                    metric: "Target: Universities & Academics",
+                  },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 rounded-2xl bg-white/[0.05] border border-pink-500/25 space-y-1.5 hover:border-pink-400/50 transition-colors"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono font-bold text-pink-400 uppercase tracking-widest">
+                        {item.tag}
+                      </span>
+                      <span className="text-[10px] text-emerald-400 font-semibold">{item.metric}</span>
+                    </div>
+                    <p className="text-sm font-semibold text-white">{item.text}</p>
+                  </div>
+                ))}
+              </motion.div>
+            )}
+
+            {/* TAB 4: ANALYTICS PLAYGROUND */}
+            {activeTab === "analytics" && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="w-full max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-4 text-left"
+              >
+                <div className="p-5 rounded-2xl bg-white/[0.05] border border-pink-500/25 space-y-2">
+                  <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
+                    INFERENCE VELOCITY
+                  </span>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-black text-white">248 tok/s</span>
+                    <span className="text-xs font-bold text-emerald-400">+34% faster</span>
+                  </div>
+                  <p className="text-xs text-purple-200/70">Hardware-accelerated token streaming across cluster.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-white/[0.05] border border-pink-500/25 space-y-2">
+                  <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
+                    API LATENCY (P99)
+                  </span>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-black text-white">12 ms</span>
+                    <span className="text-xs font-bold text-emerald-400">Global edge</span>
+                  </div>
+                  <p className="text-xs text-purple-200/70">Chennai · Bhopal · Pune high-trust delivery network nodes.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-white/[0.05] border border-pink-500/25 space-y-2">
+                  <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
+                    MODEL ACCURACY
+                  </span>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-black text-white">99.8%</span>
+                    <span className="text-xs font-bold text-pink-400">Enterprise SLA</span>
+                  </div>
+                  <p className="text-xs text-purple-200/70">Full TypeScript type safety and zero hallucinations.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-white/[0.05] border border-pink-500/25 space-y-2">
+                  <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider block">
+                    ACTIVE SESSIONS
+                  </span>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-black text-white">50,000+</span>
+                    <span className="text-xs font-bold text-emerald-400">Live now</span>
+                  </div>
+                  <p className="text-xs text-purple-200/70">Creators, developers, and institutions scaling daily.</p>
+                </div>
+              </motion.div>
+            )}
 
           </div>
-        </div>
+
+        </motion.div>
       </div>
+
+      {/* 6. WATCH 1-MIN DEMO MODAL OVERLAY */}
+      {videoModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="w-full max-w-3xl rounded-3xl bg-[#0d0722] border border-pink-500/30 overflow-hidden shadow-2xl">
+            <div className="p-4 border-b border-white/[0.08] flex items-center justify-between">
+              <span className="text-xs font-mono font-bold text-pink-400 uppercase tracking-wider">
+                Lightswind AI Studio • 1-Minute Interactive Walkthrough
+              </span>
+              <button
+                onClick={() => setVideoModalOpen(false)}
+                className="p-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] text-slate-300 hover:text-white transition-colors cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="aspect-video w-full bg-black/60 flex flex-col items-center justify-center p-8 text-center space-y-4">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 flex items-center justify-center text-white shadow-xl shadow-pink-500/40">
+                <Play className="w-7 h-7 fill-white ml-1" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-lg font-extrabold text-white">Experience AI Studio 2.0 In Action</h4>
+                <p className="text-xs text-purple-200/70 max-w-md">
+                  Watch how developers ship high-converting code, responsive UI, and enterprise digital solutions in seconds.
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  setVideoModalOpen(false);
+                  onOpenModal("whatWeDo");
+                }}
+                className="px-6 py-2.5 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 text-white text-xs font-bold shadow-lg"
+              >
+                Explore Full Platform →
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </section>
   );
