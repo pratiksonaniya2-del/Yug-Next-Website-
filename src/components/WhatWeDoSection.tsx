@@ -127,43 +127,43 @@ export default function WhatWeDoSection() {
   };
 
   return (
-    <section id="what-we-do" className="py-20 lg:py-28 bg-[#0A0818] text-[#EFEDFA] relative border-t border-[#2A2450]">
+    <section id="what-we-do" className="py-20 lg:py-28 bg-white text-slate-900 relative border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ================= SECTION 1: SERVICES ================= */}
         <div className="space-y-8 mb-24">
           
           {/* Header & Carousel Arrow Controls */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-2 border-b border-[#2A2450]">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-2 border-b border-slate-200">
             <div className="max-w-2xl space-y-3">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#6C3CE3]/20 text-[#9B7BF0] border border-[#6C3CE3]/30">
-                <Sparkles className="w-3.5 h-3.5 text-[#9B7BF0]" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#6C3CE3]/10 text-[#6C3CE3] border border-[#6C3CE3]/20">
+                <Sparkles className="w-3.5 h-3.5 text-[#6C3CE3]" />
                 <span>SERVICES</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-black text-[#EFEDFA] tracking-tight leading-tight">
-                From Digital Presence to <span className="text-[#9B7BF0]">Digital Possibility.</span>
+              <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                From Digital Presence to <span className="text-[#6C3CE3]">Digital Possibility.</span>
               </h2>
-              <p className="text-[#A79FCB] text-sm sm:text-base leading-relaxed font-light">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-light">
                 Yugnext works across software, digital solutions, products and technology-led initiatives to help businesses move forward.
               </p>
             </div>
 
             {/* Slider Navigation Arrows (← & →) */}
             <div className="flex items-center gap-3 shrink-0">
-              <span className="text-xs font-mono font-bold text-[#A79FCB]/70 mr-1">
+              <span className="text-xs font-mono font-bold text-slate-500 mr-1">
                 {currentIndex + 1}–{Math.min(currentIndex + 4, SERVICES.length)} of {SERVICES.length}
               </span>
               <button
                 onClick={handlePrev}
                 aria-label="Previous Services"
-                className="w-11 h-11 rounded-full border border-[#2A2450] hover:border-[#6C3CE3] bg-[#12102A] hover:bg-[#181534] text-[#EFEDFA] hover:text-[#9B7BF0] shadow-sm flex items-center justify-center transition-all cursor-pointer active:scale-95"
+                className="w-11 h-11 rounded-full border border-slate-200 hover:border-[#6C3CE3] bg-white hover:bg-slate-50 text-slate-700 hover:text-[#6C3CE3] shadow-sm flex items-center justify-center transition-all cursor-pointer active:scale-95"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNext}
                 aria-label="Next Services"
-                className="w-11 h-11 rounded-full border border-[#2A2450] hover:border-[#6C3CE3] bg-[#12102A] hover:bg-[#181534] text-[#EFEDFA] hover:text-[#9B7BF0] shadow-sm flex items-center justify-center transition-all cursor-pointer active:scale-95"
+                className="w-11 h-11 rounded-full border border-slate-200 hover:border-[#6C3CE3] bg-white hover:bg-slate-50 text-slate-700 hover:text-[#6C3CE3] shadow-sm flex items-center justify-center transition-all cursor-pointer active:scale-95"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -184,51 +184,51 @@ export default function WhatWeDoSection() {
                 return (
                   <div
                     key={service.id}
-                    className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] shrink-0 group relative rounded-3xl p-6 sm:p-7 bg-[#12102A] hover:bg-[#181534] border border-[#2A2450] hover:border-[#6C3CE3] hover:shadow-2xl hover:shadow-[#6C3CE3]/20 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between h-[420px] overflow-hidden cursor-pointer"
+                    className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] shrink-0 group relative rounded-3xl p-6 sm:p-7 bg-white hover:bg-slate-50/60 border border-slate-200/90 hover:border-[#6C3CE3] shadow-lg shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#6C3CE3]/15 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between h-[420px] overflow-hidden cursor-pointer"
                   >
                     {/* Top Bar: Icon & Tag */}
                     <div className="flex items-center justify-between w-full">
                       {/* Icon */}
-                      <div className="w-12 h-12 rounded-2xl bg-[#6C3CE3]/20 text-[#9B7BF0] group-hover:bg-[#6C3CE3] group-hover:text-white flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] shadow-sm">
+                      <div className="w-12 h-12 rounded-2xl bg-[#6C3CE3]/10 text-[#6C3CE3] group-hover:bg-[#6C3CE3] group-hover:text-white flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] shadow-sm">
                         <Icon className="w-6 h-6" />
                       </div>
 
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#0A0818] border border-[#2A2450] text-[#A79FCB] group-hover:border-[#6C3CE3]/40 group-hover:text-[#9B7BF0] transition-colors duration-500">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-600 group-hover:border-[#6C3CE3]/40 group-hover:text-[#6C3CE3] transition-colors duration-500">
                         {service.tag}
                       </span>
                     </div>
 
                     {/* Middle Section: The Title glides smoothly to the LEFT on hover */}
                     <div className="py-2 space-y-1 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
-                      <span className="text-[10px] font-mono text-[#A79FCB]/70 font-bold tracking-wider block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5">
+                      <span className="text-[10px] font-mono text-slate-400 font-bold tracking-wider block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5">
                         0{index + 1} • SERVICE
                       </span>
 
                       {/* TITLE: Starts normally, and on hover glides smoothly to the LEFT with increased duration */}
-                      <h3 className="text-xl sm:text-2xl font-black text-[#EFEDFA] group-hover:text-[#9B7BF0] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5 leading-snug">
+                      <h3 className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-[#6C3CE3] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5 leading-snug">
                         {service.title}
                       </h3>
                     </div>
 
                     {/* Full Text Reveal: Silky-smooth opacity & slide-in ONLY for this hovered card */}
                     <div className="max-h-0 opacity-0 group-hover:max-h-[220px] group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden space-y-2.5">
-                      <p className="text-xs text-[#A79FCB] leading-relaxed font-light">
+                      <p className="text-xs text-slate-600 leading-relaxed font-light">
                         {service.summary}
                       </p>
 
                       {/* Sample Preview & Testimonial */}
-                      <div className="p-3 rounded-xl bg-[#0A0818] border border-[#2A2450] text-xs space-y-1">
-                        <span className="text-[10px] font-mono font-bold text-[#9B7BF0] uppercase tracking-wider block">
+                      <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1">
+                        <span className="text-[10px] font-mono font-bold text-[#6C3CE3] uppercase tracking-wider block">
                           {service.sampleTitle}
                         </span>
-                        <p className="text-[11px] text-[#EFEDFA]/85 italic font-light line-clamp-2">
+                        <p className="text-[11px] text-slate-700 italic font-light line-clamp-2">
                           &ldquo;{service.testimonial}&rdquo;
                         </p>
                       </div>
 
                       <Link
                         href={service.link}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#9B7BF0] hover:text-white pt-1"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#6C3CE3] hover:text-[#5b2dd4] pt-1"
                       >
                         <span>View Sample &amp; Testimonial</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -236,7 +236,7 @@ export default function WhatWeDoSection() {
                     </div>
 
                     {/* Default Bottom Prompt: Fades out smoothly on hover */}
-                    <div className="pt-3 border-t border-[#2A2450]/80 flex items-center justify-between text-xs font-semibold text-[#A79FCB]/60 group-hover:opacity-0 group-hover:h-0 transition-all duration-500 overflow-hidden">
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:opacity-0 group-hover:h-0 transition-all duration-500 overflow-hidden">
                       <span>Hover to explore</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
@@ -260,18 +260,18 @@ export default function WhatWeDoSection() {
         </div>
 
         {/* ================= SECTION 2: PRODUCTS ================= */}
-        <div className="pt-10 border-t border-[#2A2450] space-y-8">
+        <div className="pt-10 border-t border-slate-200 space-y-8">
           
           <div className="text-center max-w-3xl mx-auto space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#6C3CE3]/20 text-[#9B7BF0] border border-[#6C3CE3]/30">
-              <Layers className="w-3.5 h-3.5 text-[#9B7BF0]" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#6C3CE3]/10 text-[#6C3CE3] border border-[#6C3CE3]/20">
+              <Layers className="w-3.5 h-3.5 text-[#6C3CE3]" />
               <span>PRODUCTS</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black text-[#EFEDFA] tracking-tight leading-tight">
-              Ideas Are Everywhere. <span className="text-[#9B7BF0]">Products That Solve Are Rare.</span>
+            <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+              Ideas Are Everywhere. <span className="text-[#6C3CE3]">Products That Solve Are Rare.</span>
             </h2>
-            <p className="text-[#A79FCB] text-sm sm:text-base leading-relaxed font-light">
-              We believe the best products don&apos;t begin with: <strong className="text-[#EFEDFA]">&ldquo;What can we build?&rdquo;</strong> They begin with: <strong className="text-[#9B7BF0]">&ldquo;What needs solving?&rdquo;</strong>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-light">
+              We believe the best products don&apos;t begin with: <strong className="text-slate-900">&ldquo;What can we build?&rdquo;</strong> They begin with: <strong className="text-[#6C3CE3]">&ldquo;What needs solving?&rdquo;</strong>
             </p>
           </div>
 
@@ -281,23 +281,23 @@ export default function WhatWeDoSection() {
               return (
                 <div
                   key={prod.id}
-                  className={`group rounded-3xl p-7 border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between relative overflow-hidden min-h-[340px] cursor-pointer ${
+                  className={`group rounded-3xl p-7 border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between relative overflow-hidden min-h-[340px] cursor-pointer shadow-lg shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#6C3CE3]/15 ${
                     prod.isStealth
-                      ? "bg-[#100C3E] text-white border-[#6C3CE3]/40"
-                      : "bg-[#12102A] hover:bg-[#181534] text-[#EFEDFA] border-[#2A2450] hover:border-[#6C3CE3] hover:shadow-xl hover:shadow-[#6C3CE3]/15"
+                      ? "bg-slate-50/80 hover:bg-slate-100/80 text-slate-900 border-dashed border-[#6C3CE3]/40 hover:border-[#6C3CE3]"
+                      : "bg-white hover:bg-slate-50/60 text-slate-900 border-slate-200/90 hover:border-[#6C3CE3]"
                   }`}
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <span className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md ${
                         prod.isStealth
-                          ? "bg-[#6C3CE3]/30 text-[#9B7BF0] border border-[#6C3CE3]/50"
-                          : "bg-[#0A0818] border border-[#2A2450] text-[#9B7BF0]"
+                          ? "bg-[#6C3CE3]/10 text-[#6C3CE3] border border-[#6C3CE3]/30"
+                          : "bg-slate-100 border border-slate-200 text-[#6C3CE3]"
                       }`}>
                         {prod.tag}
                       </span>
                       {prod.isStealth && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300">
                           <Lock className="w-3 h-3" />
                           <span>LAUNCH SOON</span>
                         </span>
@@ -306,29 +306,29 @@ export default function WhatWeDoSection() {
 
                     {/* Product Name: On hover slides to the LEFT with increased duration */}
                     <div className="transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5">
-                      <h3 className={`text-2xl font-black ${prod.isStealth ? "text-white" : "text-[#EFEDFA] group-hover:text-[#9B7BF0]"} transition-colors duration-500`}>
+                      <h3 className="text-2xl font-black text-slate-900 group-hover:text-[#6C3CE3] transition-colors duration-500">
                         {prod.name}
                       </h3>
-                      <p className={`text-xs font-semibold mt-1 ${prod.isStealth ? "text-purple-300" : "text-[#A79FCB]"}`}>
+                      <p className="text-xs font-semibold mt-1 text-slate-500">
                         {prod.headline}
                       </p>
                     </div>
 
                     {/* Details: On hover smoothly reveals */}
                     <div className="max-h-0 opacity-0 group-hover:max-h-[160px] group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden space-y-2">
-                      <p className={`text-xs leading-relaxed font-light ${prod.isStealth ? "text-slate-300" : "text-[#A79FCB]"}`}>
+                      <p className="text-xs leading-relaxed font-light text-slate-600">
                         {prod.description}
                       </p>
                     </div>
                   </div>
 
                   {/* Card Action Link */}
-                  <div className="pt-6 mt-6 border-t border-[#2A2450]/80">
+                  <div className="pt-6 mt-6 border-t border-slate-100">
                     <Link
                       href={prod.link}
                       className={`inline-flex items-center justify-between w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all ${
                         prod.isStealth
-                          ? "bg-white/10 hover:bg-white/20 text-white"
+                          ? "bg-slate-900 hover:bg-slate-800 text-white shadow-sm"
                           : "bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white shadow-sm shadow-[#6C3CE3]/20"
                       }`}
                     >
