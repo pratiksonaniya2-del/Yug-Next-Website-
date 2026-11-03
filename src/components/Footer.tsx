@@ -25,26 +25,26 @@ export default function Footer({ onOpenModal }: FooterProps) {
       <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pt-14 pb-4">
         
         {/* Multi-Column Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 text-left mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 text-left mb-10 items-start">
           
-          {/* Column 1: Brand & Strategic Hubs (Span 5 on Desktop) */}
-          <div className="lg:col-span-5 space-y-4 pr-0 lg:pr-8">
+          {/* Column 1: Brand & Strategic Hubs (Span 3 on Desktop) */}
+          <div className="lg:col-span-3 space-y-4 pr-0 lg:pr-4">
             <div className="inline-flex items-center cursor-pointer group hover:opacity-95 transition-opacity" onClick={scrollToTop}>
               <YugNextLogo size="lg" variant="full" theme="dark" />
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+            <p className="text-xs text-slate-300 leading-relaxed font-light">
               Build things people need · Create things people remember · Move things forward.
             </p>
 
             <div className="space-y-2 pt-2 border-t border-purple-950/80 text-xs">
-              <div className="flex items-center gap-2 text-[#9d7df7] font-mono font-semibold text-[11px]">
-                <MapPin className="w-3.5 h-3.5 text-[#9d7df7] shrink-0" />
+              <div className="flex items-center gap-2 text-[#9B7BF0] font-mono font-semibold text-[11px]">
+                <MapPin className="w-3.5 h-3.5 text-[#9B7BF0] shrink-0" />
                 <span>DELIVERY NETWORK: CHENNAI · BHOPAL · AGRA</span>
               </div>
               <div className="flex items-center gap-2 text-slate-400 text-[11px] font-mono">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Strategic Alliances: ROLTA · NexanAcademy · MANIT Bhopal</span>
+                <span>Strategic Alliances: ROLTA · Nexan · MANIT Bhopal</span>
               </div>
               <div className="text-[10px] text-slate-500 font-mono">
                 Incorporated 21 Oct 2026 • MANIT Bhopal Incubated &amp; Seed Funded
@@ -52,10 +52,10 @@ export default function Footer({ onOpenModal }: FooterProps) {
             </div>
           </div>
 
-          {/* Column 2: Services — Stacked Vertically */}
+          {/* Column 2: WHAT WE DO? (Span 2 on Desktop) */}
           <div className="lg:col-span-2 space-y-3">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-400 block border-b border-purple-950/80 pb-2">
-              SERVICES
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#9B7BF0] block border-b border-[#2A2450] pb-2">
+              WHAT WE DO?
             </span>
             <ul className="space-y-2.5 text-xs">
               <li>
@@ -63,166 +63,147 @@ export default function Footer({ onOpenModal }: FooterProps) {
                   href="/services"
                   className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  School Websites
+                  Services
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  Photo Studio Websites
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  Restaurant &amp; Cafe Websites
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  Coaching Institutes
-                </Link>
-              </li>
-              <li className="pt-1">
-                <Link
-                  href="/services"
-                  className="text-[#9d7df7] hover:text-white font-bold transition-colors text-left inline-flex items-center gap-1"
-                >
-                  <span>Explore Services</span>
-                  <span>→</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Products — Stacked Vertically */}
-          <div className="lg:col-span-2 space-y-3">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-400 block border-b border-purple-950/80 pb-2">
-              PRODUCTS
-            </span>
-            <ul className="space-y-2.5 text-xs">
               <li>
                 <Link
                   href="/shikshasathi"
                   className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  ShikshaSathi (EdTech)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#what-we-do"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  CampusNeeds (Logistics)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#what-we-do"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  Settler (Finance)
-                </Link>
-              </li>
-              <li className="pt-1">
-                <Link
-                  href="/shikshasathi"
-                  className="text-[#9d7df7] hover:text-white font-bold transition-colors text-left inline-flex items-center gap-1"
-                >
-                  <span>Explore Products</span>
-                  <span>→</span>
+                  Products
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 4: Industries & Organisation — Stacked Vertically */}
-          <div className="lg:col-span-3 space-y-3">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-400 block border-b border-purple-950/80 pb-2">
-              ORGANISATION &amp; REACH
+          {/* Column 3: WHO WE ARE? (Span 5 on Desktop with 2 Sub-Columns) */}
+          <div className="lg:col-span-5 space-y-3">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#9B7BF0] block border-b border-[#2A2450] pb-2">
+              WHO WE ARE?
             </span>
-            <ul className="space-y-2.5 text-xs">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  About YugNext &amp; Ambition
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/leadership"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  Leadership &amp; Team
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/industries"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  Industries (Ed, Fin, Logistics)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/community"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  Community &amp; Alliances
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/collaborations"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  Collaborations (ROLTA, MANIT)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/reach"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  Nationwide Reach (Chennai, Bhopal, Agra)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/invest"
-                  className="text-slate-400 hover:text-white transition-colors text-left block"
-                >
-                  Investors (MANIT Seed Grant)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/careers"
-                  className="text-purple-300 hover:text-white font-bold transition-colors text-left block"
-                >
-                  Careers (Hiring Active)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#contact"
-                  className="text-[#9d7df7] hover:text-white font-bold transition-colors text-left block"
-                >
-                  Contact Delivery Hub →
-                </Link>
-              </li>
-            </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 text-xs">
+              {/* Sub-column 1 (Left) */}
+              <ul className="space-y-2.5">
+                <li>
+                  <Link
+                    href="/about"
+                    className="text-slate-400 hover:text-white transition-colors text-left block"
+                  >
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/industries"
+                    className="text-slate-400 hover:text-white transition-colors text-left block"
+                  >
+                    Industries
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about#leadership"
+                    className="text-slate-400 hover:text-white transition-colors text-left block"
+                  >
+                    Leadership
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/community"
+                    className="text-slate-400 hover:text-white transition-colors text-left block"
+                  >
+                    Community
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about#alliances"
+                    className="text-slate-400 hover:text-white transition-colors text-left block"
+                  >
+                    Strategic Alliances
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/reach"
+                    className="text-slate-400 hover:text-white transition-colors text-left block"
+                  >
+                    Global Delivery Network
+                  </Link>
+                </li>
+              </ul>
+
+              {/* Sub-column 2 (Right) */}
+              <ul className="space-y-2.5">
+                <li>
+                  <Link
+                    href="/community#events"
+                    className="text-slate-400 hover:text-white transition-colors text-left block"
+                  >
+                    Events
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/news"
+                    className="text-slate-400 hover:text-white transition-colors text-left block"
+                  >
+                    News
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-slate-400 hover:text-white transition-colors text-left block"
+                  >
+                    Customer Stories
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/news#awards"
+                    className="text-slate-400 hover:text-white transition-colors text-left block"
+                  >
+                    Awards &amp; Recognition
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Column 4: INVESTORS / CAREERS / CONTACT US (Span 2 on Desktop) */}
+          <div className="lg:col-span-2 space-y-4">
+            <div>
+              <Link
+                href="/invest"
+                className="text-xs font-mono font-bold uppercase tracking-wider text-[#9B7BF0] hover:text-white block border-b border-[#2A2450] pb-2 transition-colors group flex items-center justify-between"
+              >
+                <span>INVESTORS</span>
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+              </Link>
+            </div>
+
+            <div>
+              <Link
+                href="/careers"
+                className="text-xs font-mono font-bold uppercase tracking-wider text-[#9B7BF0] hover:text-white block border-b border-[#2A2450] pb-2 transition-colors group flex items-center justify-between"
+              >
+                <span>CAREERS</span>
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+              </Link>
+            </div>
+
+            <div>
+              <Link
+                href="/#contact"
+                className="text-xs font-mono font-bold uppercase tracking-wider text-[#9B7BF0] hover:text-white block border-b border-[#2A2450] pb-2 transition-colors group flex items-center justify-between"
+              >
+                <span>CONTACT US</span>
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+              </Link>
+            </div>
           </div>
 
         </div>
