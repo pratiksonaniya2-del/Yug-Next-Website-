@@ -1,16 +1,29 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProblemSolutionSection from "@/components/ProblemSolutionSection";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
-import WhoWeAreSection from "@/components/WhoWeAreSection";
-import NationwideReachSection from "@/components/NationwideReachSection";
-import InvestorsCareersSection from "@/components/InvestorsCareersSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
 import { ModalType } from "@/components/ContentCardModal";
+
+// Below-the-fold sections are dynamically code-split for ultra-fast initial paint & hydration
+const WhoWeAreSection = dynamic(() => import("@/components/WhoWeAreSection"), {
+  ssr: true,
+});
+const NationwideReachSection = dynamic(() => import("@/components/NationwideReachSection"), {
+  ssr: true,
+});
+const InvestorsCareersSection = dynamic(() => import("@/components/InvestorsCareersSection"), {
+  ssr: true,
+});
+const ContactSection = dynamic(() => import("@/components/ContactSection"), {
+  ssr: true,
+});
+const Footer = dynamic(() => import("@/components/Footer"), {
+  ssr: true,
+});
 
 export default function Home() {
   const [activeModal, setActiveModal] = useState<ModalType>(null);

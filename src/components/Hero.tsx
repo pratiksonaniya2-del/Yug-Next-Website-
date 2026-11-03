@@ -79,7 +79,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // 60FPS Animated Pink & Purple Grain + Cursor Turbulence Shader Canvas
+  // 60FPS Animated Pink & Purple Grain + Cursor Turbulence Shader Canvas (Optimized)
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -121,8 +121,30 @@ export default function Hero({ onOpenModal }: HeroProps) {
       }
       gctx.putImageData(gimg, 0, 0);
     }
+    // Pre-create and cache pattern once outside render loop
+    const grainPattern = ctx.createPattern(grainCanvas, "repeat");
+
+    // Pause animation when Hero is scrolled out of viewport
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisible = entry.isIntersecting;
+          if (isVisible && !animationFrameId) {
+            animationFrameId = requestAnimationFrame(render);
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(canvas);
 
     const render = () => {
+      if (!isVisible) {
+        animationFrameId = 0;
+        return;
+      }
+
       time += 0.009;
 
       // Smooth lerp mouse coordinates for fluid hover turbulence
@@ -171,43 +193,55 @@ export default function Hero({ onOpenModal }: HeroProps) {
       ctx.fillStyle = cursorSpotlight;
       ctx.fillRect(0, 0, width, height);
 
-      // 4. Interactive Halftone Dither Matrix with Cursor Warp Distortion
+      // 4. Batch-Optimized Halftone Dither Matrix with Cursor Warp Distortion
       const dotSpacing = 34;
       const cols = Math.ceil(width / dotSpacing);
       const rows = Math.min(Math.ceil(height / dotSpacing), 32);
+      const rThresholdSq = 260 * 260;
+
+      // 4a. Batch all static dots into a single canvas draw call
+      ctx.fillStyle = "rgba(155, 123, 240, 0.16)";
+      ctx.beginPath();
+      
+      const dynamicDots: Array<{ px: number; py: number; radius: number; alpha: number }> = [];
 
       for (let r = 0; r < rows; r++) {
+        const py = r * dotSpacing;
         for (let c = 0; c < cols; c++) {
-          let px = c * dotSpacing;
-          let py = r * dotSpacing;
-
-          // Compute distance to moving cursor
+          const px = c * dotSpacing;
           const dx = px - curMouseX;
           const dy = py - curMouseY;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          let radius = 1.1;
-          let alpha = 0.16;
-
-          // Cursor proximity turbulence & warp
-          if (dist < 260) {
+          if (distSq >= rThresholdSq) {
+            ctx.moveTo(px + 1.1, py);
+            ctx.arc(px, py, 1.1, 0, Math.PI * 2);
+          } else {
+            const dist = Math.sqrt(distSq);
             const warpStrength = (1 - dist / 260);
-            px += (dx / dist) * warpStrength * 14;
-            py += (dy / dist) * warpStrength * 14;
-            radius = 1.1 + warpStrength * 2.2;
-            alpha = 0.16 + warpStrength * 0.55;
+            dynamicDots.push({
+              px: px + (dx / dist) * warpStrength * 14,
+              py: py + (dy / dist) * warpStrength * 14,
+              radius: 1.1 + warpStrength * 2.2,
+              alpha: 0.16 + warpStrength * 0.55,
+            });
           }
-
-          ctx.fillStyle = `rgba(155, 123, 240, ${alpha})`;
-          ctx.beginPath();
-          ctx.arc(px, py, radius, 0, Math.PI * 2);
-          ctx.fill();
         }
       }
+      ctx.fill();
 
-      // 5. Atmospheric Analog Film Grain Overlay
-      if (grainCanvas) {
-        ctx.fillStyle = ctx.createPattern(grainCanvas, "repeat") || "transparent";
+      // 4b. Draw only near dots with proximity turbulence (~20 dots max)
+      for (let i = 0; i < dynamicDots.length; i++) {
+        const dot = dynamicDots[i];
+        ctx.fillStyle = `rgba(155, 123, 240, ${dot.alpha})`;
+        ctx.beginPath();
+        ctx.arc(dot.px, dot.py, dot.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // 5. Atmospheric Analog Film Grain Overlay (Cached Pattern)
+      if (grainPattern) {
+        ctx.fillStyle = grainPattern;
         ctx.fillRect(0, 0, width, height);
       }
 
@@ -217,8 +251,11 @@ export default function Hero({ onOpenModal }: HeroProps) {
     render();
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("resize", handleResize);
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
     };
   }, []);
 
