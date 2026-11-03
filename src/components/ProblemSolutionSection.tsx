@@ -25,18 +25,18 @@ export default function ProblemSolutionSection() {
           </p>
         </div>
 
-        {/* 3-Column Balanced Layout: Left (Problem) | Center (Large YugNext Man) | Right (Solution) */}
+        {/* 3-Column Balanced Layout: Left (Problem, 5 cols) | Center (YugNext Man, 2 cols) | Right (Solution, 5 cols) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-stretch">
           
           {/* ================= LEFT COLUMN: THE PROBLEM (Using Logo Left-Side Deep Midnight Navy #0e0738) ================= */}
-          <div className="lg:col-span-4 p-6 sm:p-7 rounded-3xl bg-[#0e0738] border border-[#2A2450] space-y-5 shadow-xl flex flex-col justify-between">
+          <div className="lg:col-span-5 p-6 sm:p-7 rounded-3xl bg-[#0e0738] border border-[#2A2450] space-y-5 shadow-xl flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/30 text-xs font-bold">
-                  <AlertCircle className="w-3.5 h-3.5 text-rose-400" />
+              <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 pb-3 border-b border-white/10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/30 text-xs font-bold whitespace-nowrap">
+                  <AlertCircle className="w-3.5 h-3.5 text-rose-400 shrink-0" />
                   <span>01 • THE PROBLEM</span>
                 </div>
-                <span className="text-xs font-mono text-slate-400">WHERE MOST GET STUCK</span>
+                <span className="text-xs font-mono text-slate-400 whitespace-nowrap">WHERE MOST GET STUCK</span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
@@ -85,18 +85,18 @@ export default function ProblemSolutionSection() {
           </div>
 
           {/* ================= CENTER COLUMN: THE PROMINENT YUGNEXT MAN ================= */}
-          <div className="lg:col-span-4 flex flex-col items-center justify-center py-8 lg:py-0 select-none">
+          <div className="lg:col-span-2 flex flex-col items-center justify-center py-6 lg:py-0 select-none">
             
             <div className="relative flex flex-col items-center w-full">
               
               {/* Standalone Pure Vector Stepping Figure - Scaled Up and Clean */}
               <svg
-                width="300"
-                height="420"
+                width="240"
+                height="380"
                 viewBox="0 0 300 420"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-[260px] sm:w-[300px] lg:w-[340px] xl:w-[370px] h-auto drop-shadow-xl"
+                className="w-[180px] sm:w-[220px] lg:w-[200px] xl:w-[240px] h-auto drop-shadow-xl"
               >
                 {/* Hairline Center Divider (Problem on left, Solution on right) */}
                 <line
@@ -192,14 +192,14 @@ export default function ProblemSolutionSection() {
           </div>
 
           {/* ================= RIGHT COLUMN: THE SOLUTION (Using Logo Right-Side Vibrant Royal Violet #5d35e0) ================= */}
-          <div className="lg:col-span-4 p-6 sm:p-7 rounded-3xl bg-[#5d35e0] border border-[#7042f5] text-white space-y-5 shadow-2xl shadow-[#5d35e0]/25 flex flex-col justify-between">
+          <div className="lg:col-span-5 p-6 sm:p-7 rounded-3xl bg-[#5d35e0] border border-[#7042f5] text-white space-y-5 shadow-2xl shadow-[#5d35e0]/25 flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-white/20">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/20 text-white border border-white/30 text-xs font-bold">
-                  <Check className="w-3.5 h-3.5 text-white" />
-                  <span>02 • THE YUGNEXT SOLUTION</span>
+              <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 pb-3 border-b border-white/20">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/20 text-white border border-white/30 text-xs font-bold whitespace-nowrap">
+                  <Check className="w-3.5 h-3.5 text-white shrink-0" />
+                  <span>02 • THE SOLUTION</span>
                 </div>
-                <span className="text-xs font-mono text-purple-200">WHAT COMES NEXT</span>
+                <span className="text-xs font-mono text-purple-200 whitespace-nowrap">WHAT COMES NEXT</span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">

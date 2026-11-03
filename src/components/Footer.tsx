@@ -52,10 +52,10 @@ export default function Footer({ onOpenModal }: FooterProps) {
             </div>
           </div>
 
-          {/* Column 2: What We Do (Services) — Stacked Vertically */}
+          {/* Column 2: Services — Stacked Vertically */}
           <div className="lg:col-span-2 space-y-3">
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-purple-400 block border-b border-purple-950/80 pb-2">
-              WHAT WE DO
+              SERVICES
             </span>
             <ul className="space-y-2.5 text-xs">
               <li>

@@ -134,8 +134,18 @@ export default function Navbar({
     { label: "Who We Are", id: "whoWeAre" },
     { label: "Investors", id: "investors" },
     { label: "Careers", id: "careers" },
-    { label: "Contact", id: "contact" },
   ];
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    if (activeModal && onCloseMegaMenu) {
+      onCloseMegaMenu();
+    }
+    const contactEl = document.getElementById("contact");
+    if (contactEl) {
+      e.preventDefault();
+      contactEl.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   // Filtered search items
   const filteredSearch = searchQuery.trim() === ""
@@ -195,6 +205,15 @@ export default function Navbar({
                 </button>
               );
             })}
+
+            {/* Direct Contact Us Link (No dropdown arrow, hover underline, redirects directly to #contact) */}
+            <Link
+              href="/#contact"
+              onClick={handleContactClick}
+              className="inline-flex items-center px-3 py-1.5 xl:px-3.5 xl:py-2 rounded-xl text-xs xl:text-sm font-semibold text-[#A79FCB] hover:text-white hover:underline underline-offset-4 transition-all cursor-pointer whitespace-nowrap shrink-0"
+            >
+              Contact Us
+            </Link>
           </nav>
 
           {/* Right Side Utility Controls: 2 Icons (Search & Globe) + CTA Button */}
@@ -439,6 +458,16 @@ export default function Navbar({
               <ChevronDown className="w-4 h-4 text-[#9B7BF0]" />
             </button>
           ))}
+          <Link
+            href="/#contact"
+            onClick={(e) => {
+              setMobileMenuOpen(false);
+              handleContactClick(e);
+            }}
+            className="w-full text-left p-3 rounded-xl bg-[#12102A] text-[#EFEDFA] font-bold text-sm hover:bg-[#181534] hover:underline underline-offset-4 transition-colors cursor-pointer block border border-[#2A2450]"
+          >
+            <span>Contact Us</span>
+          </Link>
           <div className="pt-2">
             <button
               onClick={() => {
