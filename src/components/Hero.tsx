@@ -123,8 +123,13 @@ export default function Hero({ onOpenModal }: HeroProps) {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="inline-flex items-center"
         >
-          <button
-            onClick={() => onOpenModal("whatWeDo")}
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.getElementById("contact");
+              if (el) el.scrollIntoView({ behavior: "smooth" });
+            }}
             className="group inline-flex items-center gap-2.5 px-4 sm:px-5 py-2 rounded-full bg-[#181534] hover:bg-[#181534]/90 border border-[#6C3CE3]/40 hover:border-[#6C3CE3]/70 text-white text-xs sm:text-sm font-medium backdrop-blur-2xl shadow-xl shadow-[#12102A]/60 transition-all cursor-pointer"
           >
             <span className="w-5 h-5 rounded-full bg-[#6C3CE3] flex items-center justify-center text-white text-[10px] shadow-sm">
@@ -136,7 +141,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
               STEP INTO TOMORROW.
             </span>
             <ChevronRight className="w-3.5 h-3.5 text-[#9B7BF0] group-hover:translate-x-0.5 transition-transform" />
-          </button>
+          </a>
         </motion.div>
 
         {/* Display Headline: The Future Doesn't Wait. Neither Should Your Business. */}

@@ -92,7 +92,7 @@ export default function TcsMegaMenu({
       >
         <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
           
-          {/* Top Control Bar: Active Category Breadcrumb + Close Button */}
+          {/* Top Control Bar: Active Category Breadcrumb */}
           <div className="flex items-center justify-between pb-4 mb-5 border-b border-[#2A2450]">
             <div className="flex items-center gap-2.5">
               <span className="w-2.5 h-2.5 rounded-full bg-[#9B7BF0] animate-pulse" />
@@ -111,18 +111,6 @@ export default function TcsMegaMenu({
                 {activeModal === "contact" && "Contact — Got an Idea? Let's See Where It Goes."}
                 {activeModal === "investors" && "Investors — Backing the Journey Ahead"}
               </span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <button
-                onClick={onClose}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] text-[#EFEDFA] text-xs font-bold transition-all cursor-pointer border border-[#2A2450]"
-                title="Close Menu (ESC)"
-              >
-                <span>Close</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#181534] text-[#A79FCB] font-mono border border-[#2A2450]">ESC</span>
-                <X className="w-4 h-4 ml-0.5" />
-              </button>
             </div>
           </div>
 
