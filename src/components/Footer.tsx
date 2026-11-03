@@ -63,7 +63,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
                   href="/services"
                   className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  NexanAcademy
+                  School Websites
                 </Link>
               </li>
               <li>
@@ -71,7 +71,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
                   href="/services"
                   className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  Pravaah Solutions
+                  Photo Studio Websites
                 </Link>
               </li>
               <li>
@@ -79,7 +79,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
                   href="/services"
                   className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  Cybersecurity
+                  Restaurant &amp; Cafe Websites
                 </Link>
               </li>
               <li>
@@ -87,7 +87,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
                   href="/services"
                   className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  Pathfinder School
+                  Coaching Institutes
                 </Link>
               </li>
               <li className="pt-1">
@@ -118,18 +118,18 @@ export default function Footer({ onOpenModal }: FooterProps) {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/#what-we-do"
                   className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  CampusNeeds (Campus)
+                  CampusNeeds (Logistics)
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/#what-we-do"
                   className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  Settler (Living)
+                  Settler (Finance)
                 </Link>
               </li>
               <li className="pt-1">

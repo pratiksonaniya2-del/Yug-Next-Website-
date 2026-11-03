@@ -26,6 +26,13 @@ import {
   Calendar,
   Package,
   Check,
+  Camera,
+  Utensils,
+  BookOpen,
+  Briefcase,
+  Lock,
+  Newspaper,
+  FileText,
 } from "lucide-react";
 import { ModalType } from "./ContentCardModal";
 
@@ -146,101 +153,172 @@ export default function TcsMegaMenu({
                 </div>
               </div>
 
-              {/* Center Column: 4 Services Matrix */}
-              <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                <div className="p-4 rounded-xl bg-purple-50/60 border border-purple-100 space-y-2 hover:border-purple-300 hover:bg-white hover:shadow-md transition-all flex flex-col justify-between">
-                  <div className="space-y-1.5">
-                    <div className="w-8 h-8 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center font-bold">
-                      <GraduationCap className="w-4 h-4" />
-                    </div>
-                    <h5 className="text-sm font-extrabold text-slate-900">NexanAcademy</h5>
-                    <p className="text-xs text-slate-600 leading-relaxed font-light">
-                      Technology and digital initiatives built around evolving needs in learning and business.
-                    </p>
+              {/* Center Column: Services Container with Exact Landing Page Services */}
+              <div className="lg:col-span-5 p-5 rounded-2xl bg-white/[0.04] border border-[#2A2450] space-y-3.5 flex flex-col justify-between">
+                <div className="flex items-center justify-between pb-2 border-b border-[#2A2450]/60">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-[#9B7BF0]" />
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#9B7BF0]">
+                      SERVICES
+                    </span>
                   </div>
-                  <span className="text-[11px] font-bold text-purple-700 pt-1">Learn &amp; Scale →</span>
+                  <Link
+                    href="/services"
+                    onClick={onClose}
+                    className="text-[11px] font-bold text-[#A79FCB] hover:text-[#EFEDFA] transition-colors flex items-center gap-1"
+                  >
+                    <span>View all (6)</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </Link>
                 </div>
 
-                <div className="p-4 rounded-xl bg-indigo-50/60 border border-indigo-100 space-y-2 hover:border-indigo-300 hover:bg-white hover:shadow-md transition-all flex flex-col justify-between">
-                  <div className="space-y-1.5">
-                    <div className="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">
-                      <Zap className="w-4 h-4" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <Link
+                    href="/services"
+                    onClick={onClose}
+                    className="p-3.5 rounded-xl bg-[#181534] border border-[#2A2450] hover:border-[#6C3CE3] hover:bg-[#1E1942] transition-all flex flex-col justify-between group space-y-2"
+                  >
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between">
+                        <div className="w-7 h-7 rounded-lg bg-[#6C3CE3]/20 text-[#9B7BF0] flex items-center justify-center font-bold">
+                          <GraduationCap className="w-3.5 h-3.5" />
+                        </div>
+                        <span className="text-[10px] font-mono text-[#9B7BF0] font-bold">EDUCATION</span>
+                      </div>
+                      <h5 className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">School Websites</h5>
+                      <p className="text-[11px] text-[#A79FCB] leading-relaxed font-light line-clamp-2">
+                        Comprehensive digital portals with student dashboards, admissions &amp; fee systems.
+                      </p>
                     </div>
-                    <h5 className="text-sm font-extrabold text-slate-900">Pravaah</h5>
-                    <p className="text-xs text-slate-600 leading-relaxed font-light">
-                      Digital solutions designed to turn ideas and opportunities into practical outcomes.
-                    </p>
-                  </div>
-                  <span className="text-[11px] font-bold text-indigo-700 pt-1">Explore Engine →</span>
-                </div>
+                    <span className="text-[10px] font-bold text-[#9B7BF0] flex items-center gap-1 pt-1">
+                      <span>Explore</span>
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Link>
 
-                <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-100 space-y-2 hover:border-emerald-300 hover:bg-white hover:shadow-md transition-all flex flex-col justify-between">
-                  <div className="space-y-1.5">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
-                      <Shield className="w-4 h-4" />
+                  <Link
+                    href="/services"
+                    onClick={onClose}
+                    className="p-3.5 rounded-xl bg-[#181534] border border-[#2A2450] hover:border-[#6C3CE3] hover:bg-[#1E1942] transition-all flex flex-col justify-between group space-y-2"
+                  >
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between">
+                        <div className="w-7 h-7 rounded-lg bg-[#6C3CE3]/20 text-[#9B7BF0] flex items-center justify-center font-bold">
+                          <Camera className="w-3.5 h-3.5" />
+                        </div>
+                        <span className="text-[10px] font-mono text-[#9B7BF0] font-bold">CREATIVE MEDIA</span>
+                      </div>
+                      <h5 className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">Photo Studio Websites</h5>
+                      <p className="text-[11px] text-[#A79FCB] leading-relaxed font-light line-clamp-2">
+                        High-res portfolios, client proofing galleries &amp; automated booking engines.
+                      </p>
                     </div>
-                    <h5 className="text-sm font-extrabold text-slate-900">Cybersecurity</h5>
-                    <p className="text-xs text-slate-600 leading-relaxed font-light">
-                      Building with a stronger focus on security and responsible digital practices.
-                    </p>
-                  </div>
-                  <span className="text-[11px] font-bold text-emerald-700 pt-1">Security & Compliance →</span>
-                </div>
+                    <span className="text-[10px] font-bold text-[#9B7BF0] flex items-center gap-1 pt-1">
+                      <span>Explore</span>
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Link>
 
-                <div className="p-4 rounded-xl bg-pink-50/60 border border-pink-100 space-y-2 hover:border-pink-300 hover:bg-white hover:shadow-md transition-all flex flex-col justify-between">
-                  <div className="space-y-1.5">
-                    <div className="w-8 h-8 rounded-lg bg-pink-100 text-pink-700 flex items-center justify-center font-bold">
-                      <Compass className="w-4 h-4" />
+                  <Link
+                    href="/services"
+                    onClick={onClose}
+                    className="p-3.5 rounded-xl bg-[#181534] border border-[#2A2450] hover:border-[#6C3CE3] hover:bg-[#1E1942] transition-all flex flex-col justify-between group space-y-2"
+                  >
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between">
+                        <div className="w-7 h-7 rounded-lg bg-[#6C3CE3]/20 text-[#9B7BF0] flex items-center justify-center font-bold">
+                          <Utensils className="w-3.5 h-3.5" />
+                        </div>
+                        <span className="text-[10px] font-mono text-[#9B7BF0] font-bold">HOSPITALITY</span>
+                      </div>
+                      <h5 className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">Restaurant &amp; Cafe Websites</h5>
+                      <p className="text-[11px] text-[#A79FCB] leading-relaxed font-light line-clamp-2">
+                        Interactive digital menus, table reservation engines &amp; QR code ordering.
+                      </p>
                     </div>
-                    <h5 className="text-sm font-extrabold text-slate-900">Pathfinder School</h5>
-                    <p className="text-xs text-slate-600 leading-relaxed font-light">
-                      Technology-led initiatives focused on creating better learning opportunities and experiences.
-                    </p>
-                  </div>
-                  <span className="text-[11px] font-bold text-pink-700 pt-1">Academic Initiatives →</span>
+                    <span className="text-[10px] font-bold text-[#9B7BF0] flex items-center gap-1 pt-1">
+                      <span>Explore</span>
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Link>
+
+                  <Link
+                    href="/services"
+                    onClick={onClose}
+                    className="p-3.5 rounded-xl bg-[#181534] border border-[#2A2450] hover:border-[#6C3CE3] hover:bg-[#1E1942] transition-all flex flex-col justify-between group space-y-2"
+                  >
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between">
+                        <div className="w-7 h-7 rounded-lg bg-[#6C3CE3]/20 text-[#9B7BF0] flex items-center justify-center font-bold">
+                          <BookOpen className="w-3.5 h-3.5" />
+                        </div>
+                        <span className="text-[10px] font-mono text-[#9B7BF0] font-bold">EDTECH</span>
+                      </div>
+                      <h5 className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">Coaching Institutes</h5>
+                      <p className="text-[11px] text-[#A79FCB] leading-relaxed font-light line-clamp-2">
+                        Test series portals, study material vaults &amp; student progress tracking.
+                      </p>
+                    </div>
+                    <span className="text-[10px] font-bold text-[#9B7BF0] flex items-center gap-1 pt-1">
+                      <span>Explore</span>
+                      <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Link>
                 </div>
               </div>
 
               {/* Right Column: Fast Spotlight to Products */}
-              <div className="lg:col-span-3 p-5 rounded-2xl bg-slate-50 border border-purple-100 space-y-3.5 flex flex-col justify-between">
+              <div className="lg:col-span-3 p-5 rounded-2xl bg-white/[0.04] border border-[#2A2450] space-y-3.5 flex flex-col justify-between">
                 <div className="space-y-2">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-700 block">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#9B7BF0] block">
                     PROPRIETARY SUITE
                   </span>
-                  <h5 className="text-sm font-black text-slate-900">
+                  <h5 className="text-sm font-black text-white">
                     Products That Solve
                   </h5>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-[#A79FCB] leading-relaxed">
                     Flagship digital products engineered to solve practical bottlenecks:
                   </p>
                 </div>
-                <div className="space-y-1.5 text-xs font-bold text-slate-800">
+                <div className="space-y-2 text-xs font-bold">
                   <button
                     onClick={() => onSelectModal("products")}
-                    className="w-full text-left p-2.5 rounded-xl bg-white hover:bg-purple-100/70 border border-purple-100 transition-colors flex items-center justify-between cursor-pointer"
+                    className="w-full text-left p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-colors flex items-center justify-between cursor-pointer"
                   >
-                    <span>• ShikshaSathi (EdTech)</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-purple-600" />
+                    <span className="text-white">• ShikshaSathi (EdTech)</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#9B7BF0]" />
                   </button>
+
                   <button
                     onClick={() => onSelectModal("products")}
-                    className="w-full text-left p-2.5 rounded-xl bg-white hover:bg-purple-100/70 border border-purple-100 transition-colors flex items-center justify-between cursor-pointer"
+                    className="w-full text-left p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-colors flex items-center justify-between cursor-pointer"
                   >
-                    <span>• CampusNeeds (Campus)</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-indigo-600" />
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className="text-white">• CampusNeeds (Logistics)</span>
+                      <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                        Launch soon
+                      </span>
+                    </div>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#9B7BF0]" />
                   </button>
+
                   <button
                     onClick={() => onSelectModal("products")}
-                    className="w-full text-left p-2.5 rounded-xl bg-white hover:bg-purple-100/70 border border-purple-100 transition-colors flex items-center justify-between cursor-pointer"
+                    className="w-full text-left p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-colors flex items-center justify-between cursor-pointer"
                   >
-                    <span>• Settler (Relocation)</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-pink-600" />
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className="text-white">• Settler (Finance)</span>
+                      <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                        Launch soon
+                      </span>
+                    </div>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#9B7BF0]" />
                   </button>
 
                   <Link
                     href="/services"
                     onClick={onClose}
-                    className="w-full text-center py-2.5 px-3 rounded-xl bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5 mt-2"
+                    className="w-full text-center py-2.5 px-3 rounded-xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5 mt-2"
                   >
                     <span>Explore Full Services Page</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -318,71 +396,81 @@ export default function TcsMegaMenu({
                 </div>
 
                 {/* CampusNeeds */}
-                <div className="p-5 rounded-2xl bg-slate-50/80 hover:bg-white border border-indigo-100 hover:border-indigo-300 hover:shadow-lg transition-all flex flex-col justify-between space-y-3">
+                <div className="p-5 rounded-2xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3] hover:shadow-lg transition-all flex flex-col justify-between space-y-3">
                   <div className="space-y-2.5">
                     <div className="flex items-center justify-between">
-                      <div className="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">
-                        <Building2 className="w-4 h-4" />
+                      <div className="w-9 h-9 rounded-xl bg-[#6C3CE3]/20 text-[#9B7BF0] flex items-center justify-center font-bold">
+                        <Truck className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-600 bg-indigo-100/60 px-2 py-0.5 rounded-md">
-                        CAMPUS
-                      </span>
-                    </div>
-                    <h5 className="text-base font-black text-slate-900">CampusNeeds</h5>
-                    <p className="text-xs text-slate-600 leading-relaxed font-light">
-                      A digital approach to simplifying everyday needs and experiences across campus ecosystems.
-                    </p>
-                    <div className="space-y-1 text-[11px] text-slate-500 pt-1 border-t border-slate-100">
                       <div className="flex items-center gap-1.5">
-                        <Check className="w-3 h-3 text-indigo-500 shrink-0" />
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#9B7BF0] bg-[#6C3CE3]/15 px-2 py-0.5 rounded-md border border-[#6C3CE3]/30">
+                          LOGISTICS
+                        </span>
+                        <span className="text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                          LAUNCH SOON
+                        </span>
+                      </div>
+                    </div>
+                    <h5 className="text-base font-black text-white">CampusNeeds</h5>
+                    <p className="text-xs text-[#A79FCB] leading-relaxed font-light">
+                      A digital approach to simplifying everyday needs and logistics across campus ecosystems.
+                    </p>
+                    <div className="space-y-1 text-[11px] text-[#A79FCB]/80 pt-1 border-t border-[#2A2450]">
+                      <div className="flex items-center gap-1.5">
+                        <Check className="w-3 h-3 text-[#9B7BF0] shrink-0" />
                         <span>Everyday utilities simplified</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Check className="w-3 h-3 text-indigo-500 shrink-0" />
+                        <Check className="w-3 h-3 text-[#9B7BF0] shrink-0" />
                         <span>Decentralized campus marketplace</span>
                       </div>
                     </div>
                   </div>
                   <button
                     onClick={() => onSelectModal("contact")}
-                    className="pt-2 text-xs font-bold text-indigo-700 hover:text-indigo-900 flex items-center justify-between cursor-pointer border-t border-indigo-50"
+                    className="pt-2 text-xs font-bold text-[#9B7BF0] hover:text-white flex items-center justify-between cursor-pointer border-t border-[#2A2450]"
                   >
-                    <span>Explore CampusNeeds</span>
+                    <span>Stay Notified</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
                 {/* Settler */}
-                <div className="p-5 rounded-2xl bg-slate-50/80 hover:bg-white border border-pink-100 hover:border-pink-300 hover:shadow-lg transition-all flex flex-col justify-between space-y-3">
+                <div className="p-5 rounded-2xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3] hover:shadow-lg transition-all flex flex-col justify-between space-y-3">
                   <div className="space-y-2.5">
                     <div className="flex items-center justify-between">
-                      <div className="w-9 h-9 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center font-bold">
-                        <Layers className="w-4 h-4" />
+                      <div className="w-9 h-9 rounded-xl bg-[#6C3CE3]/20 text-[#9B7BF0] flex items-center justify-center font-bold">
+                        <Landmark className="w-4 h-4" />
                       </div>
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-pink-600 bg-pink-100/60 px-2 py-0.5 rounded-md">
-                        LIVING
-                      </span>
-                    </div>
-                    <h5 className="text-base font-black text-slate-900">Settler</h5>
-                    <p className="text-xs text-slate-600 leading-relaxed font-light">
-                      A product focused on solving practical relocation and housing challenges through modern tech.
-                    </p>
-                    <div className="space-y-1 text-[11px] text-slate-500 pt-1 border-t border-slate-100">
                       <div className="flex items-center gap-1.5">
-                        <Check className="w-3 h-3 text-pink-500 shrink-0" />
+                        <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#9B7BF0] bg-[#6C3CE3]/15 px-2 py-0.5 rounded-md border border-[#6C3CE3]/30">
+                          FINANCE
+                        </span>
+                        <span className="text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                          LAUNCH SOON
+                        </span>
+                      </div>
+                    </div>
+                    <h5 className="text-base font-black text-white">Settler</h5>
+                    <p className="text-xs text-[#A79FCB] leading-relaxed font-light">
+                      A product focused on solving practical relocation, payments &amp; housing challenges through modern tech.
+                    </p>
+                    <div className="space-y-1 text-[11px] text-[#A79FCB]/80 pt-1 border-t border-[#2A2450]">
+                      <div className="flex items-center gap-1.5">
+                        <Check className="w-3 h-3 text-[#9B7BF0] shrink-0" />
                         <span>Verified student accommodations</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Check className="w-3 h-3 text-pink-500 shrink-0" />
+                        <Check className="w-3 h-3 text-[#9B7BF0] shrink-0" />
                         <span>Frictionless city relocation</span>
                       </div>
                     </div>
                   </div>
                   <button
                     onClick={() => onSelectModal("contact")}
-                    className="pt-2 text-xs font-bold text-pink-700 hover:text-pink-900 flex items-center justify-between cursor-pointer border-t border-pink-50"
+                    className="pt-2 text-xs font-bold text-[#9B7BF0] hover:text-white flex items-center justify-between cursor-pointer border-t border-[#2A2450]"
                   >
-                    <span>Explore Settler</span>
+                    <span>Stay Notified</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
@@ -406,9 +494,13 @@ export default function TcsMegaMenu({
                     Yugnext is a technology-driven organisation working across software, digital solutions and products to solve problems that matter.
                   </p>
                 </div>
-                <div className="p-3.5 rounded-xl bg-white/[0.08] border border-white/[0.1] text-xs space-y-1 font-mono">
+                <div className="p-3.5 rounded-xl bg-white/[0.08] border border-white/[0.1] text-xs space-y-1.5 font-mono">
                   <span className="text-pink-300 font-bold block">OUR AMBITION:</span>
-                  <p className="text-slate-200 font-medium">Build things people need · Create things people remember · Move things forward.</p>
+                  <p className="text-slate-200 font-medium leading-relaxed">
+                    Build things people need<br />
+                    Create things people remember<br />
+                    Move things forward.
+                  </p>
                 </div>
                 <div className="pt-2">
                   <Link
@@ -421,41 +513,127 @@ export default function TcsMegaMenu({
                 </div>
               </div>
 
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 rounded-2xl bg-purple-50/60 border border-purple-100 space-y-2">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-purple-600" />
-                    <h5 className="text-sm font-extrabold text-slate-900">Delivery Network</h5>
-                  </div>
-                  <p className="text-base font-black text-purple-700">CHENNAI · BHOPAL · AGRA</p>
-                  <p className="text-xs text-slate-600 leading-relaxed font-light">
-                    Different cities. Different talent. One direction: Forward.
-                  </p>
-                </div>
+              {/* Right Column: 2 Navigation Columns (Matching ss 3) */}
+              <div className="lg:col-span-7 p-6 rounded-2xl bg-white/[0.04] border border-[#2A2450] grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+                
+                {/* Column 1 */}
+                <div className="space-y-2.5">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#9B7BF0] block pb-1 border-b border-[#2A2450]">
+                    ORGANIZATION &amp; PRESENCE
+                  </span>
 
-                <div className="p-5 rounded-2xl bg-indigo-50/60 border border-indigo-100 space-y-2">
-                  <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-indigo-600" />
-                    <h5 className="text-sm font-extrabold text-slate-900">Strategic Alliances</h5>
-                  </div>
-                  <p className="text-base font-black text-indigo-700">ROLTA · MANIT · Nexan</p>
-                  <p className="text-xs text-slate-600 leading-relaxed font-light">
-                    High-trust partnerships multiplying what both sides can do.
-                  </p>
-                </div>
+                  <Link
+                    href="/industries"
+                    onClick={onClose}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all group"
+                  >
+                    <span className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">
+                      Industries
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A79FCB] group-hover:text-[#9B7BF0] group-hover:translate-x-1 transition-all" />
+                  </Link>
 
-                <div className="p-5 rounded-2xl bg-emerald-50/60 border border-emerald-100 space-y-2 sm:col-span-2">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Globe2 className="w-4 h-4 text-emerald-600" />
-                      <h5 className="text-sm font-extrabold text-slate-900">Technology With a Reason to Exist</h5>
+                  <Link
+                    href="/about#leadership"
+                    onClick={onClose}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all group"
+                  >
+                    <span className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">
+                      Leadership
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A79FCB] group-hover:text-[#9B7BF0] group-hover:translate-x-1 transition-all" />
+                  </Link>
+
+                  <Link
+                    href="/community"
+                    onClick={onClose}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all group"
+                  >
+                    <span className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">
+                      Community
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A79FCB] group-hover:text-[#9B7BF0] group-hover:translate-x-1 transition-all" />
+                  </Link>
+
+                  <Link
+                    href="/about#alliances"
+                    onClick={onClose}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all group"
+                  >
+                    <span className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">
+                      Strategic Alliances
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A79FCB] group-hover:text-[#9B7BF0] group-hover:translate-x-1 transition-all" />
+                  </Link>
+
+                  <Link
+                    href="/reach"
+                    onClick={onClose}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all group"
+                  >
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors block">
+                        Global Delivery Network
+                      </span>
+                      <span className="text-[10px] font-mono text-[#A79FCB] block">
+                        CHENNAI · BHOPAL · AGRA
+                      </span>
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">CORE PHILOSOPHY</span>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed font-light">
-                    Understand. Build. Improve. Move Forward. That means asking the difficult questions before writing the easy code: What problem are we solving? Who are we solving it for? What would better look like? Then we build.
-                  </p>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A79FCB] group-hover:text-[#9B7BF0] group-hover:translate-x-1 transition-all" />
+                  </Link>
                 </div>
+
+                {/* Column 2 */}
+                <div className="space-y-2.5">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#9B7BF0] block pb-1 border-b border-[#2A2450]">
+                    STORIES &amp; ENGAGEMENT
+                  </span>
+
+                  <Link
+                    href="/community#events"
+                    onClick={onClose}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all group"
+                  >
+                    <span className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">
+                      Events
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A79FCB] group-hover:text-[#9B7BF0] group-hover:translate-x-1 transition-all" />
+                  </Link>
+
+                  <Link
+                    href="/news"
+                    onClick={onClose}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all group"
+                  >
+                    <span className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">
+                      News
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A79FCB] group-hover:text-[#9B7BF0] group-hover:translate-x-1 transition-all" />
+                  </Link>
+
+                  <Link
+                    href="/services"
+                    onClick={onClose}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all group"
+                  >
+                    <span className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">
+                      Customer Stories
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A79FCB] group-hover:text-[#9B7BF0] group-hover:translate-x-1 transition-all" />
+                  </Link>
+
+                  <Link
+                    href="/news#awards"
+                    onClick={onClose}
+                    className="flex items-center justify-between p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all group"
+                  >
+                    <span className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors">
+                      Awards &amp; Recognitions
+                    </span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#A79FCB] group-hover:text-[#9B7BF0] group-hover:translate-x-1 transition-all" />
+                  </Link>
+                </div>
+
               </div>
             </div>
           )}

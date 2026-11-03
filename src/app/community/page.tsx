@@ -111,13 +111,13 @@ export default function CommunityPage() {
             ))}
           </div>
 
-          {/* Join Community Interactive Card */}
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#0e0738] text-white flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Societies Sponsorship & Campus Brand Publicity */}
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#0e0738] text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-purple-900/40">
             <div className="space-y-3 max-w-xl text-center md:text-left">
-              <span className="text-xs font-mono font-bold uppercase text-[#9d7df7]">ENGAGE WITH BUILDERS</span>
-              <h3 className="text-2xl sm:text-3xl font-black">Ready to Build What&apos;s Next?</h3>
+              <span className="text-xs font-mono font-bold uppercase text-[#9d7df7]">CAMPUS SPONSORSHIP</span>
+              <h3 className="text-2xl sm:text-3xl font-black">Support Student Societies</h3>
               <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-                Connect with our campus ambassadors, join hackathons, and contribute to YugNext open ecosystems.
+                We seek sponsorships and funding for college societies, technical clubs, and campus symposiums. In return, your organization receives massive on-ground brand publicity, direct student outreach, and institutional visibility across top university campuses.
               </p>
             </div>
 
@@ -126,7 +126,7 @@ export default function CommunityPage() {
                 href="/#contact"
                 className="px-8 py-3.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs sm:text-sm font-bold text-center shadow-md shadow-[#5d35e0]/25 transition-all cursor-pointer whitespace-nowrap"
               >
-                Join the Community →
+                Sponsor Campus Societies →
               </Link>
             </div>
           </div>

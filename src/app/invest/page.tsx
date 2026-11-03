@@ -30,10 +30,10 @@ export default function InvestPage() {
       tag: "Corporate Status",
     },
     {
-      title: "Product Runway",
-      value: "Proprietary",
-      description: "Active deployment of ShikshaSathi and pipeline rollout for Settler and stealth autonomous workflow engines.",
-      tag: "IP Ownership",
+      title: "Investor Return Structure",
+      value: "Equity or Yield",
+      description: "Offering strategic investors attractive return options: direct company equity participation or competitive fixed-interest yields.",
+      tag: "Capital Returns",
     },
   ];
 
@@ -97,7 +97,7 @@ export default function InvestPage() {
               <span className="text-xs font-mono font-bold uppercase text-[#9d7df7]">CAPITAL &amp; VISION</span>
               <h3 className="text-2xl sm:text-3xl font-black">Building With Long-Term Ambition</h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                Yugnext is building with sustainable capital efficiency. Supported by people and institutions who see the possibilities ahead in Education, Enterprise Software, and high-trust digital utilities.
+                We are raising capital to accelerate our product rollout and regional delivery footprint. In exchange, we offer strategic investors attractive return options: <strong className="text-white">direct equity participation or competitive fixed-interest yields</strong> backed by institutional governance at MANIT Bhopal.
               </p>
             </div>
 

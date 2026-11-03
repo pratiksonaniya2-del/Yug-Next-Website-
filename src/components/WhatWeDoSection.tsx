@@ -99,7 +99,7 @@ const PRODUCTS = [
     tag: "Finance",
     headline: "Solving practical relocation & housing challenges through technology.",
     description: "Verified student accommodations, direct hostel listings, and effortless city onboarding for college hubs.",
-    link: "/about",
+    link: "/#contact",
     isStealth: true,
     isBlurred: true,
   },
@@ -109,7 +109,7 @@ const PRODUCTS = [
     tag: "Logistics",
     headline: "What needs solving next? We are currently engineering it.",
     description: "A digital approach to simplifying everyday needs across campus ecosystems. Launching soon.",
-    link: "/about",
+    link: "/#contact",
     isStealth: true,
     isBlurred: true,
   },
@@ -335,7 +335,7 @@ export default function WhatWeDoSection() {
                       href={prod.link}
                       className={`inline-flex items-center justify-between w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all ${
                         prod.isStealth
-                          ? "bg-slate-900 hover:bg-slate-800 text-white shadow-sm"
+                          ? "bg-[#5d35e0] hover:bg-[#4d28c8] text-white shadow-md shadow-[#5d35e0]/20"
                           : "bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white shadow-sm shadow-[#6C3CE3]/20"
                       }`}
                     >

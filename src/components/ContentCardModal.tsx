@@ -31,6 +31,9 @@ import {
   Package,
   Globe2,
   Code2,
+  Camera,
+  Utensils,
+  BookOpen,
 } from "lucide-react";
 import YugNextLogo from "./YugNextLogo";
 
@@ -207,51 +210,51 @@ export default function ContentCardModal({
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    {/* NexanAcademy */}
+                    {/* School Websites */}
                     <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3 hover:border-purple-300 transition-all">
                       <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold">
                         <GraduationCap className="w-5 h-5" />
                       </div>
-                      <h5 className="text-lg font-extrabold text-slate-900">NexanAcademy</h5>
-                      <span className="text-xs font-semibold text-purple-600 block">Learning & Tech Initiatives</span>
+                      <h5 className="text-lg font-extrabold text-slate-900">School Websites</h5>
+                      <span className="text-xs font-semibold text-purple-600 block">Education Technology</span>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        Technology and digital initiatives built around evolving needs in learning and business.
+                        Comprehensive digital portals for schools with student dashboards, online admissions, and fee integration.
                       </p>
                     </div>
 
-                    {/* Pravaah */}
+                    {/* Photo Studio Websites */}
                     <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3 hover:border-purple-300 transition-all">
                       <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">
-                        <Zap className="w-5 h-5" />
+                        <Camera className="w-5 h-5" />
                       </div>
-                      <h5 className="text-lg font-extrabold text-slate-900">Pravaah</h5>
-                      <span className="text-xs font-semibold text-indigo-600 block">Outcomes & Digital Solutions</span>
+                      <h5 className="text-lg font-extrabold text-slate-900">Photo Studio Websites</h5>
+                      <span className="text-xs font-semibold text-indigo-600 block">Creative Media Portfolios</span>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        Digital solutions designed to turn ideas and opportunities into practical outcomes.
+                        High-resolution dynamic portfolios, client proofing galleries, and automated booking systems for photographers.
                       </p>
                     </div>
 
-                    {/* Cybersecurity */}
+                    {/* Restaurant & Cafe Websites */}
                     <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3 hover:border-purple-300 transition-all">
                       <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
-                        <Shield className="w-5 h-5" />
+                        <Utensils className="w-5 h-5" />
                       </div>
-                      <h5 className="text-lg font-extrabold text-slate-900">Cybersecurity</h5>
-                      <span className="text-xs font-semibold text-emerald-600 block">Security & Responsible Digital</span>
+                      <h5 className="text-lg font-extrabold text-slate-900">Restaurant &amp; Cafe Websites</h5>
+                      <span className="text-xs font-semibold text-emerald-600 block">Hospitality &amp; Dining</span>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        Building with a stronger focus on security and responsible digital practices.
+                        Interactive digital menus, table reservation engines, QR code ordering, and local SEO dominance.
                       </p>
                     </div>
 
-                    {/* Pathfinder School */}
+                    {/* Coaching Institutes */}
                     <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3 hover:border-purple-300 transition-all">
                       <div className="w-10 h-10 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center font-bold">
-                        <Compass className="w-5 h-5" />
+                        <BookOpen className="w-5 h-5" />
                       </div>
-                      <h5 className="text-lg font-extrabold text-slate-900">Pathfinder School</h5>
-                      <span className="text-xs font-semibold text-pink-600 block">Education & Learning Opportunities</span>
+                      <h5 className="text-lg font-extrabold text-slate-900">Coaching Institutes</h5>
+                      <span className="text-xs font-semibold text-pink-600 block">EdTech &amp; Academy Portals</span>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        Technology-led initiatives focused on creating better learning opportunities and experiences.
+                        Test series portals, study material vaults, batch schedules, and student progress tracking engines.
                       </p>
                     </div>
                   </div>
@@ -316,22 +319,27 @@ export default function ContentCardModal({
                   {/* CampusNeeds */}
                   <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm flex flex-col justify-between space-y-4 hover:border-purple-300 hover:shadow-md transition-all">
                     <div className="space-y-3">
-                      <div className="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center">
-                        <Building2 className="w-6 h-6" />
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center">
+                          <Building2 className="w-6 h-6" />
+                        </div>
+                        <span className="text-[9px] font-mono font-bold uppercase px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">
+                          LAUNCH SOON
+                        </span>
                       </div>
                       <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-600 block">
-                        CAMPUS ECOSYSTEM
+                        LOGISTICS
                       </span>
                       <h5 className="text-xl font-extrabold text-slate-900">CampusNeeds</h5>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        A digital approach to simplifying everyday needs and experiences across the campus ecosystem.
+                        A digital approach to simplifying everyday needs, movements, and experiences across campus ecosystems.
                       </p>
                     </div>
                     <button
                       onClick={() => onSelectModal && onSelectModal("contact")}
                       className="pt-3 border-t border-purple-50 text-xs font-bold text-indigo-700 hover:text-indigo-900 flex items-center justify-between cursor-pointer"
                     >
-                      <span>Explore CampusNeeds</span>
+                      <span>Stay Notified</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -339,22 +347,27 @@ export default function ContentCardModal({
                   {/* Settler */}
                   <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm flex flex-col justify-between space-y-4 hover:border-purple-300 hover:shadow-md transition-all">
                     <div className="space-y-3">
-                      <div className="w-12 h-12 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center">
-                        <Layers className="w-6 h-6" />
+                      <div className="flex items-center justify-between">
+                        <div className="w-12 h-12 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center">
+                          <Layers className="w-6 h-6" />
+                        </div>
+                        <span className="text-[9px] font-mono font-bold uppercase px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-300">
+                          LAUNCH SOON
+                        </span>
                       </div>
                       <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-pink-600 block">
-                        PRACTICAL LIVING
+                        FINANCE
                       </span>
                       <h5 className="text-xl font-extrabold text-slate-900">Settler</h5>
                       <p className="text-xs text-slate-600 leading-relaxed">
-                        A product focused on solving practical problems through technology.
+                        A product focused on solving practical housing, deposit security, and student accommodation challenges.
                       </p>
                     </div>
                     <button
                       onClick={() => onSelectModal && onSelectModal("contact")}
                       className="pt-3 border-t border-purple-50 text-xs font-bold text-pink-700 hover:text-pink-900 flex items-center justify-between cursor-pointer"
                     >
-                      <span>Explore Settler</span>
+                      <span>Stay Notified</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -377,8 +390,10 @@ export default function ContentCardModal({
                   </p>
                   <div className="pt-3 border-t border-purple-800 text-xs font-bold text-purple-300 tracking-wide">
                     Our ambition is simple: <br />
-                    <span className="text-white text-sm font-extrabold">
-                      • Build things people need. • Create things people remember. • Move things forward.
+                    <span className="text-white text-sm font-extrabold leading-relaxed block mt-1">
+                      Build things people need<br />
+                      Create things people remember<br />
+                      Move things forward.
                     </span>
                   </div>
                 </div>

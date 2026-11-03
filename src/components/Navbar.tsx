@@ -21,6 +21,10 @@ import YugNextLogo from "./YugNextLogo";
 
 // Search catalog for TCS-style command search
 const SEARCH_DATABASE: { title: string; category: string; id: ModalType; desc: string }[] = [
+  { title: "School Websites", category: "Services (What We Do)", id: "whatWeDo", desc: "Comprehensive digital portals for schools with student dashboards, admissions & fees." },
+  { title: "Photo Studio Websites", category: "Services (What We Do)", id: "whatWeDo", desc: "High-resolution portfolios, client proofing galleries & automated bookings." },
+  { title: "Restaurant & Cafe Websites", category: "Services (What We Do)", id: "whatWeDo", desc: "Interactive digital menus, table reservation engines & QR code ordering." },
+  { title: "Coaching Institutes", category: "Services (What We Do)", id: "whatWeDo", desc: "Test series portals, study material vaults & student progress tracking." },
   { title: "NexanAcademy", category: "Services (What We Do)", id: "whatWeDo", desc: "Technology & digital initiatives built around evolving needs in learning and business." },
   { title: "Pravaah", category: "Services (What We Do)", id: "whatWeDo", desc: "Digital solutions designed to turn ideas and opportunities into practical outcomes." },
   { title: "Cybersecurity & Compliance", category: "Services (What We Do)", id: "whatWeDo", desc: "Building with a stronger focus on security and responsible digital practices." },
