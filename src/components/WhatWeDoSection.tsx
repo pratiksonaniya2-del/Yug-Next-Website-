@@ -91,24 +91,27 @@ const PRODUCTS = [
     description: "Technology built around real learning problems. Unified faculty-student portals and digital campus governance.",
     link: "/shikshasathi",
     isStealth: false,
+    isBlurred: false,
   },
   {
     id: "settler",
     name: "Settler",
-    tag: "Practical Living",
+    tag: "Finance",
     headline: "Solving practical relocation & housing challenges through technology.",
     description: "Verified student accommodations, direct hostel listings, and effortless city onboarding for college hubs.",
-    link: "/services",
-    isStealth: false,
-  },
-  {
-    id: "stealth",
-    name: "Next Product",
-    tag: "Stealth Initiative",
-    headline: "What needs solving next? We are currently engineering it.",
-    description: "Proprietary scalable platform backed by MANIT Bhopal incubation. Launching soon.",
     link: "/about",
     isStealth: true,
+    isBlurred: true,
+  },
+  {
+    id: "campusneeds",
+    name: "CampusNeeds",
+    tag: "Logistics",
+    headline: "What needs solving next? We are currently engineering it.",
+    description: "A digital approach to simplifying everyday needs across campus ecosystems. Launching soon.",
+    link: "/about",
+    isStealth: true,
+    isBlurred: true,
   },
 ];
 
@@ -309,14 +312,18 @@ export default function WhatWeDoSection() {
                       <h3 className="text-2xl font-black text-slate-900 group-hover:text-[#6C3CE3] transition-colors duration-500">
                         {prod.name}
                       </h3>
-                      <p className="text-xs font-semibold mt-1 text-slate-500">
+                      <p className={`text-xs font-semibold mt-1 text-slate-500 ${
+                        prod.isBlurred ? "filter blur-[4.5px] select-none opacity-60 pointer-events-none" : ""
+                      }`}>
                         {prod.headline}
                       </p>
                     </div>
 
                     {/* Details: On hover smoothly reveals */}
                     <div className="max-h-0 opacity-0 group-hover:max-h-[160px] group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden space-y-2">
-                      <p className="text-xs leading-relaxed font-light text-slate-600">
+                      <p className={`text-xs leading-relaxed font-light text-slate-600 ${
+                        prod.isBlurred ? "filter blur-[4.5px] select-none opacity-60 pointer-events-none" : ""
+                      }`}>
                         {prod.description}
                       </p>
                     </div>
