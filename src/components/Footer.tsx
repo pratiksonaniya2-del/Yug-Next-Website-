@@ -34,20 +34,32 @@ export default function Footer({ onOpenModal }: FooterProps) {
             </div>
 
             <p className="text-xs text-slate-300 leading-relaxed font-light">
-              Build things people need · Create things people remember · Move things forward.
+              Build things people need<br />
+              Create things people remember<br />
+              Move things forward.
             </p>
 
             <div className="space-y-2 pt-2 border-t border-purple-950/80 text-xs">
-              <div className="flex items-center gap-2 text-[#9B7BF0] font-mono font-semibold text-[11px]">
-                <MapPin className="w-3.5 h-3.5 text-[#9B7BF0] shrink-0" />
-                <span>DELIVERY NETWORK: CHENNAI · BHOPAL · AGRA</span>
-              </div>
-              <div className="flex items-center gap-2 text-slate-400 text-[11px] font-mono">
+              <Link
+                href="/#reach"
+                onClick={(e) => {
+                  const el = document.getElementById("reach");
+                  if (el) {
+                    e.preventDefault();
+                    el.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="flex items-center gap-2 text-[#9B7BF0] hover:text-white transition-colors font-mono font-semibold text-[11px] group cursor-pointer"
+              >
+                <MapPin className="w-3.5 h-3.5 text-[#9B7BF0] shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="group-hover:underline">DELIVERY NETWORK: NATIONWIDE</span>
+              </Link>
+              <div className="flex items-center gap-2 text-emerald-400 text-[11px] font-mono font-semibold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>Strategic Alliances: ROLTA · Nexan · MANIT Bhopal</span>
+                <span>Government Funded Startup</span>
               </div>
-              <div className="text-[10px] text-slate-500 font-mono">
-                Incorporated 21 Oct 2026 • MANIT Bhopal Incubated &amp; Seed Funded
+              <div className="text-[10px] text-slate-400 font-mono pl-5 leading-tight">
+                Incubated at MANIT ROLTA Incubation Centre, Bhopal
               </div>
             </div>
           </div>
