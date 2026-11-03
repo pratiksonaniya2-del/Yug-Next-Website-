@@ -26,57 +26,60 @@ export default function ProblemSolutionSection() {
         </div>
 
         {/* 3-Column Balanced Layout: Left (Problem) | Center (Large YugNext Man) | Right (Solution) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-stretch">
           
-          {/* ================= LEFT COLUMN: THE PROBLEM ================= */}
-          <div className="lg:col-span-4 space-y-4">
-            
-            <div className="flex items-center justify-between pb-3 border-b border-white/10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/30 text-xs font-bold">
-                <AlertCircle className="w-3.5 h-3.5 text-rose-400" />
-                <span>01 • THE PROBLEM</span>
+          {/* ================= LEFT COLUMN: THE PROBLEM (Using Logo Left-Side Deep Midnight Navy #0e0738) ================= */}
+          <div className="lg:col-span-4 p-6 sm:p-7 rounded-3xl bg-[#0e0738] border border-[#2A2450] space-y-5 shadow-xl flex flex-col justify-between">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-white/10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-rose-500/10 text-rose-400 border border-rose-500/30 text-xs font-bold">
+                  <AlertCircle className="w-3.5 h-3.5 text-rose-400" />
+                  <span>01 • THE PROBLEM</span>
+                </div>
+                <span className="text-xs font-mono text-slate-400">WHERE MOST GET STUCK</span>
               </div>
-              <span className="text-xs font-mono text-slate-400">WHERE MOST GET STUCK</span>
+
+              <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                Being Digital Is No Longer the Advantage.
+              </h3>
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-              Being Digital Is No Longer the Advantage.
-            </h3>
-
-            {/* Problem Card 1 */}
-            <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-rose-400/40 transition-colors space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-black text-rose-400 font-mono">01</span>
-                <span className="text-[10px] font-mono uppercase text-slate-400">STATIC PRESENCE</span>
+            <div className="space-y-3">
+              {/* Problem Card 1 */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#070314]/80 border border-[#2A2450] hover:border-rose-400/40 transition-colors space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-black text-rose-400 font-mono">01</span>
+                  <span className="text-[10px] font-mono uppercase text-slate-400">STATIC PRESENCE</span>
+                </div>
+                <h4 className="text-base font-extrabold text-white">A website isn&apos;t enough.</h4>
+                <p className="text-xs text-slate-300 leading-relaxed font-light">
+                  Static pages that simply sit on the web no longer capture attention or unlock growth.
+                </p>
               </div>
-              <h4 className="text-base font-extrabold text-white">A website isn&apos;t enough.</h4>
-              <p className="text-xs text-slate-300 leading-relaxed font-light">
-                Static pages that simply sit on the web no longer capture attention or unlock growth.
-              </p>
-            </div>
 
-            {/* Problem Card 2 */}
-            <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-rose-400/40 transition-colors space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-black text-rose-400 font-mono">02</span>
-                <span className="text-[10px] font-mono uppercase text-slate-400">DISCONNECTED TOOLS</span>
+              {/* Problem Card 2 */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#070314]/80 border border-[#2A2450] hover:border-rose-400/40 transition-colors space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-black text-rose-400 font-mono">02</span>
+                  <span className="text-[10px] font-mono uppercase text-slate-400">DISCONNECTED TOOLS</span>
+                </div>
+                <h4 className="text-base font-extrabold text-white">An app isn&apos;t enough.</h4>
+                <p className="text-xs text-slate-300 leading-relaxed font-light">
+                  Software must actively connect workflows, users, and ecosystems at ground-level reality.
+                </p>
               </div>
-              <h4 className="text-base font-extrabold text-white">An app isn&apos;t enough.</h4>
-              <p className="text-xs text-slate-300 leading-relaxed font-light">
-                Software must actively connect workflows, users, and ecosystems at ground-level reality.
-              </p>
-            </div>
 
-            {/* Problem Card 3 */}
-            <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-rose-400/40 transition-colors space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-black text-rose-400 font-mono">03</span>
-                <span className="text-[10px] font-mono uppercase text-slate-400">SURFACE METRICS</span>
+              {/* Problem Card 3 */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#070314]/80 border border-[#2A2450] hover:border-rose-400/40 transition-colors space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-black text-rose-400 font-mono">03</span>
+                  <span className="text-[10px] font-mono uppercase text-slate-400">SURFACE METRICS</span>
+                </div>
+                <h4 className="text-base font-extrabold text-white">Having a social media page isn&apos;t enough.</h4>
+                <p className="text-xs text-slate-300 leading-relaxed font-light">
+                  True digital leadership comes from operational capability, real utility, and solving actual bottlenecks.
+                </p>
               </div>
-              <h4 className="text-base font-extrabold text-white">Having a social media page isn&apos;t enough.</h4>
-              <p className="text-xs text-slate-300 leading-relaxed font-light">
-                True digital leadership comes from operational capability, real utility, and solving actual bottlenecks.
-              </p>
             </div>
 
           </div>
@@ -188,83 +191,86 @@ export default function ProblemSolutionSection() {
 
           </div>
 
-          {/* ================= RIGHT COLUMN: THE SOLUTION ================= */}
-          <div className="lg:col-span-4 space-y-4">
-            
-            <div className="flex items-center justify-between pb-3 border-b border-white/10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#5d35e0]/15 text-[#9d7df7] border border-[#5d35e0]/30 text-xs font-bold">
-                <Check className="w-3.5 h-3.5 text-[#9d7df7]" />
-                <span>02 • THE YUGNEXT SOLUTION</span>
+          {/* ================= RIGHT COLUMN: THE SOLUTION (Using Logo Right-Side Vibrant Royal Violet #5d35e0) ================= */}
+          <div className="lg:col-span-4 p-6 sm:p-7 rounded-3xl bg-[#5d35e0] border border-[#7042f5] text-white space-y-5 shadow-2xl shadow-[#5d35e0]/25 flex flex-col justify-between">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-white/20">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/20 text-white border border-white/30 text-xs font-bold">
+                  <Check className="w-3.5 h-3.5 text-white" />
+                  <span>02 • THE YUGNEXT SOLUTION</span>
+                </div>
+                <span className="text-xs font-mono text-purple-200">WHAT COMES NEXT</span>
               </div>
-              <span className="text-xs font-mono text-slate-400">WHAT COMES NEXT</span>
+
+              <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                Don&apos;t Just Go Digital. <span className="text-white underline decoration-white/40">Go Next.</span>
+              </h3>
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-              Don&apos;t Just Go Digital. <span className="text-[#9d7df7]">Go Next.</span>
-            </h3>
-
-            {/* Solution Card 1 */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#5d35e0] transition-colors space-y-1.5">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-md bg-[#5d35e0] text-white flex items-center justify-center text-xs font-bold">
-                    ✓
+            <div className="space-y-3">
+              {/* Solution Card 1 */}
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/20 transition-all space-y-1.5 backdrop-blur-sm">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-md bg-white text-[#5d35e0] flex items-center justify-center text-xs font-black shadow-sm">
+                      ✓
+                    </div>
+                    <h4 className="text-base font-extrabold text-white">Useful.</h4>
                   </div>
-                  <h4 className="text-base font-extrabold text-white">Useful.</h4>
+                  <span className="text-[10px] font-mono text-purple-200 font-bold">REAL BOTTLENECKS</span>
                 </div>
-                <span className="text-[10px] font-mono text-purple-300 font-bold">REAL BOTTLENECKS</span>
+                <p className="text-xs text-purple-100 leading-relaxed font-light">
+                  Built around real problems. We identify ground-level friction before architecting code.
+                </p>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed font-light">
-                Built around real problems. We identify ground-level friction before architecting code.
-              </p>
-            </div>
 
-            {/* Solution Card 2 */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#5d35e0] transition-colors space-y-1.5">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-md bg-[#5d35e0] text-white flex items-center justify-center text-xs font-bold">
-                    ✓
+              {/* Solution Card 2 */}
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/20 transition-all space-y-1.5 backdrop-blur-sm">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-md bg-white text-[#5d35e0] flex items-center justify-center text-xs font-black shadow-sm">
+                      ✓
+                    </div>
+                    <h4 className="text-base font-extrabold text-white">Accessible.</h4>
                   </div>
-                  <h4 className="text-base font-extrabold text-white">Accessible.</h4>
+                  <span className="text-[10px] font-mono text-purple-200 font-bold">ALL TIERS</span>
                 </div>
-                <span className="text-[10px] font-mono text-purple-300 font-bold">ALL TIERS</span>
+                <p className="text-xs text-purple-100 leading-relaxed font-light">
+                  Designed for businesses beyond just the biggest players. High-grade capability for every tier.
+                </p>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed font-light">
-                Designed for businesses beyond just the biggest players. High-grade capability for every tier.
-              </p>
-            </div>
 
-            {/* Solution Card 3 */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#5d35e0] transition-colors space-y-1.5">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-md bg-[#5d35e0] text-white flex items-center justify-center text-xs font-bold">
-                    ✓
+              {/* Solution Card 3 */}
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/20 transition-all space-y-1.5 backdrop-blur-sm">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-md bg-white text-[#5d35e0] flex items-center justify-center text-xs font-black shadow-sm">
+                      ✓
+                    </div>
+                    <h4 className="text-base font-extrabold text-white">Responsive.</h4>
                   </div>
-                  <h4 className="text-base font-extrabold text-white">Responsive.</h4>
+                  <span className="text-[10px] font-mono text-purple-200 font-bold">ADAPTIVE</span>
                 </div>
-                <span className="text-[10px] font-mono text-purple-300 font-bold">ADAPTIVE</span>
+                <p className="text-xs text-purple-100 leading-relaxed font-light">
+                  Ready to adapt as the world changes. Agile foundations that scale with shifting market dynamics.
+                </p>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed font-light">
-                Ready to adapt as the world changes. Agile foundations that scale with shifting market dynamics.
-              </p>
-            </div>
 
-            {/* Solution Card 4 */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#5d35e0] transition-colors space-y-1.5">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-md bg-[#5d35e0] text-white flex items-center justify-center text-xs font-bold">
-                    ✓
+              {/* Solution Card 4 */}
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/20 transition-all space-y-1.5 backdrop-blur-sm">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-md bg-white text-[#5d35e0] flex items-center justify-center text-xs font-black shadow-sm">
+                      ✓
+                    </div>
+                    <h4 className="text-base font-extrabold text-white">Impactful.</h4>
                   </div>
-                  <h4 className="text-base font-extrabold text-white">Impactful.</h4>
+                  <span className="text-[10px] font-mono text-purple-200 font-bold">MEASURABLE</span>
                 </div>
-                <span className="text-[10px] font-mono text-purple-300 font-bold">MEASURABLE</span>
+                <p className="text-xs text-purple-100 leading-relaxed font-light">
+                  Measured by what it enables, not just what it looks like. Real outcomes over vanity metrics.
+                </p>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed font-light">
-                Measured by what it enables, not just what it looks like. Real outcomes over vanity metrics.
-              </p>
             </div>
 
           </div>
