@@ -47,11 +47,33 @@ export default function Hero({ onOpenModal }: HeroProps) {
   const [activeProductView, setActiveProductView] = useState<"shikshasathi" | "campusneeds" | "settler">("shikshasathi");
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   
-  // Real-time hover cursor coordinates for background animation
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0, clientX: 0, clientY: 0 });
-  const mouseRef = useRef({ x: 0, y: 0, targetX: 0, targetY: 0 });
+  const heroRef = useRef<HTMLElement | null>(null);
+  const glowRef = useRef<HTMLDivElement | null>(null);
 
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  // Exact hero ambient background cursor animation from https://www.yugnext.in/
+  useEffect(() => {
+    const glow = glowRef.current;
+    if (!glow) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const hero = heroRef.current;
+      if (hero) {
+        const rect = hero.getBoundingClientRect();
+        const xPct = ((e.clientX - rect.left) / rect.width) * 100;
+        const yPct = ((e.clientY - rect.top) / rect.height) * 100;
+        glow.style.setProperty("--x", `${xPct.toFixed(2)}%`);
+        glow.style.setProperty("--y", `${yPct.toFixed(2)}%`);
+      } else {
+        const xPct = (e.clientX / window.innerWidth) * 100;
+        const yPct = (e.clientY / window.innerHeight) * 100;
+        glow.style.setProperty("--x", `${xPct.toFixed(2)}%`);
+        glow.style.setProperty("--y", `${yPct.toFixed(2)}%`);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   // Preset prompts tailored to YugNext's exact products & copy
   const PRESET_PROMPTS = [
@@ -62,202 +84,6 @@ export default function Hero({ onOpenModal }: HeroProps) {
     { label: "The YugNext Approach", tab: "copy" as TabType, product: "shikshasathi" as const, prompt: "Review The YugNext Approach: Useful, Accessible, Responsive, Impactful" },
     { label: "Delivery Network & Hubs", tab: "analytics" as TabType, product: "shikshasathi" as const, prompt: "Inspect Chennai · Bhopal · Agra delivery network and MANIT alliance metrics" },
   ];
-
-  // Mouse move listener for interactive hover spotlight and canvas turbulence
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current.targetX = e.clientX;
-      mouseRef.current.targetY = e.clientY;
-      setMousePos({
-        x: (e.clientX / window.innerWidth - 0.5) * 45,
-        y: (e.clientY / window.innerHeight - 0.5) * 45,
-        clientX: e.clientX,
-        clientY: e.clientY,
-      });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-  // 60FPS Animated Pink & Purple Grain + Cursor Turbulence Shader Canvas (Optimized)
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    // Initial mouse centered
-    mouseRef.current.x = width / 2;
-    mouseRef.current.y = height * 0.35;
-    mouseRef.current.targetX = width / 2;
-    mouseRef.current.targetY = height * 0.35;
-
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", handleResize);
-
-    let time = 0;
-
-    // Procedural film grain noise canvas
-    const grainCanvas = document.createElement("canvas");
-    grainCanvas.width = 180;
-    grainCanvas.height = 180;
-    const gctx = grainCanvas.getContext("2d");
-    if (gctx) {
-      const gimg = gctx.createImageData(180, 180);
-      for (let i = 0; i < gimg.data.length; i += 4) {
-        const val = Math.random() * 255;
-        gimg.data[i] = val;
-        gimg.data[i + 1] = val;
-        gimg.data[i + 2] = val;
-        gimg.data[i + 3] = 22; // Analog dither intensity
-      }
-      gctx.putImageData(gimg, 0, 0);
-    }
-    // Pre-create and cache pattern once outside render loop
-    const grainPattern = ctx.createPattern(grainCanvas, "repeat");
-
-    // Pause animation when Hero is scrolled out of viewport
-    let isVisible = true;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          isVisible = entry.isIntersecting;
-          if (isVisible && !animationFrameId) {
-            animationFrameId = requestAnimationFrame(render);
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
-    observer.observe(canvas);
-
-    const render = () => {
-      if (!isVisible) {
-        animationFrameId = 0;
-        return;
-      }
-
-      time += 0.009;
-
-      // Smooth lerp mouse coordinates for fluid hover turbulence
-      mouseRef.current.x += (mouseRef.current.targetX - mouseRef.current.x) * 0.08;
-      mouseRef.current.y += (mouseRef.current.targetY - mouseRef.current.y) * 0.08;
-      const curMouseX = mouseRef.current.x;
-      const curMouseY = mouseRef.current.y;
-
-      ctx.clearRect(0, 0, width, height);
-
-      // 1. Deep Midnight Navy & Violet Base (Matching YugNext Logo)
-      ctx.fillStyle = "#0A0818";
-      ctx.fillRect(0, 0, width, height);
-
-      // 2. Harmonic Ambient Fluid Orbs (Royal Violet & Midnight Indigo)
-      const cx = width / 2;
-      const cy = height * 0.35;
-
-      // Orb 1: Royal Electric Violet (#6C3CE3 - Logo Right Half)
-      const ox1 = cx + Math.sin(time * 0.85) * 220;
-      const oy1 = cy + Math.cos(time * 1.1) * 90;
-      const grad1 = ctx.createRadialGradient(ox1, oy1, 20, ox1, oy1, width * 0.52);
-      grad1.addColorStop(0, "rgba(108, 60, 227, 0.35)"); // Royal Electric Violet
-      grad1.addColorStop(0.5, "rgba(124, 86, 245, 0.18)"); // Violet tone
-      grad1.addColorStop(1, "rgba(10, 8, 24, 0)");
-      ctx.fillStyle = grad1;
-      ctx.fillRect(0, 0, width, height);
-
-      // Orb 2: Midnight Deep Navy (#12102A - Logo Left Half)
-      const ox2 = cx + Math.cos(time * 0.75) * 260;
-      const oy2 = cy + Math.sin(time * 1.15) * 120;
-      const grad2 = ctx.createRadialGradient(ox2, oy2, 20, ox2, oy2, width * 0.48);
-      grad2.addColorStop(0, "rgba(18, 16, 42, 0.42)"); // Deep Midnight Navy
-      grad2.addColorStop(0.55, "rgba(108, 60, 227, 0.16)"); // Violet blend
-      grad2.addColorStop(1, "rgba(10, 8, 24, 0)");
-      ctx.fillStyle = grad2;
-      ctx.fillRect(0, 0, width, height);
-
-      // 3. REAL-TIME HOVER ANIMATION: Dynamic Cursor Turbulence Spotlight
-      // Directly follows the user's mouse with royal violet & lavender illumination
-      const cursorSpotlight = ctx.createRadialGradient(curMouseX, curMouseY, 0, curMouseX, curMouseY, 440);
-      cursorSpotlight.addColorStop(0, "rgba(155, 123, 240, 0.38)"); // Soft Lavender center
-      cursorSpotlight.addColorStop(0.32, "rgba(108, 60, 227, 0.25)"); // Royal Violet halo
-      cursorSpotlight.addColorStop(0.65, "rgba(18, 16, 42, 0.12)"); // Midnight Navy fringe
-      cursorSpotlight.addColorStop(1, "rgba(10, 8, 24, 0)");
-      ctx.fillStyle = cursorSpotlight;
-      ctx.fillRect(0, 0, width, height);
-
-      // 4. Batch-Optimized Halftone Dither Matrix with Cursor Warp Distortion
-      const dotSpacing = 34;
-      const cols = Math.ceil(width / dotSpacing);
-      const rows = Math.min(Math.ceil(height / dotSpacing), 32);
-      const rThresholdSq = 260 * 260;
-
-      // 4a. Batch all static dots into a single canvas draw call
-      ctx.fillStyle = "rgba(155, 123, 240, 0.16)";
-      ctx.beginPath();
-      
-      const dynamicDots: Array<{ px: number; py: number; radius: number; alpha: number }> = [];
-
-      for (let r = 0; r < rows; r++) {
-        const py = r * dotSpacing;
-        for (let c = 0; c < cols; c++) {
-          const px = c * dotSpacing;
-          const dx = px - curMouseX;
-          const dy = py - curMouseY;
-          const distSq = dx * dx + dy * dy;
-
-          if (distSq >= rThresholdSq) {
-            ctx.moveTo(px + 1.1, py);
-            ctx.arc(px, py, 1.1, 0, Math.PI * 2);
-          } else {
-            const dist = Math.sqrt(distSq);
-            const warpStrength = (1 - dist / 260);
-            dynamicDots.push({
-              px: px + (dx / dist) * warpStrength * 14,
-              py: py + (dy / dist) * warpStrength * 14,
-              radius: 1.1 + warpStrength * 2.2,
-              alpha: 0.16 + warpStrength * 0.55,
-            });
-          }
-        }
-      }
-      ctx.fill();
-
-      // 4b. Draw only near dots with proximity turbulence (~20 dots max)
-      for (let i = 0; i < dynamicDots.length; i++) {
-        const dot = dynamicDots[i];
-        ctx.fillStyle = `rgba(155, 123, 240, ${dot.alpha})`;
-        ctx.beginPath();
-        ctx.arc(dot.px, dot.py, dot.radius, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      // 5. Atmospheric Analog Film Grain Overlay (Cached Pattern)
-      if (grainPattern) {
-        ctx.fillStyle = grainPattern;
-        ctx.fillRect(0, 0, width, height);
-      }
-
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", handleResize);
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-    };
-  }, []);
 
   const handleGenerate = () => {
     setIsGenerating(true);
@@ -279,29 +105,13 @@ export default function Hero({ onOpenModal }: HeroProps) {
   };
 
   return (
-    <section className="relative min-h-screen bg-[#0A0818] text-white flex flex-col items-center justify-between overflow-hidden pt-10 sm:pt-14 pb-0">
+    <section ref={heroRef} className="relative min-h-screen bg-[#0A0818] text-white flex flex-col items-center justify-between overflow-hidden pt-10 sm:pt-14 pb-0">
       
-      {/* 1. 60FPS Animated Brand Violet & Midnight Canvas + Cursor Turbulence */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none z-0"
-      />
-
-      {/* 2. Interactive CSS Mouse Spotlight Beam Overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none z-0 transition-opacity duration-300"
-        style={{
-          background: `radial-gradient(650px circle at ${mousePos.clientX || 600}px ${mousePos.clientY || 350}px, rgba(108, 60, 227, 0.22), rgba(155, 123, 240, 0.10) 45%, transparent 70%)`,
-        }}
-      />
-
-      {/* 3. Central Ambient Glow Halo with Mouse Parallax */}
-      <div
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[460px] bg-gradient-to-tr from-[#12102A]/60 via-[#6C3CE3]/30 to-[#9B7BF0]/20 rounded-full blur-[145px] pointer-events-none z-0 transition-transform duration-700 ease-out"
-        style={{
-          transform: `translate(calc(-50% + ${mousePos.x}px), calc(-50% + ${mousePos.y}px))`,
-        }}
-      />
+      {/* Ambient background from yugnext.in (Field dot grid + Glow cursor animation) */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="field" />
+        <div ref={glowRef} className="glow" />
+      </div>
 
       {/* 4. MAIN HERO CONTENT CONTAINER (EXACT YUGNEXT WEBSITE COPY) */}
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 sm:space-y-8">
