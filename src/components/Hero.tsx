@@ -232,7 +232,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
-          className="rounded-t-[28px] sm:rounded-t-[36px] border-t border-x border-[#6C3CE3]/35 bg-[#12102A]/90 backdrop-blur-2xl shadow-[0_-25px_80px_rgba(108,60,227,0.22)] overflow-hidden"
+          className="rounded-t-[28px] sm:rounded-t-[36px] border-t border-x border-[#2A2450] bg-[#12102A] shadow-2xl shadow-black/60 overflow-hidden"
         >
           
           {/* Mac OS Window Header */}
@@ -343,7 +343,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </div>
 
           {/* DYNAMIC INTERACTIVE PLAYGROUND OUTPUT */}
-          <div className="p-4 sm:p-8 min-h-[380px] sm:min-h-[440px] flex items-center justify-center relative bg-gradient-to-b from-[#12102A]/90 to-[#0A0818]">
+          <div className="p-4 sm:p-8 min-h-[380px] sm:min-h-[440px] flex items-center justify-center relative bg-[#0A0818]">
             
             {/* Loading Indicator */}
             {isGenerating && (
@@ -365,7 +365,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className="w-full max-w-2xl p-6 sm:p-8 rounded-3xl bg-[#181534] border border-[#6C3CE3]/30 backdrop-blur-xl shadow-2xl relative space-y-6"
+                className="w-full max-w-2xl p-6 sm:p-8 rounded-3xl bg-[#181534] border border-[#2A2450] shadow-xl shadow-black/40 relative space-y-6"
               >
                 {/* Product Switcher Pills */}
                 <div className="flex items-center justify-between border-b border-[#2A2450] pb-4">
@@ -438,7 +438,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
                     <button
                       onClick={() => onOpenModal("products")}
-                      className="w-full py-3 rounded-2xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-[#6C3CE3]/30 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
+                      className="w-full py-3 rounded-2xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-extrabold text-xs sm:text-sm shadow-md shadow-black/25 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
                     >
                       Explore ShikshaSathi →
                     </button>
@@ -479,7 +479,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
                     <button
                       onClick={() => onOpenModal("products")}
-                      className="w-full py-3 rounded-2xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-[#6C3CE3]/30 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
+                      className="w-full py-3 rounded-2xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-extrabold text-xs sm:text-sm shadow-md shadow-black/25 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
                     >
                       Explore CampusNeeds →
                     </button>
@@ -520,7 +520,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
                     <button
                       onClick={() => onOpenModal("products")}
-                      className="w-full py-3 rounded-2xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-[#6C3CE3]/30 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
+                      className="w-full py-3 rounded-2xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-extrabold text-xs sm:text-sm shadow-md shadow-black/25 transition-all cursor-pointer hover:scale-[1.01] active:scale-95"
                     >
                       Explore Settler →
                     </button>
@@ -536,7 +536,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className="w-full max-w-2xl rounded-2xl bg-[#12102A] border border-[#6C3CE3]/35 overflow-hidden text-left font-mono text-xs shadow-2xl"
+                className="w-full max-w-2xl rounded-2xl bg-[#12102A] border border-[#2A2450] overflow-hidden text-left font-mono text-xs shadow-xl shadow-black/40"
               >
                 {/* Code Header */}
                 <div className="px-4 py-2.5 bg-[#181534] border-b border-[#2A2450] flex items-center justify-between text-[11px] text-[#A79FCB]">
