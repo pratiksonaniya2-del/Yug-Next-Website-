@@ -41,7 +41,7 @@ export default function ReachPage() {
       description: "Our Chennai engineering cluster focuses on building distributed web platforms, zero-trust cybersecurity implementations, and automated DevOps infrastructure for campus and enterprise products.",
       specs: [
         "Distributed Systems & APIs",
-        "Cybersecurity & OWASP Hardening",
+        "Cybersecurity & Cloud Hardening",
         "Full-Stack Web Engineering",
         "High-Availability Cloud SLAs",
       ],

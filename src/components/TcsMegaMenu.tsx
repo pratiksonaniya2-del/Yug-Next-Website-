@@ -179,12 +179,12 @@ export default function TcsMegaMenu({
                     <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
                       <Shield className="w-4 h-4" />
                     </div>
-                    <h5 className="text-sm font-extrabold text-slate-900">OWASP</h5>
+                    <h5 className="text-sm font-extrabold text-slate-900">Cybersecurity</h5>
                     <p className="text-xs text-slate-600 leading-relaxed font-light">
                       Building with a stronger focus on security and responsible digital practices.
                     </p>
                   </div>
-                  <span className="text-[11px] font-bold text-emerald-700 pt-1">Security Standards →</span>
+                  <span className="text-[11px] font-bold text-emerald-700 pt-1">Security & Compliance →</span>
                 </div>
 
                 <div className="p-4 rounded-xl bg-pink-50/60 border border-pink-100 space-y-2 hover:border-pink-300 hover:bg-white hover:shadow-md transition-all flex flex-col justify-between">

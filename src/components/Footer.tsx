@@ -79,7 +79,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
                   href="/services"
                   className="text-slate-400 hover:text-white transition-colors text-left block"
                 >
-                  OWASP Security
+                  Cybersecurity
                 </Link>
               </li>
               <li>

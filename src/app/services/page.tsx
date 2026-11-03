@@ -38,10 +38,10 @@ export default function ServicesPage() {
       features: ["Cloud-Native Microservices", "Automated Business Workflows", "API Gateway & Integrations"],
     },
     {
-      title: "OWASP Security Practices",
+      title: "Cybersecurity & Compliance",
       category: "platforms",
       icon: ShieldCheck,
-      summary: "Building software with a stronger focus on enterprise security, vulnerability testing, and responsible digital practices.",
+      summary: "Building software with a stronger focus on enterprise security, vulnerability testing, zero-trust design, and responsible digital practices.",
       features: ["VAPT & Code Auditing", "Zero-Trust Architecture", "Data Privacy & Compliance"],
     },
     {
@@ -111,7 +111,7 @@ export default function ServicesPage() {
           <div className="flex items-center gap-2 text-xs font-mono text-purple-300 mb-6">
             <Link href="/" className="hover:text-white transition-colors">HOME</Link>
             <span>/</span>
-            <span className="text-[#9d7df7] font-bold">SERVICES</span>
+            <span className="text-[#9d7df7] font-bold">WHAT WE DO</span>
           </div>
 
           <div className="max-w-3xl space-y-6">
@@ -121,11 +121,11 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-              From Digital Presence to <span className="text-[#9d7df7]">Digital Possibility.</span>
+              What We Do: From Digital Presence to <span className="text-[#9d7df7]">Digital Possibility.</span>
             </h1>
 
             <p className="text-slate-300 text-base sm:text-xl leading-relaxed font-light">
-              Yugnext works across software, digital solutions, specialized websites, and technology-led initiatives to help businesses and organisations move forward.
+              Here is what we do at Yugnext: we build targeted software platforms, practical digital solutions, specialized websites, and technology-led initiatives to help businesses and organisations move forward.
             </p>
           </div>
         </div>
@@ -137,7 +137,7 @@ export default function ServicesPage() {
           <div className="flex items-center gap-2">
             {[
               { id: "all", label: "All Capabilities" },
-              { id: "platforms", label: "Enterprise Platforms (Nexan, Pravaah, OWASP)" },
+              { id: "platforms", label: "Enterprise Platforms (Nexan, Pravaah, Cybersecurity)" },
               { id: "websites", label: "Specialized Sector Websites" },
             ].map((tab) => (
               <button
@@ -163,6 +163,20 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Prominent WHAT WE DO Section Heading */}
+          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#5d35e0]/10 text-[#5d35e0] border border-[#5d35e0]/20">
+              <Sparkles className="w-3.5 h-3.5 text-[#5d35e0]" />
+              <span>WHAT WE DO • CORE CAPABILITIES</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              What We Do: Engineered for Real Outcomes
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-light">
+              Explore how Yugnext turns digital ambitions into operational realities across specialized platforms and modern web portals.
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((service, index) => {
               const Icon = service.icon;

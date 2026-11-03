@@ -231,12 +231,12 @@ export default function ContentCardModal({
                       </p>
                     </div>
 
-                    {/* OWASP */}
+                    {/* Cybersecurity */}
                     <div className="p-6 rounded-2xl bg-white border border-purple-100 shadow-sm space-y-3 hover:border-purple-300 transition-all">
                       <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
                         <Shield className="w-5 h-5" />
                       </div>
-                      <h5 className="text-lg font-extrabold text-slate-900">OWASP</h5>
+                      <h5 className="text-lg font-extrabold text-slate-900">Cybersecurity</h5>
                       <span className="text-xs font-semibold text-emerald-600 block">Security & Responsible Digital</span>
                       <p className="text-xs text-slate-600 leading-relaxed">
                         Building with a stronger focus on security and responsible digital practices.

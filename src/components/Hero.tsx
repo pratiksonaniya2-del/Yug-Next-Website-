@@ -749,7 +749,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                   <div className="pl-4">hubs: [<span className="text-emerald-300">&quot;CHENNAI&quot;</span>, <span className="text-emerald-300">&quot;BHOPAL&quot;</span>, <span className="text-emerald-300">&quot;AGRA&quot;</span>],</div>
                   <div className="pl-4">alliances: [<span className="text-emerald-300">&quot;ROLTA&quot;</span>, <span className="text-emerald-300">&quot;MANIT&quot;</span>, <span className="text-emerald-300">&quot;NexanAcademy&quot;</span>],</div>
                   <div className="pl-4">mission: <span className="text-emerald-300">&quot;Build things people need. Create things people remember. Move things forward.&quot;</span>,</div>
-                  <div className="pl-4">activeServices: [NexanAcademy, Pravaah, OWASP, PathfinderSchool],</div>
+                  <div className="pl-4">activeServices: [NexanAcademy, Pravaah, CyberSecurity, PathfinderSchool],</div>
                   <div>&#125;);</div>
                 </div>
               </motion.div>

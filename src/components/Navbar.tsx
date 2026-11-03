@@ -23,7 +23,7 @@ import YugNextLogo from "./YugNextLogo";
 const SEARCH_DATABASE: { title: string; category: string; id: ModalType; desc: string }[] = [
   { title: "NexanAcademy", category: "Services (What We Do)", id: "whatWeDo", desc: "Technology & digital initiatives built around evolving needs in learning and business." },
   { title: "Pravaah", category: "Services (What We Do)", id: "whatWeDo", desc: "Digital solutions designed to turn ideas and opportunities into practical outcomes." },
-  { title: "OWASP", category: "Services (What We Do)", id: "whatWeDo", desc: "Building with a stronger focus on security and responsible digital practices." },
+  { title: "Cybersecurity & Compliance", category: "Services (What We Do)", id: "whatWeDo", desc: "Building with a stronger focus on security and responsible digital practices." },
   { title: "Pathfinder School", category: "Services (What We Do)", id: "whatWeDo", desc: "Technology-led initiatives focused on creating better learning opportunities." },
   { title: "ShikshaSathi", category: "Products", id: "products", desc: "Technology built around making education more connected, accessible and useful." },
   { title: "CampusNeeds", category: "Products", id: "products", desc: "A digital approach to simplifying everyday needs across campus ecosystems." },

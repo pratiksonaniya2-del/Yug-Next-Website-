@@ -38,8 +38,8 @@ export default function CareersPage() {
       team: "Cybersecurity & DevOps",
       location: "Chennai Node / Remote",
       type: "Full-Time",
-      description: "Lead zero-trust cloud architectures, OWASP compliance audits, containerized deployments, and 99.99% uptime guarantees.",
-      skills: ["Docker / Kubernetes", "OWASP Security", "CI/CD Automation", "Linux Hardening"],
+      description: "Lead zero-trust cloud architectures, cybersecurity compliance audits, containerized deployments, and 99.99% uptime guarantees.",
+      skills: ["Docker / Kubernetes", "Cybersecurity & VAPT", "CI/CD Automation", "Linux Hardening"],
     },
     {
       title: "Institutional Partnerships & Growth Associate",
