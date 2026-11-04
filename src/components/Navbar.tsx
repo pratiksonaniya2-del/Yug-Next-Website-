@@ -64,15 +64,23 @@ const ROUTE_MAP: Record<string, string> = {
 };
 
 export default function Navbar({
-  activeModal,
-  isLocked = false,
+  activeModal: controlledActiveModal,
+  isLocked: controlledIsLocked = false,
   onOpenModal,
   onClickModal,
   onCloseMegaMenu,
 }: NavbarProps) {
   const router = useRouter();
+  const [internalActiveModal, setInternalActiveModal] = useState<ModalType>(null);
+  const [internalIsLocked, setInternalIsLocked] = useState<boolean>(false);
+
+  const isControlled = onOpenModal !== undefined || onClickModal !== undefined;
+  const activeModal = isControlled ? controlledActiveModal : internalActiveModal;
+  const isLocked = isControlled ? controlledIsLocked : internalIsLocked;
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   // Two Icons States (TCS Style)
   const [searchModalOpen, setSearchModalOpen] = useState(false);
@@ -171,22 +179,50 @@ export default function Navbar({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [searchModalOpen, langDropdownOpen]);
 
-  // Toggle mega-menu tab on click ONLY (No hover), or navigate if on subpage
-  const handleNavClick = (modal: ModalType) => {
-    if (onOpenModal || onClickModal) {
-      if (activeModal === modal) {
-        if (onCloseMegaMenu) onCloseMegaMenu();
-        else if (onClickModal) onClickModal(null);
-        else onOpenModal?.(null);
-      } else {
-        if (onClickModal) onClickModal(modal);
-        else onOpenModal?.(modal);
-      }
+  // Handle opening modal on click or hover
+  const openModal = (modal: ModalType) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    if (isControlled) {
+      if (onClickModal) onClickModal(modal);
+      else onOpenModal?.(modal);
     } else {
-      // Direct navigation when rendered on subpages
-      if (modal && ROUTE_MAP[modal]) {
-        router.push(ROUTE_MAP[modal]);
-      }
+      setInternalActiveModal(modal);
+    }
+  };
+
+  const closeModal = () => {
+    if (isControlled) {
+      if (onCloseMegaMenu) onCloseMegaMenu();
+      else if (onClickModal) onClickModal(null);
+      else onOpenModal?.(null);
+    } else {
+      setInternalActiveModal(null);
+    }
+  };
+
+  const handleMouseEnterItem = (modal: ModalType) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+    openModal(modal);
+  };
+
+  const handleMouseLeaveNav = () => {
+    if (isLocked) return;
+    hoverTimeoutRef.current = setTimeout(() => {
+      closeModal();
+    }, 200);
+  };
+
+  const handleNavClick = (modal: ModalType) => {
+    if (activeModal === modal) {
+      closeModal();
+    } else {
+      openModal(modal);
     }
   };
 
@@ -198,9 +234,7 @@ export default function Navbar({
   ];
 
   const handleContactClick = (e?: React.MouseEvent) => {
-    if (activeModal && onCloseMegaMenu) {
-      onCloseMegaMenu();
-    }
+    closeModal();
     const contactEl = document.getElementById("contact");
     if (contactEl) {
       if (e) e.preventDefault();
@@ -283,13 +317,17 @@ export default function Navbar({
           </Link>
 
           {/* Desktop Navigation Links — SINGLE LINE, NO WRAPPING, BEAUTIFULLY SPACED */}
-          <nav className="hidden xl:flex items-center space-x-1 shrink-0">
+          <nav
+            onMouseLeave={handleMouseLeaveNav}
+            className="hidden xl:flex items-center space-x-1 shrink-0"
+          >
             {navItems.map((item) => {
               const isActive = activeModal === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
+                  onMouseEnter={() => handleMouseEnterItem(item.id)}
                   className={`group inline-flex items-center gap-1.5 px-3 py-1.5 xl:px-3.5 xl:py-2 rounded-xl text-xs xl:text-sm font-semibold whitespace-nowrap shrink-0 transition-all cursor-pointer ${
                     isActive
                       ? "bg-[#6C3CE3] text-white font-bold ring-1 ring-[#9B7BF0]/50 shadow-md shadow-[#6C3CE3]/30"
@@ -434,16 +472,33 @@ export default function Navbar({
         </div>
 
         {/* TCS Full-Width Attached Mega-Menu Dropdown Panel */}
-        <TcsMegaMenu
-          activeModal={activeModal || null}
-          isLocked={isLocked}
-          onClose={onCloseMegaMenu || (() => {})}
-          onSelectModal={(modal) => {
-            if (onClickModal) onClickModal(modal);
-            else if (onOpenModal) onOpenModal(modal);
-            else if (modal && ROUTE_MAP[modal]) router.push(ROUTE_MAP[modal]);
+        <div
+          onMouseEnter={() => {
+            if (hoverTimeoutRef.current) {
+              clearTimeout(hoverTimeoutRef.current);
+              hoverTimeoutRef.current = null;
+            }
           }}
-        />
+          onMouseLeave={handleMouseLeaveNav}
+        >
+          <TcsMegaMenu
+            activeModal={activeModal || null}
+            isLocked={isLocked}
+            onClose={closeModal}
+            onSelectModal={(modal) => {
+              if (modal && ROUTE_MAP[modal]) {
+                closeModal();
+                router.push(ROUTE_MAP[modal]);
+              } else if (onClickModal) {
+                onClickModal(modal);
+              } else if (onOpenModal) {
+                onOpenModal(modal);
+              } else {
+                setInternalActiveModal(modal);
+              }
+            }}
+          />
+        </div>
       </header>
 
       {/* Hidden Google Translate Target */}

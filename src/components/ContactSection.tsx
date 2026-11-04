@@ -17,8 +17,8 @@ export default function ContactSection() {
     name: "",
     email: "",
     phone: "",
-    interest: "Shikshasetu (EdTech)",
-    hub: "Bhopal (HQ)",
+    interest: "Take services/ build website",
+    place: "Madhya Pradesh",
     message: "",
   });
 
@@ -56,7 +56,7 @@ export default function ContactSection() {
               </span>
               <h3 className="text-2xl font-bold text-[#EFEDFA]">YugNext Private Limited</h3>
               <p className="text-xs text-[#A79FCB] leading-relaxed font-light">
-                Incubation Wing & Technology Operations, Central Innovation Hub, MANIT, Bhopal, Madhya Pradesh, India.
+                MANIT ROLTA Incubation Centre, Bhopal, Madhya Pradesh, India.
               </p>
 
               <div className="space-y-3 pt-2 text-xs text-[#EFEDFA]">
@@ -90,19 +90,19 @@ export default function ContactSection() {
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <div className="p-3 rounded-xl bg-[#181534] border border-[#2A2450]">
                   <span className="font-bold text-[#EFEDFA] block">Bhopal Hub</span>
-                  <span className="text-[#A79FCB] text-[11px]">HQ & MANIT Incubation</span>
+                  <span className="text-[#A79FCB] text-[11px]">Incubation Centre</span>
                 </div>
                 <div className="p-3 rounded-xl bg-[#181534] border border-[#2A2450]">
                   <span className="font-bold text-[#EFEDFA] block">Chennai Hub</span>
-                  <span className="text-[#A79FCB] text-[11px]">Deep Tech & Cloud Lab</span>
+                  <span className="text-[#A79FCB] text-[11px]">Coaching Website delivered &amp; Cloud Lab</span>
                 </div>
                 <div className="p-3 rounded-xl bg-[#181534] border border-[#2A2450]">
                   <span className="font-bold text-[#EFEDFA] block">Delhi NCR</span>
-                  <span className="text-[#A79FCB] text-[11px]">Strategic Alliances</span>
+                  <span className="text-[#A79FCB] text-[11px]">Regional office</span>
                 </div>
                 <div className="p-3 rounded-xl bg-[#181534] border border-[#2A2450]">
                   <span className="font-bold text-[#EFEDFA] block">Agra Hub</span>
-                  <span className="text-[#A79FCB] text-[11px]">Enterprise Delivery</span>
+                  <span className="text-[#A79FCB] text-[11px]">Registered Office</span>
                 </div>
               </div>
             </div>
@@ -175,17 +175,50 @@ export default function ContactSection() {
 
                   <div>
                     <label className="text-xs font-bold uppercase tracking-wider text-[#A79FCB] block mb-1.5">
-                      Preferred Delivery Hub
+                      Place *
                     </label>
                     <select
-                      value={formData.hub}
-                      onChange={(e) => setFormData({ ...formData, hub: e.target.value })}
+                      value={formData.place}
+                      onChange={(e) => setFormData({ ...formData, place: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-[#181534] border border-[#2A2450] text-[#EFEDFA] text-sm focus:outline-none focus:border-[#9B7BF0] transition-all"
                     >
-                      <option value="Bhopal (HQ)">Bhopal (HQ & Incubation)</option>
-                      <option value="Chennai">Chennai (Deep Tech & Security)</option>
-                      <option value="Delhi NCR">Delhi NCR (Alliances & Corporate)</option>
-                      <option value="Agra">Agra (Innovation & Enterprise Delivery)</option>
+                      <option value="Andhra Pradesh">Andhra Pradesh</option>
+                      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                      <option value="Assam">Assam</option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Chhattisgarh">Chhattisgarh</option>
+                      <option value="Goa">Goa</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="Haryana">Haryana</option>
+                      <option value="Himachal Pradesh">Himachal Pradesh</option>
+                      <option value="Jharkhand">Jharkhand</option>
+                      <option value="Karnataka">Karnataka</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Madhya Pradesh">Madhya Pradesh</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Manipur">Manipur</option>
+                      <option value="Meghalaya">Meghalaya</option>
+                      <option value="Mizoram">Mizoram</option>
+                      <option value="Nagaland">Nagaland</option>
+                      <option value="Odisha">Odisha</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Sikkim">Sikkim</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Tripura">Tripura</option>
+                      <option value="Uttar Pradesh">Uttar Pradesh</option>
+                      <option value="Uttarakhand">Uttarakhand</option>
+                      <option value="West Bengal">West Bengal</option>
+                      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands (UT)</option>
+                      <option value="Chandigarh">Chandigarh (UT)</option>
+                      <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu (UT)</option>
+                      <option value="Delhi">Delhi (NCT)</option>
+                      <option value="Jammu and Kashmir">Jammu and Kashmir (UT)</option>
+                      <option value="Ladakh">Ladakh (UT)</option>
+                      <option value="Lakshadweep">Lakshadweep (UT)</option>
+                      <option value="Puducherry">Puducherry (UT)</option>
+                      <option value="Out of India">Out of India</option>
                     </select>
                   </div>
                 </div>
@@ -199,13 +232,12 @@ export default function ContactSection() {
                     onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
                     className="w-full px-4 py-3 rounded-xl bg-[#181534] border border-[#2A2450] text-[#EFEDFA] text-sm focus:outline-none focus:border-[#9B7BF0] transition-all"
                   >
-                    <option value="Web Solutions">Business & Institutional Websites</option>
-                    <option value="Shikshasathi (EdTech)">ShikshaSathi (Higher Education Platform)</option>
-                    <option value="CampusNeeds">CampusNeeds (Student Campus Marketplace)</option>
-                    <option value="Settler">Settler (Relocation & Accommodations)</option>
-                    <option value="NexanAcademy">NexanAcademy (Upskilling Cohorts)</option>
-                    <option value="Investor Relations">Investor Relations & Incubation</option>
-                    <option value="Careers / Internships">Careers / Student Hiring</option>
+                    <option value="Take services/ build website">Take services/ build website</option>
+                    <option value="Shikshasathi (School Digital Solutions)">Shikshasathi (School Digital Solutions)</option>
+                    <option value="Invest in company">Invest in company</option>
+                    <option value="Sponsor community">Sponsor community</option>
+                    <option value="Join Us (Intern/Job)">Join Us (Intern/Job)</option>
+                    <option value="General inquiry">General inquiry</option>
                   </select>
                 </div>
 
