@@ -250,7 +250,7 @@ export default function InvestorsCareersSection() {
               </div>
               <div className="flex items-center gap-1.5 font-mono text-[11px] text-[#9B7BF0]">
                 <span>Active Hubs:</span>
-                <span className="font-bold text-white">CHENNAI · BHOPAL · AGRA</span>
+                <span className="font-bold text-white">BHOPAL · AGRA · NCR · Remote</span>
               </div>
             </div>
 
