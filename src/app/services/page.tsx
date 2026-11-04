@@ -111,13 +111,13 @@ export default function ServicesPage() {
           <div className="flex items-center gap-2 text-xs font-mono text-purple-300 mb-6">
             <Link href="/" className="hover:text-white transition-colors">HOME</Link>
             <span>/</span>
-            <span className="text-[#9d7df7] font-bold">WHAT WE DO</span>
+            <span className="text-[#9d7df7] font-bold">SERVICES</span>
           </div>
 
           <div className="max-w-3xl space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#5d35e0]/20 text-[#9d7df7] border border-[#5d35e0]/30">
               <Sparkles className="w-3.5 h-3.5 text-[#9d7df7]" />
-              <span>WHAT WE DO</span>
+              <span>SERVICES</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">

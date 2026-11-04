@@ -152,7 +152,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
               <ul className="space-y-2.5">
                 <li>
                   <Link
-                    href="/community#events"
+                    href="/events"
                     className="text-slate-400 hover:text-white transition-colors text-left block"
                   >
                     Events
