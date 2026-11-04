@@ -597,7 +597,7 @@ export default function TcsMegaMenu({
                   </Link>
 
                   <Link
-                    href="/services"
+                    href="/customer-stories"
                     onClick={onClose}
                     className="flex items-center justify-between p-2.5 rounded-xl bg-[#181534] hover:bg-[#1E1942] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all group"
                   >

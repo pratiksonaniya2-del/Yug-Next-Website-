@@ -28,18 +28,11 @@ export default function NewsroomPage() {
 
   const milestones = [
     {
-      date: "16 April 2026",
-      title: "VidyaSetu Pitch & Funding Selection",
-      description: "VidyaSetu selected for incubation and ₹50,000 funding after pitching to judge panel at MANIT Bhopal.",
+      date: "08 May 2026",
+      title: "YUGNEXT Secures ₹50,000 Funding & Incubation at MANIT ROLTA",
+      description: "Received ₹50,000 seed funding and official incubation at MANIT ROLTA Incubation Centre for EdTech initiative VidyaSetu.",
       badge: "Incubation & Grant",
       highlight: true,
-    },
-    {
-      date: "8 May 2026",
-      title: "MANIT ROLTA Incubation Onboarding",
-      description: "Incubation and funding milestone formalized at MANIT ROLTA Incubation Centre, establishing physical R&D hub.",
-      badge: "Incubation Milestone",
-      highlight: false,
     },
     {
       date: "21 October 2026",
@@ -96,6 +89,12 @@ export default function NewsroomPage() {
               >
                 <span>View Timeline</span>
               </a>
+              <Link
+                href="/customer-stories"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#181534] hover:bg-[#201c46] text-white text-xs sm:text-sm font-semibold border border-[#2A2450] transition-all"
+              >
+                <span>Customer Stories →</span>
+              </Link>
             </div>
           </div>
         </div>
@@ -153,7 +152,7 @@ export default function NewsroomPage() {
                     <span className="text-[#C4B5FD] font-mono">Agra • Bhopal</span>
                   </div>
                   <p className="text-xs text-purple-200/90 leading-relaxed font-sans">
-                    Official Incorporation Announcement: YUGNEXT has officially been incorporated as YUGNEXT PRIVATE LIMITED, marking its transition from campus innovation to a formally registered corporate entity.
+                    Official Incorporation Announcement: YUGNEXT has officially been incorporated as YUGNEXT PRIVATE LIMITED, marking its transition into a formally registered corporate entity.
                   </p>
                 </div>
 
@@ -179,7 +178,7 @@ export default function NewsroomPage() {
                   </h3>
 
                   <p className="text-[#A79FCB] text-sm sm:text-base leading-relaxed">
-                    A major milestone marking YUGNEXT&apos;s transition into a formally registered corporate entity. Founded by young entrepreneur Harsh Rathore, the company aims to build an ecosystem of affordable, accessible, and innovative technology solutions.
+                    A major milestone marking YUGNEXT&apos;s transition into a formally registered company. Founded by young entrepreneur Harsh Rathore, the company aims to build an ecosystem of affordable, accessible, and innovative technology solutions.
                   </p>
 
                   <div className="pt-2 space-y-2 text-xs text-purple-200/80">
@@ -210,7 +209,7 @@ export default function NewsroomPage() {
         </div>
       </section>
 
-      {/* 3. ALL NEWS SECTION (3-col Desktop, 2-col Tablet, 1-col Mobile) */}
+      {/* 3. ALL NEWS SECTION (Swapped Left-Right Order: Corporate Milestone on LEFT, Funding on RIGHT) */}
       <section className="py-20 bg-[#0A0818] relative border-b border-[#2A2450]/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
@@ -222,67 +221,18 @@ export default function NewsroomPage() {
               All News &amp; Announcements
             </h2>
             <p className="text-[#A79FCB] text-base max-w-2xl">
-              Explore the milestones and developments shaping our journey.
+              Explore the two defining milestones shaping our journey.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
-            {/* News Card 1 – Incubation & Funding */}
-            <div className="rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between p-7 shadow-xl group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
-              
-              <div className="space-y-5 relative z-10">
-                {/* Visual Header / Badge */}
-                <div className="h-44 rounded-2xl bg-gradient-to-br from-[#0a1e1b] via-[#0d2e26] to-[#12102A] border border-emerald-500/20 p-5 flex flex-col justify-between relative overflow-hidden">
-                  <div className="flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">
-                      INCUBATION &amp; FUNDING
-                    </span>
-                    <span className="text-[11px] font-mono text-emerald-200/80">16 April 2026</span>
-                  </div>
-                  <div>
-                    <div className="text-xl font-black text-white">₹50,000 Funding</div>
-                    <div className="text-xs font-mono text-emerald-300">MANIT ROLTA Incubation Centre</div>
-                  </div>
-                  <div className="flex items-center gap-2 text-[11px] text-emerald-200/70">
-                    <Award className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>EdTech Initiative: VidyaSetu</span>
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#9B7BF0]">
-                    <span>CATEGORY: INCUBATION &amp; FUNDING</span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors leading-snug">
-                    YUGNEXT Secures ₹50,000 Funding and Gets Incubated at MANIT ROLTA Incubation Centre with Its EdTech Initiative, VidyaSetu
-                  </h3>
-
-                  <p className="text-[#A79FCB] text-xs sm:text-sm leading-relaxed line-clamp-3">
-                    YUGNEXT achieves its first major startup milestone with ₹50,000 funding and incubation support from MANIT ROLTA Incubation Centre.
-                  </p>
-                </div>
-              </div>
-
-              <div className="pt-6 relative z-10">
-                <button
-                  onClick={() => setActiveStoryModal("funding")}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors group-hover:translate-x-1 duration-200 cursor-pointer"
-                >
-                  <span>Read More</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
-            {/* News Card 2 – Corporate Milestone */}
-            <div className="rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all duration-300 flex flex-col justify-between p-7 shadow-xl group relative overflow-hidden">
+            {/* Card 1 (LEFT): Corporate Milestone (21 October 2026) */}
+            <div className="rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all duration-300 flex flex-col justify-between p-7 sm:p-8 shadow-xl group relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#6C3CE3]/15 rounded-full blur-2xl pointer-events-none" />
               
               <div className="space-y-5 relative z-10">
-                {/* Visual Header / Badge */}
+                {/* Visual Header */}
                 <div className="h-44 rounded-2xl bg-gradient-to-br from-[#1b0f3b] via-[#241352] to-[#12102A] border border-[#6C3CE3]/30 p-5 flex flex-col justify-between relative overflow-hidden">
                   <div className="flex items-center justify-between">
                     <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#6C3CE3]/30 text-purple-200 border border-[#6C3CE3]/40 uppercase tracking-wider">
@@ -310,12 +260,12 @@ export default function NewsroomPage() {
                   </h3>
 
                   <p className="text-[#A79FCB] text-xs sm:text-sm leading-relaxed line-clamp-3">
-                    YUGNEXT officially becomes a Private Limited Company, marking a new chapter in its entrepreneurial journey.
+                    YUGNEXT officially becomes a Private Limited Company, marking a new chapter in its entrepreneurial journey and corporate expansion.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-6 relative z-10">
+              <div className="pt-6 relative z-10 border-t border-[#2A2450]">
                 <button
                   onClick={() => setActiveStoryModal("incorporation")}
                   className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#A78BFA] hover:text-white transition-colors group-hover:translate-x-1 duration-200 cursor-pointer"
@@ -326,48 +276,48 @@ export default function NewsroomPage() {
               </div>
             </div>
 
-            {/* News Card 3 – Incubation Acceleration */}
-            <div className="rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between p-7 shadow-xl group relative overflow-hidden md:col-span-2 lg:col-span-1">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
+            {/* Card 2 (RIGHT): Incubation & Funding (08 May 2026) */}
+            <div className="rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between p-7 sm:p-8 shadow-xl group relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
               
               <div className="space-y-5 relative z-10">
-                {/* Visual Header / Badge */}
-                <div className="h-44 rounded-2xl bg-gradient-to-br from-[#0c1836] via-[#10224d] to-[#12102A] border border-blue-500/30 p-5 flex flex-col justify-between relative overflow-hidden">
+                {/* Visual Header */}
+                <div className="h-44 rounded-2xl bg-gradient-to-br from-[#0a1e1b] via-[#0d2e26] to-[#12102A] border border-emerald-500/20 p-5 flex flex-col justify-between relative overflow-hidden">
                   <div className="flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30 uppercase tracking-wider">
-                      INCUBATION ACCELERATION
+                    <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">
+                      INCUBATION &amp; FUNDING
                     </span>
-                    <span className="text-[11px] font-mono text-blue-200/80">08 May 2026</span>
+                    <span className="text-[11px] font-mono text-emerald-200/80">08 May 2026</span>
                   </div>
                   <div>
-                    <div className="text-xl font-black text-white">Innovation Lab</div>
-                    <div className="text-xs font-mono text-blue-300">MANIT ROLTA Incubation Onboarding</div>
+                    <div className="text-xl font-black text-white">₹50,000 Funding</div>
+                    <div className="text-xs font-mono text-emerald-300">MANIT ROLTA Incubation Centre</div>
                   </div>
-                  <div className="flex items-center gap-2 text-[11px] text-blue-200/70">
-                    <GraduationCap className="w-3.5 h-3.5 text-blue-400" />
-                    <span>Academic &amp; Institutional Mentorship</span>
+                  <div className="flex items-center gap-2 text-[11px] text-emerald-200/70">
+                    <Award className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>EdTech Initiative: VidyaSetu</span>
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#9B7BF0]">
-                    <span>CATEGORY: PRODUCT ACCELERATION</span>
+                  <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
+                    <span>CATEGORY: INCUBATION &amp; FUNDING</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors leading-snug">
-                    Incubation and Product Acceleration Formalized at MANIT ROLTA
+                  <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors leading-snug">
+                    YUGNEXT Secures ₹50,000 Funding and Gets Incubated at MANIT ROLTA Incubation Centre with Its EdTech Initiative, VidyaSetu
                   </h3>
 
                   <p className="text-[#A79FCB] text-xs sm:text-sm leading-relaxed line-clamp-3">
-                    With mentorship from esteemed academic faculty, YUGNEXT establishes its technological base inside the MANIT ROLTA Incubation Centre to build scalable digital infrastructure.
+                    YUGNEXT achieves its first major startup milestone with ₹50,000 funding and incubation support from MANIT ROLTA Incubation Centre.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-6 relative z-10">
+              <div className="pt-6 relative z-10 border-t border-[#2A2450]">
                 <button
                   onClick={() => setActiveStoryModal("funding")}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors group-hover:translate-x-1 duration-200 cursor-pointer"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors group-hover:translate-x-1 duration-200 cursor-pointer"
                 >
                   <span>Read More</span>
                   <ArrowRight className="w-4 h-4" />
@@ -379,7 +329,7 @@ export default function NewsroomPage() {
         </div>
       </section>
 
-      {/* 4. OUR JOURNEY SO FAR (Milestones Timeline) */}
+      {/* 4. OUR JOURNEY SO FAR (2 Key Milestones) */}
       <section id="milestones-timeline" className="py-20 bg-[#0A0818] relative border-b border-[#2A2450]/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
@@ -391,12 +341,12 @@ export default function NewsroomPage() {
               Our Journey So Far
             </h2>
             <p className="text-[#A79FCB] text-base max-w-2xl">
-              A horizontal timeline on desktop and vertical timeline on mobile.
+              Chronological milestones tracing our foundation from institutional incubation to corporate incorporation.
             </p>
           </div>
 
           {/* Desktop: Horizontal Timeline / Mobile: Vertical */}
-          <div className="hidden lg:grid grid-cols-3 gap-6 relative">
+          <div className="hidden md:grid grid-cols-2 gap-8 relative max-w-4xl mx-auto">
             <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500/40 via-[#6C3CE3]/60 to-[#6C3CE3] -translate-y-1/2 pointer-events-none z-0" />
 
             {milestones.map((milestone, idx) => (
@@ -428,8 +378,8 @@ export default function NewsroomPage() {
             ))}
           </div>
 
-          {/* Mobile & Tablet Vertical Timeline */}
-          <div className="lg:hidden space-y-6 relative border-l-2 border-[#6C3CE3]/40 ml-4 pl-6">
+          {/* Mobile Vertical Timeline */}
+          <div className="md:hidden space-y-6 relative border-l-2 border-[#6C3CE3]/40 ml-4 pl-6">
             {milestones.map((milestone, idx) => (
               <div key={idx} className="relative space-y-2 group">
                 <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#6C3CE3] border-2 border-[#0A0818]" />
@@ -497,7 +447,7 @@ export default function NewsroomPage() {
         </div>
       </section>
 
-      {/* FULL STORY MODAL / DIALOG */}
+      {/* FULL STORY MODAL */}
       {activeStoryModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-fadeIn">
           <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#12102A] border border-[#2A2450] p-6 sm:p-10 shadow-2xl space-y-6 text-[#EFEDFA]">
@@ -510,11 +460,11 @@ export default function NewsroomPage() {
               <X className="w-5 h-5" />
             </button>
 
-            {/* Article 1: MANIT Funding & Incubation */}
+            {/* Article 1: MANIT Funding & Incubation (8 May 2026) */}
             {activeStoryModal === "funding" && (
               <article className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                  <span>PRESS RELEASE • 16 APRIL 2026</span>
+                  <span>PRESS RELEASE • 08 MAY 2026</span>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight">
@@ -571,7 +521,7 @@ export default function NewsroomPage() {
               </article>
             )}
 
-            {/* Article 2: Incorporation */}
+            {/* Article 2: Incorporation (21 October 2026) */}
             {activeStoryModal === "incorporation" && (
               <article className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#6C3CE3]/30 text-purple-200 border border-[#6C3CE3]/40">
