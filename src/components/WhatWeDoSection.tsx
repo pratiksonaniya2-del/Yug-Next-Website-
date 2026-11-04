@@ -28,6 +28,9 @@ const SERVICES = [
     sampleTitle: "Modern K-12 Institutional Platform",
     testimonial: "YugNext transformed our admission inquiries into an automated, error-free system. — Principal Sharma",
     link: "/services",
+    bgPattern: "from-blue-900/40 via-indigo-950/60 to-[#0e1630]",
+    accentGlow: "bg-blue-500/20",
+    bgImage: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "photostudios",
@@ -38,6 +41,9 @@ const SERVICES = [
     sampleTitle: "LensCraft Studio Showcase",
     testimonial: "Our clients love the instant proofing galleries and booking interface. — Arjun Verma",
     link: "/services",
+    bgPattern: "from-blue-950/50 via-slate-900/60 to-[#09152e]",
+    accentGlow: "bg-cyan-500/20",
+    bgImage: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "restaurants",
@@ -48,6 +54,9 @@ const SERVICES = [
     sampleTitle: "Artisan Bistro Experience",
     testimonial: "Table bookings doubled within 30 days of launching our new site. — Chef Priya M.",
     link: "/services",
+    bgPattern: "from-blue-900/50 via-indigo-950/60 to-[#0c1836]",
+    accentGlow: "bg-blue-600/20",
+    bgImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "coaching",
@@ -58,6 +67,9 @@ const SERVICES = [
     sampleTitle: "Apex Academy Online Hub",
     testimonial: "Managing 1,200+ students across batches became effortless. — Prof. R. Sen",
     link: "/services",
+    bgPattern: "from-sky-950/60 via-blue-950/60 to-[#0a1738]",
+    accentGlow: "bg-sky-500/20",
+    bgImage: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "societies",
@@ -68,6 +80,9 @@ const SERVICES = [
     sampleTitle: "MANIT Bhopal Tech Fest Portal",
     testimonial: "Handled 5,000+ registrations flawlessly during our annual tech symposium. — Core Committee, MANIT",
     link: "/services",
+    bgPattern: "from-blue-950/60 via-indigo-900/50 to-[#0d173b]",
+    accentGlow: "bg-indigo-500/20",
+    bgImage: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "gym",
@@ -78,6 +93,9 @@ const SERVICES = [
     sampleTitle: "Pulse Fitness Club Hub",
     testimonial: "Renewals and signups skyrocketed with automated member alerts. — Kabir Singh, Pulse Gym",
     link: "/services",
+    bgPattern: "from-slate-900/60 via-blue-950/60 to-[#09142b]",
+    accentGlow: "bg-blue-400/20",
+    bgImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -92,6 +110,7 @@ const PRODUCTS = [
     link: "/shikshasathi",
     isStealth: false,
     isBlurred: false,
+    bgImage: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "settler",
@@ -102,6 +121,7 @@ const PRODUCTS = [
     link: "/#contact",
     isStealth: true,
     isBlurred: true,
+    bgImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "campusneeds",
@@ -112,6 +132,7 @@ const PRODUCTS = [
     link: "/#contact",
     isStealth: true,
     isBlurred: true,
+    bgImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -187,51 +208,59 @@ export default function WhatWeDoSection() {
                 return (
                   <div
                     key={service.id}
-                    className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] shrink-0 group relative rounded-3xl p-6 sm:p-7 bg-white hover:bg-slate-50/60 border border-slate-200/90 hover:border-[#6C3CE3] shadow-lg shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#6C3CE3]/15 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between h-[420px] overflow-hidden cursor-pointer"
+                    className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] shrink-0 group relative rounded-3xl p-6 sm:p-7 bg-[#0b1329] border border-blue-900/40 hover:border-blue-500 shadow-xl shadow-blue-950/20 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between h-[420px] overflow-hidden cursor-pointer text-white"
                   >
+                    {/* Atmospheric Blue Thematic Background with Soft Overlay */}
+                    <div
+                      className="absolute inset-0 bg-cover bg-center opacity-25 group-hover:opacity-40 transition-opacity duration-700 mix-blend-luminosity scale-100 group-hover:scale-105 pointer-events-none"
+                      style={{ backgroundImage: `url(${service.bgImage})` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#0b1329]/80 via-[#0d1838]/90 to-[#070e24] pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
+
                     {/* Top Bar: Icon & Tag */}
-                    <div className="flex items-center justify-between w-full">
+                    <div className="relative z-10 flex items-center justify-between w-full">
                       {/* Icon */}
-                      <div className="w-12 h-12 rounded-2xl bg-[#6C3CE3]/10 text-[#6C3CE3] group-hover:bg-[#6C3CE3] group-hover:text-white flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] shadow-sm">
+                      <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-300 border border-blue-400/30 group-hover:bg-blue-600 group-hover:text-white flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] shadow-sm">
                         <Icon className="w-6 h-6" />
                       </div>
 
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-600 group-hover:border-[#6C3CE3]/40 group-hover:text-[#6C3CE3] transition-colors duration-500">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-blue-950/80 border border-blue-800/60 text-blue-300 group-hover:border-blue-400 group-hover:text-white transition-colors duration-500">
                         {service.tag}
                       </span>
                     </div>
 
                     {/* Middle Section: The Title glides smoothly to the LEFT on hover */}
-                    <div className="py-2 space-y-1 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
-                      <span className="text-[10px] font-mono text-slate-400 font-bold tracking-wider block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5">
+                    <div className="relative z-10 py-2 space-y-1 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
+                      <span className="text-[10px] font-mono text-blue-300/80 font-bold tracking-wider block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5">
                         0{index + 1} • SERVICE
                       </span>
 
                       {/* TITLE: Starts normally, and on hover glides smoothly to the LEFT with increased duration */}
-                      <h3 className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-[#6C3CE3] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5 leading-snug">
+                      <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-blue-300 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5 leading-snug">
                         {service.title}
                       </h3>
                     </div>
 
                     {/* Full Text Reveal: Silky-smooth opacity & slide-in ONLY for this hovered card */}
-                    <div className="max-h-0 opacity-0 group-hover:max-h-[220px] group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden space-y-2.5">
-                      <p className="text-xs text-slate-600 leading-relaxed font-light">
+                    <div className="relative z-10 max-h-0 opacity-0 group-hover:max-h-[220px] group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden space-y-2.5">
+                      <p className="text-xs text-blue-100/90 leading-relaxed font-light">
                         {service.summary}
                       </p>
 
                       {/* Sample Preview & Testimonial */}
-                      <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1">
-                        <span className="text-[10px] font-mono font-bold text-[#6C3CE3] uppercase tracking-wider block">
+                      <div className="p-3 rounded-xl bg-blue-950/60 border border-blue-800/50 text-xs space-y-1 backdrop-blur-xs">
+                        <span className="text-[10px] font-mono font-bold text-blue-300 uppercase tracking-wider block">
                           {service.sampleTitle}
                         </span>
-                        <p className="text-[11px] text-slate-700 italic font-light line-clamp-2">
+                        <p className="text-[11px] text-blue-200/90 italic font-light line-clamp-2">
                           &ldquo;{service.testimonial}&rdquo;
                         </p>
                       </div>
 
                       <Link
                         href={service.link}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#6C3CE3] hover:text-[#5b2dd4] pt-1"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-300 hover:text-white pt-1"
                       >
                         <span>View Sample &amp; Testimonial</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -239,7 +268,7 @@ export default function WhatWeDoSection() {
                     </div>
 
                     {/* Default Bottom Prompt: Fades out smoothly on hover */}
-                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400 group-hover:opacity-0 group-hover:h-0 transition-all duration-500 overflow-hidden">
+                    <div className="relative z-10 pt-3 border-t border-blue-900/50 flex items-center justify-between text-xs font-semibold text-blue-300/70 group-hover:opacity-0 group-hover:h-0 transition-all duration-500 overflow-hidden">
                       <span>Hover to explore</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
@@ -284,24 +313,32 @@ export default function WhatWeDoSection() {
               return (
                 <div
                   key={prod.id}
-                  className={`group rounded-3xl p-7 border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between relative overflow-hidden min-h-[340px] cursor-pointer shadow-lg shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#6C3CE3]/15 ${
+                  className={`group rounded-3xl p-7 border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between relative overflow-hidden min-h-[340px] cursor-pointer shadow-xl shadow-blue-950/20 hover:shadow-2xl hover:shadow-blue-500/20 text-white ${
                     prod.isStealth
-                      ? "bg-slate-50/80 hover:bg-slate-100/80 text-slate-900 border-dashed border-[#6C3CE3]/40 hover:border-[#6C3CE3]"
-                      : "bg-white hover:bg-slate-50/60 text-slate-900 border-slate-200/90 hover:border-[#6C3CE3]"
+                      ? "bg-[#0b1329] border-dashed border-blue-700/50 hover:border-blue-400"
+                      : "bg-[#0b1329] border-blue-900/40 hover:border-blue-500"
                   }`}
                 >
-                  <div className="space-y-4">
+                  {/* Atmospheric Blue Background Texture */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center opacity-25 group-hover:opacity-40 transition-opacity duration-700 mix-blend-luminosity scale-100 group-hover:scale-105 pointer-events-none"
+                    style={{ backgroundImage: `url(${prod.bgImage})` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#0b1329]/80 via-[#0d1838]/90 to-[#070e24] pointer-events-none" />
+                  <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
+
+                  <div className="relative z-10 space-y-4">
                     <div className="flex items-center justify-between">
                       <span className={`text-[10px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md ${
                         prod.isStealth
-                          ? "bg-[#6C3CE3]/10 text-[#6C3CE3] border border-[#6C3CE3]/30"
-                          : "bg-slate-100 border border-slate-200 text-[#6C3CE3]"
+                          ? "bg-blue-950/90 text-blue-300 border border-blue-700/60"
+                          : "bg-blue-950/80 border border-blue-800/60 text-blue-300"
                       }`}>
                         {prod.tag}
                       </span>
                       {prod.isStealth && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300">
-                          <Lock className="w-3 h-3" />
+                        <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-full bg-blue-950 text-amber-300 border border-amber-400/40 shadow-xs">
+                          <Lock className="w-3 h-3 text-amber-400" />
                           <span>LAUNCH SOON</span>
                         </span>
                       )}
@@ -309,10 +346,10 @@ export default function WhatWeDoSection() {
 
                     {/* Product Name: On hover slides to the LEFT with increased duration */}
                     <div className="transform transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5">
-                      <h3 className="text-2xl font-black text-slate-900 group-hover:text-[#6C3CE3] transition-colors duration-500">
+                      <h3 className="text-2xl font-black text-white group-hover:text-blue-300 transition-colors duration-500">
                         {prod.name}
                       </h3>
-                      <p className={`text-xs font-semibold mt-1 text-slate-500 ${
+                      <p className={`text-xs font-semibold mt-1 text-blue-200/80 ${
                         prod.isBlurred ? "filter blur-[4.5px] select-none opacity-60 pointer-events-none" : ""
                       }`}>
                         {prod.headline}
@@ -321,7 +358,7 @@ export default function WhatWeDoSection() {
 
                     {/* Details: On hover smoothly reveals */}
                     <div className="max-h-0 opacity-0 group-hover:max-h-[160px] group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden space-y-2">
-                      <p className={`text-xs leading-relaxed font-light text-slate-600 ${
+                      <p className={`text-xs leading-relaxed font-light text-blue-100/90 ${
                         prod.isBlurred ? "filter blur-[4.5px] select-none opacity-60 pointer-events-none" : ""
                       }`}>
                         {prod.description}
@@ -330,13 +367,13 @@ export default function WhatWeDoSection() {
                   </div>
 
                   {/* Card Action Link */}
-                  <div className="pt-6 mt-6 border-t border-slate-100">
+                  <div className="relative z-10 pt-6 mt-6 border-t border-blue-900/50">
                     <Link
                       href={prod.link}
                       className={`inline-flex items-center justify-between w-full py-2.5 px-4 rounded-xl text-xs font-bold transition-all ${
                         prod.isStealth
-                          ? "bg-[#5d35e0] hover:bg-[#4d28c8] text-white shadow-md shadow-[#5d35e0]/20"
-                          : "bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white shadow-sm shadow-[#6C3CE3]/20"
+                          ? "bg-blue-600 hover:bg-blue-500 text-white shadow-md shadow-blue-600/30"
+                          : "bg-blue-600 hover:bg-blue-500 text-white shadow-sm shadow-blue-600/30"
                       }`}
                     >
                       <span>{prod.isStealth ? "Stay Notified" : `Explore ${prod.name}`}</span>

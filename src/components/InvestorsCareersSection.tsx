@@ -112,7 +112,7 @@ export default function InvestorsCareersSection() {
                 </h3>
 
                 <p className="text-xs sm:text-sm text-[#A79FCB] leading-relaxed font-light">
-                  We seek funding and sponsorships for college societies, student chapters, technical clubs, and campus fests. In return, your brand gets <strong className="text-white">unrivaled campus-wide publicity, direct student brand outreach, and high-trust visibility</strong> across leading university campuses.
+                  We help NGOs, societies, and event organizers secure funding and sponsorships for the initiatives we support through our services. In return, your brand gains <strong className="text-white">high-impact publicity, direct access to students and entrepreneurs, and credible visibility</strong> across educational institutions and business networks.
                 </p>
 
                 {/* Community Sponsorship Highlights */}
@@ -130,10 +130,10 @@ export default function InvestorsCareersSection() {
                   <div className="p-3.5 rounded-xl bg-[#181534] border border-[#2A2450] space-y-1">
                     <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                       <GraduationCap className="w-4 h-4 text-indigo-400" />
-                      <span>Societies &amp; Tech Fests</span>
+                      <span>Societies &amp; Events</span>
                     </div>
                     <p className="text-[11px] text-[#A79FCB]">
-                      Direct sponsorship channel for student clubs and symposiums.
+                      Direct sponsorship channel for student clubs and events.
                     </p>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ export default function InvestorsCareersSection() {
                   href="/community"
                   className="inline-flex items-center justify-between w-full py-3.5 px-6 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#6C3CE3]/25 transition-all cursor-pointer"
                 >
-                  <span>Sponsor Campus Societies →</span>
+                  <span>Sponsor Societies &amp; Events →</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

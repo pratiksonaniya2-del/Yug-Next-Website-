@@ -225,7 +225,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
           {/* Institutional Delivery Network Copy */}
           <span className="text-xs sm:text-sm text-[#A79FCB] font-medium">
-            Strategic Delivery Network: <span className="text-[#9B7BF0] font-extrabold">CHENNAI · BHOPAL · AGRA</span> • Alliances with <span className="font-bold text-white">ROLTA, MANIT &amp; Nexan</span>
+            Delivery Network: <span className="text-[#9B7BF0] font-extrabold">CHENNAI · BHOPAL · AGRA</span> • Alliances with <span className="font-bold text-white">ROLTA, MANIT &amp; Nexan</span>
           </span>
         </motion.div>
 
