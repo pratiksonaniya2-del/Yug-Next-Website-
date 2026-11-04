@@ -192,42 +192,8 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </Link>
         </motion.div>
 
-        {/* Social Proof / Verified Trust Badge */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-wrap items-center justify-center gap-3 pt-1 pb-4"
-        >
-          {/* Overlapping Institutional & Partner Badges */}
-          <div className="flex -space-x-2.5">
-            {[
-              "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
-              "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80",
-              "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80",
-              "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80",
-            ].map((src, i) => (
-              <img
-                key={i}
-                src={src}
-                alt="Partner community"
-                className="w-8 h-8 rounded-full border-2 border-[#0A0818] object-cover shadow-sm"
-              />
-            ))}
-          </div>
+        {/* Social Proof / Verified Trust Badge removed */}
 
-          {/* 5 Golden Stars */}
-          <div className="flex items-center gap-0.5">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-            ))}
-          </div>
-
-          {/* Institutional Delivery Network Copy */}
-          <span className="text-xs sm:text-sm text-[#A79FCB] font-medium">
-            Delivery Network: <span className="text-[#9B7BF0] font-extrabold">CHENNAI · BHOPAL · AGRA</span> • Alliances with <span className="font-bold text-white">ROLTA, MANIT &amp; Nexan</span>
-          </span>
-        </motion.div>
 
       </div>
 

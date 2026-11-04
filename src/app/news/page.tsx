@@ -150,10 +150,10 @@ export default function NewsroomPage() {
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                       PRIVATE LIMITED
                     </span>
-                    <span className="text-[#C4B5FD] font-mono">CIN / MCA Registered</span>
+                    <span className="text-[#C4B5FD] font-mono">Agra • Bhopal</span>
                   </div>
                   <p className="text-xs text-purple-200/90 leading-relaxed font-sans">
-                    Official Announcement: Transitioning from campus venture to a legally incorporated entity driving enterprise software, educational solutions, and practical digital innovation.
+                    Official Incorporation Announcement: YUGNEXT has officially been incorporated as YUGNEXT PRIVATE LIMITED, marking its transition from campus innovation to a formally registered corporate entity.
                   </p>
                 </div>
 
@@ -179,17 +179,17 @@ export default function NewsroomPage() {
                   </h3>
 
                   <p className="text-[#A79FCB] text-sm sm:text-base leading-relaxed">
-                    A major milestone marking YUGNEXT&apos;s transition into a formally registered corporate entity. With incorporation, YUGNEXT accelerates investments into school technology ecosystems, high-impact community platforms, and scalable digital solutions.
+                    A major milestone marking YUGNEXT&apos;s transition into a formally registered corporate entity. Founded by young entrepreneur Harsh Rathore, the company aims to build an ecosystem of affordable, accessible, and innovative technology solutions.
                   </p>
 
                   <div className="pt-2 space-y-2 text-xs text-purple-200/80">
                     <div className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#6C3CE3]" />
-                      <span>Formal corporate governance &amp; expansion framework</span>
+                      <span>Registered Office in Agra, UP &amp; Corporate Office in Bhopal, MP</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-[#6C3CE3]" />
-                      <span>Structured capital deployment for EdTech &amp; Web Services</span>
+                      <span>Led by Harsh Rathore as Director and Chief Executive Officer (CEO)</span>
                     </div>
                   </div>
                 </div>
@@ -242,7 +242,7 @@ export default function NewsroomPage() {
                     <span className="text-[11px] font-mono text-emerald-200/80">16 April 2026</span>
                   </div>
                   <div>
-                    <div className="text-xl font-black text-white">₹50,000 Grant</div>
+                    <div className="text-xl font-black text-white">₹50,000 Funding</div>
                     <div className="text-xs font-mono text-emerald-300">MANIT ROLTA Incubation Centre</div>
                   </div>
                   <div className="flex items-center gap-2 text-[11px] text-emerald-200/70">
@@ -261,7 +261,7 @@ export default function NewsroomPage() {
                   </h3>
 
                   <p className="text-[#A79FCB] text-xs sm:text-sm leading-relaxed line-clamp-3">
-                    YUGNEXT achieves its first major startup milestone with ₹50,000 funding and incubation support from MANIT ROLTA Incubation Centre, paving the way for affordable school digitalization.
+                    YUGNEXT achieves its first major startup milestone with ₹50,000 funding and incubation support from MANIT ROLTA Incubation Centre.
                   </p>
                 </div>
               </div>
@@ -291,12 +291,12 @@ export default function NewsroomPage() {
                     <span className="text-[11px] font-mono text-purple-200/80">21 October 2026</span>
                   </div>
                   <div>
-                    <div className="text-xl font-black text-white">Private Limited</div>
-                    <div className="text-xs font-mono text-purple-300">YUGNEXT Officially Incorporated</div>
+                    <div className="text-xl font-black text-white">YUGNEXT PRIVATE LIMITED</div>
+                    <div className="text-xs font-mono text-purple-300">Officially Incorporated</div>
                   </div>
                   <div className="flex items-center gap-2 text-[11px] text-purple-200/70">
                     <Building2 className="w-3.5 h-3.5 text-[#9B7BF0]" />
-                    <span>Formal Corporate Entity</span>
+                    <span>Agra (Registered) • Bhopal (Corporate)</span>
                   </div>
                 </div>
 
@@ -310,7 +310,7 @@ export default function NewsroomPage() {
                   </h3>
 
                   <p className="text-[#A79FCB] text-xs sm:text-sm leading-relaxed line-clamp-3">
-                    YUGNEXT officially becomes a Private Limited Company, marking a new chapter in its entrepreneurial journey and accelerating delivery across educational and enterprise web solutions.
+                    YUGNEXT officially becomes a Private Limited Company, marking a new chapter in its entrepreneurial journey.
                   </p>
                 </div>
               </div>
@@ -326,7 +326,7 @@ export default function NewsroomPage() {
               </div>
             </div>
 
-            {/* News Card 3 – Ecosystem Expansion */}
+            {/* News Card 3 – Incubation Acceleration */}
             <div className="rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-blue-500/50 transition-all duration-300 flex flex-col justify-between p-7 shadow-xl group relative overflow-hidden md:col-span-2 lg:col-span-1">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
               
@@ -391,7 +391,7 @@ export default function NewsroomPage() {
               Our Journey So Far
             </h2>
             <p className="text-[#A79FCB] text-base max-w-2xl">
-              From our initial pitch to institutional incubation and official corporate incorporation.
+              A horizontal timeline on desktop and vertical timeline on mobile.
             </p>
           </div>
 
@@ -481,7 +481,7 @@ export default function NewsroomPage() {
               className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#0077B5] hover:bg-[#006097] text-white font-bold text-sm shadow-lg shadow-[#0077B5]/25 hover:shadow-xl transition-all cursor-pointer"
             >
               <LinkedInIcon className="w-5 h-5 fill-current" />
-              <span>Follow on LinkedIn</span>
+              <span>LinkedIn</span>
             </a>
 
             <a
@@ -491,7 +491,7 @@ export default function NewsroomPage() {
               className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF] hover:opacity-95 text-white font-bold text-sm shadow-lg shadow-[#DD2A7B]/25 hover:shadow-xl transition-all cursor-pointer"
             >
               <InstagramIcon className="w-5 h-5" />
-              <span>Follow on Instagram</span>
+              <span>Instagram</span>
             </a>
           </div>
         </div>
@@ -510,15 +510,16 @@ export default function NewsroomPage() {
               <X className="w-5 h-5" />
             </button>
 
+            {/* Article 1: MANIT Funding & Incubation */}
             {activeStoryModal === "funding" && (
-              <div className="space-y-6">
+              <article className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                   <span>PRESS RELEASE • 16 APRIL 2026</span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+                <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight">
                   YUGNEXT Secures ₹50,000 Funding and Gets Incubated at MANIT ROLTA Incubation Centre with Its EdTech Initiative, VidyaSetu
-                </h3>
+                </h2>
 
                 <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
                   <MapPin className="w-3.5 h-3.5" />
@@ -567,41 +568,53 @@ export default function NewsroomPage() {
                     Close Story
                   </button>
                 </div>
-              </div>
+              </article>
             )}
 
+            {/* Article 2: Incorporation */}
             {activeStoryModal === "incorporation" && (
-              <div className="space-y-6">
+              <article className="space-y-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#6C3CE3]/30 text-purple-200 border border-[#6C3CE3]/40">
-                  <span>CORPORATE ANNOUNCEMENT • 21 OCTOBER 2026</span>
+                  <span>OFFICIAL ANNOUNCEMENT • 21 OCTOBER 2026</span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+                <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight">
                   From Campus Startup to Corporate Entity: YUGNEXT Officially Incorporated as a Private Limited Company
-                </h3>
+                </h2>
+
+                <div className="flex items-center gap-2 text-xs font-mono text-[#A78BFA]">
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>Agra / Bhopal</span>
+                </div>
 
                 <div className="prose prose-invert max-w-none text-[#C4B5FD]/90 space-y-4 text-sm sm:text-base leading-relaxed">
                   <p>
-                    <strong className="text-white">Bhopal / NCR:</strong> YUGNEXT has officially announced its transition into a registered corporate entity with the incorporation of <strong className="text-white">YUGNEXT PRIVATE LIMITED</strong>.
+                    <strong className="text-white">Agra/Bhopal, 21 October 2026:</strong> In a major milestone for its entrepreneurial journey, <strong className="text-white">YUGNEXT has officially been incorporated as YUGNEXT PRIVATE LIMITED</strong>, marking its transition into a formally registered company. Founded by young entrepreneur <strong className="text-white">Harsh Rathore</strong>, the company aims to build an ecosystem of affordable, accessible, and innovative technology solutions.
                   </p>
 
                   <p>
-                    What began as an ambitious student-led innovation cohort addressing digital transformation in schools and community platforms has now achieved formal corporate standing under the Ministry of Corporate Affairs (MCA), Government of India.
+                    The company has established its <strong className="text-white">registered office in Agra, Uttar Pradesh, and corporate office in Bhopal, Madhya Pradesh</strong>, creating an operational presence across two important cities. Harsh Rathore will lead the organisation as its <strong className="text-white">Director and Chief Executive Officer (CEO)</strong>.
                   </p>
 
                   <p>
-                    This milestone formalizes YUGNEXT&apos;s operations across high-velocity verticals:
+                    What began as an entrepreneurial initiative driven by the vision of making technology accessible has now evolved into a registered corporate venture. YUGNEXT&apos;s journey gained early momentum through its first initiative, <strong className="text-white">VidyaSetu</strong>, an EdTech solution designed to digitally empower rural and semi-urban schools through affordable school ERP systems, websites, mobile applications, and integrated digital services.
                   </p>
-
-                  <ul className="list-disc pl-5 space-y-1.5 text-white/90">
-                    <li><strong className="text-white">VidyaSetu / ShikshaSathi:</strong> Scalable ERP and digital learning portals engineered for accessible school transformation.</li>
-                    <li><strong className="text-white">Enterprise &amp; Institutional Web Platforms:</strong> Precision digital presence, modern portals, and secure cloud setups.</li>
-                    <li><strong className="text-white">Community &amp; Campus Ecosystems:</strong> Facilitating high-impact outreach, sponsorships, and technical student initiatives.</li>
-                  </ul>
 
                   <p>
-                    With official incorporation, YUGNEXT will expand its strategic delivery hubs across Bhopal, Agra, and NCR, while continuing to incubate out of the MANIT ROLTA Incubation Centre.
+                    VidyaSetu received <strong className="text-white">₹50,000 in funding and incubation support from the MANIT ROLTA Incubation Centre, Maulana Azad National Institute of Technology (MANIT), Bhopal</strong>. The initiative reflected the company&apos;s commitment to addressing the technology gap in underserved educational institutions by prioritising affordability, simplicity, and ease of adoption.
                   </p>
+
+                  <p>
+                    With its formal incorporation, YUGNEXT is now positioned to expand beyond its initial initiative and explore opportunities across multiple technology-driven domains. The company aims to work at the intersection of software development, digital transformation, product innovation, and emerging technologies while creating opportunities for young professionals and student talent.
+                  </p>
+
+                  <p>
+                    The incorporation represents more than a legal milestone; it marks the beginning of a new phase of institutional growth, business development, and long-term expansion. With its roots in the student startup ecosystem and ambitions extending beyond it, YUGNEXT seeks to establish itself as a technology company capable of turning practical ideas into scalable solutions.
+                  </p>
+
+                  <div className="p-4 rounded-xl bg-purple-900/20 border border-purple-500/30 text-white font-medium italic">
+                    &ldquo;From an idea nurtured in the campus ecosystem to an incorporated company, YUGNEXT takes its next step towards building technology for the next generation.&rdquo;
+                  </div>
                 </div>
 
                 <div className="pt-4 border-t border-[#2A2450] flex justify-end">
@@ -612,7 +625,7 @@ export default function NewsroomPage() {
                     Close Story
                   </button>
                 </div>
-              </div>
+              </article>
             )}
 
           </div>
