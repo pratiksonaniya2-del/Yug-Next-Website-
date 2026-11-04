@@ -35,7 +35,7 @@ const SEARCH_DATABASE: { title: string; category: string; targetUrl: string; des
   { title: "ShikshaSathi", category: "Products", targetUrl: "/shikshasathi", desc: "Technology built around making education more connected, accessible and useful." },
   { title: "CampusNeeds (Logistics)", category: "Products", targetUrl: "/#what-we-do", desc: "A digital approach to simplifying everyday logistics across campus ecosystems." },
   { title: "Settler (Finance)", category: "Products", targetUrl: "/#what-we-do", desc: "Solving practical relocation & housing challenges through technology." },
-  { title: "Delivery Network (Chennai · Bhopal · Agra)", category: "Network", targetUrl: "/#reach", desc: "Strategic delivery network spanning Chennai, Bhopal, and Agra." },
+  { title: "Delivery Network (Chennai · Bhopal · Agra)", category: "Network", targetUrl: "/#reach", desc: "Strategic delivery network spanning NCR, Bhopal, and Agra." },
   { title: "Who We Are & Strategic Alliances", category: "Company", targetUrl: "/#who-we-are", desc: "Technology with a reason to exist. ROLTA · MANIT · Nexan alliances." },
   { title: "Invest in Company", category: "Investors", targetUrl: "/#investors", desc: "Capital growth, equity participation, competitive fixed interest, and MANIT seed grant." },
   { title: "Support Community & Societies", category: "Community", targetUrl: "/#community", desc: "Funding & sponsorships for student societies in return for campus brand publicity." },
@@ -403,7 +403,7 @@ export default function Navbar({
                       GLOBAL DELIVERY NETWORK
                     </span>
                     <p className="text-[#EFEDFA] font-extrabold text-sm mt-0.5">
-                      CHENNAI · BHOPAL · AGRA
+                      NCR · BHOPAL · AGRA
                     </p>
                   </div>
 

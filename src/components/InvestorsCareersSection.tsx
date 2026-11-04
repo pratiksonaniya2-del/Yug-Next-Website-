@@ -195,7 +195,7 @@ export default function InvestorsCareersSection() {
                 },
                 {
                   title: "Cloud & Systems Architect",
-                  location: "Chennai Hub / Remote",
+                  location: "NCR Hub / Remote",
                   tag: "Cloud Ops",
                 },
                 {

@@ -273,7 +273,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
 
         {/* Bottom Sub-Strip above waves */}
         <div className="pt-4 pb-2 border-t border-purple-950/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] text-slate-500 font-mono">
-          <p>© 2026 YUGNEXT PRIVATE LIMITED · ALL RIGHTS RESERVED · MANIT BHOPAL INCUBATED</p>
+          <p>© 2026 YUGNEXT PRIVATE LIMITED · ALL RIGHTS RESERVED</p>
           <button
             onClick={scrollToTop}
             className="inline-flex items-center gap-1.5 text-purple-400 hover:text-purple-300 transition-colors cursor-pointer uppercase tracking-wider"

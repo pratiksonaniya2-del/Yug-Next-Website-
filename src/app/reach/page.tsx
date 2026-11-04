@@ -85,7 +85,7 @@ export default function ReachPage() {
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-              CHENNAI · BHOPAL · AGRA
+              NCR · BHOPAL · AGRA
             </h1>
 
             <p className="text-slate-300 text-base sm:text-xl leading-relaxed font-light">

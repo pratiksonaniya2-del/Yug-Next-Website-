@@ -28,7 +28,7 @@ export default function LeadershipPage() {
     {
       name: "Distributed Systems Engineering Team",
       role: "Platform Architecture & Cloud Infrastructure",
-      hub: "Chennai Delivery Node",
+      hub: "NCR Regional Hub",
       bio: "High-throughput backend engineering, zero-trust security compliance, and real-time database synchronizations.",
       focus: ["Cloud Platforms", "Microservices", "Scalability"],
     },

@@ -230,7 +230,7 @@ export default function ServicesPage() {
             <div>
               <span className="text-[10px] font-mono font-bold uppercase text-[#9d7df7]">READY TO DEPLOY</span>
               <h3 className="text-2xl font-black mt-1">Need a custom digital platform?</h3>
-              <p className="text-xs text-slate-300 mt-1">Our engineering teams in Chennai, Bhopal, and Agra are ready to consult.</p>
+              <p className="text-xs text-slate-300 mt-1">Our engineering teams in NCR, Bhopal, and Agra are ready to consult.</p>
             </div>
             <Link
               href="/#contact"

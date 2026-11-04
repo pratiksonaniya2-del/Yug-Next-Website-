@@ -144,7 +144,7 @@ export default function IndustriesPage() {
                   </span>
                   <h4 className="text-xl font-bold">Tailored Architecture for {ind.title}</h4>
                   <p className="text-xs text-slate-300 leading-relaxed font-light">
-                    We deploy battle-tested frameworks from our engineering nodes in Chennai, Bhopal, and Agra, adhering to strict enterprise standards.
+                    We deploy battle-tested frameworks from our engineering nodes in NCR, Bhopal, and Agra, adhering to strict enterprise standards.
                   </p>
                   <div className="pt-2">
                     <Link

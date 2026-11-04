@@ -26,7 +26,7 @@ export default function CommunityPage() {
     {
       title: "Connect.",
       lead: "Fostering partnerships between engineers, designers, founders, and institutions.",
-      details: "Regular tech mixers, AMA sessions with senior tech architects, and peer collaboration networks spanning Chennai, Bhopal, and Agra.",
+      details: "Regular tech mixers, AMA sessions with senior tech architects, and peer collaboration networks spanning NCR, Bhopal, and Agra.",
       tag: "Network Grid",
     },
     {

@@ -53,7 +53,7 @@ const PILLARS: PillarData[] = [
     bullets: [
       "Asking the difficult questions before writing the easy code.",
       "Undergraduate and alumni engineering leaders from MANIT Bhopal.",
-      "Cross-functional execution across Chennai, Bhopal, and Agra.",
+      "Cross-functional execution across NCR, Bhopal, and Agra.",
     ],
     stats: [
       { value: "10+", label: "Core Builders" },
