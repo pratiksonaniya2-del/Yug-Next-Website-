@@ -125,14 +125,19 @@ export default function CustomerStoriesPage() {
                 </div>
               </div>
 
-              {/* Right Column: Complete Letter / Feedback Text */}
-              <div className="lg:col-span-8 space-y-6">
-                <div className="w-12 h-12 rounded-2xl bg-[#6C3CE3]/20 text-[#9B7BF0] flex items-center justify-center">
-                  <Quote className="w-6 h-6" />
+              {/* Right Column: Letter in Clean White Background with crisp dark text */}
+              <div className="lg:col-span-8 rounded-2xl bg-white text-slate-900 p-6 sm:p-10 shadow-xl border border-slate-200 space-y-6">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+                  <div className="w-10 h-10 rounded-xl bg-purple-50 text-[#5d35e0] flex items-center justify-center font-bold">
+                    <Quote className="w-5 h-5 text-[#5d35e0]" />
+                  </div>
+                  <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
+                    Official Client Letter • 10 July 2026
+                  </span>
                 </div>
 
-                <div className="space-y-4 text-sm sm:text-base text-[#C4B5FD]/95 leading-relaxed font-sans">
-                  <p className="font-semibold text-white text-base sm:text-lg">
+                <div className="space-y-4 text-sm sm:text-base text-slate-800 leading-relaxed font-sans font-normal">
+                  <p className="font-bold text-slate-900 text-base sm:text-lg">
                     Dear Harsh Rathore Sir,
                   </p>
 
@@ -140,9 +145,9 @@ export default function CustomerStoriesPage() {
                     Thank you so much for creating the website for Nexan Academy. Your work is truly memorable to me, and I sincerely appreciate the time, effort, and dedication you put into it.
                   </p>
 
-                  <p className="p-4 rounded-xl bg-purple-950/30 border-l-4 border-[#6C3CE3] text-white font-medium">
+                  <div className="p-4 rounded-xl bg-purple-50/80 border-l-4 border-[#5d35e0] text-slate-900 font-medium">
                     &ldquo;The website looks perfect and extraordinary. It reflects professionalism and quality, and I am genuinely grateful for your support. Your contribution means a lot to me and to Nexan Academy.&rdquo;
-                  </p>
+                  </div>
 
                   <p>
                     I hope you will continue to support our academy in the future as we grow and help more students.
@@ -153,21 +158,21 @@ export default function CustomerStoriesPage() {
                   </p>
 
                   <div className="pt-2 space-y-0.5">
-                    <p className="text-white font-semibold">With gratitude,</p>
-                    <p className="text-[#9B7BF0] font-bold">Gnanaguru S.</p>
-                    <p className="text-xs text-[#A79FCB]">Founder &amp; CEO, Nexan Academy (Chennai)</p>
+                    <p className="text-slate-900 font-semibold">With gratitude,</p>
+                    <p className="text-[#5d35e0] font-bold text-base">Gnanaguru S.</p>
+                    <p className="text-xs text-slate-500 font-medium">Founder &amp; CEO, Nexan Academy (Chennai)</p>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#2A2450] flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex items-center gap-2 text-xs font-mono text-purple-300">
-                    <Award className="w-4 h-4 text-emerald-400" />
+                <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex items-center gap-2 text-xs font-mono text-slate-600 font-medium">
+                    <Award className="w-4 h-4 text-emerald-600" />
                     <span>Project Scope: Full Institutional Web Architecture &amp; UI</span>
                   </div>
 
                   <Link
                     href="/#contact"
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#6C3CE3]/30 transition-all cursor-pointer"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#5d35e0]/25 transition-all cursor-pointer"
                   >
                     <span>Request Similar Website</span>
                     <ArrowRight className="w-4 h-4" />

@@ -176,7 +176,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
                 </li>
                 <li>
                   <Link
-                    href="/news#awards"
+                    href="/news#milestones-timeline"
                     className="text-slate-400 hover:text-white transition-colors text-left block"
                   >
                     Awards &amp; Recognition
