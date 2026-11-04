@@ -563,9 +563,6 @@ export default function TcsMegaMenu({
                       <span className="text-xs font-bold text-white group-hover:text-[#9B7BF0] transition-colors block">
                         Global Delivery Network
                       </span>
-                      <span className="text-[10px] font-mono text-[#A79FCB] block">
-                        CHENNAI · BHOPAL · AGRA
-                      </span>
                     </div>
                     <ArrowRight className="w-3.5 h-3.5 text-[#A79FCB] group-hover:text-[#9B7BF0] group-hover:translate-x-1 transition-all" />
                   </Link>
@@ -887,7 +884,7 @@ export default function TcsMegaMenu({
                 <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-100 space-y-1.5">
                   <h5 className="text-sm font-extrabold text-slate-900">Cross-Disciplinary Exposure</h5>
                   <p className="text-xs text-slate-600 leading-relaxed font-light">
-                    Work across software, products, industries, and live delivery hubs in Chennai, Bhopal, and Agra.
+                    Work across software, products, industries, and live delivery hubs in NCR, Bhopal, and Agra.
                   </p>
                 </div>
 

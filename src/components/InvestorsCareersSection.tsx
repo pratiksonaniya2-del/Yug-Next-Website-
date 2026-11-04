@@ -170,7 +170,7 @@ export default function InvestorsCareersSection() {
                   Don&apos;t Just Work for the Future. <span className="text-[#9B7BF0]">Build It.</span>
                 </h3>
                 <p className="text-xs sm:text-sm text-[#A79FCB] leading-relaxed font-light">
-                  We&apos;re looking for people who don&apos;t stop at: &ldquo;That&apos;s how it&apos;s done.&rdquo; We&apos;re looking for people who ask: &ldquo;What if we did it differently?&rdquo; Join a high-velocity team of creators across Chennai, Bhopal, Agra, and Remote.
+                  We&apos;re looking for people who don&apos;t stop at: &ldquo;That&apos;s how it&apos;s done.&rdquo; We&apos;re looking for people who ask: &ldquo;What if we did it differently?&rdquo; Join a high-velocity team of creators across NCR, Bhopal, Agra, and Remote.
                 </p>
               </div>
 

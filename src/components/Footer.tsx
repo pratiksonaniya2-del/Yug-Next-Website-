@@ -2,7 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowUp, Sparkles, MapPin, CheckCircle2 } from "lucide-react";
+import { ArrowUp, Sparkles, MapPin, CheckCircle2, Phone, Mail } from "lucide-react";
+import { InstagramIcon, FacebookIcon, WhatsAppIcon } from "./SocialIcons";
 import { ModalType } from "./ContentCardModal";
 import YugNextLogo from "./YugNextLogo";
 
@@ -215,6 +216,56 @@ export default function Footer({ onOpenModal }: FooterProps) {
                 <span>CONTACT US</span>
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </Link>
+            </div>
+
+            {/* Social & Contact Channels */}
+            <div className="pt-2 space-y-2">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-[#A79FCB] block">
+                Connect With Us
+              </span>
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://wa.me/919310346182"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="WhatsApp"
+                  className="w-7 h-7 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-emerald-500/60 hover:bg-emerald-500/10 text-emerald-400 flex items-center justify-center transition-all"
+                >
+                  <WhatsAppIcon className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Instagram"
+                  className="w-7 h-7 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-pink-500/60 hover:bg-pink-500/10 text-pink-400 flex items-center justify-center transition-all"
+                >
+                  <InstagramIcon className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Facebook"
+                  className="w-7 h-7 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-blue-500/60 hover:bg-blue-500/10 text-blue-400 flex items-center justify-center transition-all"
+                >
+                  <FacebookIcon className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="tel:+919310346182"
+                  title="Call"
+                  className="w-7 h-7 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-violet-500/60 hover:bg-violet-500/10 text-violet-400 flex items-center justify-center transition-all"
+                >
+                  <Phone className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="mailto:yugnextofficial@gmail.com"
+                  title="Mail"
+                  className="w-7 h-7 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-[#9B7BF0]/60 hover:bg-[#6C3CE3]/15 text-[#9B7BF0] flex items-center justify-center transition-all"
+                >
+                  <Mail className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
 

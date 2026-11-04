@@ -9,7 +9,9 @@ import {
   CheckCircle2,
   Building,
   Sparkles,
+  MessageCircle,
 } from "lucide-react";
+import { InstagramIcon, FacebookIcon, WhatsAppIcon } from "./SocialIcons";
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -66,7 +68,9 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <span className="text-[#9B7BF0] block text-[10px] uppercase font-bold">Inquiries</span>
-                    <span className="font-semibold text-[#EFEDFA]">yugnextofficial@gmail.com</span>
+                    <a href="mailto:yugnextofficial@gmail.com" className="font-semibold text-[#EFEDFA] hover:text-[#9B7BF0] transition-colors">
+                      yugnextofficial@gmail.com
+                    </a>
                   </div>
                 </div>
 
@@ -76,7 +80,59 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <span className="text-[#9B7BF0] block text-[10px] uppercase font-bold">Helpline</span>
-                    <span className="font-semibold text-[#EFEDFA]">+91 93103 46182</span>
+                    <a href="tel:+919310346182" className="font-semibold text-[#EFEDFA] hover:text-[#9B7BF0] transition-colors">
+                      +91 93103 46182
+                    </a>
+                  </div>
+                </div>
+
+                {/* Social & Direct Contact Channels */}
+                <div className="pt-3 border-t border-[#2A2450]/80">
+                  <span className="text-[#9B7BF0] block text-[10px] uppercase font-bold mb-2">
+                    Connect Directly
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="https://wa.me/919310346182"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Chat on WhatsApp"
+                      className="w-8 h-8 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-emerald-500/60 hover:bg-emerald-500/10 text-emerald-400 flex items-center justify-center transition-all cursor-pointer"
+                    >
+                      <WhatsAppIcon className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Follow on Instagram"
+                      className="w-8 h-8 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-pink-500/60 hover:bg-pink-500/10 text-pink-400 flex items-center justify-center transition-all cursor-pointer"
+                    >
+                      <InstagramIcon className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Connect on Facebook"
+                      className="w-8 h-8 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-blue-500/60 hover:bg-blue-500/10 text-blue-400 flex items-center justify-center transition-all cursor-pointer"
+                    >
+                      <FacebookIcon className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="tel:+919310346182"
+                      title="Call Us"
+                      className="w-8 h-8 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-violet-500/60 hover:bg-violet-500/10 text-violet-400 flex items-center justify-center transition-all cursor-pointer"
+                    >
+                      <Phone className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="mailto:yugnextofficial@gmail.com"
+                      title="Send an Email"
+                      className="w-8 h-8 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-[#9B7BF0]/60 hover:bg-[#6C3CE3]/15 text-[#9B7BF0] flex items-center justify-center transition-all cursor-pointer"
+                    >
+                      <Mail className="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
               </div>
