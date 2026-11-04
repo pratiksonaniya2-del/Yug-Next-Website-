@@ -229,13 +229,15 @@ export default function InvestorsCareersSection() {
                     </p>
                   </div>
 
-                  <Link
-                    href="/careers"
-                    className="pt-2 border-t border-[#2A2450] text-[11px] font-bold text-[#9B7BF0] hover:text-white flex items-center justify-between transition-colors"
+                  <a
+                    href="https://forms.gle/nHvDnkWkEQiReFBP9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pt-2 border-t border-[#2A2450] text-[11px] font-bold text-[#9B7BF0] hover:text-white flex items-center justify-between transition-colors cursor-pointer"
                   >
                     <span>Apply for role</span>
                     <ArrowRight className="w-3 h-3 group-hover/role:translate-x-1 transition-transform" />
-                  </Link>
+                  </a>
                 </div>
               ))}
             </div>

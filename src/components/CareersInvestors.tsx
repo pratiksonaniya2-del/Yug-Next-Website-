@@ -199,7 +199,9 @@ export default function CareersInvestors() {
 
                 <div className="pt-6 mt-4 border-t border-purple-50 flex items-center justify-between">
                   <a
-                    href="#contact"
+                    href="https://forms.gle/nHvDnkWkEQiReFBP9"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-700 group-hover:translate-x-1 transition-transform"
                   >
                     <span>Apply for this role</span>

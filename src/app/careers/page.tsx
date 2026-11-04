@@ -28,6 +28,7 @@ import {
   Scale,
   X,
   FileText,
+  ExternalLink,
 } from "lucide-react";
 
 interface RoleTask {
@@ -307,12 +308,15 @@ export default function CareersPage() {
                 <span>Browse Open Positions</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <Link
-                href="/#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#12102A] hover:bg-[#1A1638] text-[#C4B5FD] text-xs sm:text-sm font-semibold border border-[#2A2450] transition-all"
+              <a
+                href="https://forms.gle/nHvDnkWkEQiReFBP9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#12102A] hover:bg-[#1A1638] text-[#C4B5FD] text-xs sm:text-sm font-semibold border border-[#2A2450] transition-all cursor-pointer"
               >
                 <span>Direct Application</span>
-              </Link>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
         </div>
@@ -421,13 +425,15 @@ export default function CareersPage() {
                       <span>View Tasks</span>
                     </button>
 
-                    <Link
-                      href="/#contact"
+                    <a
+                      href="https://forms.gle/nHvDnkWkEQiReFBP9"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#6C3CE3]/25 transition-all cursor-pointer whitespace-nowrap"
                     >
                       <span>Apply for this Role</span>
                       <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    </a>
                   </div>
                 </div>
               ))}
@@ -444,12 +450,14 @@ export default function CareersPage() {
               Don&apos;t see your specific expertise listed? Submit your portfolio and resume directly to our leadership team.
             </p>
             <div className="pt-2">
-              <Link
-                href="/#contact"
+              <a
+                href="https://forms.gle/nHvDnkWkEQiReFBP9"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-bold text-sm shadow-lg shadow-[#6C3CE3]/30 transition-all cursor-pointer"
               >
                 <span>Send Open Application →</span>
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -531,12 +539,14 @@ export default function CareersPage() {
                 Close
               </button>
 
-              <Link
-                href="/#contact"
-                className="px-7 py-2.5 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#6C3CE3]/25 transition-all cursor-pointer"
+              <a
+                href="https://forms.gle/nHvDnkWkEQiReFBP9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-7 py-2.5 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#6C3CE3]/25 transition-all cursor-pointer inline-flex items-center gap-1.5"
               >
-                Apply for this Position →
-              </Link>
+                <span>Apply for this Position →</span>
+              </a>
             </div>
 
           </div>
