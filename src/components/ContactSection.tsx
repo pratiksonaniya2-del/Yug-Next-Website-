@@ -150,7 +150,7 @@ export default function ContactSection() {
                 </div>
                 <div className="p-3 rounded-xl bg-[#181534] border border-[#2A2450]">
                   <span className="font-bold text-[#EFEDFA] block">Chennai Hub</span>
-                  <span className="text-[#A79FCB] text-[11px]">Coaching Website delivered &amp; Cloud Lab</span>
+                  <span className="text-[#A79FCB] text-[11px]">Coaching Website delivered</span>
                 </div>
                 <div className="p-3 rounded-xl bg-[#181534] border border-[#2A2450]">
                   <span className="font-bold text-[#EFEDFA] block">Delhi NCR</span>

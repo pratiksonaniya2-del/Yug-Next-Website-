@@ -214,7 +214,7 @@ export default function CareersPage() {
       location: "Bhopal / Remote",
       workHours: "Flexible Hours",
       description: "Edit punchy promotional videos, product demo reels, student interviews, and social reels.",
-      skills: ["Video Editing", "Premiere Pro / Final Cut", "After Effects", "Reels/Shorts"],
+      skills: ["Video Editing", "Any video editing software", "Reels/Shorts"],
       tasks: [
         "Edit high-retention short-form videos for Instagram Reels and YouTube Shorts.",
         "Produce polished product walkthroughs, keynote highlights, and corporate announcements.",
@@ -227,16 +227,15 @@ export default function CareersPage() {
       title: "Photographer & Videographer",
       location: "Bhopal / Remote",
       workHours: "Flexible Hours",
-      description: "Capture live campus events, institutional demos, founder keynotes, and high-resolution media.",
+      description: "Capture live campus events, institutional demos, founder keynotes, and high-resolution media. Shot videos for promotional reels.",
       skills: ["Photography", "Cinematography", "Lighting & Sound", "Field Production"],
       tasks: [
         "Direct and film on-ground footage at hackathons, college partner hubs, and incubation events.",
+        "Shoot and produce high-impact videos for promotional reels and campus launches.",
         "Capture professional portraits, behind-the-scenes moments, and documentary-style visual assets.",
         "Manage cameras, lenses, microphones, and lighting equipment on location.",
       ],
     },
-
-    // 3. SALES & FUNDING
     {
       category: "Sales & Funding",
       department: "Sales & Funding",
@@ -252,21 +251,19 @@ export default function CareersPage() {
         "Conduct live solution demos and manage end-to-end deal negotiations through closing.",
       ],
     },
-
-    // 4. LEGAL & FINANCE
     {
       category: "Legal & Finance",
       department: "Legal & Finance",
       title: "Legal & Finance Executive",
       location: "Bhopal / Remote",
       workHours: "Flexible Hours",
-      description: "Manage statutory compliances, vendor contracts, corporate ROC filings, accounting, and fiscal planning.",
-      skills: ["Corporate Compliance", "ROC & MCA Filings", "Contract Review", "Financial Auditing"],
+      description: "Manage business laws, legal compliance, finance, contracts, and stay updated with current affairs.",
+      skills: ["Business Laws & finance", "Contracts", "Current awareness"],
       tasks: [
-        "Ensure statutory adherence with Ministry of Corporate Affairs (MCA) and ROC guidelines.",
-        "Draft, review, and maintain client master service agreements (MSAs), NDAs, and vendor contracts.",
-        "Oversee bookkeeping, invoicing, tax compliance (GST / TDS), and grant utilization statements.",
-        "Support financial forecasting and due-diligence data rooms for investor discussions.",
+        "Manage business laws, corporate legal compliance, and regulatory governance.",
+        "Draft, review, and maintain client master service agreements (MSAs), contracts, and NDAs.",
+        "Oversee corporate finance, bookkeeping, invoicing, tax compliance, and fiscal statements.",
+        "Stay proactively updated with current legal affairs, commercial regulations, and policy amendments.",
       ],
     },
   ];
@@ -394,34 +391,34 @@ export default function CareersPage() {
               </div>
             </div>
 
-            {/* List of Roles */}
+            {/* List of Roles: Clean White Background Cards */}
             <div className="space-y-4">
               {filteredRoles.map((role) => (
                 <div
                   key={role.title}
-                  className="p-6 sm:p-7 rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-[#6C3CE3]/60 hover:bg-[#161234] hover:shadow-xl transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-6 group"
+                  className="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 hover:border-[#6C3CE3] hover:shadow-xl hover:shadow-[#6C3CE3]/10 transition-all flex flex-col lg:flex-row lg:items-center justify-between gap-6 group"
                 >
                   <div className="space-y-3 max-w-3xl">
-                    {/* Header Badges: Category pill, Location (Bhopal / Remote), Work Hours (Flexible Hours) */}
+                    {/* Header Badges: Category pill, Location, Work Hours */}
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-[10px] font-mono font-bold uppercase px-3 py-1 rounded-full bg-[#6C3CE3]/20 text-[#A78BFA] border border-[#6C3CE3]/30">
+                      <span className="text-[10px] font-mono font-bold uppercase px-3 py-1 rounded-full bg-purple-100 text-[#5d35e0] border border-purple-200">
                         {role.category}
                       </span>
-                      <span className="text-[11px] font-mono text-[#C4B5FD] flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#181534] border border-[#2A2450]">
-                        <MapPin className="w-3.5 h-3.5 text-[#9B7BF0]" />
+                      <span className="text-[11px] font-mono text-slate-700 flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200">
+                        <MapPin className="w-3.5 h-3.5 text-[#5d35e0]" />
                         <span>{role.location}</span>
                       </span>
-                      <span className="text-[11px] font-mono text-emerald-300 flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25">
-                        <Clock className="w-3.5 h-3.5 text-emerald-400" />
+                      <span className="text-[11px] font-mono text-emerald-700 flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 font-semibold">
+                        <Clock className="w-3.5 h-3.5 text-emerald-600" />
                         <span>{role.workHours}</span>
                       </span>
                     </div>
 
-                    <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-[#C4B5FD] transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-[#5d35e0] transition-colors">
                       {role.title}
                     </h3>
                     
-                    <p className="text-xs sm:text-sm text-[#A79FCB] leading-relaxed font-light">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                       {role.description}
                     </p>
 
@@ -430,7 +427,7 @@ export default function CareersPage() {
                       {role.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-[#181534] border border-[#2A2450] text-purple-200"
+                          className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-medium"
                         >
                           {skill}
                         </span>
@@ -442,9 +439,9 @@ export default function CareersPage() {
                   <div className="shrink-0 flex flex-wrap sm:flex-nowrap items-center gap-3 pt-2 lg:pt-0">
                     <button
                       onClick={() => setSelectedTaskRole(role)}
-                      className="px-5 py-2.5 rounded-full bg-[#181534] hover:bg-[#201c46] text-[#C4B5FD] hover:text-white text-xs sm:text-sm font-bold border border-[#2A2450] hover:border-[#6C3CE3]/50 transition-all cursor-pointer flex items-center gap-1.5"
+                      className="px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold border border-slate-200 hover:border-[#6C3CE3]/50 transition-all cursor-pointer flex items-center gap-1.5"
                     >
-                      <FileText className="w-3.5 h-3.5 text-[#9B7BF0]" />
+                      <FileText className="w-3.5 h-3.5 text-[#5d35e0]" />
                       <span>View Tasks</span>
                     </button>
 
