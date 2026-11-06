@@ -114,10 +114,10 @@ export default function CommunityPage() {
           {/* Societies Sponsorship & Campus Brand Publicity */}
           <div className="p-8 sm:p-12 rounded-3xl bg-[#0e0738] text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-purple-900/40">
             <div className="space-y-3 max-w-xl text-center md:text-left">
-              <span className="text-xs font-mono font-bold uppercase text-[#9d7df7]">CAMPUS SPONSORSHIP</span>
-              <h3 className="text-2xl sm:text-3xl font-black">Support Student Societies</h3>
+              <span className="text-xs font-mono font-bold uppercase text-[#9d7df7]">SOCIETIES &amp; BRAND SPONSORSHIP</span>
+              <h3 className="text-2xl sm:text-3xl font-black">Support Community</h3>
               <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-                We seek sponsorships and funding for college societies, technical clubs, and campus symposiums. In return, your organization receives massive on-ground brand publicity, direct student outreach, and institutional visibility across top university campuses.
+                We help NGOs, societies, and event organizers secure funding and sponsorships for the initiatives we support through our services. In return, your brand gains <strong className="text-white">high-impact publicity, direct access to students and entrepreneurs, and credible visibility</strong> across educational institutions and business networks.
               </p>
             </div>
 
@@ -126,7 +126,7 @@ export default function CommunityPage() {
                 href="/#contact"
                 className="px-8 py-3.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs sm:text-sm font-bold text-center shadow-md shadow-[#5d35e0]/25 transition-all cursor-pointer whitespace-nowrap"
               >
-                Sponsor Campus Societies →
+                Sponsor Campus Societies &amp; Events →
               </Link>
             </div>
           </div>

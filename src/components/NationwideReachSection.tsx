@@ -19,27 +19,27 @@ const HUBS: NodeInfo[] = [
   {
     city: "BHOPAL",
     state: "Madhya Pradesh",
-    role: "Corporate HQ & Incubation Center",
+    role: "ROLTA Incubation Centre",
     description: "Incubated and seed-funded by MANIT Bhopal innovation cell. Core operations, product governance, and institutional collaboration hub.",
-    tags: ["Corporate HQ", "MANIT Incubation", "Govt. Alliances"],
+    tags: [],
     x: 212,
     y: 330,
   },
   {
     city: "AGRA",
     state: "Uttar Pradesh",
-    role: "Enterprise Solutions & Scaled Delivery",
-    description: "Regional development node, rapid prototyping, and scalable software rollout across Northern commercial corridors.",
-    tags: ["Enterprise Delivery", "Regional Operations", "Rapid Scaling"],
+    role: "Registered Office",
+    description: "Registered office & regional node.",
+    tags: [],
     x: 198,
     y: 232,
   },
   {
     city: "CHENNAI",
     state: "Tamil Nadu",
-    role: "Deep Tech & Engineering Node",
-    description: "High-throughput cloud architecture, digital experience platforms, and distributed systems delivery node.",
-    tags: ["Core Engineering", "Platform Dev", "Cloud Infra"],
+    role: "Service available",
+    description: "Gave website to coaching institutes",
+    tags: [],
     x: 247,
     y: 568,
   },
@@ -106,13 +106,15 @@ export default function NationwideReachSection() {
                       {hub.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-1.5 mt-3">
-                      {hub.tags.map((tag) => (
-                        <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-[#181534] border border-[#2A2450] text-[#EFEDFA]">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                    {hub.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mt-3">
+                        {hub.tags.map((tag) => (
+                          <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-[#181534] border border-[#2A2450] text-[#EFEDFA]">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -125,7 +127,7 @@ export default function NationwideReachSection() {
                 <span className="text-[10px] font-mono uppercase text-[#A79FCB]">Strategic Hubs</span>
               </div>
               <div>
-                <span className="text-xl sm:text-2xl font-black text-[#9B7BF0] block">MANIT</span>
+                <span className="text-xl sm:text-2xl font-black text-[#9B7BF0] block">Bhopal</span>
                 <span className="text-[10px] font-mono uppercase text-[#A79FCB]">Incubated Base</span>
               </div>
               <div>

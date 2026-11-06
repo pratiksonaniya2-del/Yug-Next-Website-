@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -12,9 +12,100 @@ import {
   GraduationCap,
   Percent,
   MapPin,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 export default function InvestorsCareersSection() {
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (carouselRef.current) {
+      const scrollAmount = 320;
+      carouselRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const ALL_ROLES = [
+    // Technical
+    {
+      title: "Web Development",
+      location: "Bhopal / Remote",
+      tag: "Technical",
+    },
+    {
+      title: "App Development",
+      location: "Bhopal / Remote",
+      tag: "Technical",
+    },
+    {
+      title: "UI/UX Design",
+      location: "Bhopal / Remote",
+      tag: "Technical",
+    },
+    {
+      title: "AI/ML Design",
+      location: "Bhopal / Remote",
+      tag: "Technical",
+    },
+    {
+      title: "Product Management, QA",
+      location: "Bhopal / Remote",
+      tag: "Technical",
+    },
+    {
+      title: "DevOps & Cloud Infra",
+      location: "Bhopal / Remote",
+      tag: "Technical",
+    },
+    // Marketing
+    {
+      title: "Social Media Manager",
+      location: "Bhopal / Remote",
+      tag: "Marketing",
+    },
+    {
+      title: "Public Relations Executive",
+      location: "Bhopal / Remote",
+      tag: "Marketing",
+    },
+    {
+      title: "Content Writer",
+      location: "Bhopal / Remote",
+      tag: "Marketing",
+    },
+    {
+      title: "Graphic Designer",
+      location: "Bhopal / Remote",
+      tag: "Marketing",
+    },
+    {
+      title: "Video Editor",
+      location: "Bhopal / Remote",
+      tag: "Marketing",
+    },
+    {
+      title: "Photographer & Videographer",
+      location: "Bhopal / Remote",
+      tag: "Marketing",
+    },
+    // Sales & Funding
+    {
+      title: "Sales & Funding Executive",
+      location: "Bhopal / Remote",
+      tag: "Sales & Funding",
+    },
+    // Legal & Finance
+    {
+      title: "Legal & Finance Executive",
+      location: "Bhopal / Remote",
+      tag: "Legal & Finance",
+    },
+  ];
+
   return (
     <section className="py-20 bg-[#0A0818] text-[#EFEDFA] relative border-t border-[#2A2450] overflow-hidden">
       {/* Background ambient lighting */}
@@ -141,10 +232,10 @@ export default function InvestorsCareersSection() {
 
               <div className="pt-4 border-t border-[#2A2450]">
                 <Link
-                  href="/community"
+                  href="/#contact"
                   className="inline-flex items-center justify-between w-full py-3.5 px-6 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#6C3CE3]/25 transition-all cursor-pointer"
                 >
-                  <span>Sponsor Societies &amp; Events →</span>
+                  <span>Sponsor Campus Societies &amp; Events →</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -153,7 +244,7 @@ export default function InvestorsCareersSection() {
           </div>
         </div>
 
-        {/* ================= 2. MIDDLE CONTAINER: CAREERS (INDEPENDENT FULL-WIDTH SECTION) ================= */}
+        {/* ================= 2. MIDDLE CONTAINER: CAREERS (WITH ALL ROLES & CAROUSEL NAVIGATION) ================= */}
         <div id="careers" className="rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-[#12102A] via-[#161236] to-[#12102A] border border-[#2A2450] shadow-2xl relative overflow-hidden group hover:border-[#6C3CE3]/60 transition-all">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#6C3CE3]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -174,7 +265,25 @@ export default function InvestorsCareersSection() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-3">
+              {/* Action Buttons & Carousel Arrows */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 mr-2">
+                  <button
+                    onClick={() => scroll("left")}
+                    aria-label="Previous roles"
+                    className="w-10 h-10 rounded-full bg-[#181534] hover:bg-[#201c46] border border-[#2A2450] hover:border-[#6C3CE3]/60 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
+                  >
+                    <ChevronLeft className="w-5 h-5 text-[#9B7BF0]" />
+                  </button>
+                  <button
+                    onClick={() => scroll("right")}
+                    aria-label="Next roles"
+                    className="w-10 h-10 rounded-full bg-[#181534] hover:bg-[#201c46] border border-[#2A2450] hover:border-[#6C3CE3]/60 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
+                  >
+                    <ChevronRight className="w-5 h-5 text-[#9B7BF0]" />
+                  </button>
+                </div>
+
                 <Link
                   href="/careers"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#6C3CE3]/25 transition-all cursor-pointer whitespace-nowrap"
@@ -185,42 +294,25 @@ export default function InvestorsCareersSection() {
               </div>
             </div>
 
-            {/* 4 Open Roles Matrix */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                {
-                  title: "Full-Stack Software Engineer",
-                  location: "Bhopal HQ / Hybrid",
-                  tag: "Engineering",
-                },
-                {
-                  title: "Cloud & Systems Architect",
-                  location: "NCR Hub / Remote",
-                  tag: "Cloud Ops",
-                },
-                {
-                  title: "Campus Lead & Growth Associate",
-                  location: "MANIT Bhopal & NCR",
-                  tag: "Campus",
-                },
-                {
-                  title: "Product UI/UX Architect",
-                  location: "Agra Innovation Lab",
-                  tag: "Design",
-                },
-              ].map((role) => (
+            {/* Scrollable Roles Carousel with left-right navigation */}
+            <div
+              ref={carouselRef}
+              className="flex gap-4 overflow-x-auto pb-4 scroll-smooth no-scrollbar"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              {ALL_ROLES.map((role) => (
                 <div
                   key={role.title}
-                  className="p-5 rounded-2xl bg-[#181534] border border-[#2A2450] hover:border-[#6C3CE3] hover:bg-[#1E1942] transition-all flex flex-col justify-between space-y-3 group/role"
+                  className="w-[280px] sm:w-[300px] shrink-0 p-5 rounded-2xl bg-[#181534] border border-[#2A2450] hover:border-[#6C3CE3] hover:bg-[#1E1942] transition-all flex flex-col justify-between space-y-4 group/role"
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono font-bold uppercase text-[#9B7BF0] px-2 py-0.5 rounded bg-[#6C3CE3]/15 border border-[#6C3CE3]/30">
+                      <span className="text-[10px] font-mono font-bold uppercase text-[#9B7BF0] px-2.5 py-0.5 rounded-full bg-[#6C3CE3]/15 border border-[#6C3CE3]/30">
                         {role.tag}
                       </span>
                       <span className="text-[10px] text-emerald-400 font-mono font-bold">HIRING</span>
                     </div>
-                    <h4 className="text-sm font-bold text-white group-hover/role:text-[#9B7BF0] transition-colors leading-snug">
+                    <h4 className="text-base font-bold text-white group-hover/role:text-[#9B7BF0] transition-colors leading-snug">
                       {role.title}
                     </h4>
                     <p className="text-[11px] text-[#A79FCB] flex items-center gap-1">
@@ -233,7 +325,7 @@ export default function InvestorsCareersSection() {
                     href="https://forms.gle/nHvDnkWkEQiReFBP9"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="pt-2 border-t border-[#2A2450] text-[11px] font-bold text-[#9B7BF0] hover:text-white flex items-center justify-between transition-colors cursor-pointer"
+                    className="pt-3 border-t border-[#2A2450] text-[11px] font-bold text-[#9B7BF0] hover:text-white flex items-center justify-between transition-colors cursor-pointer"
                   >
                     <span>Apply for role</span>
                     <ArrowRight className="w-3 h-3 group-hover/role:translate-x-1 transition-transform" />
@@ -246,9 +338,10 @@ export default function InvestorsCareersSection() {
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#A79FCB] border-t border-[#2A2450]">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="font-bold text-white">Culture:</span>
-                <span className="px-2.5 py-1 rounded-md bg-[#181534] border border-[#2A2450]">High Ownership</span>
-                <span className="px-2.5 py-1 rounded-md bg-[#181534] border border-[#2A2450]">Merit Velocity</span>
-                <span className="px-2.5 py-1 rounded-md bg-[#181534] border border-[#2A2450]">Cross-Disciplinary Depth</span>
+                <span className="px-2.5 py-1 rounded-md bg-[#181534] border border-[#2A2450]">Curiosity</span>
+                <span className="px-2.5 py-1 rounded-md bg-[#181534] border border-[#2A2450]">Ownership</span>
+                <span className="px-2.5 py-1 rounded-md bg-[#181534] border border-[#2A2450]">Learner</span>
+                <span className="px-2.5 py-1 rounded-md bg-[#181534] border border-[#2A2450]">Builder &amp; Innovator</span>
               </div>
               <div className="flex items-center gap-1.5 font-mono text-[11px] text-[#9B7BF0]">
                 <span>Active Hubs:</span>
