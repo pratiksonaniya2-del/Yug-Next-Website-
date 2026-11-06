@@ -13,43 +13,109 @@ import {
   UtensilsCrossed,
   Users,
   Activity,
+  CheckCircle2,
 } from "lucide-react";
 
 export default function ServicesPage() {
-  const SERVICES_LIST = [
+  const SERVICES_DATA = [
     {
       number: "01",
-      title: "School websites",
+      title: "School Websites",
+      description:
+        "Professional school websites featuring institutional information, admission details, academic updates, and parent communication.",
+      bullets: [
+        "School Information & Admissions",
+        "Academic Updates & Announcements",
+        "Parent-Teacher Communication",
+      ],
+      project: {
+        name: "Pathfinder School",
+        desc: "A technology-focused school initiative centred on digital learning, student engagement, and school operations.",
+      },
       icon: GraduationCap,
     },
     {
       number: "02",
-      title: "coaching institute websites",
+      title: "Coaching Institute Websites",
+      description:
+        "Websites for coaching institutes to showcase courses, share learning resources, and simplify student inquiries.",
+      bullets: [
+        "Course & Batch Information",
+        "Online Admission Inquiries",
+        "Study Materials & Learning Resources",
+      ],
+      project: {
+        name: "Nexan Academy",
+        desc: "An education-focused platform developed around learning opportunities, skill development, and educational resources.",
+      },
       icon: BookOpen,
     },
     {
       number: "03",
-      title: "Photography studio websites, digital portfolios and online galleries.",
+      title: "Photography Studio Websites",
+      description:
+        "Portfolio-driven websites for photographers and studios, featuring visual galleries and client interaction facilities.",
+      bullets: [
+        "Photography Portfolios & Digital Galleries",
+        "Client Photo Sharing & Proofing",
+        "Online Booking & Inquiry Forms",
+      ],
+      project: null,
       icon: Camera,
     },
     {
       number: "04",
-      title: "Restaurant and café websites, digital menus and online presence.",
+      title: "Restaurant & Café Websites",
+      description:
+        "Digital platforms for restaurants and cafés to showcase their offerings and connect with customers.",
+      bullets: [
+        "Digital Menus & QR Integration",
+        "Business Information & Location",
+        "WhatsApp Ordering & Inquiries",
+      ],
+      project: null,
       icon: UtensilsCrossed,
     },
     {
       number: "05",
-      title: "College society websites — Pravah Web",
+      title: "Society/Organisation Websites — Pravah Web",
+      description:
+        "Functional, responsive website development for college societies to showcase activities and establish a dedicated digital presence.",
+      bullets: [
+        "Society Information & Activities",
+        "Member Registration & Recruitment",
+        "Events & Announcements",
+      ],
+      project: null,
       icon: Users,
     },
     {
       number: "06",
-      title: "College fest websites — MAFFICK Web",
+      title: "Event Websites — MAFFICK Web",
+      description:
+        "Responsive event website development to bring festival information, schedules, and registrations together.",
+      bullets: [
+        "Event Information & Schedules",
+        "Online Registrations & Participation",
+        "Event Updates & Announcements",
+      ],
+      project: null,
       icon: Users,
     },
     {
       number: "07",
-      title: "Gym and fitness club websites, membership and digital service interfaces.",
+      title: "Gym & Fitness Club Websites",
+      description:
+        "Digital platforms for gyms and fitness centres featuring membership information, training services, and member-focused interfaces.",
+      bullets: [
+        "Membership & Service Information",
+        "Member-Focused Digital Interfaces",
+        "Training & Fitness Services",
+      ],
+      project: {
+        name: "Goodlife Gym, Agra",
+        desc: "Developed a gym website and custom member application to establish its digital presence and support member interactions.",
+      },
       icon: Activity,
     },
   ];
@@ -76,48 +142,63 @@ export default function ServicesPage() {
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-              Industries We Serve
+              Services We Offer
             </h1>
           </div>
         </div>
       </section>
 
-      {/* Services Cards Grid */}
+      {/* Services List Section */}
       <section className="py-16 sm:py-20 bg-[#0A0818] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {SERVICES_LIST.map((service, idx) => {
+          <div className="space-y-6">
+            {SERVICES_DATA.map((service, idx) => {
               const Icon = service.icon;
               return (
                 <div
                   key={idx}
-                  className="p-7 sm:p-8 rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all flex flex-col justify-between space-y-6 shadow-xl group hover:shadow-2xl hover:shadow-[#6C3CE3]/10"
+                  className="p-7 sm:p-9 rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all shadow-xl space-y-5 group"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-2xl sm:text-3xl font-mono font-black text-[#9B7BF0]/60 group-hover:text-[#9B7BF0] transition-colors">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#2A2450]/80">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xl sm:text-2xl font-mono font-black text-[#9B7BF0]">
                         {service.number}.
                       </span>
-                      <div className="w-11 h-11 rounded-2xl bg-[#181534] border border-[#2A2450] text-[#9B7BF0] flex items-center justify-center group-hover:border-[#6C3CE3]/40 group-hover:scale-105 transition-all">
-                        <Icon className="w-5 h-5" />
-                      </div>
+                      <h2 className="text-2xl sm:text-3xl font-black text-white group-hover:text-[#C4B5FD] transition-colors">
+                        {service.title}
+                      </h2>
                     </div>
-
-                    <h2 className="text-xl sm:text-2xl font-black text-white group-hover:text-[#C4B5FD] transition-colors leading-snug">
-                      {service.title}
-                    </h2>
+                    <div className="w-10 h-10 rounded-xl bg-[#181534] border border-[#2A2450] text-[#9B7BF0] flex items-center justify-center shrink-0">
+                      <Icon className="w-5 h-5" />
+                    </div>
                   </div>
 
-                  <div className="pt-4 border-t border-[#2A2450]">
-                    <Link
-                      href="/#contact"
-                      className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#9B7BF0] group-hover:text-white transition-colors"
-                    >
-                      <span>Request Service</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                  <p className="text-sm sm:text-base text-[#EFEDFA]/90 leading-relaxed font-light">
+                    {service.description}
+                  </p>
+
+                  {/* Bullet points */}
+                  <div className="space-y-2 pt-1">
+                    {service.bullets.map((bullet, bIdx) => (
+                      <div key={bIdx} className="flex items-center gap-2.5 text-xs sm:text-sm text-slate-300">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#6C3CE3] shrink-0" />
+                        <span>{bullet}</span>
+                      </div>
+                    ))}
                   </div>
+
+                  {/* Associated Project if present */}
+                  {service.project && (
+                    <div className="mt-4 p-4 sm:p-5 rounded-2xl bg-[#181534] border border-[#6C3CE3]/30 text-xs sm:text-sm space-y-1">
+                      <span className="font-bold text-[#9B7BF0] block">
+                        Project: {service.project.name}
+                      </span>
+                      <p className="text-slate-300 font-light leading-relaxed">
+                        {service.project.desc}
+                      </p>
+                    </div>
+                  )}
                 </div>
               );
             })}

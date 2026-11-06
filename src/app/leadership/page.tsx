@@ -8,46 +8,120 @@ import {
   Sparkles,
   ArrowRight,
   Users,
-  Award,
-  ShieldCheck,
-  CheckCircle,
-  Briefcase,
-  MapPin,
+  Building2,
   Code2,
+  ShieldCheck,
+  CheckCircle2,
 } from "lucide-react";
 
+interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+  isSquare?: boolean;
+}
+
 export default function LeadershipPage() {
-  const LEADERS = [
+  // Row 1: 1 Leader (Harsh Rathore)
+  const leader: TeamMember = {
+    name: "Harsh Rathore",
+    role: "Founder & Chief Executive Officer (CEO)",
+    image: "/team/Harsh.jpeg",
+    isSquare: false,
+  };
+
+  // Row 2: 3 Members (Rihansh Ahuja, Pratik Sonaniya, Ankit Anand)
+  // Pratik Sonaniya is square (isSquare: true), others rectangle (isSquare: false)
+  const row2: TeamMember[] = [
     {
-      name: "Pratik & Core Founding Council",
-      role: "Executive Governance & Engineering Direction",
-      hub: "Bhopal (Corporate HQ)",
-      bio: "Spearheading product architecture, strategic alliances with MANIT and ROLTA, and long-term company scaling.",
-      focus: ["Enterprise Systems", "Institutional Alliances", "Product Vision"],
+      name: "Rihansh Ahuja",
+      role: "Co-Founder & Strategic Operations",
+      image: "/team/Rihansh.jpeg",
+      isSquare: false,
     },
     {
-      name: "Distributed Systems Engineering Team",
-      role: "Platform Architecture & Cloud Infrastructure",
-      hub: "NCR Regional Hub",
-      bio: "High-throughput backend engineering, zero-trust security compliance, and real-time database synchronizations.",
-      focus: ["Cloud Platforms", "Microservices", "Scalability"],
+      name: "Pratik Sonaniya",
+      role: "Co-Founder & Technology Lead",
+      image: "/team/Pratik.jpeg",
+      isSquare: true, // User requested: "Mera wala square hee rehne dena"
     },
     {
-      name: "Product Design & Solutions Lab",
-      role: "User Experience & Rapid Deployment",
-      hub: "Agra Delivery Node",
-      bio: "Human-centric interface design, customer discovery sprints, and rapid prototyping for campus & enterprise utilities.",
-      focus: ["UI/UX Systems", "Design Systems", "Field Research"],
+      name: "Ankit Anand",
+      role: "Core Team & Product Engineering",
+      image: "/team/Ankit.jpeg",
+      isSquare: false,
     },
   ];
 
+  // Row 3: 3 Members (Namish Jain, Anshika Bhargava, Amita Pal)
+  const row3: TeamMember[] = [
+    {
+      name: "Namish Jain",
+      role: "Core Team & Systems Engineering",
+      image: "/team/Namish.jpeg",
+      isSquare: false,
+    },
+    {
+      name: "Anshika Bhargava",
+      role: "Core Team & Design Architecture",
+      image: "/team/Anshika.jpeg",
+      isSquare: false,
+    },
+    {
+      name: "Amita Pal",
+      role: "Core Team & Product Operations",
+      image: "/team/Amita.jpeg",
+      isSquare: false,
+    },
+  ];
+
+  const renderCard = (member: TeamMember, priority = false) => {
+    return (
+      <div
+        key={member.name}
+        className="group relative rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all duration-300 overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#6C3CE3]/15 flex flex-col justify-between"
+      >
+        {/* Image Container with precise aspect ratios */}
+        <div className="p-4 sm:p-5 pb-0">
+          <div
+            className={`w-full overflow-hidden rounded-2xl bg-[#181534] border border-[#2A2450] relative ${
+              member.isSquare ? "aspect-square" : "aspect-[4/5]"
+            }`}
+          >
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              loading={priority ? "eager" : "lazy"}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#12102A]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+          </div>
+        </div>
+
+        {/* Member Details */}
+        <div className="p-5 sm:p-6 space-y-1.5 text-center">
+          <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-[#C4B5FD] transition-colors tracking-tight">
+            {member.name}
+          </h3>
+          <p className="text-xs sm:text-sm font-mono text-[#9B7BF0] font-semibold">
+            {member.role}
+          </p>
+          <div className="pt-2 flex items-center justify-center gap-1.5 text-[11px] font-mono text-slate-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <span>YUGNEXT Leadership</span>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <main className="min-h-screen bg-white text-slate-900 flex flex-col justify-between selection:bg-[#5d35e0] selection:text-white">
+    <main className="min-h-screen bg-[#0A0818] text-[#EFEDFA] flex flex-col justify-between selection:bg-[#6C3CE3] selection:text-white">
       <Navbar />
 
       {/* Hero Header */}
-      <section className="pt-16 pb-20 bg-[#0a0422] text-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#5d35e0]/15 blur-[160px] pointer-events-none" />
+      <section className="pt-24 pb-16 bg-[#0a0422] text-white relative overflow-hidden border-b border-[#2A2450]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[360px] bg-[#5d35e0]/20 blur-[170px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center gap-2 text-xs font-mono text-purple-300 mb-6">
@@ -55,103 +129,70 @@ export default function LeadershipPage() {
             <span>/</span>
             <Link href="/about" className="hover:text-white transition-colors">WHO WE ARE</Link>
             <span>/</span>
-            <span className="text-[#9d7df7] font-bold">LEADERSHIP &amp; TEAM</span>
+            <span className="text-[#9B7BF0] font-bold">LEADERSHIP</span>
           </div>
 
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#5d35e0]/20 text-[#9d7df7] border border-[#5d35e0]/30">
-              <Users className="w-3.5 h-3.5 text-[#9d7df7]" />
-              <span>THE BUILDERS</span>
+          <div className="max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#6C3CE3]/20 text-[#9B7BF0] border border-[#6C3CE3]/30">
+              <Users className="w-3.5 h-3.5 text-[#9B7BF0]" />
+              <span>LEADERSHIP &amp; CORE TEAM</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-              People Who <span className="text-[#9d7df7]">Ask What&apos;s Next.</span>
+              People Shaping What&apos;s Next.
             </h1>
 
-            <p className="text-slate-300 text-base sm:text-xl leading-relaxed font-light">
-              Behind every product, partnership and idea is a team willing to question the obvious and build the possible. Meet the people shaping Yugnext and the direction we&apos;re taking it.
+            <p className="text-[#A79FCB] text-base sm:text-lg leading-relaxed font-light">
+              A dedicated team of builders, engineers, and strategists leading YUGNEXT from campus roots to scaled corporate execution.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Leadership Showcase Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      {/* Team Showcase */}
+      <section className="py-16 sm:py-24 bg-[#0A0818] relative">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14 sm:space-y-16">
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {LEADERS.map((ldr) => (
-              <div
-                key={ldr.name}
-                className="rounded-3xl p-8 bg-slate-50 border border-slate-200 hover:border-[#5d35e0] hover:bg-white hover:shadow-xl hover:shadow-[#5d35e0]/10 transition-all flex flex-col justify-between space-y-6"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-bold uppercase text-[#5d35e0] px-2.5 py-1 rounded-md bg-[#5d35e0]/10">
-                      LEADERSHIP NODE
-                    </span>
-                    <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                      <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                      <span>{ldr.hub}</span>
-                    </div>
-                  </div>
-
-                  <h3 className="text-2xl font-black text-slate-900">{ldr.name}</h3>
-                  <p className="text-xs font-bold text-[#5d35e0]">{ldr.role}</p>
-                  <p className="text-xs text-slate-600 leading-relaxed font-light">{ldr.bio}</p>
-
-                  <div className="space-y-1 pt-3 border-t border-slate-200">
-                    <span className="text-[10px] font-mono text-slate-400 uppercase font-bold block mb-1">
-                      CORE FOCUS AREAS:
-                    </span>
-                    {ldr.focus.map((f) => (
-                      <div key={f} className="flex items-center gap-2 text-xs text-slate-700">
-                        <CheckCircle className="w-3.5 h-3.5 text-[#5d35e0] shrink-0" />
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-slate-200/60">
-                  <span className="text-xs font-mono text-slate-400">YUGNEXT GOVERNANCE TEAM</span>
-                </div>
-              </div>
-            ))}
+          {/* Row 1 (Desktop: Centered Single Leader / Mobile: Top item) */}
+          <div className="flex justify-center">
+            <div className="w-full max-w-sm sm:max-w-md">
+              {renderCard(leader, true)}
+            </div>
           </div>
 
-          {/* Culture Manifesto Card */}
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#0e0738] text-white space-y-6">
-            <div className="max-w-2xl space-y-2">
-              <span className="text-xs font-mono font-bold text-[#9d7df7] uppercase">TEAM ETHOS</span>
-              <h3 className="text-2xl sm:text-3xl font-black">How We Think &amp; Build</h3>
-              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-                We believe in radical ownership. If something can be made simpler, faster, or more robust, we question the precedent and re-architect from ground reality.
-              </p>
-            </div>
+          {/* Row 2 (Desktop: 3 in a line / Mobile: stacked) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {row2.map((m) => renderCard(m))}
+          </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10">
-              <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10">
-                <h5 className="font-extrabold text-white text-sm">Curiosity First</h5>
-                <p className="text-xs text-slate-400 mt-1">Never stopping at &ldquo;that&apos;s how it is done.&rdquo;</p>
-              </div>
-              <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10">
-                <h5 className="font-extrabold text-[#9d7df7] text-sm">Pure Execution</h5>
-                <p className="text-xs text-slate-400 mt-1">Shipping reliable, scalable, production-grade code.</p>
-              </div>
-              <div className="p-4 rounded-xl bg-white/[0.04] border border-white/10">
-                <h5 className="font-extrabold text-emerald-400 text-sm">Long-Term Ambition</h5>
-                <p className="text-xs text-slate-400 mt-1">Building durable digital foundations for tomorrow.</p>
-              </div>
-            </div>
+          {/* Row 3 (Desktop: 3 in a line / Mobile: stacked) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {row3.map((m) => renderCard(m))}
+          </div>
 
-            <div className="pt-2">
-              <Link
-                href="/careers"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#5d35e0]/25 transition-all cursor-pointer"
-              >
-                <span>Join Our Engineering &amp; Leadership Ranks →</span>
-              </Link>
+          {/* Team Ethos Banner */}
+          <div className="pt-10">
+            <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#12102A] via-[#17133a] to-[#12102A] border border-[#2A2450] text-center space-y-6 shadow-2xl relative overflow-hidden">
+              <div className="space-y-2 max-w-2xl mx-auto">
+                <span className="text-xs font-mono font-bold text-[#9B7BF0] uppercase tracking-wider">
+                  TEAM ETHOS
+                </span>
+                <h3 className="text-2xl sm:text-4xl font-black text-white">
+                  Built on Radical Ownership
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                  United across Bhopal, Agra, and NCR nodes. Moving ideas into reliable, production-grade solutions that genuinely create an impact.
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <Link
+                  href="/careers"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-bold text-xs sm:text-sm shadow-lg shadow-[#6C3CE3]/30 transition-all cursor-pointer"
+                >
+                  <span>Explore Open Opportunities →</span>
+                </Link>
+              </div>
             </div>
           </div>
 
