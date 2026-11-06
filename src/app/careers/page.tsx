@@ -296,12 +296,6 @@ export default function CareersPage() {
                 <Briefcase className="w-3.5 h-3.5 text-[#9B7BF0]" />
                 <span>JOIN THE TEAM • OPEN ROLES</span>
               </div>
-
-              {/* Top Deadline Banner Highlight */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-lg shadow-amber-500/10 animate-pulse">
-                <Clock className="w-3.5 h-3.5 text-amber-400" />
-                <span>Task submission deadline : 28 may 2026</span>
-              </div>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
