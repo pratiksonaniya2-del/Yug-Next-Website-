@@ -138,16 +138,15 @@ const PRODUCTS = [
 
 export default function WhatWeDoSection() {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [activeMobileCard, setActiveMobileCard] = useState<string | null>(null);
 
-  // Total 6 services. On desktop 4 visible at a time (max index = 6 - 4 = 2).
-  const maxIndex = SERVICES.length - 4; // 2
-
+  // Total 6 services.
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : SERVICES.length - 1));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
+    setCurrentIndex((prev) => (prev < SERVICES.length - 1 ? prev + 1 : 0));
   };
 
   return (
@@ -175,53 +174,64 @@ export default function WhatWeDoSection() {
             {/* Slider Navigation Arrows (← & →) */}
             <div className="flex items-center gap-3 shrink-0">
               <span className="text-xs font-mono font-bold text-slate-500 mr-1">
-                {currentIndex + 1}–{Math.min(currentIndex + 4, SERVICES.length)} of {SERVICES.length}
+                <span className="sm:hidden">{currentIndex + 1} of {SERVICES.length}</span>
+                <span className="hidden sm:inline">
+                  {currentIndex + 1}–{Math.min(currentIndex + 4, SERVICES.length)} of {SERVICES.length}
+                </span>
               </span>
               <button
                 onClick={handlePrev}
                 aria-label="Previous Services"
-                className="w-11 h-11 rounded-full border border-slate-200 hover:border-[#6C3CE3] bg-white hover:bg-slate-50 text-slate-700 hover:text-[#6C3CE3] shadow-sm flex items-center justify-center transition-all cursor-pointer active:scale-95"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-slate-200 hover:border-[#6C3CE3] bg-white hover:bg-slate-50 text-slate-700 hover:text-[#6C3CE3] shadow-sm flex items-center justify-center transition-all cursor-pointer active:scale-95"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNext}
                 aria-label="Next Services"
-                className="w-11 h-11 rounded-full border border-slate-200 hover:border-[#6C3CE3] bg-white hover:bg-slate-50 text-slate-700 hover:text-[#6C3CE3] shadow-sm flex items-center justify-center transition-all cursor-pointer active:scale-95"
+                className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-slate-200 hover:border-[#6C3CE3] bg-white hover:bg-slate-50 text-slate-700 hover:text-[#6C3CE3] shadow-sm flex items-center justify-center transition-all cursor-pointer active:scale-95"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
             </div>
           </div>
 
-          {/* 4 CARDS VISIBLE AT ONCE — ULTRA-SMOOTH SLIDE FROM LEFT TO RIGHT ON ARROW CLICK */}
+          {/* CAROUSEL CONTAINER — 1 CARD ON MOBILE, 2 ON TABLET, 4 ON DESKTOP */}
           <div className="overflow-hidden py-4 -mx-2 px-2">
             <div
-              className="flex gap-6 transition-transform duration-[850ms] ease-[cubic-bezier(0.25,1,0.35,1)] will-change-transform"
+              className="flex gap-4 sm:gap-6 transition-transform duration-[700ms] ease-[cubic-bezier(0.25,1,0.35,1)] will-change-transform"
               style={{
-                transform: `translateX(calc(-1 * ${currentIndex} * var(--slide-step, calc(25% + 6px))))`,
+                transform: `translateX(calc(-1 * ${currentIndex} * var(--slide-step, 100%)))`,
               }}
             >
               {SERVICES.map((service, index) => {
                 const Icon = service.icon;
+                const isCardOpen = activeMobileCard === service.id;
 
                 return (
                   <div
                     key={service.id}
-                    className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] shrink-0 group relative rounded-3xl p-6 sm:p-7 bg-[#0b1329] border border-blue-900/40 hover:border-blue-500 shadow-xl shadow-blue-950/20 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between h-[420px] overflow-hidden cursor-pointer text-white"
+                    onClick={() => setActiveMobileCard(isCardOpen ? null : service.id)}
+                    className={`w-[calc(100vw-36px)] sm:w-[calc(50%-12px)] lg:w-[calc(25%-18px)] shrink-0 group relative rounded-3xl p-6 sm:p-7 bg-[#0b1329] border shadow-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col justify-between h-[430px] sm:h-[420px] overflow-hidden cursor-pointer text-white ${
+                      isCardOpen
+                        ? "border-blue-400 shadow-2xl shadow-blue-500/30"
+                        : "border-blue-900/40 hover:border-blue-500 shadow-blue-950/20 hover:shadow-2xl hover:shadow-blue-500/20"
+                    }`}
                   >
                     {/* Atmospheric Blue Thematic Background with Soft Overlay */}
                     <div
-                      className="absolute inset-0 bg-cover bg-center opacity-25 group-hover:opacity-40 transition-opacity duration-700 mix-blend-luminosity scale-100 group-hover:scale-105 pointer-events-none"
+                      className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 mix-blend-luminosity scale-100 group-hover:scale-105 pointer-events-none ${
+                        isCardOpen ? "opacity-40" : "opacity-25 group-hover:opacity-40"
+                      }`}
                       style={{ backgroundImage: `url(${service.bgImage})` }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#0b1329]/80 via-[#0d1838]/90 to-[#070e24] pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#0b1329]/85 via-[#0d1838]/90 to-[#070e24] pointer-events-none" />
                     <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/15 rounded-full blur-2xl pointer-events-none" />
 
                     {/* Top Bar: Icon & Tag */}
                     <div className="relative z-10 flex items-center justify-between w-full">
                       {/* Icon */}
-                      <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-300 border border-blue-400/30 group-hover:bg-blue-600 group-hover:text-white flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] shadow-sm">
+                      <div className="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-300 border border-blue-400/30 group-hover:bg-blue-600 group-hover:text-white flex items-center justify-center transition-all duration-500 shadow-sm">
                         <Icon className="w-6 h-6" />
                       </div>
 
@@ -230,20 +240,25 @@ export default function WhatWeDoSection() {
                       </span>
                     </div>
 
-                    {/* Middle Section: The Title glides smoothly to the LEFT on hover */}
-                    <div className="relative z-10 py-2 space-y-1 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
-                      <span className="text-[10px] font-mono text-blue-300/80 font-bold tracking-wider block transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5">
+                    {/* Middle Section: The Title */}
+                    <div className="relative z-10 py-2 space-y-1 transition-all duration-500">
+                      <span className="text-[10px] font-mono text-blue-300/80 font-bold tracking-wider block">
                         0{index + 1} • SERVICE
                       </span>
 
-                      {/* TITLE: Starts normally, and on hover glides smoothly to the LEFT with increased duration */}
-                      <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-blue-300 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-2.5 leading-snug">
+                      <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-blue-300 transition-all duration-500 leading-snug">
                         {service.title}
                       </h3>
                     </div>
 
-                    {/* Full Text Reveal: Silky-smooth opacity & slide-in ONLY for this hovered card */}
-                    <div className="relative z-10 max-h-0 opacity-0 group-hover:max-h-[220px] group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden space-y-2.5">
+                    {/* Full Text Reveal: Active on Hover (Desktop) OR on Tap/Touch (Mobile) */}
+                    <div
+                      className={`relative z-10 transition-all duration-500 overflow-hidden space-y-2.5 ${
+                        isCardOpen
+                          ? "max-h-[240px] opacity-100 translate-y-0"
+                          : "max-h-0 sm:group-hover:max-h-[220px] opacity-0 sm:group-hover:opacity-100 transform translate-y-4 sm:group-hover:translate-y-0"
+                      }`}
+                    >
                       <p className="text-xs text-blue-100/90 leading-relaxed font-light">
                         {service.summary}
                       </p>
@@ -267,9 +282,18 @@ export default function WhatWeDoSection() {
                       </Link>
                     </div>
 
-                    {/* Default Bottom Prompt: Fades out smoothly on hover */}
-                    <div className="relative z-10 pt-3 border-t border-blue-900/50 flex items-center justify-between text-xs font-semibold text-blue-300/70 group-hover:opacity-0 group-hover:h-0 transition-all duration-500 overflow-hidden">
-                      <span>Hover to explore</span>
+                    {/* Default Bottom Prompt */}
+                    <div
+                      className={`relative z-10 pt-3 border-t border-blue-900/50 flex items-center justify-between text-xs font-semibold text-blue-300/70 transition-all duration-500 overflow-hidden ${
+                        isCardOpen
+                          ? "opacity-0 h-0"
+                          : "sm:group-hover:opacity-0 sm:group-hover:h-0"
+                      }`}
+                    >
+                      <span>
+                        <span className="sm:hidden">Tap to explore</span>
+                        <span className="hidden sm:inline">Hover to explore</span>
+                      </span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>

@@ -195,7 +195,7 @@ body {
 }
 @media (max-width: 639px) {
   :root {
-    --slide-step: calc(85vw + 24px);
+    --slide-step: calc(100vw - 20px);
   }
 }
 

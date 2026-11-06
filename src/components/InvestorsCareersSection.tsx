@@ -21,7 +21,7 @@ export default function InvestorsCareersSection() {
 
   const scroll = (direction: "left" | "right") => {
     if (carouselRef.current) {
-      const scrollAmount = 320;
+      const scrollAmount = carouselRef.current.clientWidth * 0.9;
       carouselRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -297,26 +297,26 @@ export default function InvestorsCareersSection() {
             {/* Scrollable Roles Carousel with left-right navigation */}
             <div
               ref={carouselRef}
-              className="flex gap-4 overflow-x-auto pb-4 scroll-smooth no-scrollbar"
+              className="flex gap-4 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory no-scrollbar"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {ALL_ROLES.map((role) => (
                 <div
                   key={role.title}
-                  className="w-[280px] sm:w-[300px] shrink-0 p-5 rounded-2xl bg-[#181534] border border-[#2A2450] hover:border-[#6C3CE3] hover:bg-[#1E1942] transition-all flex flex-col justify-between space-y-4 group/role"
+                  className="w-[calc(100vw-64px)] sm:w-[320px] md:w-[340px] shrink-0 snap-center p-6 sm:p-6 rounded-2xl bg-[#181534] border border-[#2A2450] hover:border-[#6C3CE3] hover:bg-[#1E1942] transition-all flex flex-col justify-between space-y-4 group/role shadow-md"
                 >
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-mono font-bold uppercase text-[#9B7BF0] px-2.5 py-0.5 rounded-full bg-[#6C3CE3]/15 border border-[#6C3CE3]/30">
                         {role.tag}
                       </span>
                       <span className="text-[10px] text-emerald-400 font-mono font-bold">HIRING</span>
                     </div>
-                    <h4 className="text-base font-bold text-white group-hover/role:text-[#9B7BF0] transition-colors leading-snug">
+                    <h4 className="text-lg font-bold text-white group-role:text-[#9B7BF0] transition-colors leading-snug">
                       {role.title}
                     </h4>
-                    <p className="text-[11px] text-[#A79FCB] flex items-center gap-1">
-                      <MapPin className="w-3 h-3 text-[#6C3CE3]" />
+                    <p className="text-xs text-[#A79FCB] flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-[#6C3CE3]" />
                       <span>{role.location}</span>
                     </p>
                   </div>
@@ -325,10 +325,10 @@ export default function InvestorsCareersSection() {
                     href="https://forms.gle/nHvDnkWkEQiReFBP9"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="pt-3 border-t border-[#2A2450] text-[11px] font-bold text-[#9B7BF0] hover:text-white flex items-center justify-between transition-colors cursor-pointer"
+                    className="pt-3 border-t border-[#2A2450] text-xs font-bold text-[#9B7BF0] hover:text-white flex items-center justify-between transition-colors cursor-pointer py-1"
                   >
                     <span>Apply for role</span>
-                    <ArrowRight className="w-3 h-3 group-hover/role:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/role:translate-x-1 transition-transform" />
                   </a>
                 </div>
               ))}

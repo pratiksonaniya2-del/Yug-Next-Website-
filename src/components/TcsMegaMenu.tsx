@@ -92,15 +92,15 @@ export default function TcsMegaMenu({
       >
         <div className="max-w-[1440px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
           
-          {/* Top Control Bar: Active Category Breadcrumb */}
+          {/* Top Control Bar: Active Category Breadcrumb + Mobile Close Button */}
           <div className="flex items-center justify-between pb-4 mb-5 border-b border-[#2A2450]">
-            <div className="flex items-center gap-2.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#9B7BF0] animate-pulse" />
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#9B7BF0]">
+            <div className="flex items-center gap-2.5 min-w-0 pr-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#9B7BF0] animate-pulse shrink-0" />
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#9B7BF0] shrink-0">
                 YUGNEXT
               </span>
-              <span className="text-[#A79FCB]/60 font-mono text-xs">/</span>
-              <span className="text-xs font-bold text-[#EFEDFA] uppercase tracking-wide">
+              <span className="text-[#A79FCB]/60 font-mono text-xs shrink-0">/</span>
+              <span className="text-xs font-bold text-[#EFEDFA] uppercase tracking-wide truncate">
                 {activeModal === "whatWeDo" && "What We Do — Capabilities & Services"}
                 {activeModal === "products" && "Products — Ideas That Solve"}
                 {activeModal === "whoWeAre" && "Who We Are — Technology With a Reason to Exist"}
@@ -112,6 +112,15 @@ export default function TcsMegaMenu({
                 {activeModal === "investors" && "Investors — Backing the Journey Ahead"}
               </span>
             </div>
+
+            <button
+              onClick={onClose}
+              className="p-1.5 sm:p-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.16] text-[#A79FCB] hover:text-white transition-colors cursor-pointer border border-[#2A2450] shrink-0 flex items-center gap-1.5 text-xs font-bold"
+              aria-label="Close menu"
+            >
+              <X className="w-4 h-4 text-white" />
+              <span className="hidden sm:inline">Close</span>
+            </button>
           </div>
 
           {/* 1. WHAT WE DO MEGA PANEL */}

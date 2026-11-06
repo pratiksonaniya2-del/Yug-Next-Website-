@@ -286,7 +286,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
       </div>
 
       {/* Realistic Luminous 3-Layer Liquid Waves (Pure Translucent Gradients, Seamless 60fps) */}
-      <div className="relative w-full h-32 sm:h-44 lg:h-48 -mt-1 sm:-mt-2 pointer-events-none overflow-hidden">
+      <div className="relative w-full h-24 sm:h-36 md:h-44 lg:h-48 -mt-1 sm:-mt-2 pointer-events-none overflow-hidden">
         
         {/* Layer 1: Back Wave (Translucent lavender/violet ethereal swell) */}
         <div className="absolute bottom-0 left-0 w-[200%] h-full animate-wave-realistic-back flex">
