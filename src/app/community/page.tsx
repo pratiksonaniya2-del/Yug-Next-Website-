@@ -8,32 +8,42 @@ import {
   Sparkles,
   ArrowRight,
   Globe2,
-  Users,
-  Code2,
-  CheckCircle,
-  MessageSquare,
-  Zap,
+  BookOpen,
+  Share2,
+  Hammer,
 } from "lucide-react";
 
 export default function CommunityPage() {
   const PILLARS = [
     {
-      title: "Learn.",
-      lead: "Bridging the gap between classroom theory and enterprise software reality.",
-      details: "Hands-on masterclasses on modern distributed web stacks, system design, and AI tooling. We mentor aspiring student builders to write high-throughput code.",
+      number: "01",
+      title: "LEARN",
       tag: "Knowledge Hub",
+      quote: "Bridging the gap between academic learning and practical technology.",
+      description:
+        "Workshops, technical sessions and hands-on learning experiences around web development, software engineering, system design and emerging technologies. Our aim is to help aspiring builders develop practical skills through exposure, guidance and experimentation.",
+      code: "YUGNEXT COMMUNITY — 01",
+      icon: BookOpen,
     },
     {
-      title: "Connect.",
-      lead: "Fostering partnerships between engineers, designers, founders, and institutions.",
-      details: "Regular tech mixers, AMA sessions with senior tech architects, and peer collaboration networks spanning NCR, Bhopal, and Agra.",
+      number: "02",
+      title: "CONNECT",
       tag: "Network Grid",
+      quote: "Bringing people, ideas and opportunities closer together.",
+      description:
+        "We aim to create meaningful connections between students, developers, designers, entrepreneurs and institutions through community meetups, collaborative sessions and knowledge-sharing initiatives across our growing network.",
+      code: "YUGNEXT COMMUNITY — 02",
+      icon: Share2,
     },
     {
-      title: "Build.",
-      lead: "Turning embryonic ideas into viable products and deployable prototypes.",
-      details: "Incubation hackathons, open-source sprints, and product grants supported by the YugNext ecosystem and MANIT Bhopal innovation cells.",
+      number: "03",
+      title: "BUILD",
       tag: "Creation Engine",
+      quote: "Helping promising ideas take their first steps.",
+      description:
+        "From collaborative projects and open-source contributions to hackathons and early-stage prototypes, we want to create opportunities for people to experiment, build together and take ideas beyond the planning stage.",
+      code: "YUGNEXT COMMUNITY — 03",
+      icon: Hammer,
     },
   ];
 
@@ -59,11 +69,11 @@ export default function CommunityPage() {
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-              The Future <span className="text-[#9d7df7]">Isn&apos;t Built Alone.</span>
+              The Future Isn&apos;t Built Alone.
             </h1>
 
             <p className="text-slate-300 text-base sm:text-xl leading-relaxed font-light">
-              Technology moves faster when people share ideas. We believe in creating spaces where people can learn, collaborate, experiment and build together.
+              Technology grows through shared knowledge, collaboration and experimentation. We want to bring together people who are curious about technology, willing to learn, and motivated to turn ideas into something useful.
             </p>
           </div>
         </div>
@@ -74,59 +84,85 @@ export default function CommunityPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-mono font-bold uppercase text-[#5d35e0]">OUR PHILOSOPHY</span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-950">Learn. Connect. Build.</h2>
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#5d35e0]">
+              OUR PHILOSOPHY
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Learn. Connect. Build.
+            </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-light">
-              Our community is part of the larger Yugnext ecosystem — bringing together people, ideas and opportunities that can create something bigger than any one of them alone.
+              The YUGNEXT community is an extension of our larger ecosystem — a space where students, developers, designers, founders and institutions can exchange knowledge, find collaborators and explore opportunities to create.
             </p>
           </div>
 
+          {/* 3 Pillars */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {PILLARS.map((item, i) => (
+            {PILLARS.map((item) => (
               <div
-                key={item.title}
-                className="p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-[#5d35e0] hover:bg-white hover:shadow-xl hover:shadow-[#5d35e0]/10 transition-all flex flex-col justify-between space-y-6"
+                key={item.number}
+                className="p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-[#5d35e0] hover:bg-white hover:shadow-xl transition-all flex flex-col justify-between space-y-6"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-black text-[#5d35e0]">{item.title}</span>
-                    <span className="text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600">
+                    <span className="text-xl font-black text-[#5d35e0]">
+                      {item.number} — {item.title}
+                    </span>
+                    <span className="text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-700">
                       {item.tag}
                     </span>
                   </div>
 
-                  <p className="text-sm font-semibold text-slate-900 leading-snug">
-                    {item.lead}
+                  <p className="text-sm font-semibold text-slate-900 italic leading-snug">
+                    &ldquo;{item.quote}&rdquo;
                   </p>
 
-                  <p className="text-xs text-slate-600 leading-relaxed font-light">
-                    {item.details}
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
+                    {item.description}
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-slate-200">
-                  <span className="text-xs font-mono text-slate-400">YUGNEXT COMMUNITY NODE 0{i + 1}</span>
+                  <span className="text-[11px] font-mono font-semibold text-slate-500">
+                    {item.code}
+                  </span>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Societies Sponsorship & Campus Brand Publicity */}
+          {/* CAMPUS SPONSORSHIP */}
           <div className="p-8 sm:p-12 rounded-3xl bg-[#0e0738] text-white flex flex-col md:flex-row items-center justify-between gap-8 border border-purple-900/40">
-            <div className="space-y-3 max-w-xl text-center md:text-left">
-              <span className="text-xs font-mono font-bold uppercase text-[#9d7df7]">SOCIETIES &amp; BRAND SPONSORSHIP</span>
-              <h3 className="text-2xl sm:text-3xl font-black">Support Community</h3>
-              <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
-                We help NGOs, societies, and event organizers secure funding and sponsorships for the initiatives we support through our services. In return, your brand gains <strong className="text-white">high-impact publicity, direct access to students and entrepreneurs, and credible visibility</strong> across educational institutions and business networks.
+            <div className="space-y-4 max-w-2xl text-center md:text-left">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#9d7df7]">
+                CAMPUS SPONSORSHIP
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black leading-tight">
+                Support Student Communities. Create Meaningful Campus Presence.
+              </h3>
+              
+              <div className="space-y-3 text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                <p>
+                  We work with college societies, technical clubs and student-led events to explore sponsorship and brand collaboration opportunities.
+                </p>
+                <p>
+                  For organisations, this creates a direct opportunity to engage with student audiences through event branding, on-ground activations, digital promotions and campus-level visibility.
+                </p>
+                <p>
+                  For student communities, it helps access resources, industry connections and support to organise better experiences.
+                </p>
+              </div>
+
+              <p className="text-sm font-bold text-white pt-1">
+                Let&apos;s make campus collaborations count.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
               <Link
                 href="/#contact"
                 className="px-8 py-3.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs sm:text-sm font-bold text-center shadow-md shadow-[#5d35e0]/25 transition-all cursor-pointer whitespace-nowrap"
               >
-                Sponsor Campus Societies &amp; Events →
+                Connect for Campus Collaboration →
               </Link>
             </div>
           </div>
