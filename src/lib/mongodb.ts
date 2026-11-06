@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error("Please define the MONGODB_URI environment variable inside .env.local");
-}
+const FALLBACK_URI = "mongodb://yugnextwork_db_user:P4zM8kwFm3SfQR44@ac-ejaf8e3-shard-00-00.mqvrsss.mongodb.net:27017,ac-ejaf8e3-shard-00-01.mqvrsss.mongodb.net:27017,ac-ejaf8e3-shard-00-02.mqvrsss.mongodb.net:27017/yugnext?ssl=true&replicaSet=atlas-367a0p-shard-0&authSource=admin";
 
 let cached = (global as unknown as { mongoose: { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null } }).mongoose;
 
@@ -16,6 +12,8 @@ if (!cached) {
 }
 
 export async function connectDB() {
+  const uri = process.env.MONGODB_URI || FALLBACK_URI;
+
   if (cached.conn) {
     return cached.conn;
   }
@@ -25,7 +23,7 @@ export async function connectDB() {
       bufferCommands: false,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI!, opts).then((mongooseInstance) => {
+    cached.promise = mongoose.connect(uri, opts).then((mongooseInstance) => {
       return mongooseInstance;
     });
   }
