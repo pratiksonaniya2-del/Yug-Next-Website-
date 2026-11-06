@@ -19,6 +19,7 @@ interface TeamMember {
   role: string;
   image: string;
   isSquare?: boolean;
+  objectPosition?: string;
 }
 
 export default function LeadershipPage() {
@@ -28,28 +29,32 @@ export default function LeadershipPage() {
     role: "Founder & Chief Executive Officer (CEO)",
     image: "/team/Harsh.jpeg",
     isSquare: false,
+    objectPosition: "object-top",
   };
 
   // Row 2: 3 Members (Rihansh Ahuja, Pratik Sonaniya, Ankit Anand)
-  // Pratik Sonaniya is square (isSquare: true), others rectangle (isSquare: false)
+  // Pratik Sonaniya is square (isSquare: true)
   const row2: TeamMember[] = [
     {
       name: "Rihansh Ahuja",
       role: "Co-Founder & Strategic Operations",
       image: "/team/Rihansh.jpeg",
       isSquare: false,
+      objectPosition: "object-top",
     },
     {
       name: "Pratik Sonaniya",
       role: "Co-Founder & Technology Lead",
       image: "/team/Pratik.jpeg",
       isSquare: true, // User requested: "Mera wala square hee rehne dena"
+      objectPosition: "object-[center_95%]", // Centers exactly on Pratik's face from the lower half
     },
     {
       name: "Ankit Anand",
       role: "Core Team & Product Engineering",
       image: "/team/Ankit.jpeg",
       isSquare: false,
+      objectPosition: "object-top",
     },
   ];
 
@@ -60,18 +65,21 @@ export default function LeadershipPage() {
       role: "Core Team & Systems Engineering",
       image: "/team/Namish.jpeg",
       isSquare: false,
+      objectPosition: "object-top",
     },
     {
       name: "Anshika Bhargava",
       role: "Core Team & Design Architecture",
       image: "/team/Anshika.jpeg",
       isSquare: false,
+      objectPosition: "object-top",
     },
     {
       name: "Amita Pal",
       role: "Core Team & Product Operations",
       image: "/team/Amita.jpeg",
       isSquare: false,
+      objectPosition: "object-top",
     },
   ];
 
@@ -91,7 +99,9 @@ export default function LeadershipPage() {
             <img
               src={member.image}
               alt={member.name}
-              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+                member.objectPosition || "object-top"
+              }`}
               loading={priority ? "eager" : "lazy"}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#12102A]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
