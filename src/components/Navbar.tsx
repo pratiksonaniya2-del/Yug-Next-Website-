@@ -454,19 +454,66 @@ export default function Navbar({
 
           {/* Mobile Right Controls: Search + Language + Hamburger */}
           <div className="xl:hidden flex items-center gap-1.5 sm:gap-2">
+            <div className="relative">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLangDropdownOpen(!langDropdownOpen);
+                  setSearchModalOpen(false);
+                }}
+                className={`p-2 rounded-xl transition-all cursor-pointer border flex items-center gap-1 text-xs font-mono font-bold ${
+                  langDropdownOpen
+                    ? "bg-[#6C3CE3] border-[#9B7BF0] text-white"
+                    : "text-[#A79FCB] hover:bg-white/[0.08] hover:text-[#EFEDFA] border-[#2A2450]"
+                }`}
+                title="Change Language"
+                aria-label="Select Language"
+              >
+                <Globe2 className="w-4 h-4 text-[#9B7BF0]" />
+                <span className="text-[10px] text-[#EFEDFA]">{selectedLangCode}</span>
+              </button>
+
+              {/* Mobile Language Dropdown Menu */}
+              {langDropdownOpen && (
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  className="absolute right-0 mt-2 w-64 bg-[#12102A] rounded-2xl shadow-2xl border border-[#2A2450] py-2.5 z-50 text-xs animate-in fade-in slide-in-from-top-2 duration-150 text-[#EFEDFA]"
+                >
+                  <div className="px-3 pb-2 border-b border-[#2A2450]">
+                    <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-[#9B7BF0] block">
+                      SELECT LANGUAGE
+                    </span>
+                  </div>
+                  <div className="p-1.5 space-y-1">
+                    {LANGUAGES.map((item) => (
+                      <button
+                        key={item.code}
+                        type="button"
+                        onClick={() => {
+                          handleLanguageChange(item.label, item.code);
+                          setLangDropdownOpen(false);
+                        }}
+                        className={`w-full text-left px-3 py-2 rounded-xl flex items-center justify-between font-semibold cursor-pointer transition-colors ${
+                          selectedLangCode === item.short
+                            ? "bg-[#6C3CE3] text-white"
+                            : "hover:bg-white/[0.08] text-[#A79FCB] hover:text-white"
+                        }`}
+                      >
+                        <span className="text-xs">{item.label}</span>
+                        {selectedLangCode === item.short && <Check className="w-3.5 h-3.5 text-white" />}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
             <button
               onClick={() => {
-                setLangDropdownOpen(!langDropdownOpen);
-                setSearchModalOpen(false);
+                setSearchModalOpen(true);
+                setLangDropdownOpen(false);
               }}
-              className="p-2 rounded-xl text-[#A79FCB] hover:bg-white/[0.08] hover:text-[#EFEDFA] transition-colors cursor-pointer border border-[#2A2450] flex items-center gap-1 text-xs font-mono font-bold"
-              title="Change Language"
-            >
-              <Globe2 className="w-4 h-4 text-[#9B7BF0]" />
-              <span className="text-[10px] text-[#EFEDFA]">{selectedLangCode}</span>
-            </button>
-            <button
-              onClick={() => setSearchModalOpen(true)}
               className="p-2 rounded-xl text-[#A79FCB] hover:bg-white/[0.08] hover:text-[#EFEDFA] transition-colors cursor-pointer border border-[#2A2450]"
               title="Search"
             >
@@ -477,6 +524,7 @@ export default function Navbar({
                 if (activeModal) {
                   closeModal();
                 }
+                setLangDropdownOpen(false);
                 setMobileMenuOpen(!mobileMenuOpen);
               }}
               className="p-2 rounded-xl text-[#A79FCB] hover:bg-white/[0.08] hover:text-[#EFEDFA] transition-colors cursor-pointer border border-[#2A2450]"
