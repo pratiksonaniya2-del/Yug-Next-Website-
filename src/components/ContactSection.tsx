@@ -15,6 +15,8 @@ import { InstagramIcon, FacebookIcon, WhatsAppIcon } from "./SocialIcons";
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,9 +26,39 @@ export default function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit inquiry");
+      }
+
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        interest: "Take services/ build website",
+        place: "Madhya Pradesh",
+        message: "",
+      });
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      setErrorMsg(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -310,12 +342,21 @@ export default function ContactSection() {
                   ></textarea>
                 </div>
 
+                {errorMsg && (
+                  <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-xs font-semibold">
+                    {errorMsg}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-bold text-sm shadow-md shadow-[#6C3CE3]/25 hover:shadow-lg hover:shadow-[#6C3CE3]/35 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={loading}
+                  className={`w-full py-4 rounded-xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-bold text-sm shadow-md shadow-[#6C3CE3]/25 hover:shadow-lg hover:shadow-[#6C3CE3]/35 hover:scale-[1.01] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                    loading ? "opacity-70 cursor-wait" : ""
+                  }`}
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Transmit Inquiry to Delivery Hub</span>
+                  <Send className={`w-4 h-4 ${loading ? "animate-pulse" : ""}`} />
+                  <span>{loading ? "Transmitting to Database..." : "Transmit Inquiry to Delivery Hub"}</span>
                 </button>
               </form>
             )}
