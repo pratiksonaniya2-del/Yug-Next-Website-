@@ -37,8 +37,8 @@ const HUBS: NodeInfo[] = [
   {
     city: "CHENNAI",
     state: "Tamil Nadu",
-    role: "Service available",
-    description: "Gave website to coaching institutes",
+    role: "Service given and available",
+    description: "Service given and available. Gave website to coaching institutes.",
     tags: [],
     x: 247,
     y: 568,

@@ -50,8 +50,8 @@ export default function ReachPage() {
     {
       city: "CHENNAI",
       state: "Tamil Nadu",
-      badge: "Service available",
-      lead: "Gave website to coaching institutes.",
+      badge: "Service given and available",
+      lead: "Service given and available",
       description: "Delivering coaching websites, digital systems, and client solutions across Southern institutional clusters.",
       specs: [
         "Coaching Website Delivered",
