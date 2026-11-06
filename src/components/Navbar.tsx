@@ -452,20 +452,32 @@ export default function Navbar({
             </button>
           </div>
 
-          {/* Mobile Right Controls: Search + Hamburger */}
-          <div className="xl:hidden flex items-center gap-2">
+          {/* Mobile Right Controls: Search + Language + Hamburger */}
+          <div className="xl:hidden flex items-center gap-1.5 sm:gap-2">
+            <button
+              onClick={() => {
+                setLangDropdownOpen(!langDropdownOpen);
+                setSearchModalOpen(false);
+              }}
+              className="p-2 rounded-xl text-[#A79FCB] hover:bg-white/[0.08] hover:text-[#EFEDFA] transition-colors cursor-pointer border border-[#2A2450] flex items-center gap-1 text-xs font-mono font-bold"
+              title="Change Language"
+            >
+              <Globe2 className="w-4 h-4 text-[#9B7BF0]" />
+              <span className="text-[10px] text-[#EFEDFA]">{selectedLangCode}</span>
+            </button>
             <button
               onClick={() => setSearchModalOpen(true)}
               className="p-2 rounded-xl text-[#A79FCB] hover:bg-white/[0.08] hover:text-[#EFEDFA] transition-colors cursor-pointer border border-[#2A2450]"
               title="Search"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-xl text-[#A79FCB] hover:bg-white/[0.08] hover:text-[#EFEDFA] transition-colors cursor-pointer border border-[#2A2450]"
+              aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-white" />}
             </button>
           </div>
 

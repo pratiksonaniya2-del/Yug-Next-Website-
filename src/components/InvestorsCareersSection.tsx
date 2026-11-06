@@ -265,33 +265,33 @@ export default function InvestorsCareersSection() {
                 </p>
               </div>
 
-              {/* Action Buttons & Carousel Arrows */}
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 mr-2">
-                  <button
-                    onClick={() => scroll("left")}
-                    aria-label="Previous roles"
-                    className="w-10 h-10 rounded-full bg-[#181534] hover:bg-[#201c46] border border-[#2A2450] hover:border-[#6C3CE3]/60 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
-                  >
-                    <ChevronLeft className="w-5 h-5 text-[#9B7BF0]" />
-                  </button>
-                  <button
-                    onClick={() => scroll("right")}
-                    aria-label="Next roles"
-                    className="w-10 h-10 rounded-full bg-[#181534] hover:bg-[#201c46] border border-[#2A2450] hover:border-[#6C3CE3]/60 text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
-                  >
-                    <ChevronRight className="w-5 h-5 text-[#9B7BF0]" />
-                  </button>
-                </div>
-
-                <Link
-                  href="/careers"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#6C3CE3]/25 transition-all cursor-pointer whitespace-nowrap"
+            {/* Action Buttons & Carousel Arrows */}
+            <div className="flex flex-wrap items-center justify-between sm:justify-end gap-3 w-full md:w-auto">
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => scroll("left")}
+                  aria-label="Previous roles"
+                  className="w-10 h-10 rounded-full bg-[#181534] hover:bg-[#201c46] border border-[#2A2450] hover:border-[#6C3CE3]/60 text-white flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
                 >
-                  <span>View All Open Positions</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                  <ChevronLeft className="w-5 h-5 text-[#9B7BF0]" />
+                </button>
+                <button
+                  onClick={() => scroll("right")}
+                  aria-label="Next roles"
+                  className="w-10 h-10 rounded-full bg-[#181534] hover:bg-[#201c46] border border-[#2A2450] hover:border-[#6C3CE3]/60 text-white flex items-center justify-center transition-all cursor-pointer shadow-md active:scale-95"
+                >
+                  <ChevronRight className="w-5 h-5 text-[#9B7BF0]" />
+                </button>
               </div>
+
+              <Link
+                href="/careers"
+                className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#6C3CE3]/25 transition-all cursor-pointer whitespace-nowrap active:scale-95"
+              >
+                <span>View All Open Positions</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
             </div>
 
             {/* Scrollable Roles Carousel with left-right navigation */}

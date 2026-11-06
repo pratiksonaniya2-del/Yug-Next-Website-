@@ -22,11 +22,26 @@
   --purple-soft: #181534;
 }
 
+/* Touch smooth scrolling & scrollbar styling */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   font-family: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
   color: #EFEDFA;
   background-color: #0A0818;
   overflow-x: hidden;
+  width: 100%;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Ambient dot grid + cursor glow from yugnext.in */
