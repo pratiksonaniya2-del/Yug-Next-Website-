@@ -132,7 +132,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
                 </li>
                 <li>
                   <Link
-                    href="/about#alliances"
+                    href="/collaborations"
                     className="text-slate-400 hover:text-white transition-colors text-left block"
                   >
                     Strategic Alliances

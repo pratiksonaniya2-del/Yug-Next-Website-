@@ -163,7 +163,7 @@ export default function CareersPage() {
       location: "Bhopal / Remote",
       workHours: "Flexible Hours",
       description: "Manage media relationships, company press statements, institutional partnerships, and event coverage.",
-      skills: ["PR & Media Outreach", "Brand Communications", "Press Releases"],
+      skills: ["PR & Media Outreach", "Brand Communications", "Press Releases", "Social Networking"],
       tasks: [
         "Draft and syndicate official press releases, newsroom bulletins, and institutional memos.",
         "Establish partnerships with college press bodies, education publications, and tech blogs.",
@@ -190,8 +190,17 @@ export default function CareersPage() {
       title: "Graphic Designer",
       location: "Bhopal / Remote",
       workHours: "Flexible Hours",
-      description: "Produce captivating digital creatives, social post banners, brand identity assets, and event collaterals.",
-      skills: ["Graphic Design", "Photoshop", "Illustrator", "Brand Identity"],
+      description: "Design creative posters, banners, brochures, logos, brand identities, and event collaterals.",
+      skills: [
+        "Canva",
+        "Photoshop",
+        "Colour theory",
+        "Typography",
+        "Image editing",
+        "Vector graphics",
+        "Motion graphics",
+        "Brand identity",
+      ],
       tasks: [
         "Design high-impact visual banners, infographics, brochures, and announcement cards.",
         "Maintain brand consistency across all visual guidelines, color palettes, and typography.",
@@ -284,9 +293,17 @@ export default function CareersPage() {
           </div>
 
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#6C3CE3]/20 text-[#9B7BF0] border border-[#6C3CE3]/30">
-              <Briefcase className="w-3.5 h-3.5 text-[#9B7BF0]" />
-              <span>JOIN THE TEAM • OPEN ROLES</span>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#6C3CE3]/20 text-[#9B7BF0] border border-[#6C3CE3]/30">
+                <Briefcase className="w-3.5 h-3.5 text-[#9B7BF0]" />
+                <span>JOIN THE TEAM • OPEN ROLES</span>
+              </div>
+
+              {/* Top Deadline Banner Highlight */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-lg shadow-amber-500/10 animate-pulse">
+                <Clock className="w-3.5 h-3.5 text-amber-400" />
+                <span>Task submission deadline : 28 may 2026</span>
+              </div>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
@@ -322,16 +339,22 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Values & Manifesto */}
+      {/* Values & Manifesto: What do we expect from you? */}
       <section className="py-16 bg-[#0A0818] border-b border-[#2A2450]/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+              What do we expect from you?
+            </h2>
+          </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { title: "Curious.", desc: "Always questioning assumptions and exploring modern tools & frameworks." },
               { title: "Ownership.", desc: "Taking end-to-end responsibility from first commit to production delivery." },
               { title: "Learning.", desc: "Accelerating personal, technical, and domain depth every sprint." },
-              { title: "Builders.", desc: "Creating code, design, and systems that tangibly move businesses forward." },
+              { title: "Builders & Innovators", desc: "Creating code, design, and systems that tangibly move businesses forward." },
             ].map((v) => (
               <div key={v.title} className="p-6 rounded-2xl bg-[#12102A] border border-[#2A2450] space-y-2 hover:border-[#6C3CE3]/50 transition-colors">
                 <span className="text-xl font-black text-[#9B7BF0] block">{v.title}</span>

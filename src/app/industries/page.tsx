@@ -5,179 +5,166 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import {
-  Sparkles,
-  ArrowRight,
   GraduationCap,
+  Camera,
+  UtensilsCrossed,
+  Users,
+  Activity,
   Landmark,
   Truck,
-  CheckCircle,
-  ShieldCheck,
-  Zap,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react";
 
 export default function IndustriesPage() {
   const INDUSTRIES = [
     {
+      number: "01",
       title: "Education",
-      tag: "Connected Learning Ecosystems",
       icon: GraduationCap,
-      lead: "Building technology and digital initiatives for a world where learning is becoming increasingly connected.",
-      description: "From unified student lifecycle management to specialized K-12 and coaching portals. We help academic institutions automate administrative overhead so educators can focus on teaching.",
-      solutions: [
-        "Campus-wide Student Information Systems (SIS)",
-        "Automated Examination & Transcript Verifications",
-        "Fee Automation & Student Wallet Integration",
-        "Parent-Teacher Real-Time Progress Portals",
+      description: "School websites, coaching institute websites and educational platforms.",
+      associatedProduct: "ShikshaSathi",
+    },
+    {
+      number: "02",
+      title: "Photography",
+      icon: Camera,
+      description: "Photography studio websites, digital portfolios and online galleries.",
+    },
+    {
+      number: "03",
+      title: "Food & Beverages",
+      icon: UtensilsCrossed,
+      description: "Restaurant and café websites, digital menus and online presence.",
+    },
+    {
+      number: "04",
+      title: "Organisations & Events",
+      icon: Users,
+      bulletPoints: [
+        "College society websites — Pravah Web",
+        "College fest websites — MAFFICK Web",
       ],
     },
     {
+      number: "05",
+      title: "Health & Fitness",
+      icon: Activity,
+      description: "Gym and fitness club websites, membership and digital service interfaces.",
+    },
+    {
+      number: "06",
       title: "Finance",
-      tag: "High-Trust Digital Possibilities",
       icon: Landmark,
-      lead: "Creating digital possibilities for an industry where trust, speed and accessibility matter.",
-      description: "Fintech solutions built with uncompromising security, ultra-low latency transaction paths, and intuitive interfaces that reduce friction for users across all demographics.",
-      solutions: [
-        "Secure Transaction Pipelines & UPI Integration",
-        "Automated Audit Logs & Compliance Engine",
-        "Customer KYC & Identity Verification Flow",
-        "Micro-Lending & Institutional Portals",
-      ],
+      description: "Financial technology and digital financial solutions.",
+      associatedProduct: "Sett(l)r — Launching Soon",
     },
     {
+      number: "07",
       title: "Logistics",
-      tag: "Intelligent Physical Movement",
       icon: Truck,
-      lead: "Helping build smarter digital experiences for an increasingly connected movement of people and goods.",
-      description: "Real-time dispatch tracking, fleet telemetry dashboards, and route optimization algorithms that ensure goods and personnel move with predictable precision.",
-      solutions: [
-        "Real-Time Telemetry & GPS Dispatch Trackers",
-        "Warehouse Inventory & Proof of Delivery (PoD)",
-        "Last-Mile Route Optimization Engine",
-        "Vendor & Driver Mobile Portals",
-      ],
+      description: "Campus-oriented logistics and service solutions.",
+      associatedProduct: "CampusNeeds — Launching Soon",
     },
   ];
 
   return (
-    <main className="min-h-screen bg-white text-slate-900 flex flex-col justify-between selection:bg-[#5d35e0] selection:text-white">
+    <main className="min-h-screen bg-[#0A0818] text-[#EFEDFA] flex flex-col justify-between selection:bg-[#6C3CE3] selection:text-white">
       <Navbar />
 
       {/* Hero Header */}
-      <section className="pt-16 pb-20 bg-[#0a0422] text-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[#5d35e0]/15 blur-[160px] pointer-events-none" />
+      <section className="pt-24 pb-16 bg-[#0a0422] text-white relative overflow-hidden border-b border-[#2A2450]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[360px] bg-[#5d35e0]/20 blur-[170px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center gap-2 text-xs font-mono text-purple-300 mb-6">
             <Link href="/" className="hover:text-white transition-colors">HOME</Link>
             <span>/</span>
-            <span className="text-[#9d7df7] font-bold">INDUSTRIES</span>
+            <span className="text-[#9B7BF0] font-bold">INDUSTRIES</span>
           </div>
 
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#5d35e0]/20 text-[#9d7df7] border border-[#5d35e0]/30">
-              <Sparkles className="w-3.5 h-3.5 text-[#9d7df7]" />
-              <span>DOMAINS WE TRANSFORM</span>
+          <div className="max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#6C3CE3]/20 text-[#9B7BF0] border border-[#6C3CE3]/30">
+              <Sparkles className="w-3.5 h-3.5 text-[#9B7BF0]" />
+              <span>INDUSTRIES WE SERVE</span>
             </div>
 
             <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight">
-              Different Industries. Different Problems. <span className="text-[#9d7df7]">One Thing in Common.</span>
+              Industries We Serve
             </h1>
-
-            <p className="text-slate-300 text-base sm:text-xl leading-relaxed font-light">
-              Technology changes from industry to industry. The need for better solutions doesn&apos;t.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* Detailed Industry Deep-Dive */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
-          {INDUSTRIES.map((ind, i) => {
-            const Icon = ind.icon;
-            const isEven = i % 2 === 1;
-
-            return (
-              <div
-                key={ind.title}
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-10 items-center p-8 sm:p-12 rounded-3xl border border-slate-200 bg-slate-50 hover:bg-white hover:border-[#5d35e0] hover:shadow-xl hover:shadow-[#5d35e0]/10 transition-all duration-300 ${
-                  isEven ? "lg:flex-row-reverse" : ""
-                }`}
-              >
-                <div className="lg:col-span-7 space-y-5">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-[#5d35e0] text-white flex items-center justify-center font-bold">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-mono font-bold uppercase text-[#5d35e0] block">
-                        {ind.tag}
+      {/* Industries Grid */}
+      <section className="py-16 sm:py-20 bg-[#0A0818] relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {INDUSTRIES.map((ind) => {
+              const Icon = ind.icon;
+              return (
+                <div
+                  key={ind.number}
+                  className="p-7 sm:p-8 rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all flex flex-col justify-between space-y-6 shadow-xl group hover:shadow-2xl hover:shadow-[#6C3CE3]/10"
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-2xl sm:text-3xl font-mono font-black text-[#9B7BF0]/60 group-hover:text-[#9B7BF0] transition-colors">
+                        {ind.number}.
                       </span>
-                      <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
-                        {ind.title}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <p className="text-sm sm:text-base font-semibold text-slate-800 leading-snug">
-                    {ind.lead}
-                  </p>
-
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-light">
-                    {ind.description}
-                  </p>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    {ind.solutions.map((sol) => (
-                      <div key={sol} className="flex items-center gap-2 text-xs text-slate-700">
-                        <CheckCircle className="w-4 h-4 text-[#5d35e0] shrink-0" />
-                        <span>{sol}</span>
+                      <div className="w-11 h-11 rounded-2xl bg-[#181534] border border-[#2A2450] text-[#9B7BF0] flex items-center justify-center group-hover:border-[#6C3CE3]/40 group-hover:scale-105 transition-all">
+                        <Icon className="w-5 h-5" />
                       </div>
-                    ))}
-                  </div>
-                </div>
+                    </div>
 
-                <div className="lg:col-span-5 p-7 rounded-2xl bg-[#0e0738] text-white space-y-4">
-                  <span className="text-[10px] font-mono font-bold uppercase text-[#9d7df7] tracking-wider block">
-                    SECTOR IMPACT RECORD
-                  </span>
-                  <h4 className="text-xl font-bold">Tailored Architecture for {ind.title}</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed font-light">
-                    We deploy battle-tested frameworks from our engineering nodes in NCR, Bhopal, and Agra, adhering to strict enterprise standards.
-                  </p>
-                  <div className="pt-2">
-                    <Link
-                      href="/#contact"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white text-xs font-bold shadow-md transition-all cursor-pointer"
-                    >
-                      <span>Consult for {ind.title}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
+                    <h2 className="text-2xl font-black text-white group-hover:text-[#C4B5FD] transition-colors">
+                      {ind.title}
+                    </h2>
+
+                    {ind.description && (
+                      <p className="text-sm text-[#A79FCB] leading-relaxed font-light">
+                        {ind.description}
+                      </p>
+                    )}
+
+                    {ind.bulletPoints && (
+                      <ul className="space-y-2 text-sm text-[#A79FCB] font-light">
+                        {ind.bulletPoints.map((bp, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <span className="text-[#9B7BF0] font-bold">•</span>
+                            <span>{bp}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
+
+                  {ind.associatedProduct && (
+                    <div className="pt-4 border-t border-[#2A2450]">
+                      <span className="text-xs font-mono text-[#9B7BF0] font-bold block">
+                        Associated product: {ind.associatedProduct}
+                      </span>
+                    </div>
+                  )}
                 </div>
+              );
+            })}
+          </div>
+
+          {/* Bottom Direct CTA */}
+          <div className="pt-8">
+            <div className="p-8 sm:p-12 rounded-3xl bg-[#12102A] border border-[#2A2450] text-center space-y-4">
+              <h3 className="text-2xl sm:text-3xl font-black text-white">
+                Looking to build a specialized solution for your industry?
+              </h3>
+              <div className="pt-2">
+                <Link
+                  href="/#contact"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-bold text-sm shadow-lg shadow-[#6C3CE3]/30 transition-all cursor-pointer"
+                >
+                  <span>Start a Conversation →</span>
+                </Link>
               </div>
-            );
-          })}
-
-          {/* And We're Just Getting Started Banner (Exact User Copy) */}
-          <div className="p-8 sm:p-12 rounded-3xl bg-[#0a0422] text-white text-center space-y-4 shadow-xl">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#9d7df7]">
-              EXPANDING HORIZONS
-            </span>
-            <h3 className="text-3xl sm:text-4xl font-black text-white">
-              And We&apos;re Just Getting Started.
-            </h3>
-            <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed font-light">
-              Our work isn&apos;t limited to three industries. Wherever there is a meaningful problem, there is an opportunity to build something better.
-            </p>
-            <div className="pt-2">
-              <Link
-                href="/#contact"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#5d35e0] hover:bg-[#4d28c8] text-white font-bold text-sm shadow-lg shadow-[#5d35e0]/25 transition-all cursor-pointer"
-              >
-                <span>Partner on a New Industry Challenge →</span>
-              </Link>
             </div>
           </div>
 
