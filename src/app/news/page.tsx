@@ -425,7 +425,7 @@ export default function NewsroomPage() {
           {/* Social Channels: LinkedIn and Instagram */}
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="https://linkedin.com/company/yugnext"
+              href="https://www.linkedin.com/company/yugnextofficial/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#0077B5] hover:bg-[#006097] text-white font-bold text-sm shadow-lg shadow-[#0077B5]/25 hover:shadow-xl transition-all cursor-pointer"
@@ -435,7 +435,7 @@ export default function NewsroomPage() {
             </a>
 
             <a
-              href="https://instagram.com/yugnext"
+              href="https://www.instagram.com/yugnextofficial?vrfl=MWk3eXdjdXVmYjJkaQ=="
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF] hover:opacity-95 text-white font-bold text-sm shadow-lg shadow-[#DD2A7B]/25 hover:shadow-xl transition-all cursor-pointer"

@@ -11,7 +11,7 @@ import {
   Sparkles,
   MessageCircle,
 } from "lucide-react";
-import { InstagramIcon, FacebookIcon, WhatsAppIcon } from "./SocialIcons";
+import { InstagramIcon, WhatsAppIcon, LinkedInIcon } from "./SocialIcons";
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -134,22 +134,22 @@ export default function ContactSection() {
                       <WhatsAppIcon className="w-4 h-4" />
                     </a>
                     <a
-                      href="https://instagram.com"
+                      href="https://www.linkedin.com/company/yugnextofficial/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Connect on LinkedIn"
+                      className="w-8 h-8 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-blue-500/60 hover:bg-blue-500/10 text-[#0077B5] flex items-center justify-center transition-all cursor-pointer"
+                    >
+                      <LinkedInIcon className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/yugnextofficial?vrfl=MWk3eXdjdXVmYjJkaQ=="
                       target="_blank"
                       rel="noopener noreferrer"
                       title="Follow on Instagram"
                       className="w-8 h-8 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-pink-500/60 hover:bg-pink-500/10 text-pink-400 flex items-center justify-center transition-all cursor-pointer"
                     >
                       <InstagramIcon className="w-4 h-4" />
-                    </a>
-                    <a
-                      href="https://facebook.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="Connect on Facebook"
-                      className="w-8 h-8 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-blue-500/60 hover:bg-blue-500/10 text-blue-400 flex items-center justify-center transition-all cursor-pointer"
-                    >
-                      <FacebookIcon className="w-4 h-4" />
                     </a>
                     <a
                       href="tel:+919310346182"

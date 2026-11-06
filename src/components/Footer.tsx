@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUp, Sparkles, MapPin, CheckCircle2, Phone, Mail } from "lucide-react";
-import { InstagramIcon, FacebookIcon, WhatsAppIcon } from "./SocialIcons";
+import { InstagramIcon, WhatsAppIcon, LinkedInIcon } from "./SocialIcons";
 import { ModalType } from "./ContentCardModal";
 import YugNextLogo from "./YugNextLogo";
 
@@ -234,22 +234,22 @@ export default function Footer({ onOpenModal }: FooterProps) {
                   <WhatsAppIcon className="w-3.5 h-3.5" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.linkedin.com/company/yugnextofficial/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LinkedIn"
+                  className="w-7 h-7 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-blue-500/60 hover:bg-blue-500/10 text-[#0077B5] flex items-center justify-center transition-all"
+                >
+                  <LinkedInIcon className="w-3.5 h-3.5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/yugnextofficial?vrfl=MWk3eXdjdXVmYjJkaQ=="
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Instagram"
                   className="w-7 h-7 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-pink-500/60 hover:bg-pink-500/10 text-pink-400 flex items-center justify-center transition-all"
                 >
                   <InstagramIcon className="w-3.5 h-3.5" />
-                </a>
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Facebook"
-                  className="w-7 h-7 rounded-lg bg-[#181534] border border-[#2A2450] hover:border-blue-500/60 hover:bg-blue-500/10 text-blue-400 flex items-center justify-center transition-all"
-                >
-                  <FacebookIcon className="w-3.5 h-3.5" />
                 </a>
                 <a
                   href="tel:+919310346182"
