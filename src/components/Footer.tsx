@@ -116,7 +116,7 @@ export default function Footer({ onOpenModal }: FooterProps) {
                 </li>
                 <li>
                   <Link
-                    href="/about#leadership"
+                    href="/leadership"
                     className="text-slate-400 hover:text-white transition-colors text-left block"
                   >
                     Leadership
