@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -49,6 +50,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} min-h-screen bg-[#0A0818] text-[#EFEDFA] antialiased selection:bg-[#6C3CE3] selection:text-white`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
