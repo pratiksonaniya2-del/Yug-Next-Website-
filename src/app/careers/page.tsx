@@ -29,6 +29,7 @@ import {
   X,
   FileText,
   ExternalLink,
+  Lock,
 } from "lucide-react";
 
 interface RoleTask {
@@ -435,15 +436,24 @@ export default function CareersPage() {
                     </div>
                   </div>
 
-                  {/* Actions: View Tasks & Apply for this Role */}
+                  {/* Actions: View Tasks (Locked) & Apply for this Role */}
                   <div className="shrink-0 flex flex-wrap sm:flex-nowrap items-center gap-3 pt-2 lg:pt-0">
-                    <button
-                      onClick={() => setSelectedTaskRole(role)}
-                      className="px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold border border-slate-200 hover:border-[#6C3CE3]/50 transition-all cursor-pointer flex items-center gap-1.5"
-                    >
-                      <FileText className="w-3.5 h-3.5 text-[#5d35e0]" />
-                      <span>View Tasks</span>
-                    </button>
+                    <div className="relative group/lock">
+                      <button
+                        type="button"
+                        disabled
+                        className="px-5 py-2.5 rounded-full bg-slate-100/90 text-slate-400 text-xs sm:text-sm font-semibold border border-slate-200 cursor-not-allowed flex items-center gap-2 select-none"
+                      >
+                        <Lock className="w-3.5 h-3.5 text-slate-400" />
+                        <span>View Tasks</span>
+                      </button>
+
+                      {/* Tooltip on hover */}
+                      <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover/lock:flex items-center justify-center px-3 py-1.5 rounded-lg bg-slate-900 text-white text-[11px] font-medium whitespace-nowrap shadow-xl z-20 animate-in fade-in zoom-in-95 duration-150">
+                        <span>will be available soon</span>
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900" />
+                      </div>
+                    </div>
 
                     <a
                       href="https://forms.gle/nHvDnkWkEQiReFBP9"

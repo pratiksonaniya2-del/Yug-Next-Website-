@@ -632,7 +632,7 @@ export default function Navbar({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#0A0818] border-b border-[#2A2450] px-5 py-6 shadow-2xl space-y-2.5 z-40 relative">
+        <div className="fixed inset-x-0 top-[57px] bottom-0 z-40 bg-[#0A0818]/95 backdrop-blur-xl border-b border-[#2A2450] px-5 py-6 shadow-2xl space-y-2.5 overflow-y-auto xl:hidden animate-in fade-in slide-in-from-top-4 duration-200">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -640,7 +640,7 @@ export default function Navbar({
                 setMobileMenuOpen(false);
                 handleNavClick(item.id);
               }}
-              className="w-full text-left p-3 rounded-xl bg-[#12102A] text-[#EFEDFA] font-bold text-sm hover:bg-[#181534] transition-colors cursor-pointer flex items-center justify-between border border-[#2A2450]"
+              className="w-full text-left p-3.5 rounded-xl bg-[#12102A] text-[#EFEDFA] font-bold text-sm hover:bg-[#181534] transition-colors cursor-pointer flex items-center justify-between border border-[#2A2450]"
             >
               <span>{item.label}</span>
               <ChevronDown className="w-4 h-4 text-[#9B7BF0]" />
@@ -652,7 +652,7 @@ export default function Navbar({
               setMobileMenuOpen(false);
               handleContactClick(e);
             }}
-            className="w-full text-left p-3 rounded-xl bg-[#12102A] text-[#EFEDFA] font-bold text-sm hover:bg-[#181534] hover:underline underline-offset-4 transition-colors cursor-pointer block border border-[#2A2450]"
+            className="w-full text-left p-3.5 rounded-xl bg-[#12102A] text-[#EFEDFA] font-bold text-sm hover:bg-[#181534] hover:underline underline-offset-4 transition-colors cursor-pointer block border border-[#2A2450]"
           >
             <span>Contact Us</span>
           </Link>
@@ -662,7 +662,7 @@ export default function Navbar({
                 setMobileMenuOpen(false);
                 handleContactClick(e);
               }}
-              className="w-full py-3 rounded-xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-bold text-center text-sm shadow-md cursor-pointer transition-colors"
+              className="w-full py-3.5 rounded-xl bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white font-bold text-center text-sm shadow-md cursor-pointer transition-colors"
             >
               Step Into Tomorrow →
             </button>
