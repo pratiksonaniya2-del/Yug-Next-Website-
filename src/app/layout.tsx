@@ -30,6 +30,14 @@ export const metadata: Metadata = {
   title: "YugNext | Pioneering Next-Gen Digital Ecosystems & Products",
   description:
     "YugNext is a premier digital transformation, products, and services company. Home to Shikshasetu, CampusNeeds, Settler, NexonAcademy, and strategic alliances with MANIT, ROLTA, and Govt of India.",
+  icons: {
+    icon: [
+      { url: "/images/yugnext-icon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/images/yugnext-icon.png",
+    apple: "/images/yugnext-icon.png",
+  },
 };
 
 export default function RootLayout({
