@@ -101,24 +101,24 @@ export default function NewsroomPage() {
       </section>
 
       {/* 2. FEATURED NEWS SECTION */}
-      <section id="latest-news" className="py-20 bg-[#0A0818] relative border-b border-[#2A2450]/80">
+      <section id="latest-news" className="py-20 bg-white text-slate-900 relative border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
-              <span className="text-xs font-mono font-bold tracking-widest text-[#9B7BF0] uppercase block mb-2">
+              <span className="text-xs font-mono font-bold tracking-widest text-[#5d35e0] uppercase block mb-2">
                 FEATURED ANNOUNCEMENT
               </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
                 Latest Updates
               </h2>
             </div>
-            <span className="text-xs font-mono text-[#A79FCB]">
+            <span className="text-xs font-mono text-slate-500">
               Primary Corporate Release
             </span>
           </div>
 
           {/* Large Featured Card (60:40 Split) */}
-          <div className="rounded-3xl bg-gradient-to-br from-[#12102A] to-[#171336] border border-[#2A2450] hover:border-[#6C3CE3]/50 transition-all duration-300 overflow-hidden shadow-2xl group">
+          <div className="rounded-3xl bg-white border border-slate-200 hover:border-[#5d35e0]/50 transition-all duration-300 overflow-hidden shadow-xl hover:shadow-2xl group">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
               
               {/* Left Side: 60% (Desktop cols 7) - Custom Graphic */}
@@ -163,31 +163,31 @@ export default function NewsroomPage() {
               </div>
 
               {/* Right Side: 40% (Desktop cols 5) - Details */}
-              <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between space-y-6">
+              <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-between space-y-6 bg-slate-50/70">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-bold tracking-wider text-[#9B7BF0] uppercase">
+                    <span className="text-xs font-mono font-bold tracking-wider text-[#5d35e0] uppercase">
                       NEWS / COMPANY UPDATE
                     </span>
-                    <span className="text-white/30">•</span>
-                    <span className="text-xs font-mono text-[#A79FCB]">21 October 2026</span>
+                    <span className="text-slate-300">•</span>
+                    <span className="text-xs font-mono text-slate-500">21 October 2026</span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight group-hover:text-[#C4B5FD] transition-colors">
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 leading-tight group-hover:text-[#5d35e0] transition-colors">
                     From Campus Startup to Corporate Entity: YUGNEXT Officially Incorporated as a Private Limited Company
                   </h3>
 
-                  <p className="text-[#A79FCB] text-sm sm:text-base leading-relaxed">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                     A major milestone marking YUGNEXT&apos;s transition into a formally registered company. Founded by young entrepreneur Harsh Rathore, the company aims to build an ecosystem of affordable, accessible, and innovative technology solutions.
                   </p>
 
-                  <div className="pt-2 space-y-2 text-xs text-purple-200/80">
+                  <div className="pt-2 space-y-2 text-xs text-slate-600">
                     <div className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#6C3CE3]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#5d35e0]" />
                       <span>Registered Office in Agra, UP &amp; Corporate Office in Bhopal, MP</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#6C3CE3]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#5d35e0]" />
                       <span>Led by Harsh Rathore as Director and Chief Executive Officer (CEO)</span>
                     </div>
                   </div>
@@ -196,7 +196,7 @@ export default function NewsroomPage() {
                 <div className="pt-4">
                   <button
                     onClick={() => setActiveStoryModal("incorporation")}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#6C3CE3] hover:bg-[#5b2dd4] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#6C3CE3]/30 transition-all cursor-pointer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#5d35e0] hover:bg-[#4d2bc2] text-white text-xs sm:text-sm font-bold shadow-md shadow-[#5d35e0]/25 transition-all cursor-pointer"
                   >
                     <span>Read Full Story</span>
                     <ArrowRight className="w-4 h-4" />
@@ -210,17 +210,17 @@ export default function NewsroomPage() {
       </section>
 
       {/* 3. ALL NEWS SECTION (Swapped Left-Right Order: Corporate Milestone on LEFT, Funding on RIGHT) */}
-      <section className="py-20 bg-[#0A0818] relative border-b border-[#2A2450]/80">
+      <section className="py-20 bg-slate-50/70 text-slate-900 relative border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="space-y-3">
-            <span className="text-xs font-mono font-bold tracking-widest text-[#9B7BF0] uppercase block">
+            <span className="text-xs font-mono font-bold tracking-widest text-[#5d35e0] uppercase block">
               PRESS RELEASES &amp; DISPATCHES
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
               All News &amp; Announcements
             </h2>
-            <p className="text-[#A79FCB] text-base max-w-2xl">
+            <p className="text-slate-600 text-base max-w-2xl">
               Explore the two defining milestones shaping our journey.
             </p>
           </div>
@@ -228,8 +228,8 @@ export default function NewsroomPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             
             {/* Card 1 (LEFT): Corporate Milestone (21 October 2026) */}
-            <div className="rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-[#6C3CE3]/60 transition-all duration-300 flex flex-col justify-between p-7 sm:p-8 shadow-xl group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#6C3CE3]/15 rounded-full blur-2xl pointer-events-none" />
+            <div className="rounded-3xl bg-white border border-slate-200 hover:border-[#5d35e0]/60 transition-all duration-300 flex flex-col justify-between p-7 sm:p-8 shadow-md hover:shadow-xl group relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#5d35e0]/5 rounded-full blur-2xl pointer-events-none" />
               
               <div className="space-y-5 relative z-10">
                 {/* Visual Header */}
@@ -251,24 +251,24 @@ export default function NewsroomPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-xs font-mono text-[#9B7BF0]">
+                  <div className="flex items-center gap-2 text-xs font-mono text-[#5d35e0] font-bold">
                     <span>CATEGORY: CORPORATE MILESTONE</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white group-hover:text-[#C4B5FD] transition-colors leading-snug">
+                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#5d35e0] transition-colors leading-snug">
                     From Campus Startup to Corporate Entity: YUGNEXT Officially Incorporated as a Private Limited Company
                   </h3>
 
-                  <p className="text-[#A79FCB] text-xs sm:text-sm leading-relaxed line-clamp-3">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
                     YUGNEXT officially becomes a Private Limited Company, marking a new chapter in its entrepreneurial journey and corporate expansion.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-6 relative z-10 border-t border-[#2A2450]">
+              <div className="pt-6 relative z-10 border-t border-slate-100">
                 <button
                   onClick={() => setActiveStoryModal("incorporation")}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#A78BFA] hover:text-white transition-colors group-hover:translate-x-1 duration-200 cursor-pointer"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#5d35e0] hover:text-[#4a26bf] transition-colors group-hover:translate-x-1 duration-200 cursor-pointer"
                 >
                   <span>Read More</span>
                   <ArrowRight className="w-4 h-4" />
@@ -277,8 +277,8 @@ export default function NewsroomPage() {
             </div>
 
             {/* Card 2 (RIGHT): Incubation & Funding (08 May 2026) */}
-            <div className="rounded-3xl bg-[#12102A] border border-[#2A2450] hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between p-7 sm:p-8 shadow-xl group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="rounded-3xl bg-white border border-slate-200 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between p-7 sm:p-8 shadow-md hover:shadow-xl group relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
               
               <div className="space-y-5 relative z-10">
                 {/* Visual Header */}
@@ -300,24 +300,24 @@ export default function NewsroomPage() {
                 </div>
 
                 <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
+                  <div className="flex items-center gap-2 text-xs font-mono text-emerald-600 font-bold">
                     <span>CATEGORY: INCUBATION &amp; FUNDING</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors leading-snug">
+                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors leading-snug">
                     YUGNEXT Secures ₹50,000 Funding and Gets Incubated at MANIT ROLTA Incubation Centre with Its EdTech Initiative, VidyaSetu
                   </h3>
 
-                  <p className="text-[#A79FCB] text-xs sm:text-sm leading-relaxed line-clamp-3">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
                     YUGNEXT achieves its first major startup milestone with ₹50,000 funding and incubation support from MANIT ROLTA Incubation Centre.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-6 relative z-10 border-t border-[#2A2450]">
+              <div className="pt-6 relative z-10 border-t border-slate-100">
                 <button
                   onClick={() => setActiveStoryModal("funding")}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors group-hover:translate-x-1 duration-200 cursor-pointer"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors group-hover:translate-x-1 duration-200 cursor-pointer"
                 >
                   <span>Read More</span>
                   <ArrowRight className="w-4 h-4" />
@@ -330,48 +330,48 @@ export default function NewsroomPage() {
       </section>
 
       {/* 4. OUR JOURNEY SO FAR (2 Key Milestones) */}
-      <section id="milestones-timeline" className="py-20 bg-[#0A0818] relative border-b border-[#2A2450]/80">
+      <section id="milestones-timeline" className="py-20 bg-white text-slate-900 relative border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
           <div className="space-y-3">
-            <span className="text-xs font-mono font-bold tracking-widest text-[#9B7BF0] uppercase block">
+            <span className="text-xs font-mono font-bold tracking-widest text-[#5d35e0] uppercase block">
               CHRONOLOGY OF GROWTH
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
               Our Journey So Far
             </h2>
-            <p className="text-[#A79FCB] text-base max-w-2xl">
+            <p className="text-slate-600 text-base max-w-2xl">
               Chronological milestones tracing our foundation from institutional incubation to corporate incorporation.
             </p>
           </div>
 
           {/* Desktop: Horizontal Timeline / Mobile: Vertical */}
           <div className="hidden md:grid grid-cols-2 gap-8 relative max-w-4xl mx-auto">
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500/40 via-[#6C3CE3]/60 to-[#6C3CE3] -translate-y-1/2 pointer-events-none z-0" />
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500/30 via-[#5d35e0]/30 to-[#5d35e0]/50 -translate-y-1/2 pointer-events-none z-0" />
 
             {milestones.map((milestone, idx) => (
               <div
                 key={idx}
-                className="relative z-10 rounded-2xl bg-[#12102A] border border-[#2A2450] p-6 hover:border-[#6C3CE3]/60 transition-all flex flex-col justify-between space-y-4 shadow-lg group"
+                className="relative z-10 rounded-2xl bg-white border border-slate-200 p-6 hover:border-[#5d35e0]/60 transition-all flex flex-col justify-between space-y-4 shadow-md hover:shadow-lg group"
               >
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#6C3CE3]/20 text-[#A78BFA] border border-[#6C3CE3]/30">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#5d35e0]/10 text-[#5d35e0] border border-[#5d35e0]/20">
                       {milestone.badge}
                     </span>
-                    <span className="text-xs font-mono font-bold text-white/90">
+                    <span className="text-xs font-mono font-bold text-slate-500">
                       {milestone.date}
                     </span>
                   </div>
-                  <h4 className="text-base font-bold text-white group-hover:text-[#C4B5FD] transition-colors pt-2">
+                  <h4 className="text-base font-bold text-slate-900 group-hover:text-[#5d35e0] transition-colors pt-2">
                     {milestone.title}
                   </h4>
-                  <p className="text-xs text-[#A79FCB] leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {milestone.description}
                   </p>
                 </div>
-                <div className="pt-2 text-[10px] font-mono text-purple-300/80 flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                <div className="pt-2 text-[10px] font-mono text-emerald-600 flex items-center gap-1.5 font-semibold">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Verified Milestone</span>
                 </div>
               </div>
@@ -379,22 +379,22 @@ export default function NewsroomPage() {
           </div>
 
           {/* Mobile Vertical Timeline */}
-          <div className="md:hidden space-y-6 relative border-l-2 border-[#6C3CE3]/40 ml-4 pl-6">
+          <div className="md:hidden space-y-6 relative border-l-2 border-[#5d35e0]/30 ml-4 pl-6">
             {milestones.map((milestone, idx) => (
               <div key={idx} className="relative space-y-2 group">
-                <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#6C3CE3] border-2 border-[#0A0818]" />
+                <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[#5d35e0] border-2 border-white" />
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-mono font-bold text-[#A78BFA]">
+                  <span className="text-xs font-mono font-bold text-[#5d35e0]">
                     {milestone.date}
                   </span>
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#6C3CE3]/20 text-purple-300">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#5d35e0]/10 text-[#5d35e0]">
                     {milestone.badge}
                   </span>
                 </div>
-                <h4 className="text-lg font-bold text-white">
+                <h4 className="text-lg font-bold text-slate-900">
                   {milestone.title}
                 </h4>
-                <p className="text-xs sm:text-sm text-[#A79FCB] leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {milestone.description}
                 </p>
               </div>
