@@ -108,18 +108,11 @@ export default function LeadershipPage() {
           </div>
         </div>
 
-        {/* Member Details */}
-        <div className="p-5 sm:p-6 space-y-1.5 text-center">
+        {/* Member Details - Only Full Name */}
+        <div className="p-5 sm:p-6 text-center">
           <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-[#C4B5FD] transition-colors tracking-tight">
             {member.name}
           </h3>
-          <p className="text-xs sm:text-sm font-mono text-[#9B7BF0] font-semibold">
-            {member.role}
-          </p>
-          <div className="pt-2 flex items-center justify-center gap-1.5 text-[11px] font-mono text-slate-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span>YUGNEXT Leadership</span>
-          </div>
         </div>
       </div>
     );
